@@ -1,0 +1,219 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+.trigger {
+  position: relative;
+}
+
+.countBadge {
+  position: absolute;
+  inset-block-start: 0.125rem;
+  inset-inline-end: 0.125rem;
+  transform: none;
+  min-inline-size: 1.125rem;
+  justify-content: center;
+}
+
+// ---- Panel ----
+.content {
+  inline-size: min(90vw, 24rem);
+  max-block-size: 28rem;
+  padding: 0;
+  overflow: visible;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-3);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+.markAllButton {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary-600);
+  font: inherit;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-1);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include focus-visible-ring;
+}
+
+.empty {
+  margin: 0;
+  padding: var(--space-5);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  flex: 1 1 auto;
+  min-block-size: 0;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border-block-end: 1px solid var(--color-border);
+
+  &:last-child {
+    border-block-end: 0;
+  }
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.unread {
+  background-color: var(--color-primary-50);
+}
+
+.itemMain {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  text-align: start;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+
+  @include focus-visible-ring;
+}
+
+.dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: var(--radius-full);
+  margin-block-start: 0.4rem;
+  background-color: var(--color-secondary-400);
+
+  &[data-variant="info"] {
+    background-color: var(--color-info-500);
+  }
+  &[data-variant="success"] {
+    background-color: var(--color-success-500);
+  }
+  &[data-variant="warning"] {
+    background-color: var(--color-warning-500);
+  }
+  &[data-variant="error"] {
+    background-color: var(--color-error-500);
+  }
+
+  svg {
+    inline-size: 0.625rem;
+    block-size: 0.625rem;
+    color: var(--color-surface);
+  }
+
+  .unread & {
+    inline-size: 0.625rem;
+    block-size: 0.625rem;
+  }
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  flex: 1 1 auto;
+}
+
+.itemTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.itemDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.itemTime {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.itemActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  flex: 0 0 auto;
+}
+
+.actionButton {
+  min-inline-size: 28px;
+  min-block-size: 28px;
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block-start: var(--space-2);
+}
+
+.footerText {
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}

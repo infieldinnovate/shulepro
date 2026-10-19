@@ -1,0 +1,102 @@
+.container {
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-inline-size: 0;
+}
+
+// The DropdownMenu wraps the trigger in its own button; we style
+// the inner span here.
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-inline-size: 0;
+  color: var(--color-fg);
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.avatar {
+  flex: 0 0 auto;
+}
+
+.triggerLabel {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  text-align: start;
+
+  @include to(md) {
+    display: none;
+  }
+}
+
+.compactBelowMd {
+  // When compact mode is on, the label is always hidden below md.
+  // The base rule above already hides below md; this keeps behaviour
+  // explicit and overrideable by callers who pass compactBelowMd={false}.
+  @include to(md) {
+    display: none;
+  }
+}
+
+.name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  max-inline-size: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.role {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-tight);
+  max-inline-size: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex: 0 0 auto;
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+
+  @include to(md) {
+    display: none;
+  }
+}
+
+// ---- Menu label ----
+.menuLabel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.menuName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+.menuEmail {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  max-inline-size: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

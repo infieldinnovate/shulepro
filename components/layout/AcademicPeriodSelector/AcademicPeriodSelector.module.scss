@@ -1,0 +1,50 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex: 0 0 auto;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  color: var(--color-fg-muted);
+
+  svg {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+  }
+
+  @include to(md) {
+    display: none;
+  }
+}
+
+.selects {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex-wrap: wrap;
+
+  @include to(md) {
+    // On very narrow screens, stack year above term to avoid overflow.
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1);
+    inline-size: 100%;
+  }
+}
+
+.select {
+  min-inline-size: 7rem;
+
+  @include from(md) {
+    min-inline-size: 8rem;
+  }
+}
