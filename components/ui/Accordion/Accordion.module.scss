@@ -1,0 +1,110 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+// ---- Item ----
+.item {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+
+  & + .item {
+    border-block-start: 1px solid var(--color-border);
+  }
+}
+
+.itemOpen {
+  background-color: var(--color-surface-muted);
+}
+
+// ---- Header ----
+.header {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  inline-size: 100%;
+  appearance: none;
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-align: start;
+  color: var(--color-fg);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding-block: var(--space-4);
+  padding-inline: var(--space-4);
+  min-block-size: 44px;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @include focus-visible-ring;
+}
+
+.triggerLabel {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.triggerMeta {
+  flex: 0 0 auto;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+}
+
+.chevron {
+  flex: 0 0 auto;
+  inline-size: 1.1em;
+  block-size: 1.1em;
+  color: var(--color-fg-muted);
+  transition: transform $transition-base;
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// ---- Panel ----
+.panel {
+  min-inline-size: 0;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  padding-block-end: var(--space-4);
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+.panel[hidden] {
+  display: none;
+}
