@@ -1,0 +1,39 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  min-inline-size: 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+@include from(md) {
+  .toolbar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .filters {
+    flex-wrap: nowrap;
+  }
+
+  .actions {
+    flex-wrap: nowrap;
+  }
+}

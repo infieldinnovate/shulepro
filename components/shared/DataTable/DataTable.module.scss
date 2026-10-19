@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.pagination {
+  display: flex;
+  min-inline-size: 0;
+}
+
+.selectHead,
+.selectCell {
+  inline-size: var(--space-11);
+  min-inline-size: var(--space-11);
+  padding-inline: var(--space-1);
+  text-align: center;
+}
+
+.selectCheckbox {
+  display: inline-flex;
+  margin: 0 auto;
+
+  :global(.label) {
+    @include visually-hidden;
+  }
+}
+
+.stateCell {
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.clickableRow {
+  cursor: pointer;
+
+  @include reduced-motion {
+    cursor: default;
+  }
+
+  @include focus-visible-ring;
+}
+
+@include from(md) {
+  .toolbar {
+    flex-wrap: nowrap;
+  }
+}

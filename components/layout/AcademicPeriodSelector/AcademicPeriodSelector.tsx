@@ -6,7 +6,7 @@ import { Select } from "../../ui/Select";
 import clsx from "clsx";
 import type { AcademicPeriodOption } from "../headerTypes";
 import styles from "./AcademicPeriodSelector.module.scss";
-
+ 
 export interface AcademicPeriodSelectorProps {
   yearOptions: AcademicPeriodOption[];
   termOptions: AcademicPeriodOption[];

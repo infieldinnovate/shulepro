@@ -85,3 +85,30 @@ export type {
   DeadlineValue,
   DeadlineRangeValue,
 } from "./DeadlineField";
+
+export { DataTable } from "./DataTable";
+export type {
+  DataTableProps,
+  DataTableState,
+  DataTableFeatures,
+  DataTableSortState,
+  DataTableSortDir,
+  DataTablePaginationState,
+  DataTableColumnVisibilityState,
+  DataTableRowSelectionState,
+} from "./DataTable";
+
+export { DataTableColumnHeader } from "./DataTableColumnHeader";
+export type { DataTableColumnHeaderProps } from "./DataTableColumnHeader";
+
+export { DataTablePagination } from "./DataTablePagination";
+export type { DataTablePaginationProps } from "./DataTablePagination";
+
+export { DataTableToolbar } from "./DataTableToolbar";
+export type { DataTableToolbarProps } from "./DataTableToolbar";
+
+export { DataTableRowActions } from "./DataTableRowActions";
+export type {
+  DataTableRowActionsProps,
+  DataTableRowActionItem,
+} from "./DataTableRowActions";
