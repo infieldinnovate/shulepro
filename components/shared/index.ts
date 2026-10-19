@@ -161,3 +161,14 @@ export type { RecordFormDialogProps } from "./RecordFormDialog";
 
 export { ConfirmActionDialog } from "./ConfirmActionDialog";
 export type { ConfirmActionDialogProps } from "./ConfirmActionDialog";
+
+export { ActivityTimeline } from "./ActivityTimeline";
+export type {
+  ActivityTimelineProps,
+  ActivityTimelineEvent,
+  ActivityTimelineVariant,
+  ActivityTimelineActor,
+} from "./ActivityTimeline";
+
+export { AuditTrail } from "./AuditTrail";
+export type { AuditTrailProps, AuditTrailEvent } from "./AuditTrail";

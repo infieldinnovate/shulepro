@@ -1,0 +1,267 @@
+.audit {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  min-block-size: 0;
+}
+
+.scrollable {
+  max-block-size: 28rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-inline-end: var(--space-2);
+}
+
+.empty {
+  padding-block: var(--space-6);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  min-inline-size: 0;
+
+  &:not(:last-child) {
+    border-block-end: 1px solid var(--color-border);
+  }
+}
+
+.rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+  align-self: stretch;
+  min-block-size: 2.5rem;
+}
+
+.marker {
+  display: inline-flex;
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary-400);
+  margin-block-start: 0.5rem;
+  flex: 0 0 auto;
+}
+
+.line {
+  flex: 1 1 auto;
+  inline-size: 2px;
+  background-color: var(--color-border);
+  margin-block-start: var(--space-1);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex: 1 1 auto;
+}
+
+// ---- Head row ----
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex-wrap: wrap;
+}
+
+.headText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  flex: 1 1 auto;
+}
+
+.headLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.actorInline {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.actionLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-tight);
+  overflow-wrap: anywhere;
+}
+
+.targetLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.preposition {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.target {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  overflow-wrap: anywhere;
+}
+
+.time {
+  flex: 0 0 auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  white-space: nowrap;
+}
+
+// ---- Details expander ----
+.expanderRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.expanderTrigger {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  align-self: flex-start;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-fg-muted);
+  font: inherit;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg);
+  }
+
+  @include focus-visible-ring;
+}
+
+.expanderLabel {
+  white-space: nowrap;
+}
+
+.chevron {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  flex-shrink: 0;
+  transition: transform $transition-base;
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.expanderPanel {
+  min-inline-size: 0;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  background-color: var(--color-surface-muted);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  animation: audit-fade-in $transition-base both;
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes audit-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ---- Detail grid ----
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin: 0;
+
+  @include from(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.detailLabel {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: var(--line-height-tight);
+}
+
+.detailValue {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.detailRelative {
+  color: var(--color-fg-subtle);
+  margin-inline-start: var(--space-1);
+}
