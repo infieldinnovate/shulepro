@@ -34,6 +34,21 @@ export type { SchoolSwitcherProps } from "./SchoolSwitcher";
 export { AcademicPeriodSelector } from "./AcademicPeriodSelector";
 export type { AcademicPeriodSelectorProps } from "./AcademicPeriodSelector";
 
+export { PageContainer } from "./PageContainer";
+export type { PageContainerProps } from "./PageContainer";
+
+export { PageHeader } from "./PageHeader";
+export type { PageHeaderProps } from "./PageHeader";
+
+export { PageToolbar } from "./PageToolbar";
+export type { PageToolbarProps } from "./PageToolbar";
+
+export { PageTabs } from "./PageTabs";
+export type { PageTabsProps } from "./PageTabs";
+
+export { Breadcrumbs } from "./Breadcrumbs";
+export type { BreadcrumbsProps } from "./Breadcrumbs";
+
 export type {
   SidebarNavSection,
   SidebarNavGroupData,

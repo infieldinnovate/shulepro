@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: var(--container-max);
+  margin-inline: auto;
+  padding-block: var(--space-4);
+  padding-inline: var(--space-4);
+
+  @include from(md) {
+    gap: var(--space-5);
+    padding-block: var(--space-6);
+    padding-inline: var(--space-6);
+  }
+
+  @include from(lg) {
+    padding-inline: var(--space-7);
+  }
+}
+
+.flush {
+  padding-block: 0;
+  padding-inline: 0;
+
+  @include from(md) {
+    padding-block: 0;
+    padding-inline: 0;
+  }
+}
