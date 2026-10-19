@@ -3,10 +3,11 @@ import path from "node:path";
 
 const nextConfig: NextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.resolve(process.cwd(), "styles")],
     additionalData: `
-      @use "abstracts/variables" as *;
-      @use "abstracts/mixins" as *;
+      @use "tokens" as *;
+      @use "mixins" as *;
+      @use "breakpoints" as *;
     `,
   },
 };
