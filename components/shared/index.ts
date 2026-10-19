@@ -172,3 +172,12 @@ export type {
 
 export { AuditTrail } from "./AuditTrail";
 export type { AuditTrailProps, AuditTrailEvent } from "./AuditTrail";
+
+export { FileUploader, formatBytes } from "./FileUploader";
+export type { FileUploaderProps, FileValidationIssue } from "./FileUploader";
+
+export { AttachmentList } from "./AttachmentList";
+export type { AttachmentListProps, Attachment } from "./AttachmentList";
+
+export { DocumentViewer } from "./DocumentViewer";
+export type { DocumentViewerProps, DocumentViewerDocument } from "./DocumentViewer";
