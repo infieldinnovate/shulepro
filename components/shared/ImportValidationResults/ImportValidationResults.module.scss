@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+// ---- Summary bar ----
+.summaryBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.summaryItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.summaryValue {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.summaryLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.summaryIcon {
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex-shrink: 0;
+}
+
+.validItem .summaryIcon {
+  color: var(--color-success-600);
+}
+
+.invalidItem .summaryIcon {
+  color: var(--color-error-600);
+}
+
+.invalidItem .summaryValue {
+  color: var(--color-error-700);
+}
+
+// ---- Scroll region for large result sets ----
+.scrollRegion {
+  max-block-size: 26rem;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  border-radius: var(--radius-lg);
+  min-inline-size: 0;
+}
+
+.table {
+  min-inline-size: 32rem;
+}
+
+// ---- Row status tints ----
+.validRow {
+  // Keep zebra visible; only a subtle left accent via status badge.
+}
+
+.invalidRow {
+  background-color: var(--color-error-50);
+
+  // Override zebra hover so invalid rows stay clearly distinct.
+  &:hover {
+    background-color: var(--color-error-50);
+  }
+}
+
+.fieldCell {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.reasonCell {
+  color: var(--color-fg);
+  // Keep reasons readable on mobile: allow wrapping instead of clipping.
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  min-inline-size: 10rem;
+}
+
+.actionHeader {
+  @include visually-hidden;
+}
+
+.actionCell {
+  white-space: nowrap;
+}
+
+.fixButton {
+  @include touch-target(36px);
+}
+
+.muted {
+  color: var(--color-fg-subtle);
+}
+
+.empty {
+  margin: 0;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+}
+
+.hint {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
