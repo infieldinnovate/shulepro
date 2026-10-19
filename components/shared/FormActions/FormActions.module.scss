@@ -1,0 +1,66 @@
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 0 0 auto;
+  min-inline-size: 0;
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+}
+
+// ---- Alignment modifiers (mobile) ----
+.alignStart {
+  @include to(md) {
+    align-items: stretch;
+  }
+}
+
+.alignEnd {
+  @include to(md) {
+    align-items: stretch;
+  }
+}
+
+// ---- Stretch on mobile so buttons fill width for touch targets ----
+.stretchMobile {
+  @include to(md) {
+    .left,
+    .right,
+    & .left > *,
+    & .right > * {
+      inline-size: 100%;
+    }
+  }
+}
