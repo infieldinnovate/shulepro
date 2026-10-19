@@ -15,3 +15,12 @@ export type { FormActionsProps } from "./FormActions";
 
 export { FormErrorSummary } from "./FormErrorSummary";
 export type { FormErrorSummaryProps, FormErrorEntry } from "./FormErrorSummary";
+
+export { UnsavedChangesDialog } from "./UnsavedChangesDialog";
+export type { UnsavedChangesDialogProps } from "./UnsavedChangesDialog";
+
+export { FormDialog, useFormContext } from "./FormDialog";
+export type { FormDialogProps } from "./FormDialog";
+
+export { FormSaveIndicator } from "./FormSaveIndicator";
+export type { FormSaveIndicatorProps, FormSaveState } from "./FormSaveIndicator";
