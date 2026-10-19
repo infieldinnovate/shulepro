@@ -1,0 +1,24 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+  cursor: pointer;
+}
+
+.required {
+  // label itself unchanged; marker styled separately
+}
+
+.requiredMark {
+  color: var(--color-error-600);
+  font-weight: var(--font-weight-semibold);
+}
+
+.disabled {
+  color: var(--color-fg-subtle);
+  cursor: not-allowed;
+}

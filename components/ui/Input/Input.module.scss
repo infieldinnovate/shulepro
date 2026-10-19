@@ -1,0 +1,125 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-fg);
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover:not(.disabled) {
+    border-color: var(--color-fg-subtle);
+  }
+
+  &:focus-within:not(.disabled) {
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+}
+
+.invalid {
+  border-color: var(--color-error-600);
+
+  &:hover:not(.disabled) {
+    border-color: var(--color-error-700);
+  }
+
+  &:focus-within:not(.disabled) {
+    border-color: var(--color-error-600);
+    box-shadow: 0 0 0 3px var(--color-error-100);
+  }
+}
+
+.disabled {
+  background-color: var(--color-surface-muted);
+  color: var(--color-fg-subtle);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: var(--line-height-base);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--color-fg-subtle);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// ---- Sizes ----
+.sm {
+  font-size: var(--font-size-sm);
+
+  .input {
+    padding-block: var(--space-1);
+    padding-inline: var(--space-2);
+  }
+}
+
+.md {
+  font-size: var(--font-size-base);
+}
+
+.lg {
+  font-size: var(--font-size-lg);
+
+  .input {
+    padding-block: var(--space-3);
+    padding-inline: var(--space-4);
+  }
+}
+
+// ---- Icon slots ----
+.leadingIcon,
+.trailingIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+  pointer-events: none;
+}
+
+.leadingIcon {
+  padding-inline-start: var(--space-3);
+}
+
+.trailingIcon {
+  padding-inline-end: var(--space-3);
+}
+
+.sm {
+  .leadingIcon {
+    padding-inline-start: var(--space-2);
+  }
+  .trailingIcon {
+    padding-inline-end: var(--space-2);
+  }
+}
+
+// When leading icon present, reduce input's left padding
+.leadingIcon + .input {
+  padding-inline-start: var(--space-2);
+}

@@ -1,0 +1,23 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.helper {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error-700);
+  line-height: var(--line-height-base);
+  font-weight: var(--font-weight-medium);
+}
+
+.invalid {
+  // container modifier for future use
+}

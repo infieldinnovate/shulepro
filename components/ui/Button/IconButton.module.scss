@@ -1,0 +1,118 @@
+@use "../Button/Button.module.scss" as button;
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast,
+    opacity $transition-fast;
+  aspect-ratio: 1;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @include focus-visible-ring;
+}
+
+// ---- Sizes (square) ----
+.sm {
+  font-size: var(--font-size-sm);
+  min-inline-size: 32px;
+  min-block-size: 32px;
+}
+
+.md {
+  font-size: var(--font-size-base);
+  min-inline-size: 40px;
+  min-block-size: 40px;
+}
+
+.lg {
+  font-size: var(--font-size-lg);
+  min-inline-size: 48px;
+  min-block-size: 48px;
+}
+
+// ---- Variants (mirror Button) ----
+.primary {
+  background-color: var(--color-primary-600);
+  color: var(--color-fg-on-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-700);
+  }
+}
+
+.secondary {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-900);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-secondary-200);
+  }
+}
+
+.accent {
+  background-color: var(--color-accent-600);
+  color: var(--color-fg-on-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-accent-700);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-fg);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--color-fg);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.destructive {
+  background-color: var(--color-error-600);
+  color: var(--color-fg-on-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-error-700);
+  }
+}
+
+.loading {
+  cursor: progress;
+}
+
+.spinner {
+  animation: spin 0.8s linear infinite;
+
+  @include reduced-motion {
+    animation-duration: 0.01ms;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
