@@ -1,0 +1,15 @@
+.toggle {
+  // inherits IconButton base; variant hooks allow contextual tweaks.
+}
+
+.mobile {
+  @include from(md) {
+    display: none;
+  }
+}
+
+.header {
+  @include to(md) {
+    display: none;
+  }
+}
