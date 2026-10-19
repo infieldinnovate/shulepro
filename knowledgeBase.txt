@@ -1,416 +1,388 @@
-================================================================================
-SHULE — KENYAN CBC SCHOOL MANAGEMENT SYSTEM
-PERMANENT PROJECT KNOWLEDGE (PROMPT 0)
-================================================================================
-These rules apply to every future prompt unless explicitly changed.
+KENYAN CBC SCHOOL MANAGEMENT SYSTEM
+PROJECT KNOWLEDGE BASE — COMPONENT LIBRARY DEVELOPMENT
 
---------------------------------------------------------------------------------
-1. PROJECT PURPOSE
---------------------------------------------------------------------------------
-Build a comprehensive Kenyan Competency-Based Curriculum (CBC) school
-management platform using Next.js.
+PURPOSE
+This file is the enduring project reference for Bolt.new and future component-development prompts. Read it before modifying the project. Follow it alongside the specific task prompt. If a later prompt conflicts with these rules, preserve these rules unless the user explicitly changes them.
 
-The eventual application will support:
-- Headteachers and school administrators.
-- Teachers and other staff.
-- Learners.
-- Parents and guardians.
-- Inclusion and special-education personnel.
-- Safeguarding and wellbeing personnel.
-- Training and professional-development coordinators.
+IMPORTANT: This is a plain-text development reference. Keep it at app/knowledgeBase.txt for reference by future prompts. Do not import it into application code, render it in the user interface, or treat it as a route. It is not a substitute for reading the actual source files before making changes.
 
-The platform will eventually cover academic management, CBC assessment,
-learner performance analysis, attendance, careers and pathways, inclusion,
-safeguarding, wellbeing, communications, training, school operations and
-reporting.
+============================================================
+1. PROJECT GOAL AND CURRENT STAGE
+============================================================
 
-CURRENT DEVELOPMENT STAGE:
-Build the technical foundation and reusable component library only.
-Do not build actual application pages or dashboards until explicitly
-requested.
+Build a maintainable, mobile-first Kenyan Competency-Based Curriculum (CBC) school-management platform. Its eventual users include headteachers, teachers, learners, parents/guardians, administrators, and authorised inclusion, safeguarding, wellbeing, and support personnel.
 
---------------------------------------------------------------------------------
-2. TECHNOLOGY STACK
---------------------------------------------------------------------------------
-Use:
+The eventual system may cover learner records, admissions, classes, curriculum, CBC assessment, portfolios, attendance, academic performance analysis, careers and pathways, inclusion and disability support, safeguarding, wellbeing, teacher training, parent engagement, communications, school activities, transport, operations, policies, compliance, and reporting.
+
+CURRENT DEVELOPMENT STAGE: create the technical foundation and reusable components first. Build application pages and dashboards only when the user explicitly requests them in a later prompt.
+
+Unless a task prompt explicitly authorises page work:
+- Keep app/page.tsx as an empty technical placeholder that returns null.
+- Keep app/layout.tsx minimal.
+- Do not generate dashboards, functional pages, login screens, demo routes, component showcases, sample screens, or mock school records.
+- Do not treat the knowledge base itself as an application page.
+
+============================================================
+2. REQUIRED TECHNOLOGY
+============================================================
+
 - Next.js App Router.
 - React.
 - TypeScript with strict type checking.
-- Sass / SCSS Modules.
-- Custom React components.
-- Lucide React for icons.
-- clsx for conditional CSS class composition.
-- React Hook Form for complex forms.
-- Zod for validation.
+- Sass / SCSS Modules for component styling.
+- Custom React components as the default UI approach.
+- lucide-react for icons.
+- clsx for conditional CSS Module class composition.
+- react-hook-form for complex forms.
+- zod for schema validation.
 - @hookform/resolvers for form validation integration.
-- @tanstack/react-table for advanced tables.
-- Recharts for charts.
-- date-fns for date utilities.
+- @tanstack/react-table for advanced data tables where appropriate.
+- recharts for data visualization where appropriate.
+- date-fns for date formatting and calculations.
 
-Radix UI may be introduced selectively if a complex accessible interaction
-cannot reasonably be implemented using existing components and native HTML.
+Use existing compatible package versions. Do not needlessly reinstall or upgrade Next.js, React, React DOM, TypeScript, or other working dependencies.
 
-Do not use shadcn/ui as the default component library.
-Do not install duplicate libraries or introduce unnecessary dependencies.
-Preserve compatible existing Next.js, React and TypeScript versions.
+Do not use Tailwind CSS, tailwind-merge, styled-components, Emotion, or another utility-first/CSS-in-JS styling approach.
 
---------------------------------------------------------------------------------
-3. ABSOLUTE DIRECTORY RULE: NO SRC FOLDER
---------------------------------------------------------------------------------
-There must be NO src directory.
-All application folders must exist directly at the project root.
+Do not use shadcn/ui as the default component library. Prefer custom components. Radix UI may be considered only for a specific complex accessibility primitive where native HTML and existing project components are insufficient. Explain the need before introducing a dependency unless the user has already approved it.
 
-Required structure:
-  app/
-  components/
-    ui/
-    layout/
-    shared/
-    features/
-      learners/
-      curriculum/
-      assessment/
-      attendance/
-      inclusion/
-      safeguarding/
-      wellbeing/
-      careers/
-      training/
-      communication/
-      activities/
-      transport/
-      reports/
-  styles/
-  lib/
-  services/
-  types/
-  config/
-  public/
+Do not add packages solely because they appear in a suggested list. Inspect package.json and the lockfile before changing dependencies. Use the project's existing package manager.
 
-Project configuration files must also remain at the root.
+============================================================
+3. ABSOLUTE DIRECTORY RULE: NO SRC DIRECTORY
+============================================================
 
-Examples:
-- app/page.tsx
-- app/layout.tsx
-- components/ui/Button/Button.tsx
-- components/ui/Button/Button.module.scss
-- components/features/assessment/RubricBuilder/RubricBuilder.tsx
-- styles/_tokens.scss
-- styles/_mixins.scss
-- styles/_breakpoints.scss
-- lib/formatters.ts
-- types/assessment.ts
+There must be no src/ directory. All application folders are directly at the project root.
 
-Never create:
-- src/
-- src/app/
-- src/components/
-- src/styles/
+Expected root-level structure:
 
-Configure the @/ import alias to resolve from the project root, not from src/.
+app/
+  layout.tsx
+  page.tsx
+  globals.scss
+  knowledgeBase.txt
+components/
+  ui/
+  layout/
+  shared/
+  features/
+styles/
+  _tokens.scss
+  _mixins.scss
+  _breakpoints.scss
+lib/
+services/
+types/
+config/
+public/
 
---------------------------------------------------------------------------------
-4. STYLING RULES: SCSS MODULES ONLY
---------------------------------------------------------------------------------
-1. Use .module.scss for component-specific styling.
-2. Build custom React components instead of using a prebuilt visual component
-   framework.
-3. Do not use Tailwind CSS.
-4. Do not use utility-first CSS frameworks.
-5. Do not use shadcn/ui unless I explicitly approve a specific exception.
-6. Do not use styled-components, Emotion or other CSS-in-JS systems.
-7. Do not use inline styles for static presentation.
-8. Use imported CSS Module class names through the styles object.
-9. Use clsx for conditional class composition when useful.
-10. Use Sass variables, mixins and shared partials to avoid duplicated styling.
-11. Use CSS custom properties for global design tokens and runtime theme
-    values.
-12. Keep component styling inside the component's SCSS Module.
-13. Keep global styles limited to resets, document defaults, typography
-    defaults and genuinely global rules.
-14. Avoid unnecessarily deeply nested Sass selectors, excessive !important
-    declarations and conflicting global styles.
-15. Reuse existing components instead of recreating visually identical
-    controls.
+Feature folders under components/features/ should be created as needed, for example:
+- learners/
+- curriculum/
+- assessment/
+- attendance/
+- inclusion/
+- safeguarding/
+- wellbeing/
+- careers/
+- training/
+- communication/
+- activities/
+- transport/
+- reports/
 
-Every substantial component must have its own corresponding SCSS Module.
+Configuration files such as package.json, tsconfig.json, lockfiles, and Next.js configuration files remain at the root.
 
-Example:
-  components/ui/Button/
-    Button.tsx
-    Button.module.scss
-    Button.types.ts
-    index.ts
+Never create src/, src/app/, src/components/, or src/styles/. Configure the @/ TypeScript import alias to resolve from the project root. Verify that any Sass import convention actually compiles; do not assume that a TypeScript alias automatically works in Sass.
 
-Only create separate type and barrel-export files when useful.
+============================================================
+4. SCSS MODULES — MANDATORY STYLING RULES
+============================================================
 
---------------------------------------------------------------------------------
+- Each substantial component must have its own .module.scss file.
+- Component-specific styling belongs in that component's SCSS Module.
+- Component files import their module and use class names through the imported styles object.
+- Use clsx when conditional class composition is useful.
+- Use CSS custom properties for theme/runtime tokens and shared visual values.
+- Use Sass partials, variables, mixins, @use, and @forward for compile-time shared styling where appropriate.
+- Avoid new uses of deprecated Sass @import. Use a consistent, build-verified @use/@forward convention.
+- Do not place component-specific styles in app/globals.scss.
+- Do not use inline styles for static presentation. Dynamic inline styles may be used only if they are genuinely data-driven and there is no better class/custom-property approach; keep this rare and explain when needed.
+- Do not create broad global selectors to style a single component.
+- Avoid deep selector nesting, excessive !important, duplicated declarations, and repeated hardcoded colour values.
+
+Suggested component pattern:
+
+components/ui/Button/
+  Button.tsx
+  Button.module.scss
+  Button.types.ts   (only if separate types are useful)
+  index.ts          (only if a barrel export is useful)
+
+Not every small component needs a folder, separate types file, or index file. Keep the structure consistent without creating unnecessary files.
+
+============================================================
 5. MOBILE-FIRST RESPONSIVE ARCHITECTURE
---------------------------------------------------------------------------------
-Mobile-first responsiveness is a foundational architectural requirement,
-not an optional styling enhancement.
-Every shared component, feature component, layout component and future
-application page must follow this approach.
+============================================================
 
-MOBILE-FIRST CSS
-- Write base styles for small screens first.
-- Progressively enhance layouts at wider viewport sizes using min-width
-  media queries.
-- Do not design a desktop interface and then simply shrink it for mobile.
-- Ensure the application works from a minimum target width of 320px.
-- Test intermediate widths as well as conventional device widths.
+Mobile-first responsiveness is an architectural requirement for every shared component, feature component, layout, and future page. It is not a later polish pass.
+
+BASE APPROACH
+- Write base styles for narrow screens first.
+- Use min-width media queries to enhance layouts for wider viewports.
+- Do not design desktop first and simply shrink it to fit mobile.
+- Ensure layouts remain usable from a 320px viewport width.
+- Test intermediate widths, not just named device sizes.
+- Use CSS Grid and Flexbox, flexible sizing, minmax(), sensible max-widths, and min-width: 0 where appropriate.
+- Avoid unnecessary fixed widths and heights.
+- Prevent horizontal overflow, clipped content, overlapping controls, and truncated essential information.
 
 CENTRALIZED BREAKPOINTS
-Create: styles/_breakpoints.scss
-Use an initial breakpoint system:
-- Base: 320px and above, without a media query.
+Keep initial breakpoint definitions in styles/_breakpoints.scss:
+- Base: 320px and above, no media query required.
 - sm: 480px.
 - md: 768px.
 - lg: 1024px.
 - xl: 1280px.
 - 2xl: 1536px.
-Treat these as initial thresholds, not rigid device definitions.
-Choose breakpoints according to where layouts actually need to change.
-Provide reusable Sass breakpoint variables and mixins. Import and reuse them
-in component SCSS Modules through a consistent, verified Sass import
-convention.
-Do not scatter inconsistent breakpoint values throughout the application.
 
-RESPONSIVE LAYOUTS
-- Use CSS Grid and Flexbox.
-- Prefer fluid widths and max-width constraints.
-- Use minmax(), min-width: 0 and appropriate overflow handling where useful.
-- Avoid fixed-width page layouts and unnecessary fixed heights.
-- Use responsive spacing and typography when appropriate.
-- Prevent horizontal overflow, clipping and overlapping controls.
-- Support longer text, translated or expanded labels and larger text settings.
+These are initial thresholds, not rigid device categories. Select breakpoints based on where the content/layout needs to change. Define reusable Sass variables/mixins and apply one consistent, build-verified import convention. Do not scatter arbitrary inconsistent breakpoint values throughout components.
 
-RESPONSIVE COMPONENT BEHAVIOUR
-Navigation:
-- Support compact mobile navigation and wider desktop navigation.
-- Use an accessible drawer or equivalent mobile navigation pattern where
-  appropriate.
-- Support keyboard operation, focus management and appropriate dismissal
-  behaviour.
-- Do not rely exclusively on hover.
-Forms:
-- Stack fields vertically on narrow screens where appropriate.
-- Use multi-column layouts on larger screens when space permits.
-- Ensure labels, validation messages, dropdowns, date pickers and dialogs
-  fit within the viewport.
-- Avoid clipped buttons and inaccessible controls.
-Data tables:
-- Use deliberate strategies for narrow screens, such as contained horizontal
-  scrolling, compact presentation or selected-column views.
-- Preserve access to important information and row actions.
-- Do not silently omit critical information to make a table fit.
+RESPONSIVE COMPONENT EXPECTATIONS
+- Navigation: compact and usable on mobile; expandable/collapsible patterns on wider screens as useful; no hover-only interactions.
+- Forms: stack fields on narrow screens; use multi-column layouts only when space supports them; keep errors, selects, calendars, dialogs and actions within the viewport.
+- Data tables: choose a deliberate narrow-screen strategy such as a contained horizontal scroller, compact presentation, or selected-column view. Do not silently remove critical data.
+- Dialogs/drawers/popovers: fit the viewport and support appropriate focus handling, dismissal, and keyboard operation.
+- Charts: resize responsively, keep labels readable, and provide table or text alternatives where needed.
+- Touch: aim for approximately 44 x 44 CSS-pixel targets for important interactions where practical.
+- Accessibility: visible focus indicators, keyboard support, appropriate ARIA attributes, reduced-motion support, and no interaction that depends exclusively on hover.
+- Typography and spacing should adapt without clipping and remain usable with larger text settings.
 
-TOUCH AND ACCESSIBILITY
-- Aim for approximately 44 by 44 CSS pixels for important touch targets
-  where practical.
-- Provide visible focus indicators.
-- Support keyboard navigation.
-- Respect reduced-motion preferences.
-- Avoid interactions that require hover.
-- Maintain readable contrast and sensible spacing.
+Test as relevant at 320px, 375px, 390px, 480px, 768px, 1024px, 1280px, and 1536px, plus intermediate widths. Look for overflow, clipped content, inaccessible controls, unusable tables, and navigation failures.
 
-RESPONSIVE VERIFICATION
-Test relevant components at:
-320px, 375px, 390px, 480px, 768px, 1024px, 1280px and 1536px.
-Also test intermediate widths.
-Check for: horizontal overflow; clipped text; overlapping controls; broken
-dialogs and dropdowns; unusable tables; tiny touch targets; navigation
-failures; content that disappears unintentionally.
+============================================================
+6. HOW TO USE /STYLES/* APPROPRIATELY
+============================================================
 
---------------------------------------------------------------------------------
-6. SCSS FOUNDATION AND DESIGN TOKENS
---------------------------------------------------------------------------------
-Create and maintain:
-  styles/_tokens.scss
-  styles/_mixins.scss
-  styles/_breakpoints.scss
-  app/globals.scss
-Create styles/_functions.scss only if reusable Sass functions are genuinely
-needed.
+Treat styles/ as the shared design-system and Sass foundation, not as a dumping ground for all styling.
 
-Use CSS custom properties for:
-- Primary and secondary colours.
-- Foreground and background colours.
-- Surface and muted colours.
-- Borders and focus indicators.
-- Success, warning, destructive and informational states.
-- Typography.
-- Spacing.
-- Corner radii.
-- Shadows.
-- Relevant theme-specific values.
+styles/_tokens.scss
+- Shared Sass tokens if needed and/or a clearly organised source for design-token definitions.
+- Define global runtime design tokens as CSS custom properties in the global style entry point or in a partial imported by app/globals.scss.
+- Centralize colour, surface, text, border, radius, spacing, typography, shadow, and focus values.
+- Prefer using token variables in component styles instead of repeated literal colours and dimensions.
 
-Use a restrained blue primary colour with neutral slate-like surfaces.
-Keep the overall visual style professional, modern and suitable for
-enterprise school administration.
-Support light and dark themes through CSS custom properties.
-Use Sass variables and mixins for compile-time conventions such as
-responsive breakpoints.
-Avoid hardcoding repeated colours and spacing values across individual
-components.
+styles/_mixins.scss
+- Only genuinely reusable Sass mixins, such as visually-hidden accessibly, focus-visible styles, or common layout helpers.
+- Avoid creating mixins for one-off rules or hiding component-specific behaviour in unrelated shared files.
 
---------------------------------------------------------------------------------
-7. COMPONENT ARCHITECTURE
---------------------------------------------------------------------------------
-components/ui/         Foundational controls (buttons, inputs, selects,
-                       dialogs, tabs, badges, cards).
-components/layout/     Application shell, sidebar, header, responsive
-                       navigation, breadcrumbs, shared layout.
-components/shared/     Reusable forms, tables, filters, charts, workflows,
-                       record displays, notifications, feedback.
-components/features/   Domain-specific components grouped by feature.
-  - Learner profile components.
-  - CBC assessment components.
-  - Competency tracking components.
-  - Attendance components.
-  - Curriculum components.
-  - Career and pathway components.
-  - Inclusion and support-plan components.
-  - Safeguarding and wellbeing components.
-  - Teacher training components.
-  - Reports and analytics components.
-  - Transport and operational components.
-lib/                   Reusable pure utilities, formatting helpers,
-                       validation helpers, analytical calculations.
-services/              Future data-access operations and business services.
-                       Do not implement unnecessary backend infrastructure
-                       during component-library development.
-types/                 Shared domain models and TypeScript interfaces.
-config/                Application configuration and reusable configuration
-                       definitions.
-app/                   Next.js layouts, route files and global CSS. Do not use
-                       it as the location for the entire component library.
+styles/_breakpoints.scss
+- Centralized mobile-first Sass breakpoint values and reusable min-width mixins.
+- Components should use these definitions instead of introducing a new breakpoint scale.
 
---------------------------------------------------------------------------------
-8. COMPONENT DESIGN REQUIREMENTS
---------------------------------------------------------------------------------
-- Use strict TypeScript and clear interfaces.
-- Keep components small, composable and maintainable.
-- Accept data using typed props.
-- Expose behaviour through typed callbacks.
-- Separate presentation from business logic and persistence.
-- Avoid oversized components that contain unrelated responsibilities.
-- Use appropriate client components only when interactive behaviour requires
-  them.
-- Support loading, empty, error, disabled and validation states where
-  relevant.
-- Provide semantic HTML, accessible labels, keyboard navigation and visible
-  focus states.
-- Reuse shared primitives.
-- Avoid unnecessary abstractions and duplicate implementations.
-- Ensure components work at mobile, tablet and desktop widths.
+app/globals.scss
+- Import the shared global token/theme styles.
+- Define a small reset, box-sizing defaults, document/body baseline, global typography defaults, theme hooks, and genuinely global accessibility defaults.
+- Do not put button, table, card, form, or feature-specific styles here.
 
---------------------------------------------------------------------------------
-9. NEXT.JS ARCHITECTURE
---------------------------------------------------------------------------------
-Use Next.js App Router.
-Keep application routes and layouts inside app/.
-Use Server Components by default for future server-rendered pages. Introduce
-Client Components where browser-side interaction or state requires them.
-Keep the root layout minimal.
-If the root page is required, app/page.tsx must return null as a temporary
-technical placeholder.
-Do not create functional pages during the component-library phase.
+COMPONENT SCSS MODULES
+- Own the layout and appearance of the matching component.
+- Import/use shared token and mixin partials with the project's verified Sass path convention.
+- Use local CSS Module classes for component-specific structure and state.
+- Use CSS custom properties for shared values and theme-dependent styles.
+- Do not duplicate token definitions in individual component files.
 
---------------------------------------------------------------------------------
-10. DEPENDENCY POLICY
---------------------------------------------------------------------------------
-Core component-library dependencies:
-- lucide-react
-- clsx
-- react-hook-form
-- zod
-- @hookform/resolvers
-- @tanstack/react-table
-- recharts
-- date-fns
-- sass (dev dependency)
+WHEN TO UPDATE A SHARED STYLE
+Before adding a repeated visual value or styling rule, check whether a suitable design token, mixin, or existing component already exists. If a shared convention needs to change, update the shared source and inspect likely affected components. Do not add a competing token or a new breakpoint just to solve one isolated component.
 
-Next.js, React, React DOM and TypeScript should use the existing compatible
-project versions. Do not reinstall or upgrade these unnecessarily.
-Do not install Tailwind, shadcn/ui, tailwind-merge or competing CSS
-frameworks.
-Do not install Radix UI pre-emptively. Add it only where a specific,
-justified accessibility requirement cannot reasonably be handled by existing
-primitives.
-Do not install optional packages solely because they appear on a
-component-library list.
+Prefer Sass @use/@forward rather than deprecated @import syntax. Verify that Sass imports compile with the project's actual Next.js configuration. A TypeScript alias such as @/ may not automatically resolve in Sass; use verified relative paths or explicitly configured Sass load paths.
 
---------------------------------------------------------------------------------
-11. KENYAN CBC DOMAIN REQUIREMENTS
---------------------------------------------------------------------------------
-The future system must support configurable:
-- Academic years and terms.
-- Grades and classes.
-- Learning areas.
-- Curriculum structures.
-- Learning outcomes.
-- Assessment types and periods.
-- Rubrics and attainment descriptors.
-- Career interests and pathways.
-- Learner support plans.
-- School-specific settings and workflows.
+============================================================
+7. HOW TO USE /COMPONENTS/* TO AVOID DUPLICATION
+============================================================
 
-Do not hardcode official curriculum structures, national assessment scales,
-grading rules, academic dates or pathway requirements as permanent constants.
+Before creating a new component, inspect the existing component folders and search for components with the same or substantially similar responsibility. Extend or compose an existing component where sensible rather than duplicating it.
 
-Distinguish:
-- Not assessed.
-- Insufficient evidence.
-- Not yet demonstrated.
-- Configured attainment levels.
+components/ui/
+Use for generic, domain-neutral controls such as Button, Input, Select, Badge, Card, Tabs, Dialog, Tooltip, Progress, Avatar and basic feedback states. These components should not contain CBC business rules.
 
-Missing evidence must not be automatically interpreted as learner failure.
-Sensitive child health, disability, counselling, family and safeguarding
-information must be handled separately from general profile and dashboard
-data.
-Client-side permission components are not a substitute for server-side
-authorization.
+components/layout/
+Use for shared structural components such as AppShell, AppHeader, AppSidebar, navigation items, breadcrumbs, PageHeader, PageContainer, and responsive navigation. Keep this layer configurable and reusable rather than hardcoding individual feature pages into it.
 
---------------------------------------------------------------------------------
-12. CURRENT DEVELOPMENT STAGE: NO PAGES
---------------------------------------------------------------------------------
-Build the technical foundation and reusable component library only.
-Do not create:
-- Dashboards.
-- Login or registration screens.
-- Functional application pages.
-- Learner profile pages.
-- Assessment pages.
-- Reports pages.
-- Operational pages.
-- Feature demonstrations.
-- Component showcases.
-- Unrequested navigation destinations.
-- Fake school data.
-Keep app/layout.tsx minimal.
-Keep app/page.tsx returning null if required by the Next.js project.
-Do not automatically proceed to page development after completing component
-tasks.
+components/shared/
+Use for reusable patterns that combine generic controls: DataTable, FilterBar, FormSection, FormActions, MultiStepForm, WorkflowStepper, ActivityTimeline, FileUploader, ChartPanel, KpiCard, ReportFilterPanel, StatusBadge, EmptyState and similar cross-feature patterns.
 
---------------------------------------------------------------------------------
-13. QUALITY AND CHANGE CONTROL
---------------------------------------------------------------------------------
-- Inspect existing files before editing.
-- Preserve working configuration.
-- Never create a src directory.
-- Do not introduce Tailwind.
-- Do not introduce shadcn/ui without explicit approval.
-- Do not replace SCSS Modules with another styling approach.
-- Do not duplicate existing components.
-- Do not remove dependencies still required by the project.
-- Verify TypeScript, linting and production builds after substantial changes.
-- Fix errors caused by modifications.
-- Report genuine unresolved issues.
-- Keep responsive behaviour consistent across component families.
-- Make changes incrementally rather than rebuilding the whole project for
-  every prompt.
+components/features/<domain>/
+Use for components with clear CBC/business meaning, such as LearnerProfileHeader, RubricBuilder, CompetencyMatrix, AttendanceRegister, SupportPlanSummary, SafeguardingCaseHeader and PathwayComparisonCard. Feature components may compose ui/ and shared/ components, but should not copy their markup/styling/behaviour unnecessarily.
 
-================================================================================
-END OF PROMPT 0
-================================================================================
+lib/
+Use for pure utility functions and calculations: formatters, validation helpers, permission utility functions where appropriate, and shared analytical calculations. Do not place React components here. Keep business rules out of presentational UI components where practical.
+
+services/
+Use for future data access and business operations, not component styling or generic UI. Do not add a database or API simply to create a component library.
+
+types/
+Use for genuinely shared domain models. Keep a type close to a single feature if it is only used by that feature; promote it to a shared types location only when reuse justifies it.
+
+REUSE RULES
+- Reuse existing primitives and patterns before inventing new ones.
+- Prefer composition and props over near-identical duplicated components.
+- Allow feature wrappers when they add real domain behaviour or a clearer interface.
+- Do not turn one component into an enormous universal component full of unrelated conditions.
+- Do not abstract two superficially similar components if their semantics, accessibility, security, or workflow behaviour are materially different.
+- Do not create a generic component merely to avoid a few lines of harmless markup if it makes the code harder to understand.
+- When introducing a new reusable pattern, identify likely existing consumers and update them only if doing so is within the requested scope.
+- Never break existing public props/exports without a clear reason; update call sites and report breaking changes when unavoidable.
+- Use consistent component naming, typed props, file conventions, and exports.
+
+============================================================
+8. SERVER COMPONENTS VS CLIENT COMPONENTS
+============================================================
+
+BALANCE SERVER AND CLIENT COMPONENTS INTENTIONALLY. Do not make the entire app or entire component library client-rendered by default.
+
+DEFAULT RULE
+In the Next.js App Router, components are Server Components by default. Keep components as Server Components unless their own behaviour requires client-side React state, event handlers, effects, context, or browser-only APIs.
+
+SERVER COMPONENTS ARE PREFERRED FOR
+- Route-level layout composition and future pages that primarily render data.
+- Fetching data securely on the server from an approved source.
+- Reading server-only configuration or calling server-side services.
+- Rendering static or server-derived content that does not need browser interactivity.
+- Transforming data for display when the transformation can safely occur on the server.
+- Keeping sensitive access checks and data access away from client bundles.
+
+CLIENT COMPONENTS ARE APPROPRIATE FOR
+- useState, useReducer, useEffect and other client-side hooks.
+- Event handlers such as onClick, onChange and onSubmit.
+- Interactive forms, controlled filters, sortable/interactive grids and local UI state.
+- Dialog, drawer, popover, dropdown and responsive-navigation interactions that require client behaviour.
+- Browser APIs such as window, document, localStorage, matchMedia, clipboard or resize observation.
+- Client-only third-party chart or UI libraries when their runtime behaviour requires it.
+- Providers or context that require client React behaviour.
+
+CLIENT/SERVER DECISION PROCESS
+Before adding "use client":
+1. Ask whether the component actually needs state, event handlers, effects, browser APIs, or a client-only library.
+2. If not, leave it as a Server Component.
+3. If only a small part needs interaction, isolate that part in a small Client Component and keep its parent/composition server-rendered where possible.
+4. Put "use client" at the appropriate entry-point file, before imports. It is not necessary to add the directive to every descendant file already within that client module graph.
+5. Remember that imports below a Client Component entry point become part of the client module graph. Do not place server-only data-access code in a module imported by Client Components.
+6. Keep client boundaries as low and narrow as practical, but do not split components so aggressively that composition becomes awkward.
+
+DATA AND PROPS
+- Fetch sensitive or protected data using server-side services when appropriate and verify authorization on the server.
+- Pass only the data required by a Client Component.
+- Ensure props passed from Server Components to Client Components are serializable by React. Do not pass ordinary function callbacks from a Server Component to a Client Component as regular props; put the event handler inside the client boundary or use a properly supported server-action pattern when explicitly implemented.
+- Server Components can compose client components and pass rendered Server Component output through supported composition patterns such as children/slots.
+- Do not access window, document, localStorage or other browser-only APIs during server rendering.
+- Use effects only for genuine client-side synchronization, not for calculations that can be done during rendering or on the server.
+- Do not add "use client" to app/layout.tsx or broad parent modules solely because one child needs interaction. Keep interactive behaviour in focused child components where practical.
+- Avoid importing server-only secrets, database clients or protected server utilities into client modules.
+- A client-side permission gate is only a presentation mechanism, never the security boundary. Server-side data access and mutations must independently enforce permissions.
+
+EXAMPLES OF THE INTENDED BALANCE
+- A future learner page can remain a Server Component that obtains authorized learner data and composes a LearnerProfileHeader with a few Client Components for tabs or actions.
+- A Button can remain a simple component without "use client" unless it owns browser state or behaviour; an onClick handler supplied by a client parent does not by itself require every button module to be declared as an entry-point Client Component.
+- A complex interactive table can have a client-side table wrapper while its parent page remains a Server Component.
+- A chart wrapper may be a Client Component if the charting library needs it, while the server prepares the chart data.
+- A form that uses React Hook Form is a Client Component, but a page that explains the form or loads initial data can remain a Server Component.
+
+The goal is to use Server Components for server rendering/data access by default and introduce focused Client Components only where interactivity is necessary.
+
+============================================================
+9. HOW TO KEEP BUSINESS LOGIC AND UI SEPARATE
+============================================================
+
+- UI components accept typed props and emit callbacks; they do not pretend to persist data when no backend exists.
+- Shared calculations belong in tested utility or domain functions rather than being duplicated in chart cards, dashboards and reports.
+- Data access belongs in services or server-side route/page logic as appropriate.
+- Validation schemas can live close to the feature or under a shared validation location according to reuse.
+- Permission checks for protected data must be enforced server-side, not only through UI visibility.
+- Use domain-specific models for CBC assessments, rubrics, competencies, attendance and pathways; avoid vague untyped dictionaries.
+- Do not hardcode official Kenyan curriculum structures, assessment scales, grading descriptors, academic dates or pathway rules as permanent constants. Keep those configurable and source them from approved data/configuration when the real feature is implemented.
+- Distinguish "not assessed", "insufficient evidence", and "not yet demonstrated". Missing evidence must not silently count as failure.
+
+============================================================
+10. SUGGESTED COMPONENT BUILD ORDER
+============================================================
+
+Build and verify components in these groups:
+1. Foundation and global design tokens.
+2. Basic UI controls.
+3. Layout/navigation primitives, without building real destinations/pages.
+4. Forms and workflow components.
+5. Data tables and record-management patterns.
+6. Dashboard and analytics primitives.
+7. Learner, curriculum and academic components.
+8. CBC assessment components.
+9. Inclusion, disability, safeguarding and wellbeing components.
+10. Careers, pathways, equity, activities and campaigns.
+11. Staff, parents, communications, training and policies.
+12. Operations, documents and administration.
+13. Accessibility, mobile responsiveness, consistency and build audit.
+
+Do not create every possible component pre-emptively if it is unnecessary for the requested phase. Build the requested family, check existing reusable parts, verify it, and then continue.
+
+============================================================
+11. MOBILE-FIRST ACCEPTANCE CHECKLIST
+============================================================
+
+For each substantial component, evaluate:
+- Is the default layout usable at 320px?
+- Do base styles target mobile first?
+- Are wider layouts progressively enhanced with shared min-width breakpoints?
+- Does the component use existing shared tokens/mixins where appropriate?
+- Does it avoid horizontal overflow and clipping?
+- Are controls, labels, focus indicators and actions touch- and keyboard-friendly?
+- Do dialogs, menus and popovers fit the viewport?
+- Do tables have an intentional mobile presentation?
+- Do loading, empty, error, disabled and validation states remain usable on mobile?
+- Is critical functionality or information hidden on mobile without a good reason?
+
+Do not claim responsiveness is verified unless it has actually been inspected or tested.
+
+============================================================
+12. REQUIRED WORKFLOW FOR EVERY FUTURE BOLT PROMPT
+============================================================
+
+At the start of each task:
+1. Read app/knowledgeBase.txt.
+2. Inspect the relevant existing files before writing code.
+3. Search components/ui/, components/layout/, components/shared/ and components/features/ for an existing implementation that can be reused.
+4. Inspect styles/_tokens.scss, styles/_mixins.scss, styles/_breakpoints.scss and app/globals.scss before introducing new design values or Sass patterns.
+5. Check package.json before adding dependencies.
+6. Decide whether the requested code should be a Server Component or Client Component using the rules above.
+7. Make the smallest coherent change that meets the task.
+8. Reuse existing components and styles where sensible.
+9. Keep styling within SCSS Modules and follow the established mobile-first architecture.
+10. Run relevant checks and fix errors introduced by the changes.
+11. Report files added/changed, dependencies changed, tests/checks run, and genuine outstanding issues.
+12. Do not proceed to unrelated pages or future tasks unless requested.
+
+Do not overwrite complete folders, regenerate the app, or rewrite working configuration merely because a new prompt is provided. Extend the existing project deliberately.
+
+============================================================
+13. OFFICIAL TECHNICAL REFERENCES
+============================================================
+
+Use current official documentation when framework behaviour or APIs are uncertain:
+
+Next.js App Router:
+https://nextjs.org/docs/app
+
+Server and Client Components:
+https://nextjs.org/docs/app/getting-started/server-and-client-components
+
+The use client directive:
+https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Sass / SCSS Modules in Next.js:
+https://nextjs.org/docs/app/guides/sass
+
+React documentation:
+https://react.dev/reference/react
+
+Do not rely on outdated assumptions when a current official reference can resolve an implementation question.
+
+END OF PROJECT KNOWLEDGE BASE
