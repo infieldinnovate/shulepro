@@ -1,0 +1,43 @@
+// ============================================================
+// Spinner — indeterminate loading indicator
+// ============================================================
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-primary-600);
+  animation: spinner-rotate 0.8s linear infinite;
+
+  @include reduced-motion {
+    animation-duration: 1.5s;
+  }
+
+  svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}
+
+// ---- Sizes ----
+.sm {
+  inline-size: 1rem;
+  block-size: 1rem;
+}
+
+.md {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+.lg {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

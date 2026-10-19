@@ -1,0 +1,193 @@
+// ============================================================
+// Toast — transient notification
+// ============================================================
+
+.region {
+  position: fixed;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+  max-inline-size: calc(100vw - var(--space-4));
+}
+
+// Narrow screens: top-centered stack. Wider screens: bottom-right.
+.topCenter {
+  inset-block-start: var(--space-3);
+  inset-inline: 0;
+  align-items: center;
+
+  @include from(md) {
+    inset-block-start: auto;
+    inset-block-end: var(--space-4);
+    inset-inline-end: var(--space-4);
+    inset-inline-start: auto;
+    align-items: flex-end;
+  }
+}
+
+.bottomRight {
+  inset-block-start: var(--space-3);
+  inset-inline: 0;
+  align-items: center;
+
+  @include from(md) {
+    inset-block-start: auto;
+    inset-block-end: var(--space-4);
+    inset-inline-end: var(--space-4);
+    inset-inline-start: auto;
+    align-items: flex-end;
+  }
+}
+
+// ---- Toast card ----
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  inline-size: 100%;
+  min-inline-size: 0;
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  animation: toast-in $transition-base both;
+
+  @include from(md) {
+    inline-size: 24rem;
+  }
+
+  @include reduced-motion {
+    animation: none;
+  }
+}
+
+.exiting {
+  animation: toast-out $transition-fast both;
+}
+
+// ---- Variants ----
+.info {
+  border-color: var(--color-info-200);
+
+  .icon {
+    color: var(--color-info-600);
+  }
+}
+
+.success {
+  border-color: var(--color-success-200);
+
+  .icon {
+    color: var(--color-success-600);
+  }
+}
+
+.warning {
+  border-color: var(--color-warning-200);
+
+  .icon {
+    color: var(--color-warning-600);
+  }
+}
+
+.error {
+  border-color: var(--color-error-200);
+
+  .icon {
+    color: var(--color-error-600);
+  }
+}
+
+// ---- Slots ----
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  margin-block-start: 0.0625rem;
+
+  svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.title {
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  color: var(--color-fg-muted);
+}
+
+.closeButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 28px;
+  block-size: 28px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg);
+  }
+
+  svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  @include focus-visible-ring;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+}

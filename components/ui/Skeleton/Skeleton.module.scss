@@ -1,0 +1,48 @@
+// ============================================================
+// Skeleton — placeholder shimmer for loading content
+// ============================================================
+
+.skeleton {
+  display: block;
+  background-color: var(--color-secondary-200);
+  border-radius: var(--radius-md);
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  min-inline-size: 0;
+
+  @include reduced-motion {
+    animation: none;
+    background-color: var(--color-secondary-100);
+  }
+}
+
+// ---- Variants ----
+.rect {
+  border-radius: var(--radius-md);
+}
+
+.rounded {
+  border-radius: var(--radius-lg);
+}
+
+.circle {
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
+}
+
+.text {
+  block-size: 0.875em;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-color: var(--color-secondary-200);
+  }
+  50% {
+    background-color: var(--color-secondary-100);
+  }
+  100% {
+    background-color: var(--color-secondary-200);
+  }
+}

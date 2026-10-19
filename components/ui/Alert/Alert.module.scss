@@ -1,0 +1,125 @@
+// ============================================================
+// Alert — inline contextual feedback message
+// ============================================================
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-secondary-100);
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  min-inline-size: 0;
+}
+
+// ---- Variants ----
+.info {
+  background-color: var(--color-info-50);
+  border-color: var(--color-info-200);
+  color: var(--color-info-900);
+
+  .icon {
+    color: var(--color-info-600);
+  }
+}
+
+.success {
+  background-color: var(--color-success-50);
+  border-color: var(--color-success-200);
+  color: var(--color-success-900);
+
+  .icon {
+    color: var(--color-success-600);
+  }
+}
+
+.warning {
+  background-color: var(--color-warning-50);
+  border-color: var(--color-warning-200);
+  color: var(--color-warning-900);
+
+  .icon {
+    color: var(--color-warning-600);
+  }
+}
+
+.error {
+  background-color: var(--color-error-50);
+  border-color: var(--color-error-200);
+  color: var(--color-error-900);
+
+  .icon {
+    color: var(--color-error-600);
+  }
+}
+
+// ---- Slots ----
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  margin-block-start: 0.0625rem;
+
+  svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.title {
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  color: inherit;
+  opacity: 0.9;
+}
+
+.closeButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  inline-size: 28px;
+  block-size: 28px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+  transition:
+    background-color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    background-color: rgba(15, 23, 42, 0.08);
+    opacity: 1;
+  }
+
+  svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  @include focus-visible-ring;
+}
