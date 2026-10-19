@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.input {
+  inline-size: 100%;
+}
+
+.clearButton {
+  position: absolute;
+  inset-inline-end: var(--space-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg);
+  }
+
+  @include focus-visible-ring;
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+}
+
+// When a clear button is present, keep the input's trailing padding clear.
+.hasClear {
+  :global(.input) {
+    padding-inline-end: var(--space-8);
+  }
+}

@@ -1,0 +1,100 @@
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-primary-200);
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-800);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  max-inline-size: 100%;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast;
+}
+
+.chipLabel {
+  @include truncate;
+}
+
+.chipValue {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-medium);
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+  @include focus-visible-ring;
+
+  &:hover {
+    background-color: var(--color-primary-200);
+    color: var(--color-primary-900);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
+.clearAllButton {
+  display: inline-flex;
+  align-items: center;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg-muted);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+  @include touch-target();
+  @include focus-visible-ring;
+
+  &:hover {
+    background-color: var(--color-secondary-100);
+    color: var(--color-fg);
+  }
+}
+
+@include reduced-motion {
+  .chip,
+  .removeButton,
+  .clearAllButton {
+    transition: none;
+  }
+
+  .removeButton:active {
+    transform: none;
+  }
+}

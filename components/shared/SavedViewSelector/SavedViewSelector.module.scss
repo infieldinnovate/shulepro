@@ -1,0 +1,8 @@
+// SavedViewSelector is built on ui/DropdownMenu, which owns its
+// trigger styling. No local styles are needed beyond reserving the
+// module for future layout hooks.
+.root {
+  display: inline-flex;
+  align-items: center;
+  min-inline-size: 0;
+}
