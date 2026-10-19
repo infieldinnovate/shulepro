@@ -1,0 +1,111 @@
+@use "sass:meta";
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+// Load design tokens (CSS custom properties) into :root.
+// meta.load-css ensures the partial is included once.
+@include meta.load-css("tokens");
+
+// ============================================================
+// globals.scss — limited to resets, document defaults,
+// typography defaults, and genuinely global rules.
+// Component styling lives in .module.scss files.
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// ---- Typography defaults ----
+h1, h2, h3, h4, h5, h6 {
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  text-wrap: balance;
+}
+
+p {
+  line-height: var(--line-height-base);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-primary-600);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9375em;
+}
+
+// ---- Media defaults ----
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+// ---- Table defaults ----
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+// ---- Accessibility ----
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+@include reduced-motion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,21 @@
+// ============================================================
+// Breakpoints — centralized mobile-first thresholds
+// Base styles target 320px+ with no media query; widths below
+// a threshold are styled as the default and progressively
+// enhanced with min-width queries.
+// ============================================================
+
+$breakpoints: (
+  "sm": 480px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+);
+
+// Sass breakpoint variables (for direct use in min-width queries)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;

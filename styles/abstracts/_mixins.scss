@@ -1,0 +1,4 @@
+// Forwarder — exposes the shared mixin library.
+// Brought into every SCSS Module via next.config.ts additionalData:
+//   @use "abstracts/mixins" as *;
+@forward "../mixins";

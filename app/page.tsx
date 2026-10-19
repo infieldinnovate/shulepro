@@ -1,6 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+// Temporary technical placeholder.
+// Application pages are not built during the component-library phase.
 export default function Home() {
   return null;
 }
