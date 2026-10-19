@@ -1,0 +1,153 @@
+// ============================================================
+// Table — presentational primitive
+// Mobile: contained horizontal scroller via the contained-scroll
+// mixin. Sticky header is opt-in and only takes effect inside a
+// scroll container with a constrained block size.
+// ============================================================
+
+.scroller {
+  @include contained-scroll;
+  inline-size: 100%;
+  max-block-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  overflow: auto;
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  min-inline-size: 100%;
+}
+
+// ---- Caption ----
+.caption {
+  caption-side: top;
+  text-align: start;
+  padding-block: var(--space-2) var(--space-3);
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+// ---- Header ----
+.head {
+  background-color: var(--color-surface-muted);
+}
+
+.headCell {
+  text-align: start;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-3);
+  border-block-end: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+  position: relative;
+}
+
+.sticky .headCell {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-base);
+  background-color: var(--color-surface-muted);
+
+  // Cover the row border that would show through on scroll.
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block-end: -1px;
+    inset-inline: 0;
+    block-size: 1px;
+    background-color: var(--color-border-strong);
+  }
+}
+
+// ---- Body / rows ----
+.body {
+  background-color: var(--color-surface);
+}
+
+.row {
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.row + .row > .cell {
+  border-block-start: 1px solid var(--color-border);
+}
+
+.cell {
+  padding-block: var(--space-3);
+  padding-inline: var(--space-3);
+  color: var(--color-fg);
+  vertical-align: middle;
+  line-height: var(--line-height-base);
+}
+
+// ---- Variants ----
+.zebra {
+  .row:nth-child(even) {
+    background-color: var(--color-surface-muted);
+
+    &:hover {
+      background-color: var(--color-secondary-100);
+    }
+  }
+}
+
+.noHover {
+  .row:hover {
+    background-color: transparent;
+  }
+}
+
+.dense {
+  .headCell,
+  .cell {
+    padding-block: var(--space-2);
+    padding-inline: var(--space-2);
+  }
+
+  font-size: var(--font-size-xs);
+}
+
+.borderless {
+  .scroller,
+  .headCell,
+  .row + .row > .cell {
+    border-color: transparent;
+  }
+}
+
+// ---- Cell alignment helpers ----
+.numeric {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.center {
+  text-align: center;
+}
+
+.truncate {
+  @include truncate;
+  max-inline-size: 22rem;
+}
+
+// ---- Selected / highlight row ----
+.rowSelected {
+  background-color: var(--color-primary-50);
+
+  &:hover {
+    background-color: var(--color-primary-100);
+  }
+}

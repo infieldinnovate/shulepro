@@ -1,0 +1,108 @@
+// ============================================================
+// ScrollArea — styled native overflow wrapper with optional
+// fade-mask edges. Intentionally lightweight; no JS scroll state.
+// ============================================================
+
+.scrollArea {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+  min-inline-size: 0;
+  min-block-size: 0;
+
+  // ---- WebKit scrollbar styling ----
+  &::-webkit-scrollbar {
+    inline-size: 10px;
+    block-size: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-strong);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-fg-subtle);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+// ---- Orientation ----
+.horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.vertical {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.both {
+  overflow: auto;
+}
+
+// ---- Fade-mask edges ----
+.fadeHorizontal {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--space-4),
+    #000 calc(100% - var(--space-4)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--space-4),
+    #000 calc(100% - var(--space-4)),
+    transparent 100%
+  );
+}
+
+.fadeVertical {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--space-4),
+    #000 calc(100% - var(--space-4)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--space-4),
+    #000 calc(100% - var(--space-4)),
+    transparent 100%
+  );
+}
+
+.fadeBoth {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 var(--space-4), #000 calc(100% - var(--space-4)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 var(--space-4), #000 calc(100% - var(--space-4)), transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 var(--space-4), #000 calc(100% - var(--space-4)), transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 var(--space-4), #000 calc(100% - var(--space-4)), transparent 100%);
+  mask-composite: intersect;
+}
+
+// ---- Tab focus ----
+@include focus-visible-ring;
+
+.content {
+  display: block;
+  min-inline-size: 0;
+}

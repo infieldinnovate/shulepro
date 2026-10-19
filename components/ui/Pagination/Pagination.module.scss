@@ -1,0 +1,204 @@
+// ============================================================
+// Pagination — controlled current-page navigation
+// Mobile: collapses to prev/next + compact "page x of y".
+// Desktop (md+): numbered pages with ellipsis truncation.
+// ============================================================
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+// ---- Page size selector ----
+.pageSize {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.pageSizeLabel {
+  white-space: nowrap;
+}
+
+.pageSizeSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3) var(--space-7);
+  cursor: pointer;
+  min-block-size: 32px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+.pageSizeSelectWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pageSizeChevron {
+  position: absolute;
+  inset-inline-end: var(--space-2);
+  pointer-events: none;
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+}
+
+// ---- Nav buttons ----
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-inline-size: 36px;
+  min-block-size: 36px;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-fg-subtle);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+
+  @include focus-visible-ring;
+
+  svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+}
+
+.navButtonLabel {
+  @include to(sm) {
+    @include visually-hidden;
+  }
+}
+
+// ---- Page list ----
+.pages {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+
+  @include from(md) {
+    display: inline-flex;
+  }
+}
+
+.pageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 36px;
+  min-block-size: 36px;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast;
+
+  &:hover:not(:disabled):not(.selected) {
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-border-strong);
+  }
+
+  &.selected {
+    background-color: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    color: var(--color-fg-on-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @include focus-visible-ring;
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 36px;
+  min-block-size: 36px;
+  color: var(--color-fg-subtle);
+  user-select: none;
+}
+
+// ---- Compact mobile summary ----
+.compactSummary {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+
+  @include from(md) {
+    display: none;
+  }
+}
+
+.summary {
+  display: none;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+
+  @include from(md) {
+    display: inline-flex;
+  }
+}
