@@ -1,0 +1,133 @@
+.sheet {
+  // Sheet owns overlay/animation. Scope only the inner layout.
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-inline-size: 0;
+}
+
+.footer {
+  // Sheet owns footer layout.
+}
+
+.empty {
+  margin: 0;
+  color: var(--color-fg-subtle);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+// ---- Field grid ----
+.fieldGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin: 0;
+
+  @include from(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-5);
+  }
+
+  @include from(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.fieldItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.fieldLabel {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: var(--line-height-tight);
+}
+
+.fieldValue {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+  overflow-wrap: anywhere;
+}
+
+// ---- Sections ----
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.sectionDivider {
+  margin-block-end: var(--space-1);
+}
+
+// ---- Inline mode ----
+.inline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-inline-size: 0;
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  padding: var(--space-4);
+
+  @include from(md) {
+    padding: var(--space-5);
+  }
+}
+
+.inlineHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-block-end: 1px solid var(--color-border);
+  padding-block-end: var(--space-3);
+}
+
+.inlineTitle {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.inlineDescription {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.inlineFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: var(--space-3);
+}
