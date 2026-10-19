@@ -8,7 +8,13 @@ import {
   useState,
 } from "react";
 import type { ReactNode } from "react";
+import { createPortal } from "react-dom";
 import clsx from "clsx";
+import {
+  useFocusTrap,
+  usePortalTarget,
+  useRestoreFocus,
+} from "../overlays/useOverlay";
 import styles from "./Popover.module.scss";
 
 export interface PopoverProps {
@@ -22,6 +28,10 @@ export interface PopoverProps {
   contentClassName?: string;
   align?: "start" | "center" | "end";
   ariaLabel?: string;
+  /** Render the floating content into a portal at document.body. */
+  portal?: boolean;
+  /** Trap keyboard focus inside the popover while open. */
+  trapFocus?: boolean;
 }
 
 export function Popover({
@@ -35,6 +45,8 @@ export function Popover({
   contentClassName,
   align = "start",
   ariaLabel,
+  portal = false,
+  trapFocus = false,
 }: PopoverProps) {
   const generatedId = useId();
   const contentId = `${generatedId}-content`;
@@ -47,6 +59,8 @@ export function Popover({
   const triggerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const portalNode = usePortalTarget(portal && isOpen);
+
   const setOpen = useCallback(
     (next: boolean) => {
       if (!isControlled) setInternalOpen(next);
@@ -55,14 +69,17 @@ export function Popover({
     [isControlled, onOpenChange],
   );
 
-  // Close on outside pointer down
+  // Close on outside pointer down. When portalled, the content lives
+  // outside the container subtree, so we check both refs.
   useEffect(() => {
     if (!isOpen) return;
     function handlePointerDown(event: PointerEvent) {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
+      const target = event.target as Node;
+      const insideContainer =
+        containerRef.current?.contains(target) ?? false;
+      const insideContent =
+        contentRef.current?.contains(target) ?? false;
+      if (!insideContainer && !insideContent) {
         setOpen(false);
       }
     }
@@ -85,9 +102,13 @@ export function Popover({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, setOpen]);
 
-  // Move focus into content on open
+  useRestoreFocus(contentRef, isOpen && trapFocus);
+  useFocusTrap(contentRef, isOpen && trapFocus);
+
+  // Move focus into content on open (non-trapped mode keeps the
+  // original behaviour: first focusable / [data-autofocus]).
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !trapFocus) {
       const t = window.setTimeout(() => {
         const focusable =
           contentRef.current?.querySelector<HTMLElement>(
@@ -97,17 +118,20 @@ export function Popover({
       }, 0);
       return () => window.clearTimeout(t);
     }
-  }, [isOpen]);
+  }, [isOpen, trapFocus]);
 
   const handleTriggerKeyDown = (event: React.KeyboardEvent) => {
     if (disabled) return;
-    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+    if (
+      event.key === "ArrowDown" ||
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
       event.preventDefault();
       setOpen(true);
     }
   };
 
-  // Clone trigger to inject aria + click handler
   const triggerElement = (
     <span
       ref={triggerRef as React.RefObject<HTMLElement>}
@@ -122,22 +146,27 @@ export function Popover({
     </span>
   );
 
+  const content = (
+    <div
+      ref={contentRef}
+      id={contentId}
+      role="dialog"
+      aria-modal="false"
+      aria-label={ariaLabel}
+      data-align={align}
+      className={clsx(styles.content, contentClassName)}
+    >
+      {children}
+    </div>
+  );
+
   return (
     <div ref={containerRef} className={clsx(styles.container, className)}>
       {triggerElement}
-      {isOpen && (
-        <div
-          ref={contentRef}
-          id={contentId}
-          role="dialog"
-          aria-modal="false"
-          aria-label={ariaLabel}
-          data-align={align}
-          className={clsx(styles.content, contentClassName)}
-        >
-          {children}
-        </div>
-      )}
+      {isOpen &&
+        (portal && portalNode.current
+          ? createPortal(content, portalNode.current)
+          : content)}
     </div>
   );
 }

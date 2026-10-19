@@ -1,0 +1,201 @@
+// ============================================================
+// DropdownMenu — menu/menuitem roles with roving tabindex.
+// Sub-menus open on ArrowRight, close on ArrowLeft/Escape.
+// ============================================================
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  background-color: transparent;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  min-block-size: 40px;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @include focus-visible-ring;
+}
+
+.chevron {
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+  transition: transform $transition-base;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+// ---- Menu panel ----
+.menu {
+  position: absolute;
+  inset-block-start: calc(100% + var(--space-1));
+  z-index: var(--z-dropdown);
+  min-block-size: 0;
+  min-inline-size: 12rem;
+  max-block-size: 20rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-1);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+
+  &[data-align="start"] {
+    inset-inline-start: 0;
+  }
+
+  &[data-align="center"] {
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+  }
+
+  &[data-align="end"] {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+// ---- Items ----
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  inline-size: 100%;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  text-align: start;
+  cursor: pointer;
+  user-select: none;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-sm);
+  min-block-size: 36px;
+
+  &:hover:not(:disabled),
+  &[data-highlighted="true"] {
+    background-color: var(--color-surface-muted);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  @include focus-visible-ring;
+}
+
+.itemIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+}
+
+.itemLabel {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemShortcut {
+  flex: 0 0 auto;
+  color: var(--color-fg-subtle);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+}
+
+.itemCheck {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-600);
+}
+
+.submenuChevron {
+  flex: 0 0 auto;
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+}
+
+.divider {
+  block-size: 1px;
+  background-color: var(--color-border);
+  margin-block: var(--space-1);
+  margin-inline: var(--space-1);
+}
+
+.label {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+// ---- Sub-menu ----
+.submenuContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+}
+
+.submenu {
+  position: absolute;
+  inset-block-start: calc(var(--space-1) * -1);
+  inset-inline-start: 100%;
+  margin-inline-start: var(--space-1);
+  z-index: var(--z-dropdown);
+  min-inline-size: 12rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-1);
+  overflow: auto;
+  max-block-size: 20rem;
+  scrollbar-width: thin;
+}
