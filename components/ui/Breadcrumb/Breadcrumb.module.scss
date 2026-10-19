@@ -1,0 +1,73 @@
+.nav {
+  min-inline-size: 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-inline-size: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.link {
+  color: var(--color-primary-700);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-1);
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include focus-visible-ring;
+}
+
+.current {
+  color: var(--color-fg);
+  font-weight: var(--font-weight-medium);
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-1);
+  color: var(--color-fg-subtle);
+}
+
+.chevron {
+  flex-shrink: 0;
+  inline-size: 1em;
+  block-size: 1em;
+  color: var(--color-fg-subtle);
+}
+
+// ---- Mobile collapse: hide intermediate items below the sm breakpoint,
+// leaving the first item + ellipsis + current page. ----
+.collapsible {
+  @include to(sm) {
+    @include visually-hidden;
+  }
+}

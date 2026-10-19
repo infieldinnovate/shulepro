@@ -1,0 +1,128 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: visible;
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary-200);
+  color: var(--color-secondary-800);
+  font-family: inherit;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+}
+
+// ---- Sizes ----
+.sm {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  font-size: var(--font-size-xs);
+}
+
+.md {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  font-size: var(--font-size-sm);
+}
+
+.lg {
+  inline-size: 3rem;
+  block-size: 3rem;
+  font-size: var(--font-size-base);
+}
+
+.xl {
+  inline-size: 4rem;
+  block-size: 4rem;
+  font-size: var(--font-size-xl);
+}
+
+// ---- Image / fallback ----
+.image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-full);
+}
+
+.fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.glyph {
+  font-size: 0.7em;
+  opacity: 0.7;
+}
+
+// ---- Status dot ----
+.status {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  inline-size: 0.75em;
+  block-size: 0.75em;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-surface);
+  box-sizing: content-box;
+}
+
+.status-online {
+  background-color: var(--color-success-500);
+}
+
+.status-offline {
+  background-color: var(--color-secondary-400);
+}
+
+.status-busy {
+  background-color: var(--color-error-500);
+}
+
+.status-away {
+  background-color: var(--color-warning-500);
+}
+
+// ---- Group ----
+.group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+
+  @include from(md) {
+    gap: 0;
+
+    .groupItem {
+      margin-inline-start: calc(var(--space-2) * -1);
+
+      &:first-child {
+        margin-inline-start: 0;
+      }
+    }
+
+    .overflow {
+      margin-inline-start: calc(var(--space-2) * -1);
+    }
+  }
+}
+
+.groupItem {
+  display: inline-flex;
+}
+
+.overflow {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-700);
+  border: 1px solid var(--color-border);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+}

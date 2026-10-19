@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+// ---- Variants ----
+.default {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-xs);
+}
+
+.borderless {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.elevated {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+// ---- Padding (applied when not opted out via `padded={false}`) ----
+.padded {
+  padding: var(--space-4);
+
+  @include from(md) {
+    padding: var(--space-5);
+  }
+}
+
+// ---- Sections ----
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-block-size: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}

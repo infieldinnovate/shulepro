@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+}
+
+.track {
+  position: relative;
+  inline-size: 100%;
+  overflow: hidden;
+  background-color: var(--color-secondary-200);
+  border-radius: var(--radius-full);
+}
+
+// ---- Sizes (track height) ----
+.sm {
+  .track {
+    block-size: 0.25rem;
+  }
+}
+
+.md {
+  .track {
+    block-size: 0.5rem;
+  }
+}
+
+.lg {
+  .track {
+    block-size: 0.75rem;
+  }
+}
+
+// ---- Bar ----
+.bar {
+  block-size: 100%;
+  background-color: var(--color-primary-600);
+  border-radius: var(--radius-full);
+  transition: inline-size $transition-base;
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.indeterminate {
+  inline-size: 40%;
+  animation: progress-indeterminate 1.2s ease-in-out infinite;
+  background-color: var(--color-primary-500);
+
+  @include reduced-motion {
+    animation-duration: 0.01ms;
+  }
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
