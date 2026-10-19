@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  inline-size: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.requiredMark {
+  color: var(--color-error-600);
+  font-weight: var(--font-weight-semibold);
+  margin-inline-start: var(--space-1);
+}
+
+.popoverAnchor {
+  display: block;
+  inline-size: 100%;
+}
+
+.popoverContent {
+  max-inline-size: 22rem;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  inline-size: 100%;
+  min-block-size: 40px;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-fg);
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-fg-subtle);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg-subtle);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+.invalid {
+  .trigger {
+    border-color: var(--color-error-600);
+
+    &:hover:not(:disabled) {
+      border-color: var(--color-error-700);
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-error-600);
+    }
+  }
+}
+
+.disabled {
+  // handled on trigger
+}
+
+.calendarIcon {
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+  flex-shrink: 0;
+}
+
+.triggerText {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &[data-placeholder="true"] {
+    color: var(--color-fg-subtle);
+  }
+}
+
+.clearButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-fg-muted);
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--color-fg);
+  }
+}
+
+.clearIcon {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+}
+
+.helper {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error-700);
+  font-weight: var(--font-weight-medium);
+}

@@ -1,0 +1,186 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  inline-size: 100%;
+  max-inline-size: 22rem;
+  min-inline-size: 17rem;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// ---- Header ----
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.monthLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  text-align: center;
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color $transition-fast;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-surface-muted);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  svg {
+    inline-size: 1.125rem;
+    block-size: 1.125rem;
+  }
+}
+
+// ---- Weekday header ----
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+  padding-block: var(--space-1);
+}
+
+// ---- Day grid ----
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+  min-block-size: 36px;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover:not(:disabled):not(.selected) {
+    background-color: var(--color-surface-muted);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--color-fg-subtle);
+    opacity: 0.5;
+  }
+}
+
+.outsideMonth {
+  color: var(--color-fg-subtle);
+}
+
+[data-today] {
+  font-weight: var(--font-weight-semibold);
+  border-color: var(--color-border-strong);
+}
+
+.selected {
+  background-color: var(--color-primary-600);
+  color: var(--color-fg-on-primary);
+  font-weight: var(--font-weight-semibold);
+
+  &:hover {
+    background-color: var(--color-primary-700);
+  }
+}
+
+// ---- Range styles ----
+.inRange {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-900);
+  border-radius: 0;
+
+  &:hover {
+    background-color: var(--color-primary-200);
+  }
+}
+
+.rangeStart {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+  background-color: var(--color-primary-600);
+  color: var(--color-fg-on-primary);
+  font-weight: var(--font-weight-semibold);
+
+  &:hover {
+    background-color: var(--color-primary-700);
+  }
+}
+
+.rangeEnd {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  background-color: var(--color-primary-600);
+  color: var(--color-fg-on-primary);
+  font-weight: var(--font-weight-semibold);
+
+  &:hover {
+    background-color: var(--color-primary-700);
+  }
+}
+
+// Single selected in range mode also uses selected style
+.rangeStart.rangeEnd {
+  border-radius: var(--radius-md);
+}
