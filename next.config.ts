@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: [path.resolve(process.cwd(), "styles")],
     additionalData: `
-      @use "tokens" as *;
       @use "mixins" as *;
-      @use "breakpoints" as *;
     `,
   },
 };

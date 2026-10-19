@@ -1,5 +1,0 @@
-// Forwarder — exposes Sass variables from tokens + breakpoints.
-// Brought into every SCSS Module via next.config.ts additionalData:
-//   @use "abstracts/variables" as *;
-@forward "../tokens";
-@forward "../breakpoints";

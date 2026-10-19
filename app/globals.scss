@@ -1,15 +1,14 @@
-@use "sass:meta";
-@use "abstracts/variables" as *;
-@use "abstracts/mixins" as *;
-
-// Load design tokens (CSS custom properties) into :root.
-// meta.load-css ensures the partial is included once.
-@include meta.load-css("tokens");
+@use "tokens";
+@use "mixins" as *;
 
 // ============================================================
 // globals.scss — limited to resets, document defaults,
 // typography defaults, and genuinely global rules.
 // Component styling lives in .module.scss files.
+// The @use "tokens" above emits the :root CSS custom properties
+// once, at the document root. Component modules should not
+// @use "tokens" (it would duplicate the :root block); they use
+// the CSS custom properties directly.
 // ============================================================
 
 *,
