@@ -72,3 +72,16 @@ export type {
 
 export { SignatureOrAcknowledgement } from "./SignatureOrAcknowledgement";
 export type { SignatureOrAcknowledgementProps } from "./SignatureOrAcknowledgement";
+
+export { AssigneePicker } from "./AssigneePicker";
+export type { AssigneePickerProps, AssigneeOption } from "./AssigneePicker";
+
+export { CommentBox } from "./CommentBox";
+export type { CommentBoxProps } from "./CommentBox";
+
+export { DeadlineField } from "./DeadlineField";
+export type {
+  DeadlineFieldProps,
+  DeadlineValue,
+  DeadlineRangeValue,
+} from "./DeadlineField";

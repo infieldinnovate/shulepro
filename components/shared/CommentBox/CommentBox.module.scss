@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.textarea {
+  min-block-size: 5rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.helper {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.error {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-error-700);
+  font-weight: var(--font-weight-medium);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.count {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.countOver {
+  color: var(--color-error-700);
+  font-weight: var(--font-weight-semibold);
+}
+
+.actions {
+  // FormActions owns responsive layout
+}
