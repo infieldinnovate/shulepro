@@ -13,6 +13,12 @@ export type {
   CurriculumCoverageRow,
   CurriculumCoverageColumn,
   CurriculumCoverageLegendEntry,
+  Weekday,
+  TimetablePeriod,
+  TimetableEntry,
+  TimetableConfig,
+  AcademicCalendarEventType,
+  AcademicCalendarEvent,
 } from "./types";
 
 export { GradeSelector } from "./GradeSelector";
@@ -39,3 +45,9 @@ export type {
   CurriculumCoverageColorScale,
   CurriculumCoverageDrillDown,
 } from "./CurriculumCoverageMatrix";
+
+export { TimetableGrid } from "./TimetableGrid";
+export type { TimetableGridProps } from "./TimetableGrid";
+
+export { AcademicCalendar } from "./AcademicCalendar";
+export type { AcademicCalendarProps } from "./AcademicCalendar";

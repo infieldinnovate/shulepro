@@ -144,3 +144,86 @@ export interface CurriculumCoverageLegendEntry {
   label: string;
   description?: string;
 }
+
+// ============================================================
+// Timetable types
+// ============================================================
+
+/** A weekday in the timetable. Configurable — no hardcoded names. */
+export interface Weekday {
+  key: string;
+  label: string;
+  shortLabel?: string;
+  /** Numeric sort order (0-based). */
+  order: number;
+}
+
+/** A period definition within a school day. */
+export interface TimetablePeriod {
+  key: string;
+  label: string;
+  /** Start time (e.g. "08:00"). Format is caller-defined. */
+  startTime?: string;
+  /** End time (e.g. "08:40"). Format is caller-defined. */
+  endTime?: string;
+  /** Optional break indicator (e.g. lunch, recess). */
+  isBreak?: boolean;
+}
+
+/** A single entry in the timetable grid. */
+export interface TimetableEntry {
+  id: string;
+  dayKey: string;
+  periodKey: string;
+  /** Learning area / subject label. */
+  learningArea: string;
+  /** Optional learning area code. */
+  learningAreaCode?: string;
+  /** Teacher name. */
+  teacher?: string;
+  /** Room or location. */
+  location?: string;
+  /** Color token for subject coloring (from lib/chartColors). */
+  colorToken?: string;
+  /** Free-text notes. */
+  notes?: string;
+}
+
+/** Configurable timetable structure. No hardcoded school times. */
+export interface TimetableConfig {
+  periods: TimetablePeriod[];
+  weekdays: Weekday[];
+  /** Optional label for the time column header. */
+  timeColumnLabel?: string;
+  /** Optional label for empty cells. */
+  freeLabel?: string;
+}
+
+// ============================================================
+// Academic calendar types
+// ============================================================
+
+/** Type of an academic calendar event. Configurable. */
+export type AcademicCalendarEventType =
+  | "term"
+  | "exam"
+  | "holiday"
+  | "meeting"
+  | "deadline"
+  | "other";
+
+/** A single event on the academic calendar. */
+export interface AcademicCalendarEvent {
+  id: string;
+  title: string;
+  /** Single date or range start. */
+  date: Date;
+  /** Optional end date for multi-day events. */
+  endDate?: Date;
+  type: AcademicCalendarEventType;
+  description?: string;
+  /** Color token for event indicator (from lib/chartColors). */
+  colorToken?: string;
+  /** Optional location. */
+  location?: string;
+}

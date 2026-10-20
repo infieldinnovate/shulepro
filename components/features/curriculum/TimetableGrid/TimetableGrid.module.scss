@@ -1,0 +1,272 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+// ---- Day selector (visible on mobile only) ----
+.daySelector {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-block: var(--space-1);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.dayTab {
+  flex-shrink: 0;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+  @include touch-target(36px);
+  @include focus-visible-ring;
+}
+
+.dayTabActive {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: var(--color-surface);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    color: var(--color-surface);
+  }
+}
+
+// ---- Stacked view (mobile) ----
+.stackedView {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stackedRow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  min-block-size: 3rem;
+}
+
+.stackedTime {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  inline-size: 4.5rem;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.stackedPeriod {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.stackedTimeRange {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.stackedCell {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1);
+  display: flex;
+  align-items: stretch;
+}
+
+// ---- Grid view (hidden on mobile) ----
+.gridScroll {
+  display: none;
+}
+
+.gridTable {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  min-inline-size: 40rem;
+}
+
+.timeCol {
+  text-align: start;
+  padding: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+  border-inline-end: 1px solid var(--color-border);
+  background-color: var(--color-surface-muted);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 2;
+  vertical-align: middle;
+}
+
+.dayCol {
+  padding: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+  background-color: var(--color-surface-muted);
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  min-inline-size: 7rem;
+}
+
+.periodLabel {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.timeRange {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.gridCell {
+  padding: 0;
+  border-block-end: 1px solid var(--color-border);
+  border-inline-end: 1px solid var(--color-border);
+  vertical-align: top;
+  min-block-size: 3rem;
+}
+
+.breakRow {
+  .timeCol {
+    background-color: var(--color-surface-subtle);
+  }
+}
+
+.breakCell {
+  background-color: var(--color-surface-subtle);
+  align-items: center;
+  justify-content: center;
+}
+
+.breakCellWide {
+  text-align: center;
+  padding: var(--space-2);
+  background-color: var(--color-surface-subtle);
+  border-block-end: 1px solid var(--color-border);
+}
+
+.breakLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  font-style: italic;
+}
+
+// ---- Entry cell content ----
+.cellBtn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  inline-size: 100%;
+  block-size: 100%;
+  padding: var(--space-1);
+  border: none;
+  border-radius: var(--radius-xs);
+  background-color: var(--entry-color, var(--color-primary-50));
+  text-align: start;
+  cursor: default;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.cellInteractive {
+  cursor: pointer;
+  @include focus-visible-ring;
+
+  &:hover {
+    filter: brightness(0.96);
+    [data-theme="dark"] & {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.entryArea {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  @include truncate;
+}
+
+.entryMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-tight);
+  @include truncate;
+}
+
+.entryIcon {
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.freeCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-style: italic;
+}
+
+// ---- Desktop: show grid, hide stacked ----
+@include from(md) {
+  .daySelector {
+    display: none;
+  }
+
+  .stackedView {
+    display: none;
+  }
+
+  .gridScroll {
+    display: block;
+    @include contained-scroll;
+    max-block-size: 32rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+  }
+}
