@@ -1,0 +1,206 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+
+  @include truncate;
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+
+  @include line-clamp(2);
+}
+
+.headerBadges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) 0;
+}
+
+.measureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.measureItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.measureLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+
+  @include truncate;
+}
+
+.measureValues {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+
+  @include from(sm) {
+    flex-wrap: nowrap;
+    gap: var(--space-3);
+  }
+}
+
+.valueCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 3.5rem;
+}
+
+.valueLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.value {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.valueMissing {
+  color: var(--color-fg-subtle);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-sm);
+}
+
+.arrow {
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+  font-size: var(--font-size-sm);
+}
+
+.deltaCell {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+
+  @include to(sm) {
+    margin-left: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+  }
+}
+
+.delta {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.deltaPositive {
+  color: var(--color-success-600);
+}
+
+.deltaNegative {
+  color: var(--color-error-600);
+}
+
+.deltaNeutral {
+  color: var(--color-fg-muted);
+}
+
+.percentChange {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0;
+}
+
+.drillDownButton {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-primary-700);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+  }
+
+  @include focus-visible-ring;
+  @include touch-target(40px);
+
+  @include reduced-motion {
+    transition: none;
+  }
+}

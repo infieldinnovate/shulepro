@@ -274,3 +274,44 @@ export type {
   BenchmarkComparisonProps,
   BenchmarkEntry,
 } from "./BenchmarkComparison";
+
+// ---- Action component family ----
+
+export { ActionRequiredList } from "./ActionRequiredList";
+export type {
+  ActionRequiredListProps,
+  ActionItem,
+  ActionSeverity,
+  ActionDeadlineStatus,
+  ActionAssignee,
+} from "./ActionRequiredList";
+
+export { AlertSummary } from "./AlertSummary";
+export type {
+  AlertSummaryProps,
+  AlertSeverityCount,
+  AlertSummaryDetailItem,
+  AlertSeverity,
+} from "./AlertSummary";
+
+export { OverdueItemsList } from "./OverdueItemsList";
+export type {
+  OverdueItemsListProps,
+  OverdueItem,
+  OverdueOwner,
+} from "./OverdueItemsList";
+
+export { DataQualityBanner } from "./DataQualityBanner";
+export type {
+  DataQualityBannerProps,
+  DataQualityIssue,
+  DataQualitySeverity,
+} from "./DataQualityBanner";
+
+export { InterventionOutcomeCard } from "./InterventionOutcomeCard";
+export type {
+  InterventionOutcomeCardProps,
+  InterventionStatus,
+  InterventionOutcome,
+  InterventionMeasure,
+} from "./InterventionOutcomeCard";

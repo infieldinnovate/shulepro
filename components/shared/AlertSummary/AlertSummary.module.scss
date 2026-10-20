@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.loadingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+}
+
+.countRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.countItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.countValue {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.toggleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color $transition-base, color $transition-base;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg);
+  }
+
+  @include focus-visible-ring;
+  @include touch-target(36px);
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.detailList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+}
+
+.detailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-muted);
+}
+
+.detailContent {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detailTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+
+  @include truncate;
+}
+
+.detailDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+
+  @include line-clamp(2);
+}
