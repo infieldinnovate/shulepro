@@ -13,6 +13,15 @@ export {
   formatBenchmarkDelta,
 } from "./analytics";
 
+export {
+  chartColorTokens,
+  chartPalette,
+  resolveChartColor,
+} from "./chartColors";
+export type { ChartColorToken } from "./chartColors";
+
+export { useReducedMotion } from "./useReducedMotion";
+
 export type {
   TrendDirection,
   TrendResult,

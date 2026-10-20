@@ -1,0 +1,82 @@
+.heatmap {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  gap: 2px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: auto;
+  max-block-size: 100%;
+  font-size: var(--font-size-xs);
+}
+
+.corner {
+  background-color: var(--color-surface);
+}
+
+.columnHeader,
+.rowHeader {
+  background-color: var(--color-surface);
+  padding: var(--space-1) var(--space-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @include line-clamp(2);
+}
+
+.columnHeader {
+  min-block-size: 2.5rem;
+}
+
+.rowHeader {
+  justify-content: flex-start;
+  text-align: start;
+  @include truncate;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.25rem;
+  min-inline-size: 2.5rem;
+  cursor: default;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: -2px;
+  }
+
+  &[data-reduced] {
+    transition: none;
+  }
+}
+
+.cellValue {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  font-weight: var(--font-weight-medium);
+}
+
+@include to(sm) {
+  .grid {
+    font-size: var(--font-size-xs);
+  }
+
+  .cell {
+    min-block-size: 2rem;
+    min-inline-size: 2rem;
+  }
+}
