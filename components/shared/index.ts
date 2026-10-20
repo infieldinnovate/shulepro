@@ -315,3 +315,44 @@ export type {
   InterventionOutcome,
   InterventionMeasure,
 } from "./InterventionOutcomeCard";
+
+// ---- Report component family ----
+
+export { ChartDateRangeFilter } from "./ChartDateRangeFilter";
+export type {
+  ChartDateRangeFilterProps,
+  ChartDateRangePreset,
+} from "./ChartDateRangeFilter";
+
+export { ReportFilterPanel } from "./ReportFilterPanel";
+export type { ReportFilterPanelProps } from "./ReportFilterPanel";
+
+export { ComparisonSelector } from "./ComparisonSelector";
+export type {
+  ComparisonSelectorProps,
+  ComparisonDimension,
+} from "./ComparisonSelector";
+
+export { DrillDownLink } from "./DrillDownLink";
+export type {
+  DrillDownLinkProps,
+  DrillDownContext,
+} from "./DrillDownLink";
+
+export { ReportHeader } from "./ReportHeader";
+export type { ReportHeaderProps } from "./ReportHeader";
+
+export { ReportMetadata } from "./ReportMetadata";
+export type {
+  ReportMetadataProps,
+  ReportMetadataItem,
+} from "./ReportMetadata";
+
+export { ReportExportActions } from "./ReportExportActions";
+export type { ReportExportActionsProps } from "./ReportExportActions";
+
+export { DataAvailabilityNotice } from "./DataAvailabilityNotice";
+export type {
+  DataAvailabilityNoticeProps,
+  DataAvailabilityStatus,
+} from "./DataAvailabilityNotice";

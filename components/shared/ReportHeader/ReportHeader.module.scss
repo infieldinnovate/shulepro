@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.breadcrumbs {
+  font-size: var(--font-size-sm);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-5);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-block-size: 0;
+  min-inline-size: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+
+  @include from(md) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+  max-inline-size: 60ch;
+}
+
+.context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: var(--space-1) 0 0;
+}
+
+.contextItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.contextLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.contextIcon {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  color: var(--color-fg-subtle);
+}
+
+.contextValue {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  flex-shrink: 0;
+}

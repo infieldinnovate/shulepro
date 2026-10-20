@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.labelInner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.labelIcon {
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+  flex-shrink: 0;
+}
+
+.error {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-error-600);
+}
