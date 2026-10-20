@@ -227,3 +227,130 @@ export interface AcademicCalendarEvent {
   /** Optional location. */
   location?: string;
 }
+
+// ============================================================
+// Assignment types
+// ============================================================
+
+/** Status of an assignment. Configurable — no hardcoded curriculum content. */
+export type AssignmentStatus =
+  | "not-started"
+  | "in-progress"
+  | "submitted"
+  | "graded"
+  | "overdue"
+  | "draft";
+
+/** An attachment for an assignment. Reuses the AttachmentList shape. */
+export interface AssignmentAttachment {
+  id: string;
+  name: string;
+  size: number;
+  type?: string;
+  url?: string;
+  uploadedAt?: number | string;
+  uploadedBy?: ReactNode;
+}
+
+/** A single assignment. */
+export interface Assignment {
+  id: string;
+  title: string;
+  /** Learning area / subject label. */
+  learningArea: string;
+  /** Optional learning area code. */
+  learningAreaCode?: string;
+  /** Due date. */
+  dueDate: Date;
+  status: AssignmentStatus;
+  /** Optional description or instructions. */
+  description?: string;
+  /** Optional completion progress (0-100). */
+  progress?: number | null;
+  /** Optional attachments. */
+  attachments?: AssignmentAttachment[];
+  /** Optional assigned teacher name. */
+  teacher?: string;
+  /** Optional class or group label. */
+  classLabel?: string;
+}
+
+// ============================================================
+// Learning resource types
+// ============================================================
+
+/** Type of a learning resource. Configurable. */
+export type ResourceType =
+  | "textbook"
+  | "digital"
+  | "worksheet"
+  | "video"
+  | "audio"
+  | "interactive"
+  | "document"
+  | "link"
+  | "other";
+
+/** A learning resource (textbook, digital resource, worksheet, etc.). */
+export interface LearningResource {
+  id: string;
+  title: string;
+  type: ResourceType;
+  description?: string;
+  /** Provider, publisher, or author. */
+  provider?: string;
+  /** Optional URL for digital resources. */
+  url?: string;
+  /** Optional thumbnail image URL. */
+  thumbnail?: string;
+  /** Optional duration (e.g. "12 min", "3:45"). Format is caller-defined. */
+  duration?: string;
+  /** Optional language label. */
+  language?: string;
+  /** Optional learning area references (ids or labels). */
+  learningAreaRefs?: string[];
+  /** Optional grade/class level label. */
+  gradeLevel?: string;
+}
+
+// ============================================================
+// Progress summary types
+// ============================================================
+
+/** Trend info for a progress measure, using already-formatted labels. */
+export interface ProgressMeasureTrend {
+  direction: "up" | "down" | "flat" | null;
+  /** Pre-formatted percentage label (e.g. "+12.5%"). */
+  percentLabel?: string | null;
+  /** Pre-formatted delta label (e.g. "+8"). */
+  deltaLabel?: string | null;
+  /** Invert polarity so "up" reads as negative. */
+  invertPolarity?: boolean;
+}
+
+/** Status of a progress measure relative to a target. */
+export type ProgressMeasureStatus =
+  | "on-track"
+  | "at-risk"
+  | "behind"
+  | "exceeded"
+  | "no-target"
+  | "neutral";
+
+/** An already-computed progress measure for display. */
+export interface ProgressMeasure {
+  id: string;
+  label: string;
+  /** Primary value (numeric or pre-formatted string). */
+  value: number | string | null;
+  /** Optional unit suffix (e.g. "%", "learners"). */
+  unit?: string;
+  /** Optional target value. */
+  target?: number | string | null;
+  /** Optional pre-computed trend. */
+  trend?: ProgressMeasureTrend;
+  /** Optional status relative to target. */
+  status?: ProgressMeasureStatus;
+  /** Optional description of what the measure represents. */
+  description?: string;
+}

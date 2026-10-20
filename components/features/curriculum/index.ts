@@ -19,6 +19,14 @@ export type {
   TimetableConfig,
   AcademicCalendarEventType,
   AcademicCalendarEvent,
+  AssignmentStatus,
+  AssignmentAttachment,
+  Assignment,
+  ResourceType,
+  LearningResource,
+  ProgressMeasureTrend,
+  ProgressMeasureStatus,
+  ProgressMeasure,
 } from "./types";
 
 export { GradeSelector } from "./GradeSelector";
@@ -51,3 +59,12 @@ export type { TimetableGridProps } from "./TimetableGrid";
 
 export { AcademicCalendar } from "./AcademicCalendar";
 export type { AcademicCalendarProps } from "./AcademicCalendar";
+
+export { AssignmentCard } from "./AssignmentCard";
+export type { AssignmentCardProps } from "./AssignmentCard";
+
+export { LearningResourceCard } from "./LearningResourceCard";
+export type { LearningResourceCardProps } from "./LearningResourceCard";
+
+export { ProgressSummary } from "./ProgressSummary";
+export type { ProgressSummaryProps } from "./ProgressSummary";

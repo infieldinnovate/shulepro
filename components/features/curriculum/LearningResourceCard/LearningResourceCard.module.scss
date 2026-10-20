@@ -1,0 +1,192 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.interactive {
+  cursor: pointer;
+  @include focus-visible-ring;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.loadingCard {
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+// ---- Thumbnail / icon banner ----
+.thumbWrap {
+  position: relative;
+  block-size: 8rem;
+  background-color: var(--color-surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.thumbnail {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.iconBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-fg-subtle);
+}
+
+.typeIcon {
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.typeBadgeWrap {
+  position: absolute;
+  inset-block-start: var(--space-1);
+  inset-inline-end: var(--space-1);
+}
+
+// ---- Content ----
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  @include line-clamp(2);
+}
+
+.provider {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-body);
+  @include line-clamp(2);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  margin-block-start: var(--space-1);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.metaIcon {
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+// ---- Learning area tags ----
+.areaTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-block-start: var(--space-1);
+}
+
+.areaTag {
+  padding-block: 2px;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-primary-900);
+    color: var(--color-primary-300);
+  }
+}
+
+// ---- Footer / actions ----
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  @include touch-target(36px);
+  @include focus-visible-ring;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-primary-300);
+  }
+}
+
+.actionIcon {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+// ---- Larger thumbnail on wider screens ----
+@include from(sm) {
+  .thumbWrap {
+    block-size: 10rem;
+  }
+
+  .typeIcon {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+  }
+}
