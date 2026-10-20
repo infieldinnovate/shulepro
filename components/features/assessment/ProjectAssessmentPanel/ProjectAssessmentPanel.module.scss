@@ -1,0 +1,138 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.loading {
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.progress {
+  margin-block-start: var(--space-1);
+}
+
+.phasesCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+.phaseDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.phaseCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.phaseHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.phaseTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.phaseLabel {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+.phaseDescription {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.evidenceList {
+  margin-block-start: var(--space-1);
+}
+
+.noEvidence {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-subtle);
+  font-style: italic;
+}
+
+.phaseActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.phaseActionBtn {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  @include touch-target(36px);
+  @include focus-visible-ring;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-fg-subtle);
+  }
+
+  &:active {
+    background-color: var(--color-secondary-100);
+  }
+}

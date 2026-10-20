@@ -1,0 +1,158 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+// ---- Group tabs ----
+.groupTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.groupTab {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: border-color var(--transition-fast, 0.15s ease),
+    background-color var(--transition-fast, 0.15s ease),
+    color var(--transition-fast, 0.15s ease);
+  @include touch-target(36px);
+  @include focus-visible-ring;
+
+  &:hover {
+    border-color: var(--color-border-strong);
+    color: var(--color-fg);
+  }
+}
+
+.groupTabActive {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-primary-900);
+    color: var(--color-primary-200);
+  }
+}
+
+// ---- Group section ----
+.groupSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.groupTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+}
+
+// ---- Grid ----
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols-base, 1), 1fr);
+  gap: var(--space-3);
+
+  @include from(sm) {
+    grid-template-columns: repeat(var(--cols-sm, 2), 1fr);
+  }
+
+  @include from(md) {
+    grid-template-columns: repeat(var(--cols-md, 3), 1fr);
+  }
+
+  @include from(lg) {
+    grid-template-columns: repeat(var(--cols-lg, 3), 1fr);
+  }
+}
+
+// ---- Evidence card ----
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.interactive {
+  cursor: pointer;
+  @include focus-visible-ring;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 3.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-muted);
+  color: var(--color-fg-subtle);
+
+  :global(svg) {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.cardName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  @include truncate;
+}
+
+.cardCaption {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+  @include line-clamp(2);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.cardDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}

@@ -16,6 +16,8 @@ export type {
   AssessmentFeedback,
   ModerationFinding,
   EvidenceItem,
+  ProjectPhase,
+  PerformanceTask,
 } from "./types";
 
 export { AssessmentStatusBadge, DEFAULT_ASSESSMENT_STATUS_MAP } from "./AssessmentStatusBadge";
@@ -52,3 +54,18 @@ export type {
   ObservationEntryFormProps,
   ObservationFormData,
 } from "./ObservationEntryForm";
+
+export { ProjectAssessmentPanel } from "./ProjectAssessmentPanel";
+export type { ProjectAssessmentPanelProps } from "./ProjectAssessmentPanel";
+
+export { PerformanceTaskForm } from "./PerformanceTaskForm";
+export type {
+  PerformanceTaskFormProps,
+  PerformanceTaskFormData,
+} from "./PerformanceTaskForm";
+
+export { EvidenceUploader } from "./EvidenceUploader";
+export type { EvidenceUploaderProps } from "./EvidenceUploader";
+
+export { PortfolioGallery } from "./PortfolioGallery";
+export type { PortfolioGalleryProps, PortfolioGroupBy } from "./PortfolioGallery";

@@ -156,3 +156,26 @@ export interface EvidenceItem {
   caption?: string;
   learningAreaRef?: LearningAreaRef;
 }
+
+/** A phase/stage within a project-based assessment. */
+export interface ProjectPhase {
+  id: string;
+  label: string;
+  description?: string;
+  /** References to evidence item ids collected for this phase. */
+  evidenceRefs?: string[];
+  /** Lifecycle status of this phase. */
+  status: AssessmentStatus;
+}
+
+/** A performance task assessment definition. */
+export interface PerformanceTask {
+  id: string;
+  title: string;
+  description: string;
+  successCriteria: string[];
+  evidenceRequirements?: string;
+  competencyRefs?: string[];
+  timeLimit?: string;
+  rubricRef?: string;
+}
