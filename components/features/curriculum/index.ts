@@ -8,6 +8,11 @@ export type {
   ClassSummaryStat,
   CurriculumNode,
   CurriculumNodeType,
+  CurriculumCoverageState,
+  CurriculumCoverageCell,
+  CurriculumCoverageRow,
+  CurriculumCoverageColumn,
+  CurriculumCoverageLegendEntry,
 } from "./types";
 
 export { GradeSelector } from "./GradeSelector";
@@ -24,3 +29,13 @@ export type { ClassRosterProps, ClassRosterColumn } from "./ClassRoster";
 
 export { ClassSummaryCard } from "./ClassSummaryCard";
 export type { ClassSummaryCardProps } from "./ClassSummaryCard";
+
+export { CurriculumTree } from "./CurriculumTree";
+export type { CurriculumTreeProps } from "./CurriculumTree";
+
+export { CurriculumCoverageMatrix } from "./CurriculumCoverageMatrix";
+export type {
+  CurriculumCoverageMatrixProps,
+  CurriculumCoverageColorScale,
+  CurriculumCoverageDrillDown,
+} from "./CurriculumCoverageMatrix";

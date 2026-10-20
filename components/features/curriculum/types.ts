@@ -100,3 +100,47 @@ export interface CurriculumNode {
   /** Arbitrary metadata for the node. */
   meta?: Record<string, ReactNode>;
 }
+
+/** Coverage state for a single cell in a coverage matrix. */
+export type CurriculumCoverageState =
+  | "planned"
+  | "taught"
+  | "assessed"
+  | "insufficient-evidence"
+  | "not-started";
+
+/** A single cell in the coverage matrix. */
+export interface CurriculumCoverageCell {
+  rowKey: string;
+  columnKey: string;
+  state: CurriculumCoverageState;
+  /** Optional numeric value (e.g. percentage assessed). */
+  value?: number | null;
+  /** Optional display label override. */
+  displayLabel?: string;
+}
+
+/** A row in the coverage matrix (outcome, strand, or sub-strand). */
+export interface CurriculumCoverageRow {
+  key: string;
+  label: string;
+  /** Optional code or reference. */
+  code?: string;
+  /** Optional parent label for grouping display. */
+  group?: string;
+}
+
+/** A column in the coverage matrix (class, teacher, or period). */
+export interface CurriculumCoverageColumn {
+  key: string;
+  label: string;
+  shortLabel?: string;
+  description?: string;
+}
+
+/** Legend entry for the coverage matrix. */
+export interface CurriculumCoverageLegendEntry {
+  state: CurriculumCoverageState;
+  label: string;
+  description?: string;
+}
