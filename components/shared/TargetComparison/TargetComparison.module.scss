@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  border-block-end: 1px solid var(--color-border);
+  padding-block-end: var(--space-2);
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+  margin: 0;
+  @include truncate;
+}
+
+.statusBadge {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+
+  &.onTrack {
+    background: var(--color-success-100);
+    color: var(--color-success-700);
+  }
+
+  &.atRisk {
+    background: var(--color-warning-100);
+    color: var(--color-warning-700);
+  }
+
+  &.behind {
+    background: var(--color-error-100);
+    color: var(--color-error-700);
+  }
+
+  &.exceeded {
+    background: var(--color-accent-100);
+    color: var(--color-accent-700);
+  }
+
+  &.noTarget {
+    background: var(--color-secondary-100);
+    color: var(--color-fg-subtle);
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  min-block-size: 3rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.valuesRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.metric {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.metricValue {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.unit {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-subtle);
+}
+
+.target {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: end;
+}
+
+.targetLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.targetValue {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.noTarget {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  margin: 0;
+  font-style: italic;
+}

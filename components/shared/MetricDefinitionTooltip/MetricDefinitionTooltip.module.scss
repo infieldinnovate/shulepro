@@ -1,0 +1,18 @@
+.trigger {
+  color: var(--color-fg-subtle);
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  min-inline-size: 1.25rem;
+  min-block-size: 1.25rem;
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+
+  @include focus-visible-ring;
+
+  &:hover {
+    color: var(--color-fg-muted);
+  }
+}

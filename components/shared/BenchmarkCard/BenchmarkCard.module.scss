@@ -1,0 +1,128 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.header {
+  border-block-end: 1px solid var(--color-border);
+  padding-block-end: var(--space-2);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+  margin: 0;
+  @include truncate;
+}
+
+.definition {
+  flex-shrink: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  min-block-size: 3rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.unit {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-subtle);
+}
+
+.benchmarkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.benchmarkLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-variant-numeric: tabular-nums;
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+
+  &.positive {
+    color: var(--color-success-600);
+  }
+
+  &.negative {
+    color: var(--color-error-600);
+  }
+
+  &.neutral {
+    color: var(--color-fg-muted);
+  }
+
+  &.unknown {
+    color: var(--color-fg-subtle);
+  }
+}
+
+.deltaText {
+  white-space: nowrap;
+}
+
+.noBenchmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-style: italic;
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+}

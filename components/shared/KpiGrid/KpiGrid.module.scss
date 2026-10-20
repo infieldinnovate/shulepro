@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+
+  @include from(sm) {
+    grid-template-columns: repeat(var(--kpi-grid-sm), 1fr);
+  }
+
+  @include from(md) {
+    grid-template-columns: repeat(var(--kpi-grid-md), 1fr);
+  }
+
+  @include from(lg) {
+    grid-template-columns: repeat(var(--kpi-grid-lg), 1fr);
+  }
+
+  @include from(xl) {
+    grid-template-columns: repeat(var(--kpi-grid-xl), 1fr);
+  }
+}

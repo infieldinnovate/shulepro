@@ -1,0 +1,54 @@
+.trend {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  svg {
+    inline-size: 0.875em;
+    block-size: 0.875em;
+  }
+}
+
+.percent {
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-weight: var(--font-weight-regular);
+}
+
+.positive {
+  color: var(--color-success-600);
+}
+
+.negative {
+  color: var(--color-error-600);
+}
+
+.neutral {
+  color: var(--color-fg-muted);
+}
+
+.unknown {
+  color: var(--color-fg-subtle);
+  font-style: italic;
+}
+
+@include reduced-motion {
+  .icon svg {
+    transition: none;
+    animation: none;
+  }
+}

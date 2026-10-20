@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-block-size: 0;
+}
+
+.interactive {
+  cursor: pointer;
+  transition: box-shadow $transition-base, border-color $transition-base;
+
+  @include focus-visible-ring;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-strong);
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.header {
+  border-block-end: 1px solid var(--color-border);
+  padding-block-end: var(--space-2);
+}
+
+.headerInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.titleIcon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-fg-subtle);
+  flex-shrink: 0;
+
+  svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+  margin: 0;
+  line-height: var(--line-height-tight);
+  @include truncate;
+}
+
+.definition {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  flex-shrink: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  min-block-size: 3rem;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-subtle);
+  font-weight: var(--font-weight-regular);
+}
+
+.trend {
+  margin-inline-start: auto;
+}
+
+.target {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  margin: 0;
+}
+
+.targetLabel {
+  font-weight: var(--font-weight-medium);
+}
+
+.targetValue {
+  font-variant-numeric: tabular-nums;
+}

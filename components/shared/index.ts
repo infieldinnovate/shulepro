@@ -199,3 +199,26 @@ export type {
   ImportTargetField,
   ImportMapping,
 } from "./ImportWizard";
+
+// ---- Dashboard / Analytics: KPI family ----
+
+export { TrendIndicator } from "./TrendIndicator";
+export type { TrendIndicatorProps } from "./TrendIndicator";
+
+export { KpiCard } from "./KpiCard";
+export type { KpiCardProps, KpiCardTrend, KpiCardStatus } from "./KpiCard";
+
+export { TargetComparison } from "./TargetComparison";
+export type { TargetComparisonProps } from "./TargetComparison";
+
+export { MetricDefinitionTooltip } from "./MetricDefinitionTooltip";
+export type { MetricDefinitionTooltipProps } from "./MetricDefinitionTooltip";
+
+export { BenchmarkCard } from "./BenchmarkCard";
+export type { BenchmarkCardProps } from "./BenchmarkCard";
+
+export { TargetProgressCard } from "./TargetProgressCard";
+export type { TargetProgressCardProps } from "./TargetProgressCard";
+
+export { KpiGrid } from "./KpiGrid";
+export type { KpiGridProps } from "./KpiGrid";
