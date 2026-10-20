@@ -1,0 +1,105 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loadingCard {
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+// ---- Header ----
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.titleGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.titleIcon {
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  min-inline-size: 0;
+}
+
+// ---- Body ----
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin: 0;
+
+  @include from(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-inline-size: 0;
+}
+
+.metaLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  font-weight: var(--font-weight-medium);
+}
+
+.metaValue {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+}
+
+.notes {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}

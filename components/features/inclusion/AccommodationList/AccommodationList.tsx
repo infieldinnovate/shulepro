@@ -1,0 +1,145 @@
+"use client";
+
+import type { KeyboardEvent, ReactNode } from "react";
+import { format } from "date-fns";
+import { ChevronRight, ListChecks } from "lucide-react";
+import clsx from "clsx";
+import { Card } from "../../../ui/Card";
+import { Spinner } from "../../../ui/Spinner";
+import { Alert } from "../../../ui/Alert";
+import { EmptyState } from "../../../ui/EmptyState";
+import type { Accommodation } from "../types";
+import styles from "./AccommodationList.module.scss";
+
+export interface AccommodationListProps {
+  accommodations: Accommodation[];
+  /** Optional status badge node per accommodation (caller provides badges). */
+  renderStatusBadge?: (status: Accommodation["status"]) => ReactNode;
+  /** When provided, clicking a row calls this handler. */
+  onSelect?: (accommodation: Accommodation) => void;
+  loading?: boolean;
+  error?: string;
+  empty?: boolean;
+  disabled?: boolean;
+  className?: string;
+}
+
+function toDate(d: Date | string): Date {
+  return typeof d === "string" ? new Date(d) : d;
+}
+
+export function AccommodationList({
+  accommodations,
+  renderStatusBadge,
+  onSelect,
+  loading = false,
+  error,
+  empty = false,
+  disabled = false,
+  className,
+}: AccommodationListProps) {
+  if (loading) {
+    return (
+      <Card className={clsx(styles.card, styles.loadingCard, className)} padded>
+        <div className={styles.loadingBody}>
+          <Spinner size="md" label="Loading accommodations" />
+        </div>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className={clsx(styles.card, className)} padded>
+        <Alert
+          variant="error"
+          title="Unable to load accommodations"
+          description={error}
+        />
+      </Card>
+    );
+  }
+
+  const isEmpty = empty || accommodations.length === 0;
+
+  if (isEmpty) {
+    return (
+      <Card className={clsx(styles.card, className)} padded>
+        <EmptyState
+          icon={<ListChecks aria-hidden="true" />}
+          title="No accommodations"
+          description="There are no accommodations to display yet."
+        />
+      </Card>
+    );
+  }
+
+  return (
+    <Card
+      className={clsx(styles.card, disabled && styles.disabled, className)}
+      padded={false}
+    >
+      <ul className={styles.list} aria-label="Accommodations">
+        {accommodations.map((item) => {
+          const clickable = typeof onSelect === "function" && !disabled;
+
+          const handleKeyDown = (event: KeyboardEvent<HTMLLIElement>) => {
+            if (!clickable) return;
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              onSelect?.(item);
+            }
+          };
+
+          return (
+            <li
+              key={item.id}
+              className={clsx(styles.row, clickable && styles.rowClickable)}
+              role={clickable ? "button" : undefined}
+              tabIndex={clickable ? 0 : undefined}
+              aria-label={
+                clickable ? `View accommodation: ${item.category}` : undefined
+              }
+              onClick={clickable ? () => onSelect?.(item) : undefined}
+              onKeyDown={handleKeyDown}
+            >
+              <div className={styles.rowMain}>
+                <div className={styles.rowHeader}>
+                  <span className={styles.category}>{item.category}</span>
+                  {renderStatusBadge?.(item.status)}
+                </div>
+                <p className={styles.description}>{item.description}</p>
+                <div className={styles.metaRow}>
+                  {item.providerName && (
+                    <span className={styles.metaItem}>
+                      Provider: {item.providerName}
+                    </span>
+                  )}
+                  {item.startDate && (
+                    <span className={styles.metaItem}>
+                      From {format(toDate(item.startDate), "MMM d, yyyy")}
+                    </span>
+                  )}
+                  {item.endDate && (
+                    <span className={styles.metaItem}>
+                      Until {format(toDate(item.endDate), "MMM d, yyyy")}
+                    </span>
+                  )}
+                </div>
+                {item.notes && (
+                  <p className={styles.notes}>{item.notes}</p>
+                )}
+              </div>
+              {clickable && (
+                <ChevronRight
+                  aria-hidden="true"
+                  className={styles.chevron}
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </Card>
+  );
+}
