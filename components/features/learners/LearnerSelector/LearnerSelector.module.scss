@@ -1,0 +1,218 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.helper {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+// ---- Single-select selected summary ----
+.selectedRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.selectedName {
+  display: inline-flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.selectedIdent {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+// ---- Multi-select selected chips ----
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.chipList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-muted);
+  min-inline-size: 0;
+}
+
+.chipName {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-inline-size: 14rem;
+}
+
+.chipRemove {
+  min-inline-size: 24px;
+  min-block-size: 24px;
+
+  svg {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+  }
+}
+
+// ---- Search ----
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-fg-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  inline-size: 100%;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  padding-inline-start: var(--space-7);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  font: inherit;
+  font-size: var(--font-size-sm);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
+  &:disabled {
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg-subtle);
+    cursor: not-allowed;
+  }
+}
+
+// ---- Options list ----
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  max-block-size: 16rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-inline-end: var(--space-1);
+
+  &::-webkit-scrollbar {
+    inline-size: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-strong);
+    border-radius: var(--radius-full);
+  }
+}
+
+.option {
+  display: flex;
+  min-inline-size: 0;
+}
+
+.optionCheckbox {
+  inline-size: 100%;
+  align-items: center;
+
+  :global(.label) {
+    min-inline-size: 0;
+  }
+}
+
+.optionContent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex: 1 1 auto;
+}
+
+.optionText {
+  display: inline-flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.optionName {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.optionIdent {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-tight);
+}
+
+.empty {
+  padding-block: var(--space-3);
+  padding-inline: var(--space-2);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+// Wider screens: chips can show more
+@include from(md) {
+  .chipName {
+    max-inline-size: 18rem;
+  }
+}
