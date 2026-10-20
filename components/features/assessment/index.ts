@@ -33,3 +33,22 @@ export type {
   AssessmentBuilderData,
   AttainmentLevelFormEntry,
 } from "./AssessmentBuilder";
+
+export { RubricBuilder, DEFAULT_SCORING_RULE_OPTIONS } from "./RubricBuilder";
+export type { RubricBuilderProps } from "./RubricBuilder";
+
+export { RubricScoringGrid } from "./RubricScoringGrid";
+export type {
+  RubricScoringGridProps,
+  RubricJudgements,
+  RubricEvidenceOverrides,
+} from "./RubricScoringGrid";
+
+export {
+  ObservationEntryForm,
+  DEFAULT_EVIDENCE_STATUS_OPTIONS,
+} from "./ObservationEntryForm";
+export type {
+  ObservationEntryFormProps,
+  ObservationFormData,
+} from "./ObservationEntryForm";
