@@ -1,0 +1,25 @@
+.progressTrend {
+  inline-size: 100%;
+}
+
+:global(.recharts-surface) {
+  @include reduced-motion {
+    animation: none !important;
+  }
+}
+
+:global(.recharts-tooltip-wrapper) {
+  outline: none;
+}
+
+:global(.recharts-default-legend) {
+  @include to(sm) {
+    font-size: var(--font-size-xs) !important;
+  }
+}
+
+@include to(sm) {
+  :global(.recharts-yAxis .recharts-label) {
+    display: none;
+  }
+}

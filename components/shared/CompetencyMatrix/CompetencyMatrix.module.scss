@@ -1,0 +1,226 @@
+.section {
+  inline-size: 100%;
+}
+
+.srOnly {
+  @include visually-hidden;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-8);
+}
+
+.scroll {
+  @include contained-scroll;
+  inline-size: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  max-block-size: 32rem;
+
+  @include focus-visible-ring;
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-xs);
+  min-inline-size: 40rem;
+
+  th,
+  td {
+    border-inline-end: 1px solid var(--color-border);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  th:last-child,
+  td:last-child {
+    border-inline-end: none;
+  }
+
+  thead th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background-color: var(--color-surface-muted);
+    color: var(--color-fg-muted);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-2);
+    white-space: nowrap;
+  }
+
+  tbody th {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+    background-color: var(--color-surface);
+    border-inline-end: 2px solid var(--color-border-strong);
+    padding: var(--space-2) var(--space-3);
+    text-align: start;
+    white-space: nowrap;
+    min-inline-size: 8rem;
+  }
+}
+
+.caption {
+  @include visually-hidden;
+}
+
+.learnerCol {
+  .learnerName {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-fg);
+  }
+
+  .learnerId {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-fg-subtle);
+  }
+}
+
+.competencyCol {
+  text-align: center;
+}
+
+.compLabel {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-tight);
+  display: inline-block;
+  max-inline-size: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.row {
+  &:last-child {
+    th,
+    td {
+      border-block-end: none;
+    }
+  }
+}
+
+.cell {
+  text-align: center;
+  padding: 0;
+  vertical-align: middle;
+  min-inline-size: 3.5rem;
+}
+
+.cellText {
+  display: inline-block;
+  padding: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+}
+
+.cellMissing {
+  background-color: var(--color-surface-muted);
+  color: var(--color-fg-subtle);
+}
+
+.cellZero {
+  background-color: var(--color-warning-50);
+}
+
+.cellInteractive {
+  .cellBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 2rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: var(--space-2);
+    font: inherit;
+    color: inherit;
+    @include focus-visible-ring;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+
+    @include reduced-motion {
+      transition: none;
+    }
+  }
+}
+
+.notAssessed {
+  color: var(--color-fg-subtle);
+}
+
+.legend {
+  margin-block-start: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-muted);
+}
+
+.legendTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+  margin-inline-end: var(--space-2);
+}
+
+.legendList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.legendSwatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+}
+
+.legendSwatchMissing {
+  background-color: var(--color-surface-muted);
+  color: var(--color-fg-subtle);
+}
+
+.legendLabel {
+  color: var(--color-fg-muted);
+}
+
+@include to(sm) {
+  .table {
+    min-inline-size: 32rem;
+  }
+}
+
+@include reduced-motion {
+  .cellBtn:hover {
+    transition: none;
+    filter: none;
+  }
+}

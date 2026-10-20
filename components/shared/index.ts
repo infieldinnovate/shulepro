@@ -222,3 +222,55 @@ export type { TargetProgressCardProps } from "./TargetProgressCard";
 
 export { KpiGrid } from "./KpiGrid";
 export type { KpiGridProps } from "./KpiGrid";
+
+export { ChartPanel } from "./ChartPanel";
+export type { ChartPanelProps } from "./ChartPanel";
+
+// ---- Diagnostic component family ----
+
+export { ComparisonPanel } from "./ComparisonPanel";
+export type {
+  ComparisonPanelProps,
+  ComparisonMetric,
+  ComparisonSide,
+} from "./ComparisonPanel";
+
+export { BreakdownTable } from "./BreakdownTable";
+export type {
+  BreakdownTableProps,
+  BreakdownRow,
+  BreakdownStatusConfig,
+} from "./BreakdownTable";
+
+export { CompetencyMatrix } from "./CompetencyMatrix";
+export type {
+  CompetencyMatrixProps,
+  CompetencyLearner,
+  CompetencyColumn,
+  CompetencyCellValue,
+  PerformanceScaleLevel,
+  PerformanceScaleMap,
+  CellColorScale,
+  CompetencyMatrixDrillDown,
+} from "./CompetencyMatrix";
+
+export { ProgressTrend } from "./ProgressTrend";
+export type {
+  ProgressTrendProps,
+  TrendSeries,
+  TrendDataPoint,
+} from "./ProgressTrend";
+
+export { LearningGapList } from "./LearningGapList";
+export type {
+  LearningGapListProps,
+  LearningGap,
+  LearningGapSeverity,
+  LearningGapScope,
+} from "./LearningGapList";
+
+export { BenchmarkComparison } from "./BenchmarkComparison";
+export type {
+  BenchmarkComparisonProps,
+  BenchmarkEntry,
+} from "./BenchmarkComparison";

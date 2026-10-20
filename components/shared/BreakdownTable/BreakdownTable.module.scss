@@ -1,0 +1,98 @@
+.section {
+  inline-size: 100%;
+}
+
+.table {
+  inline-size: 100%;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-8);
+}
+
+.srOnly {
+  @include visually-hidden;
+}
+
+.categoryLabel {
+  display: block;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.sublabel {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  margin-block-start: var(--space-1);
+}
+
+.value {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  color: var(--color-fg-subtle);
+  font-weight: var(--font-weight-regular);
+}
+
+.deltaValue {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+}
+
+.deltaPercent {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-xs);
+}
+
+.noReference {
+  color: var(--color-fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.interactiveRow {
+  cursor: pointer;
+
+  @include from(md) {
+    &:hover {
+      background-color: var(--color-surface-muted) !important;
+    }
+  }
+}
+
+.drillDownBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--color-fg-subtle);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  @include touch-target(28px);
+
+  @include focus-visible-ring;
+
+  &:hover {
+    color: var(--color-primary-600);
+    background-color: var(--color-primary-50);
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.drillDownPlaceholder {
+  display: inline-block;
+  inline-size: 28px;
+  block-size: 28px;
+}
