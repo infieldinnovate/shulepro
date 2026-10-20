@@ -69,3 +69,23 @@ export type { EvidenceUploaderProps } from "./EvidenceUploader";
 
 export { PortfolioGallery } from "./PortfolioGallery";
 export type { PortfolioGalleryProps, PortfolioGroupBy } from "./PortfolioGallery";
+
+export { CompetencyProgressCard } from "./CompetencyProgressCard";
+export type {
+  CompetencyProgressCardProps,
+  ProgressMeasureStatus,
+} from "./CompetencyProgressCard";
+
+export { CompetencyMatrix } from "./CompetencyMatrix";
+export type { AssessmentCompetencyMatrixProps } from "./CompetencyMatrix";
+
+export { LearningOutcomeStatus } from "./LearningOutcomeStatus";
+export type { LearningOutcomeStatusProps } from "./LearningOutcomeStatus";
+
+export { LearningGapList } from "./LearningGapList";
+export type {
+  AssessmentLearningGapListProps,
+  LearningGap as AssessmentLearningGap,
+  LearningGapSeverity as AssessmentLearningGapSeverity,
+  LearningGapScope as AssessmentLearningGapScope,
+} from "./LearningGapList";
