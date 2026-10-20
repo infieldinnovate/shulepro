@@ -1,0 +1,57 @@
+.loadingCard,
+.emptyCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.metaLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.metaValue {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.statIcon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-fg-muted);
+
+  svg {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+}
+
+.classAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-primary-900);
+    color: var(--color-primary-200);
+  }
+
+  svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+}

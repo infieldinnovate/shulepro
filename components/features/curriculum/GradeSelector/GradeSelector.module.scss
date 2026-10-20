@@ -1,0 +1,14 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.5rem;
+}
+
+.empty {
+  padding: var(--space-2);
+}
+
+.select {
+  min-inline-size: 0;
+}
