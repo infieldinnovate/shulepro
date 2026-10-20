@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-inline-size: 0;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.promptsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ratingOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--color-warning-500);
+}
+
+.ratingLabel {
+  margin-inline-start: var(--space-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}

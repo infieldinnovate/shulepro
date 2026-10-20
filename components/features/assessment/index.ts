@@ -18,6 +18,9 @@ export type {
   EvidenceItem,
   ProjectPhase,
   PerformanceTask,
+  CompetencyResult,
+  ReflectionPrompt,
+  ProgressReport,
 } from "./types";
 
 export { AssessmentStatusBadge, DEFAULT_ASSESSMENT_STATUS_MAP } from "./AssessmentStatusBadge";
@@ -89,3 +92,24 @@ export type {
   LearningGapSeverity as AssessmentLearningGapSeverity,
   LearningGapScope as AssessmentLearningGapScope,
 } from "./LearningGapList";
+
+export { AssessmentFeedbackPanel } from "./AssessmentFeedbackPanel";
+export type {
+  AssessmentFeedbackPanelProps,
+  FeedbackType,
+} from "./AssessmentFeedbackPanel";
+
+export { AssessmentModerationPanel } from "./AssessmentModerationPanel";
+export type {
+  AssessmentModerationPanelProps,
+  CorrectionStatus,
+} from "./AssessmentModerationPanel";
+
+export { ProgressReportCard } from "./ProgressReportCard";
+export type { ProgressReportCardProps } from "./ProgressReportCard";
+
+export { LearnerReflectionForm } from "./LearnerReflectionForm";
+export type { LearnerReflectionFormProps } from "./LearnerReflectionForm";
+
+export { ParentProgressSummary } from "./ParentProgressSummary";
+export type { ParentProgressSummaryProps } from "./ParentProgressSummary";

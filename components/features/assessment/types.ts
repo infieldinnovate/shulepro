@@ -179,3 +179,47 @@ export interface PerformanceTask {
   timeLimit?: string;
   rubricRef?: string;
 }
+
+/** A single competency result in a progress report. */
+export interface CompetencyResult {
+  /** Stable competency or strand key. */
+  key: string;
+  /** Human-readable label. */
+  label: string;
+  /** Attainment level achieved (matches an AttainmentLevel.key). */
+  levelKey?: string;
+  /** Evidence status for this competency. */
+  evidenceStatus: EvidenceStatus;
+  /** Pre-computed trend direction. */
+  trend?: "up" | "down" | "flat";
+  /** Optional numeric value (e.g. percentage). */
+  value?: number | null;
+  /** Optional unit suffix. */
+  unit?: string;
+}
+
+/** A configurable reflection prompt for learner self-assessment. */
+export interface ReflectionPrompt {
+  id: string;
+  question: string;
+  type: "text" | "rating" | "choice";
+  /** For "choice" prompts: available options. */
+  choices?: string[];
+  required?: boolean;
+}
+
+/** An approved progress report for a specific audience. */
+export interface ProgressReport {
+  id: string;
+  learnerRef: string;
+  /** Reporting period label (e.g. "Term 1, 2025"). */
+  period: string;
+  summary: string;
+  competencyResults: CompetencyResult[];
+  attendanceSummary?: string;
+  teacherComment?: string;
+  nextSteps?: string[];
+  generatedAt: Date | string;
+  approvedBy?: string;
+  audience: "parent" | "teacher" | "leadership" | "learner";
+}

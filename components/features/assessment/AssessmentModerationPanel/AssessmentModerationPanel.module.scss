@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.title {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+}
+
+.findingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.findingCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.findingHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.reviewer {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+}
+
+.date {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.findingText {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+}
+
+.resolvedAt {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.actions {
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.addFindingBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  align-self: flex-start;
+  @include touch-target(40px);
+  @include focus-visible-ring;
+  transition: border-color 0.15s ease, color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--color-primary-500);
+    color: var(--color-primary-700);
+    background-color: var(--color-primary-50);
+
+    [data-theme="dark"] & {
+      color: var(--color-primary-300);
+      background-color: var(--color-primary-900);
+    }
+  }
+}
