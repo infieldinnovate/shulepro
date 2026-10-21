@@ -1,0 +1,152 @@
+.header {
+  overflow: hidden;
+}
+
+.breadcrumbs {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-muted);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+
+  @include from(md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.name {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-fg);
+
+  @include from(md) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.status {
+  flex-shrink: 0;
+}
+
+.roleLabel {
+  margin: var(--space-1) 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.disabledReason {
+  margin: var(--space-2) 0 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-warning-700);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.contactIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+}
+
+.contactText {
+  @include truncate;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+
+  @include from(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include from(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.fieldValue {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  @include truncate;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  flex-shrink: 0;
+
+  @include from(md) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading,
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 8rem;
+}
