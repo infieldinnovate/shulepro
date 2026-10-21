@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.filterControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  @include from(md) {
+    flex-wrap: nowrap;
+  }
+}
+
+.filterSelect {
+  flex: 1 1 8rem;
+  min-inline-size: 0;
+}
+
+// ---- Grid ----
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+
+  @include from(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include from(lg) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

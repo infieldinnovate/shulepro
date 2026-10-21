@@ -33,3 +33,28 @@ export type {
   CareerGoalCardProps,
   CareerGoalStatusBadgeMap,
 } from "./CareerGoalCard";
+
+export type {
+  LearningAreaRef,
+  InterestDimensionRef,
+  CareerClusterRef,
+  CareerPathwayRef,
+  CareerOccupation,
+  ClusterLearningArea,
+  ClusterInterestLink,
+  CareerCluster,
+  CareerPathway,
+  CareerExplorerFacet,
+  CareerExplorerFilters,
+  CareerRecommendation,
+  CareerRecommendationInputGap,
+} from "./types";
+
+export { CareerClusterCard } from "./CareerClusterCard";
+export type { CareerClusterCardProps } from "./CareerClusterCard";
+
+export { CareerExplorer } from "./CareerExplorer";
+export type { CareerExplorerProps } from "./CareerExplorer";
+
+export { CareerRecommendationPanel } from "./CareerRecommendationPanel";
+export type { CareerRecommendationPanelProps } from "./CareerRecommendationPanel";

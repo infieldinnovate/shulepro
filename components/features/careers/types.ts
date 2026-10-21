@@ -182,3 +182,133 @@ export interface CareerAssessmentFormValues {
   responses: Record<string, string>;
   notes: string;
 }
+
+// ============================================================
+// Career clusters, pathways, explorer, and recommendations
+// All cluster definitions, pathway requirements, and
+// recommendation rules are configurable via props — no
+// official CBC eligibility rules or pathway requirements
+// are hardcoded here.
+// ============================================================
+
+/** A reference to a learning area (id or key). */
+export type LearningAreaRef = string;
+
+/** A reference to an interest dimension (matches CareerInterestDimension.key). */
+export type InterestDimensionRef = string;
+
+/** A reference to a career cluster (matches CareerCluster.key). */
+export type CareerClusterRef = string;
+
+/** A reference to a pathway (matches CareerPathway.key). */
+export type CareerPathwayRef = string;
+
+/** A sample occupation within a career cluster. */
+export interface CareerOccupation {
+  id: string;
+  /** Human-readable occupation title. */
+  label: string;
+  /** Optional short description of the occupation. */
+  description?: string;
+}
+
+/** A related learning area linked to a career cluster. */
+export interface ClusterLearningArea {
+  /** Matches a learning area id/key. */
+  ref: LearningAreaRef;
+  /** Display label for the learning area. */
+  label: string;
+}
+
+/** A related interest dimension linked to a career cluster. */
+export interface ClusterInterestLink {
+  /** Matches an interest dimension key. */
+  dimensionKey: InterestDimensionRef;
+  /** Display label for the interest dimension. */
+  label: string;
+}
+
+/**
+ * A configurable career cluster — a group of related
+ * occupations, learning areas, and interest dimensions.
+ * NOT a hardcoded official pathway grouping.
+ */
+export interface CareerCluster {
+  id: string;
+  /** Stable key (e.g. "stem"). */
+  key: CareerClusterRef;
+  /** Human-readable cluster title. */
+  label: string;
+  /** Optional short description of the cluster. */
+  description?: string;
+  /** Related learning areas. */
+  learningAreas: ClusterLearningArea[];
+  /** Related interest dimensions. */
+  interests: ClusterInterestLink[];
+  /** Sample occupations within this cluster. */
+  occupations: CareerOccupation[];
+  /** Optional learner-fit summary (caller-supplied, non-binding). */
+  fitSummary?: string;
+  /** Optional fit confidence label (e.g. "Strong", "Exploring"). */
+  fitConfidenceLabel?: string;
+}
+
+/** A configurable career pathway option. */
+export interface CareerPathway {
+  id: string;
+  key: CareerPathwayRef;
+  /** Human-readable pathway title. */
+  label: string;
+  /** Optional description of the pathway. */
+  description?: string;
+  /** Optional cluster this pathway belongs to. */
+  clusterKey?: CareerClusterRef;
+  /** Optional cluster display label (caller-supplied). */
+  clusterLabel?: string;
+  /** Optional related learning areas. */
+  learningAreas?: ClusterLearningArea[];
+  /** Optional related interest dimensions. */
+  interests?: ClusterInterestLink[];
+}
+
+/** A filter facet for the CareerExplorer. */
+export interface CareerExplorerFacet {
+  /** Stable facet key (e.g. "cluster", "interest", "learningArea"). */
+  key: string;
+  /** Human-readable facet label. */
+  label: string;
+  /** Selectable options for this facet. */
+  options: CareerChoiceOption[];
+}
+
+/** Active filter values for the CareerExplorer, keyed by facet key. */
+export type CareerExplorerFilters = Record<string, string>;
+
+/** A single career recommendation entry. */
+export interface CareerRecommendation {
+  id: string;
+  /** Human-readable recommendation title (e.g. cluster or pathway name). */
+  title: string;
+  /** Optional description of the recommended option. */
+  description?: string;
+  /** Explicit, human-readable rationale for this recommendation. */
+  rationale: string;
+  /** Explicit limitations or caveats (e.g. missing inputs, low confidence). */
+  limitations?: string[];
+  /** Optional confidence label (caller-supplied, non-binding). */
+  confidenceLabel?: string;
+  /** Optional related cluster/pathway reference for drill-down. */
+  targetRef?: string;
+  /** Optional display label for the drill-down target. */
+  targetLabel?: string;
+}
+
+/** Disclosed gaps in the inputs used to generate recommendations. */
+export interface CareerRecommendationInputGap {
+  id: string;
+  /** Human-readable label for the missing or incomplete input. */
+  label: string;
+  /** Optional explanation of why this input matters. */
+  explanation?: string;
+}
+
