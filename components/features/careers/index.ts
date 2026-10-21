@@ -58,3 +58,38 @@ export type { CareerExplorerProps } from "./CareerExplorer";
 
 export { CareerRecommendationPanel } from "./CareerRecommendationPanel";
 export type { CareerRecommendationPanelProps } from "./CareerRecommendationPanel";
+
+// --- 10C: Pathways ---
+
+export type {
+  PathwayComparisonCriterion,
+  PathwayComparisonValue,
+  PathwayComparisonEntry,
+  LearningAreaChoiceOption,
+  LearningAreaChoiceRules,
+  LearningAreaChoiceFormValues,
+  PathwayEligibilityStatus,
+  PathwayEligibilityCriterion,
+  PathwayEligibility,
+  PathwayReviewStage,
+  PathwayApprovalDecision,
+  PathwayAllocation,
+} from "./types";
+
+export { PathwayComparisonCard } from "./PathwayComparisonCard";
+export type { PathwayComparisonCardProps } from "./PathwayComparisonCard";
+
+export { LearningAreaChoiceForm } from "./LearningAreaChoiceForm";
+export type { LearningAreaChoiceFormProps } from "./LearningAreaChoiceForm";
+
+export { PathwayEligibilityPanel } from "./PathwayEligibilityPanel";
+export type { PathwayEligibilityPanelProps } from "./PathwayEligibilityPanel";
+
+export { PathwayReviewStepper } from "./PathwayReviewStepper";
+export type { PathwayReviewStepperProps } from "./PathwayReviewStepper";
+
+export { PathwayApprovalPanel } from "./PathwayApprovalPanel";
+export type { PathwayApprovalPanelProps } from "./PathwayApprovalPanel";
+
+export { FinalAllocationCard } from "./FinalAllocationCard";
+export type { FinalAllocationCardProps } from "./FinalAllocationCard";
