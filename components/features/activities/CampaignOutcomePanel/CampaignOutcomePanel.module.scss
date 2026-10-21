@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.breakdownCard {
+  overflow: hidden;
+}
+
+.breakdownBody {
+  padding: 0;
+}
+
+.outcomeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.outcomeRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: space-between;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+
+  [data-theme="dark"] & {
+    background: color-mix(in srgb, var(--color-surface-muted) 60%, transparent);
+  }
+}
+
+.outcomeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-inline-size: 0;
+}
+
+.outcomeLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.outcomeDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+.uncoveredSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-warning-300) 15%, transparent);
+
+  [data-theme="dark"] & {
+    background: color-mix(in srgb, var(--color-warning-700) 25%, transparent);
+  }
+}
+
+.uncoveredHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.uncoveredIcon {
+  inline-size: 1rem;
+  block-size: 1rem;
+  color: var(--color-warning-700);
+
+  [data-theme="dark"] & {
+    color: var(--color-warning-400);
+  }
+}
+
+.uncoveredTitle {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.uncoveredList {
+  list-style: disc;
+  margin: 0;
+  padding-inline-start: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.uncoveredItem {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+
+  [data-theme="dark"] & {
+    color: var(--color-fg);
+  }
+}
