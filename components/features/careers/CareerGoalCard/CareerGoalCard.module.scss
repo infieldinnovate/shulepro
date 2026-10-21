@@ -1,0 +1,221 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  transition: box-shadow var(--transition-fast, 0.15s ease);
+}
+
+.interactive {
+  cursor: pointer;
+  @include focus-visible-ring;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.overdue {
+  border-color: var(--color-error-300);
+
+  [data-theme="dark"] & {
+    border-color: var(--color-error-700);
+  }
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loadingCard {
+  align-items: center;
+  justify-content: center;
+  min-block-size: 6rem;
+}
+
+.loadingBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+// ---- Header ----
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+  @include line-clamp(3);
+}
+
+// ---- Body ----
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.targetRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.targetIcon {
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex-shrink: 0;
+  margin-block-start: 2px;
+  color: var(--color-primary-500);
+}
+
+.targetText {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg);
+  line-height: var(--line-height-base);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.metaIcon {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.metaLabel {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-subtle);
+}
+
+.metaValue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.metaRowOverdue {
+  color: var(--color-error-600);
+  font-weight: var(--font-weight-semibold);
+
+  [data-theme="dark"] & {
+    color: var(--color-error-400);
+  }
+}
+
+.overdueTag {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 1px;
+  padding-inline: var(--space-1);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-error-100);
+  color: var(--color-error-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+
+  [data-theme="dark"] & {
+    background-color: var(--color-error-900);
+    color: var(--color-error-300);
+  }
+}
+
+.supporterRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.supporterName {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.progress {
+  margin-block-start: var(--space-1);
+}
+
+// ---- Footer ----
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.editBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--color-fg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  @include touch-target(36px);
+  @include focus-visible-ring;
+
+  &:hover {
+    background-color: var(--color-surface-muted);
+    border-color: var(--color-fg-subtle);
+  }
+
+  &:active {
+    background-color: var(--color-secondary-100);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.editIcon {
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+}
