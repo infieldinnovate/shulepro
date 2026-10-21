@@ -53,3 +53,21 @@ export type { ParticipationRegisterProps } from "./ParticipationRegister";
 
 export { AchievementCard } from "./AchievementCard";
 export type { AchievementCardProps } from "./AchievementCard";
+
+// --- 10H: Mentorship, champions, student reflections ---
+
+export type {
+  PersonRef,
+  MentorshipSession,
+  ChampionProfile,
+  StudentReflection,
+} from "./types";
+
+export { MentorshipSessionCard } from "./MentorshipSessionCard";
+export type { MentorshipSessionCardProps } from "./MentorshipSessionCard";
+
+export { ChampionProfileCard } from "./ChampionProfileCard";
+export type { ChampionProfileCardProps } from "./ChampionProfileCard";
+
+export { StudentReflectionCard } from "./StudentReflectionCard";
+export type { StudentReflectionCardProps } from "./StudentReflectionCard";

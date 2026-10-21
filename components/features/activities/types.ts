@@ -292,3 +292,88 @@ export interface Achievement {
   /** Optional image URL (e.g. badge or certificate). */
   imageSrc?: string;
 }
+
+// ============================================================
+// Mentorship, champions, student reflections
+// All mentorship session statuses, focus areas, champion roles,
+// and reflection prompts are configurable via props — no
+// hardcoded official frameworks or fabricated person data.
+// ============================================================
+
+/** A person reference (mentor, mentee, champion, etc.). */
+export interface PersonRef {
+  /** Stable identifier. */
+  id: string;
+  /** Display name. */
+  name: string;
+  /** Optional role/title. */
+  role?: string;
+  /** Optional avatar image URL. */
+  avatarSrc?: string;
+  /** Optional reference (e.g. staff id, admission number). */
+  ref?: string;
+}
+
+/** A configurable mentorship session. */
+export interface MentorshipSession {
+  /** Stable identifier. */
+  id: string;
+  /** Mentor person reference. */
+  mentor: PersonRef;
+  /** Mentee person reference. */
+  mentee: PersonRef;
+  /** Session date (ISO string or Date). */
+  date?: string | Date;
+  /** Optional focus/topic of the session. */
+  focus?: string;
+  /** Optional outcome notes from the session. */
+  outcomes?: string;
+  /** Lifecycle status. */
+  status: ProgrammeStatus;
+  /** Optional linked programme id. */
+  programmeId?: string;
+}
+
+/** A configurable champion/role-model profile. */
+export interface ChampionProfile {
+  /** Stable identifier. */
+  id: string;
+  /** Display name. */
+  name: string;
+  /** Optional bio / description. Supplied, not fabricated. */
+  bio?: string;
+  /** Area of expertise or involvement (e.g. "STEM", "Sports"). */
+  area?: string;
+  /** Optional role/title. */
+  role?: string;
+  /** Optional avatar image URL. */
+  avatarSrc?: string;
+  /** Optional linked programme ids. */
+  programmeIds?: string[];
+  /** Optional linked programme labels for display. */
+  programmes?: string[];
+  /** Optional contact or affiliation note. */
+  affiliation?: string;
+}
+
+/** A learner's supplied reflection on a programme or activity. */
+export interface StudentReflection {
+  /** Stable identifier. */
+  id: string;
+  /** Learner name. */
+  learnerName: string;
+  /** Optional learner reference (e.g. admission number). */
+  learnerRef?: string;
+  /** Optional learner avatar image URL. */
+  learnerAvatarSrc?: string;
+  /** The reflection text — supplied by the learner, read-only display. */
+  reflection: string;
+  /** Optional date the reflection was written. */
+  date?: string | Date;
+  /** Optional linked programme or activity name. */
+  programmeLabel?: string;
+  /** Optional linked programme or activity id. */
+  programmeId?: string;
+  /** Optional reflection prompt or topic label. */
+  prompt?: string;
+}
