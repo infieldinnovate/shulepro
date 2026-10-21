@@ -312,3 +312,150 @@ export interface CareerRecommendationInputGap {
   explanation?: string;
 }
 
+// ============================================================
+// Pathways: comparison, choice, eligibility, review, approval
+// All pathway requirements, eligibility thresholds, and
+// allocation rules are configurable via props — no official
+// CBC pathway requirements or eligibility thresholds are
+// hardcoded here. Allocation is always a human decision.
+// ============================================================
+
+/** A single comparison criterion for pathway comparison. */
+export interface PathwayComparisonCriterion {
+  /** Stable identifier. */
+  key: string;
+  /** Human-readable label for the criterion (e.g. "Interest alignment"). */
+  label: string;
+  /** Optional description of what this criterion measures. */
+  description?: string;
+}
+
+/** A value for a pathway on a comparison criterion. */
+export interface PathwayComparisonValue {
+  /** Matches a PathwayComparisonCriterion.key. */
+  criterionKey: string;
+  /** Display value for this pathway on this criterion. */
+  value: string;
+  /** Optional short summary for compact display. */
+  summary?: string;
+}
+
+/** A pathway included in a comparison, with its values per criterion. */
+export interface PathwayComparisonEntry {
+  /** Matches a CareerPathway.key. */
+  pathwayKey: CareerPathwayRef;
+  /** Display label for the pathway. */
+  label: string;
+  /** Optional short description. */
+  description?: string;
+  /** Values keyed by criterion key. */
+  values: PathwayComparisonValue[];
+}
+
+/** A configurable learning-area choice option. */
+export interface LearningAreaChoiceOption {
+  /** Stable value (e.g. learning area key). */
+  value: string;
+  /** Human-readable label. */
+  label: string;
+  /** Optional description of the learning area. */
+  description?: string;
+  /** Whether this option is pre-selected/disabled (caller-controlled). */
+  disabled?: boolean;
+}
+
+/** Configurable selection rules for the LearningAreaChoiceForm. */
+export interface LearningAreaChoiceRules {
+  /** Minimum number of selections required. */
+  minSelections?: number;
+  /** Maximum number of selections allowed (0 = unlimited). */
+  maxSelections?: number;
+  /** Whether the learner must rank the selections in order. */
+  requireRanking?: boolean;
+}
+
+/** Form values produced by the LearningAreaChoiceForm. */
+export interface LearningAreaChoiceFormValues {
+  /** Selected learning area values. */
+  selections: string[];
+  /** Optional ranking (ordered values), when requireRanking is true. */
+  ranking?: string[];
+  /** Optional free-text rationale. */
+  rationale?: string;
+}
+
+/** Eligibility status for a single criterion. */
+export type PathwayEligibilityStatus =
+  | "met"
+  | "not-met"
+  | "insufficient-info"
+  | "not-applicable";
+
+/** A single eligibility criterion result. */
+export interface PathwayEligibilityCriterion {
+  id: string;
+  /** Human-readable label for the criterion. */
+  label: string;
+  /** Optional description of what this criterion requires. */
+  description?: string;
+  status: PathwayEligibilityStatus;
+  /** Optional human-readable explanation of the status. */
+  explanation?: string;
+}
+
+/** A pathway eligibility assessment. */
+export interface PathwayEligibility {
+  id: string;
+  /** Display label for the pathway. */
+  pathwayLabel: string;
+  /** Matches a CareerPathway.key. */
+  pathwayKey?: CareerPathwayRef;
+  /** Criterion results. */
+  criteria: PathwayEligibilityCriterion[];
+  /** Optional overall summary (caller-supplied, never a silent pass/fail). */
+  summary?: string;
+}
+
+/** A configurable stage in the pathway review process. */
+export interface PathwayReviewStage {
+  id: string;
+  /** Human-readable label for the stage. */
+  label: string;
+  /** Optional description of the stage. */
+  description?: string;
+  /** Stage status for the stepper/indicator. */
+  status: "completed" | "current" | "pending" | "blocked";
+  /** Optional assignee display name. */
+  assigneeName?: string;
+  /** Optional assignee avatar source. */
+  assigneeAvatarSrc?: string;
+  /** Optional assignee initials. */
+  assigneeInitials?: string;
+}
+
+/** An approval decision type for pathway approval. */
+export type PathwayApprovalDecision = "approve" | "reject" | "request-changes";
+
+/** The final, human-approved allocation. */
+export interface PathwayAllocation {
+  id: string;
+  /** Display label for the allocated pathway. */
+  pathwayLabel: string;
+  /** Matches a CareerPathway.key. */
+  pathwayKey?: CareerPathwayRef;
+  /** Human-readable rationale for the allocation. */
+  rationale: string;
+  /** Display name of the approver who made the decision. */
+  approverName: string;
+  /** Optional approver avatar source. */
+  approverAvatarSrc?: string;
+  /** Optional approver initials. */
+  approverInitials?: string;
+  /** Date the allocation was approved. */
+  approvedAt: Date | string;
+  /** Optional limitations or caveats noted at approval. */
+  limitations?: string[];
+  /** Optional additional notes. */
+  notes?: string;
+}
+
