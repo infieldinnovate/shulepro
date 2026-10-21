@@ -169,3 +169,126 @@ export interface CampaignFormValues {
   participantActive: string;
   participantCompleted: string;
 }
+
+// ============================================================
+// Clubs, events, participation register, achievements
+// All club categories, event types, participation status
+// options, and achievement levels are configurable via
+// props — no hardcoded official frameworks or awards.
+// ============================================================
+
+/** A configurable club (e.g. debate, robotics, drama). */
+export interface Club {
+  /** Stable identifier. */
+  id: string;
+  /** Human-readable club name. */
+  label: string;
+  /** Optional description. */
+  description?: string;
+  /** Club category label (e.g. "Academic", "Sports", "Arts"). */
+  category?: string;
+  /** Optional schedule description (e.g. "Tuesdays 3–4pm"). */
+  schedule?: string;
+  /** Optional meeting location. */
+  location?: string;
+  /** Current membership count. */
+  memberCount?: number | null;
+  /** Lifecycle status. */
+  status: ProgrammeStatus;
+  /** Optional facilitator/supervisor name. */
+  facilitator?: string;
+  /** Optional image URL. */
+  imageSrc?: string;
+}
+
+/** Event/activity type (e.g. "match", "workshop", "competition"). */
+export interface ActivityEventType {
+  /** Stable value. */
+  value: string;
+  /** Human-readable label. */
+  label: string;
+}
+
+/** A configurable activity or event. */
+export interface ActivityEvent {
+  /** Stable identifier. */
+  id: string;
+  /** Human-readable event title. */
+  label: string;
+  /** Optional description. */
+  description?: string;
+  /** Event type (e.g. "match", "workshop"). */
+  type?: ActivityEventType;
+  /** Event date (ISO string or Date). */
+  date?: string | Date;
+  /** Optional location. */
+  location?: string;
+  /** Optional participant count. */
+  participantCount?: number | null;
+  /** Lifecycle status. */
+  status: ProgrammeStatus;
+  /** Optional linked programme or club id. */
+  programmeId?: string;
+}
+
+/** A participation status option (e.g. present, absent, excused). */
+export interface ParticipationStatusOption {
+  /** Stable value. */
+  value: string;
+  /** Human-readable label. */
+  label: string;
+  /** Optional Badge variant for display. */
+  variant?: "neutral" | "success" | "warning" | "error" | "info" | "primary";
+}
+
+/** A single participant row in the participation register. */
+export interface ParticipationRecord {
+  /** Stable identifier (learner/participant id). */
+  id: string;
+  /** Participant display name. */
+  name: string;
+  /** Optional participant reference (e.g. admission number). */
+  ref?: string;
+  /** Current participation status value (matches a ParticipationStatusOption.value). */
+  status: string;
+  /** Optional notes for this participant. */
+  notes?: string;
+  /** Optional additional data columns keyed by column id. */
+  [key: string]: unknown;
+}
+
+/** A configurable extra column for the participation register. */
+export interface ParticipationColumn {
+  /** Stable column id. */
+  id: string;
+  /** Column header label. */
+  label: string;
+  /** Optional description/tooltip. */
+  description?: string;
+}
+
+/** A verified achievement. */
+export interface Achievement {
+  /** Stable identifier. */
+  id: string;
+  /** Achievement title (e.g. "Regional Science Fair — 2nd Place"). */
+  title: string;
+  /** Optional description. */
+  description?: string;
+  /** Achievement level (e.g. "Gold", "Regional"). Supplied, not fabricated. */
+  level?: string;
+  /** Date the achievement was earned. */
+  date?: string | Date;
+  /** Optional reference to evidence (e.g. certificate number, portfolio link). */
+  evidenceRef?: string;
+  /** Name of the person who verified this achievement. */
+  verifier?: string;
+  /** Optional verifier role/title. */
+  verifierRole?: string;
+  /** Optional linked programme, club, or campaign id. */
+  programmeId?: string;
+  /** Optional recipient name (if not the learner themselves). */
+  recipient?: string;
+  /** Optional image URL (e.g. badge or certificate). */
+  imageSrc?: string;
+}

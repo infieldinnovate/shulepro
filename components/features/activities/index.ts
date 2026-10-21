@@ -29,3 +29,27 @@ export type { CampaignProgressTrackerProps } from "./CampaignProgressTracker";
 
 export { CampaignOutcomePanel } from "./CampaignOutcomePanel";
 export type { CampaignOutcomePanelProps } from "./CampaignOutcomePanel";
+
+// --- 10G: Clubs, events, participation register, achievements ---
+
+export type {
+  Club,
+  ActivityEventType,
+  ActivityEvent,
+  ParticipationStatusOption,
+  ParticipationRecord,
+  ParticipationColumn,
+  Achievement,
+} from "./types";
+
+export { ClubCard } from "./ClubCard";
+export type { ClubCardProps } from "./ClubCard";
+
+export { ActivityEventCard } from "./ActivityEventCard";
+export type { ActivityEventCardProps } from "./ActivityEventCard";
+
+export { ParticipationRegister } from "./ParticipationRegister";
+export type { ParticipationRegisterProps } from "./ParticipationRegister";
+
+export { AchievementCard } from "./AchievementCard";
+export type { AchievementCardProps } from "./AchievementCard";
