@@ -93,3 +93,16 @@ export type { PathwayApprovalPanelProps } from "./PathwayApprovalPanel";
 
 export { FinalAllocationCard } from "./FinalAllocationCard";
 export type { FinalAllocationCardProps } from "./FinalAllocationCard";
+
+// --- 10D: Career guidance session ---
+
+export type {
+  GuidanceSessionTypeOption,
+  GuidanceDiscussionPromptOption,
+  GuidanceSessionOutcomeOption,
+  GuidanceNextStep,
+  CareerGuidanceSessionFormValues,
+} from "./types";
+
+export { CareerGuidanceSessionForm } from "./CareerGuidanceSessionForm";
+export type { CareerGuidanceSessionFormProps } from "./CareerGuidanceSessionForm";

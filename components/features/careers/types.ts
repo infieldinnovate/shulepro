@@ -459,3 +459,67 @@ export interface PathwayAllocation {
   notes?: string;
 }
 
+// ============================================================
+// Career guidance sessions
+// All session-type options, discussion-prompt options, and
+// outcome labels are configurable via props — no official
+// guidance frameworks or outcome scales are hardcoded here.
+// ============================================================
+
+/** A configurable session-type option for guidance sessions. */
+export interface GuidanceSessionTypeOption {
+  /** Stable value (e.g. "individual"). */
+  value: string;
+  /** Human-readable label. */
+  label: string;
+  /** Optional description of this session type. */
+  description?: string;
+}
+
+/** A configurable discussion prompt for guidance sessions. */
+export interface GuidanceDiscussionPromptOption {
+  /** Stable value (e.g. "interests"). */
+  value: string;
+  /** Human-readable label for the prompt topic. */
+  label: string;
+  /** Optional description of what this prompt covers. */
+  description?: string;
+}
+
+/** A configurable outcome label for guidance sessions. */
+export interface GuidanceSessionOutcomeOption {
+  /** Stable value (e.g. "explore"). */
+  value: string;
+  /** Human-readable label for the outcome. */
+  label: string;
+  /** Optional description of what this outcome means. */
+  description?: string;
+}
+
+/** A recommended next step captured during a guidance session. */
+export interface GuidanceNextStep {
+  id: string;
+  /** Human-readable description of the next step. */
+  description: string;
+}
+
+/** Form values produced by the CareerGuidanceSessionForm. */
+export interface CareerGuidanceSessionFormValues {
+  /** ISO date string for the session. */
+  sessionDate: string;
+  /** Learner reference (matches LearnerRef). */
+  learnerRef: LearnerRef;
+  /** Selected session-type value. */
+  sessionType: string;
+  /** Selected discussion-prompt values. */
+  discussionPrompts: string[];
+  /** Free-text guidance notes. */
+  notes: string;
+  /** Recommended next steps. */
+  nextSteps: GuidanceNextStep[];
+  /** Selected outcome value. */
+  outcome: string;
+  /** Whether a follow-up session is needed. */
+  followUp: boolean;
+}
+
