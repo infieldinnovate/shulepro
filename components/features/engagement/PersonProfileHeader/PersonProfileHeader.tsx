@@ -6,7 +6,7 @@ import { Spinner } from "../../../ui/Spinner";
 import { EmptyState } from "../../../ui/EmptyState";
 import { Alert } from "../../../ui/Alert";
 import { UserX, Mail, Phone, MapPin } from "lucide-react";
-import type { PersonProfile, DisabledState } from "../../step11/models";
+import type { PersonProfile, DisabledState } from "../models";
 import styles from "./PersonProfileHeader.module.scss";
 
 export interface PersonProfileHeaderProps {
