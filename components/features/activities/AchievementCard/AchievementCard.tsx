@@ -8,7 +8,7 @@ import { Alert } from "../../../ui/Alert";
 import { EmptyState } from "../../../ui/EmptyState";
 import type { Achievement } from "../types";
 import styles from "./AchievementCard.module.scss";
-
+ 
 export interface AchievementCardProps {
   /** Verified achievement to display. */
   achievement: Achievement | null;
@@ -18,7 +18,7 @@ export interface AchievementCardProps {
   children?: ReactNode;
   className?: string;
 }
-
+ 
 function formatDate(date: string | Date | undefined): string | null {
   if (!date) return null;
   const d = typeof date === "string" ? new Date(date) : date;
