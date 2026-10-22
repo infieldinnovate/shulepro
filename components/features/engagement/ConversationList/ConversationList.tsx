@@ -5,7 +5,6 @@ import { Badge } from "../../../ui/Badge";
 import { Spinner } from "../../../ui/Spinner";
 import { Alert } from "../../../ui/Alert";
 import { EmptyState } from "../../../ui/EmptyState";
-import { Avatar } from "../../../ui/Avatar";
 import { Lock, AlertTriangle, MessageCircle } from "lucide-react";
 import type { Conversation } from "../models";
 import styles from "./ConversationList.module.scss";
