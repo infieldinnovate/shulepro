@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
+.entryList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-block-end: var(--space-2);
+}
+
+.entryRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+
+  @include below(sm) {
+    flex-wrap: wrap;
+
+    > :first-child {
+      display: none;
+    }
+  }
+}
+
+.gripIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+}
+
+.weightInput {
+  flex: 0 0 100px;
+  min-inline-size: 80px;
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 36px;
+  block-size: 36px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--color-fg-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    background-color: var(--color-error-50);
+    color: var(--color-error-600);
+  }
+
+  &:focus-visible {
+    @include focus-visible-ring;
+    outline-offset: -1px;
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}

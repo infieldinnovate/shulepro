@@ -72,3 +72,79 @@ export interface PermissionChange {
   previousValue: PermissionValue;
   nextValue: PermissionValue;
 }
+
+// ============================================================
+// School settings types
+// ============================================================
+
+/** School settings form data. All fields are generic — no hardcoded school categories. */
+export interface SchoolSettingsFormData {
+  schoolName: string;
+  address: string;
+  phone: string;
+  email: string;
+  logoUrl: string;
+  timezone: string;
+  language: string;
+  currency: string;
+}
+
+// ============================================================
+// Academic year / period types
+// ============================================================
+
+/** Configurable academic period type (caller-defined union: terms, semesters, quarters, etc.). */
+export type AcademicPeriodType = string;
+
+/** Configurable academic period status (caller-defined union). */
+export type AcademicPeriodStatus = string;
+
+/** An academic period record (term/semester/quarter). */
+export interface AcademicPeriod {
+  id: string;
+  name: string;
+  type: AcademicPeriodType;
+  startDate: string;
+  endDate: string;
+  status: AcademicPeriodStatus;
+}
+
+/** Academic period form data (add or edit). */
+export interface AcademicPeriodFormData {
+  name: string;
+  type: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+}
+
+// ============================================================
+// Assessment configuration types
+// ============================================================
+
+/** A configurable assessment type entry. */
+export interface AssessmentTypeEntry {
+  id: string;
+  label: string;
+  weight: number;
+}
+
+/** A configurable descriptor entry. */
+export interface DescriptorEntry {
+  id: string;
+  label: string;
+}
+
+/** A configurable performance scale level. */
+export interface ScaleLevelEntry {
+  id: string;
+  label: string;
+  value: number;
+}
+
+/** Assessment configuration form data emitted on submit. */
+export interface AssessmentConfigurationFormData {
+  assessmentTypes: AssessmentTypeEntry[];
+  descriptors: DescriptorEntry[];
+  scaleLevels: ScaleLevelEntry[];
+}

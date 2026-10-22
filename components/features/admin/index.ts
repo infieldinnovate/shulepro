@@ -14,6 +14,15 @@ export type {
   PermissionDefinition,
   PermissionCell,
   PermissionChange,
+  SchoolSettingsFormData,
+  AcademicPeriodType,
+  AcademicPeriodStatus,
+  AcademicPeriod,
+  AcademicPeriodFormData,
+  AssessmentTypeEntry,
+  DescriptorEntry,
+  ScaleLevelEntry,
+  AssessmentConfigurationFormData,
 } from "./types";
 
 export { UserAccountForm } from "./UserAccountForm";
@@ -24,3 +33,18 @@ export type {
 
 export { RolePermissionMatrix } from "./RolePermissionMatrix";
 export type { RolePermissionMatrixProps } from "./RolePermissionMatrix";
+
+export { SchoolSettingsForm } from "./SchoolSettingsForm";
+export type {
+  SchoolSettingsFormProps,
+  SchoolSettingsFormOptions,
+} from "./SchoolSettingsForm";
+
+export { AcademicYearSettings } from "./AcademicYearSettings";
+export type {
+  AcademicYearSettingsProps,
+  AcademicYearSettingsOptions,
+} from "./AcademicYearSettings";
+
+export { AssessmentConfigurationForm } from "./AssessmentConfigurationForm";
+export type { AssessmentConfigurationFormProps } from "./AssessmentConfigurationForm";
