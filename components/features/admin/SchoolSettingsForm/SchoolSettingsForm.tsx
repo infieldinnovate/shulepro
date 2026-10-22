@@ -189,7 +189,7 @@ export function SchoolSettingsForm({
               <Input
                 id="phone"
                 type="tel"
-                placeholder="e.g. +254 700 000 000"
+                placeholder="e.g. +1 555 000 0000"
                 {...register("phone")}
                 invalid={!!errors.phone}
               />
@@ -204,7 +204,7 @@ export function SchoolSettingsForm({
               <Input
                 id="email"
                 type="email"
-                placeholder="info@institution.ac.ke"
+                placeholder="info@institution.edu"
                 {...register("email")}
                 invalid={!!errors.email}
               />

@@ -231,13 +231,13 @@ export function MaintenanceRecordForm({
 
           <FormField
             label="Currency"
-            helperText="Optional. e.g. KES, USD."
+            helperText="Optional. Currency code, e.g. USD, EUR."
             errorText={errors.currency?.message as string | undefined}
             invalid={!!errors.currency}
           >
             <Input
               id="currency"
-              placeholder="e.g. KES"
+              placeholder="e.g. USD"
               {...register("currency")}
               invalid={!!errors.currency}
             />

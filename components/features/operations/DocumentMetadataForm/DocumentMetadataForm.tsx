@@ -213,7 +213,7 @@ export function DocumentMetadataForm({
             >
               <Input
                 id="tags"
-                placeholder="e.g. policy, CBC, assessment"
+                placeholder="e.g. policy, curriculum, assessment"
                 {...register("tags")}
                 invalid={!!errors.tags}
               />
