@@ -1,0 +1,78 @@
+.container {
+  min-inline-size: 0;
+  overflow: hidden;
+}
+
+.loadingText {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+}
+
+.scrollWrap {
+  @include contained-scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  min-inline-size: 32rem;
+}
+
+.th {
+  text-align: start;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-block-end: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.tr {
+  border-block-end: 1px solid var(--color-border);
+
+  &:last-child {
+    border-block-end: none;
+  }
+}
+
+.td {
+  padding: var(--space-2) var(--space-3);
+  vertical-align: middle;
+}
+
+.passengerCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.passengerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.passengerName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  overflow-wrap: anywhere;
+}
+
+.passengerMeta {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+}
+
+.currentRoute {
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  overflow-wrap: anywhere;
+}
