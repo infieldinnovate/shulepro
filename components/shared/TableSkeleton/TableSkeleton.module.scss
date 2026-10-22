@@ -1,0 +1,45 @@
+// ============================================================
+// TableSkeleton — placeholder skeleton for data tables
+// ============================================================
+
+.wrapper {
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.srOnly {
+  @include visually-hidden;
+}
+
+.scroll {
+  @include contained-scroll;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  min-inline-size: 0;
+}
+
+.headerCell {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface-muted);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.bodyCell {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+// On wider screens, allow the table to fill the container
+@include from(md) {
+  .scroll {
+    overflow: visible;
+  }
+}

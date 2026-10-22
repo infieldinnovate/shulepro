@@ -1,0 +1,74 @@
+// ============================================================
+// LoadingState — centered loading indicator
+// ============================================================
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding-block: var(--space-8);
+  padding-inline: var(--space-5);
+  min-inline-size: 0;
+  color: var(--color-fg);
+}
+
+.fullScreen {
+  min-block-size: 100vh;
+  min-block-size: 100dvh;
+  padding-block: var(--space-10);
+}
+
+.srOnly {
+  @include visually-hidden;
+}
+
+// ---- Spinner variant ----
+.spinnerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  max-inline-size: 32rem;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg);
+  line-height: var(--line-height-tight);
+}
+
+.message {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  line-height: var(--line-height-base);
+}
+
+// ---- Skeleton variant ----
+.skeletonBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-3);
+  max-inline-size: 40rem;
+  inline-size: 100%;
+}
+
+.skeletonLines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}

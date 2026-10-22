@@ -383,6 +383,32 @@ export type {
   HeatmapColorScale,
 } from "./HeatmapChart";
 
+// ---- Shared state components ----
+
+export { LoadingState } from "./LoadingState";
+export type { LoadingStateProps, LoadingStateVariant } from "./LoadingState";
+
+export { TableSkeleton } from "./TableSkeleton";
+export type { TableSkeletonProps } from "./TableSkeleton";
+
+export { DashboardSkeleton } from "./DashboardSkeleton";
+export type { DashboardSkeletonProps } from "./DashboardSkeleton";
+
+export { ErrorState } from "./ErrorState";
+export type { ErrorStateProps } from "./ErrorState";
+
+export { AccessDenied } from "./AccessDenied";
+export type { AccessDeniedProps } from "./AccessDenied";
+
+export { NotFoundState } from "./NotFoundState";
+export type { NotFoundStateProps } from "./NotFoundState";
+
+export { OfflineNotice } from "./OfflineNotice";
+export type { OfflineNoticeProps } from "./OfflineNotice";
+
+export { UnsavedChangesWarning } from "./UnsavedChangesWarning";
+export type { UnsavedChangesWarningProps } from "./UnsavedChangesWarning";
+
 // Shared chart types (re-exported for consumers)
 export type {
   ChartDataPoint,

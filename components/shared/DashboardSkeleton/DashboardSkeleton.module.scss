@@ -1,0 +1,73 @@
+// ============================================================
+// DashboardSkeleton — placeholder skeleton for dashboard layout
+// ============================================================
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-inline-size: 0;
+}
+
+.srOnly {
+  @include visually-hidden;
+}
+
+// ---- KPI row ----
+.kpiRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+
+  @include from(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include from(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kpiCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+// ---- Chart panel ----
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.chartPlaceholder {
+  min-block-size: 8rem;
+
+  @include from(md) {
+    min-block-size: 16rem;
+  }
+}
+
+// ---- Table / list ----
+.tableCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tableRows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.tableRow {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+
+  @include from(md) {
+    flex-wrap: nowrap;
+  }
+}

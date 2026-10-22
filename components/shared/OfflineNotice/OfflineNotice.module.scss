@@ -1,0 +1,46 @@
+// ============================================================
+// OfflineNotice — banner shown when network is unavailable
+// ============================================================
+
+.offlineNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-warning-200);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-warning-50);
+  color: var(--color-warning-900);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  min-inline-size: 0;
+  flex-wrap: wrap;
+
+  @include from(sm) {
+    flex-wrap: nowrap;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--color-warning-600);
+
+  svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+}
+
+.message {
+  margin: 0;
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+
+.retryButton {
+  flex: 0 0 auto;
+}
