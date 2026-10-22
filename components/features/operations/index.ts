@@ -25,6 +25,12 @@ export type {
   HealthVisitType,
   HealthRecordStatus,
   HealthRecord,
+  DocumentFolderNode,
+  DocumentType,
+  DocumentAccessLevel,
+  DocumentMetadata,
+  ExportFormatId,
+  ExportFormatOption,
 } from "./types";
 
 export { InventoryItemCard } from "./InventoryItemCard";
@@ -65,3 +71,18 @@ export type { IssueReturnPanelProps } from "./IssueReturnPanel";
 
 export { HealthRecordPanel } from "./HealthRecordPanel";
 export type { HealthRecordPanelProps } from "./HealthRecordPanel";
+
+export { DocumentFolderTree } from "./DocumentFolderTree";
+export type { DocumentFolderTreeProps } from "./DocumentFolderTree";
+
+export { DocumentMetadataForm } from "./DocumentMetadataForm";
+export type {
+  DocumentMetadataFormProps,
+  DocumentMetadataFormOptions,
+} from "./DocumentMetadataForm";
+
+export { DataImportWizard } from "./DataImportWizard";
+export type { DataImportWizardProps } from "./DataImportWizard";
+
+export { DataExportDialog } from "./DataExportDialog";
+export type { DataExportDialogProps } from "./DataExportDialog";

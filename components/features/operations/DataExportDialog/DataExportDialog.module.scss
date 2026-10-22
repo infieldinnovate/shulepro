@@ -1,0 +1,119 @@
+.dialog {
+  max-block-size: 90vh;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.errorAlert {
+  margin-block-end: var(--space-1);
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-muted);
+  margin-block-end: var(--space-2);
+}
+
+.formatList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formatOption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    border-color: var(--color-border-strong);
+    background-color: var(--color-surface-muted);
+  }
+
+  &:focus-within {
+    border-color: var(--color-focus);
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.formatSelected {
+  border-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+}
+
+.radioInput {
+  margin-block-start: var(--space-1);
+  flex-shrink: 0;
+  accent-color: var(--color-primary-600);
+}
+
+.formatContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  flex: 1;
+}
+
+.formatIcon,
+.formatSpinner {
+  inline-size: 18px;
+  block-size: 18px;
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+  margin-block-start: 2px;
+}
+
+.formatSpinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.formatText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-inline-size: 0;
+}
+
+.formatLabel {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.formatDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-subtle);
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}

@@ -154,3 +154,50 @@ export interface HealthRecord {
   followUpDate?: Date | string;
   status?: HealthRecordStatus;
 }
+
+// ============================================================
+// Document folder tree types
+// ============================================================
+
+/** A hierarchical folder node in a document folder tree. */
+export interface DocumentFolderNode {
+  id: string;
+  name: string;
+  documentCount?: number;
+  children?: DocumentFolderNode[];
+}
+
+// ============================================================
+// Document metadata types
+// ============================================================
+
+/** Configurable document type (caller-defined union). */
+export type DocumentType = string;
+
+/** Configurable document access level (caller-defined union). */
+export type DocumentAccessLevel = string;
+
+/** Document metadata form data. */
+export interface DocumentMetadata {
+  title: string;
+  documentType: DocumentType;
+  tags: string;
+  author: string;
+  date: string;
+  description: string;
+  accessLevel: DocumentAccessLevel;
+}
+
+// ============================================================
+// Data export types
+// ============================================================
+
+/** Configurable export format (caller-defined union). */
+export type ExportFormatId = string;
+
+/** An export format option for the export dialog. */
+export interface ExportFormatOption {
+  id: ExportFormatId;
+  label: string;
+  description?: string;
+}
