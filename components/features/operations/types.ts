@@ -70,3 +70,87 @@ export interface MaintenanceRecord {
   nextDueDate?: Date | string;
   status?: MaintenanceRecordStatus;
 }
+
+// ============================================================
+// Meal programme types
+// ============================================================
+
+/** Configurable meal type (caller-defined union). */
+export type MealType = string;
+
+/** Configurable meal programme status (caller-defined union). */
+export type MealProgrammeStatus = string;
+
+/** A meal programme entry. */
+export interface MealProgramme {
+  id: string;
+  name: string;
+  mealType: MealType;
+  date: Date | string;
+  servedCount: number;
+  eligibleCount: number;
+  provider?: string;
+  status?: MealProgrammeStatus;
+}
+
+// ============================================================
+// Library types
+// ============================================================
+
+/** Configurable library item category (caller-defined union). */
+export type LibraryItemCategory = string;
+
+/** Configurable library availability status (caller-defined union). */
+export type LibraryAvailabilityStatus = string;
+
+/** A library item record. */
+export interface LibraryItem {
+  id: string;
+  title: string;
+  author?: string;
+  isbn?: string;
+  category: LibraryItemCategory;
+  availableCopies: number;
+  totalCopies: number;
+  shelfLocation?: string;
+  status?: LibraryAvailabilityStatus;
+}
+
+/** A borrower reference for library issue/return. */
+export interface LibraryBorrower {
+  id: string;
+  name: string;
+}
+
+/** An issue/return record for a library item. */
+export interface LibraryIssueRecord {
+  itemId: string;
+  borrowerId: string;
+  borrowerName: string;
+  issueDate: Date | string;
+  dueDate: Date | string;
+  returnDate?: Date | string;
+  isIssued: boolean;
+}
+
+// ============================================================
+// Health record types
+// ============================================================
+
+/** Configurable health visit type (caller-defined union). */
+export type HealthVisitType = string;
+
+/** Configurable health record status (caller-defined union). */
+export type HealthRecordStatus = string;
+
+/** A health record entry. */
+export interface HealthRecord {
+  id: string;
+  learnerName?: string;
+  visitDate: Date | string;
+  visitType: HealthVisitType;
+  provider?: string;
+  notes?: string;
+  followUpDate?: Date | string;
+  status?: HealthRecordStatus;
+}

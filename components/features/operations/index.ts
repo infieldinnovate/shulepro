@@ -14,6 +14,17 @@ export type {
   InventoryItem,
   AssetAssignment,
   MaintenanceRecord,
+  MealType,
+  MealProgrammeStatus,
+  MealProgramme,
+  LibraryItemCategory,
+  LibraryAvailabilityStatus,
+  LibraryItem,
+  LibraryBorrower,
+  LibraryIssueRecord,
+  HealthVisitType,
+  HealthRecordStatus,
+  HealthRecord,
 } from "./types";
 
 export { InventoryItemCard } from "./InventoryItemCard";
@@ -36,3 +47,21 @@ export type {
   MaintenanceRecordFormData,
   MaintenanceRecordFormOptions,
 } from "./MaintenanceRecordForm";
+
+export { MealProgrammeCard } from "./MealProgrammeCard";
+export type {
+  MealProgrammeCardProps,
+  MealProgrammeStatusBadgeMap,
+} from "./MealProgrammeCard";
+
+export { LibraryItemCard } from "./LibraryItemCard";
+export type {
+  LibraryItemCardProps,
+  LibraryAvailabilityBadgeMap,
+} from "./LibraryItemCard";
+
+export { IssueReturnPanel } from "./IssueReturnPanel";
+export type { IssueReturnPanelProps } from "./IssueReturnPanel";
+
+export { HealthRecordPanel } from "./HealthRecordPanel";
+export type { HealthRecordPanelProps } from "./HealthRecordPanel";
