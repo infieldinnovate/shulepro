@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  gap: var(--space-3);
+}
+
+.timestamp {
+  font-variant-numeric: tabular-nums;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+}
+
+.actor {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+}
+
+.resource {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+}
+
+.resourceId {
+  color: var(--color-fg-subtle);
+  font-size: var(--font-size-xs);
+}
+
+.description {
+  color: var(--color-fg);
+  max-inline-size: 40ch;
+}
+
+.muted {
+  color: var(--color-fg-subtle);
+}

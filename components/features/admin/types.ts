@@ -148,3 +148,39 @@ export interface AssessmentConfigurationFormData {
   descriptors: DescriptorEntry[];
   scaleLevels: ScaleLevelEntry[];
 }
+
+// ============================================================
+// Audit log types
+// The component is purely presentational — the caller owns
+// all audit data. These types describe the shape supplied.
+// ============================================================
+
+/** Configurable audit log action type (caller-defined union). */
+export type AuditLogActionType = string;
+
+/** Configurable audit log severity (caller-defined union). */
+export type AuditLogSeverity = string;
+
+/** An audit log event record supplied by the caller. */
+export interface AuditLogEvent {
+  id: string;
+  timestamp: string;
+  actorName: string;
+  actionType: AuditLogActionType;
+  resource: string;
+  resourceId: string;
+  description: string;
+  severity?: AuditLogSeverity;
+}
+
+/** Sorting state for the audit log table (column id + direction). */
+export interface AuditLogSortState {
+  columnId: string;
+  direction: "asc" | "desc";
+}
+
+/** Pagination state for the audit log table. */
+export interface AuditLogPaginationState {
+  pageIndex: number;
+  pageSize: number;
+}

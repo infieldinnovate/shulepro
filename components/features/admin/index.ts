@@ -23,6 +23,11 @@ export type {
   DescriptorEntry,
   ScaleLevelEntry,
   AssessmentConfigurationFormData,
+  AuditLogActionType,
+  AuditLogSeverity,
+  AuditLogEvent,
+  AuditLogSortState,
+  AuditLogPaginationState,
 } from "./types";
 
 export { UserAccountForm } from "./UserAccountForm";
@@ -48,3 +53,6 @@ export type {
 
 export { AssessmentConfigurationForm } from "./AssessmentConfigurationForm";
 export type { AssessmentConfigurationFormProps } from "./AssessmentConfigurationForm";
+
+export { AuditLogTable, AUDIT_LOG_COLUMN_IDS, DEFAULT_COLUMN_VISIBILITY } from "./AuditLogTable";
+export type { AuditLogTableProps, AuditLogColumnId } from "./AuditLogTable";
