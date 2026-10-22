@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  overflow: hidden;
+}
+
+.scrollWrapper {
+  @include contained-scroll;
+  max-block-size: 70vh;
+}
+
+.matrix {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  min-inline-size: 600px;
+}
+
+.resourceHeader,
+.roleHeader {
+  text-align: start;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-block-end: 1px solid var(--color-border);
+  white-space: nowrap;
+  position: sticky;
+  inset-block-start: 0;
+  background-color: var(--color-surface);
+  z-index: 1;
+}
+
+.roleHeader {
+  text-align: center;
+}
+
+.resourceCell {
+  padding: var(--space-2) var(--space-3);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg);
+  border-block-end: 1px solid var(--color-border);
+  border-inline-end: 1px solid var(--color-border);
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.permissionCell {
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-fg-muted);
+  border-block-end: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.valueCell {
+  padding: var(--space-1);
+  text-align: center;
+  border-block-end: 1px solid var(--color-border);
+  border-inline-start: 1px solid var(--color-border);
+}
+
+.row {
+  &:nth-child(even) {
+    background-color: var(--color-surface-muted);
+  }
+}
+
+.cellButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border: none;
+  background: transparent;
+  cursor: default;
+  border-radius: var(--radius-sm);
+  padding: 0;
+  transition: background-color $transition-fast;
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-secondary-100);
+    }
+
+    &:focus-visible {
+      @include focus-visible-ring;
+      outline-offset: -1px;
+    }
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.cellIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 18px;
+  block-size: 18px;
+
+  svg {
+    inline-size: 14px;
+    block-size: 14px;
+  }
+
+  &.success {
+    color: var(--color-success-600);
+  }
+
+  &.neutral {
+    color: var(--color-fg-subtle);
+  }
+
+  &.warning {
+    color: var(--color-warning-600);
+  }
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-block-start: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
