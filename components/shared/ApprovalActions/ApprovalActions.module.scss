@@ -119,13 +119,15 @@
   cursor: progress;
 }
 
-@media (max-width: 480px) {
-  .toolbar {
+.toolbar {
+  @include to(sm) {
     flex-direction: column;
     align-items: stretch;
   }
+}
 
-  .button {
+.button {
+  @include to(sm) {
     justify-content: center;
     inline-size: 100%;
   }

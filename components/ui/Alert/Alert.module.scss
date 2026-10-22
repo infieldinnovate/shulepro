@@ -112,7 +112,7 @@
     opacity $transition-fast;
 
   &:hover {
-    background-color: rgba(15, 23, 42, 0.08);
+    background-color: color-mix(in srgb, var(--color-fg) 8%, transparent);
     opacity: 1;
   }
 
