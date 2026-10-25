@@ -12,46 +12,9 @@
   min-block-size: 6rem;
 }
 
-// ---- Day selector (visible on mobile only) ----
-.daySelector {
-  display: flex;
-  gap: var(--space-1);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-block: var(--space-1);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.dayTab {
-  flex-shrink: 0;
-  padding-block: var(--space-1);
-  padding-inline: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-fg-muted);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  white-space: nowrap;
-  @include touch-target(36px);
-  @include focus-visible-ring;
-}
-
-.dayTabActive {
-  background-color: var(--color-primary-500);
-  border-color: var(--color-primary-500);
-  color: var(--color-surface);
-
-  [data-theme="dark"] & {
-    background-color: var(--color-primary-600);
-    border-color: var(--color-primary-600);
-    color: var(--color-surface);
-  }
+// ---- Mobile tabs (visible on mobile only) ----
+.mobileTabs {
+  // Tabs component is hidden on desktop via media query below.
 }
 
 // ---- Stacked view (mobile) ----
@@ -253,11 +216,7 @@
 
 // ---- Desktop: show grid, hide stacked ----
 @include from(md) {
-  .daySelector {
-    display: none;
-  }
-
-  .stackedView {
+  .mobileTabs {
     display: none;
   }
 

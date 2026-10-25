@@ -19,46 +19,6 @@
   color: var(--color-fg);
 }
 
-// ---- Group tabs ----
-.groupTabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-}
-
-.groupTab {
-  padding-block: var(--space-1);
-  padding-inline: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  background-color: var(--color-surface);
-  color: var(--color-fg-muted);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: border-color var(--transition-fast, 0.15s ease),
-    background-color var(--transition-fast, 0.15s ease),
-    color var(--transition-fast, 0.15s ease);
-  @include touch-target(36px);
-  @include focus-visible-ring;
-
-  &:hover {
-    border-color: var(--color-border-strong);
-    color: var(--color-fg);
-  }
-}
-
-.groupTabActive {
-  border-color: var(--color-primary-500);
-  background-color: var(--color-primary-50);
-  color: var(--color-primary-700);
-
-  [data-theme="dark"] & {
-    background-color: var(--color-primary-900);
-    color: var(--color-primary-200);
-  }
-}
-
 // ---- Group section ----
 .groupSection {
   display: flex;

@@ -7,6 +7,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
+import { Tabs } from "@/components/ui/Tabs";
 import { resolveChartColor } from "@/lib/chartColors";
 import type {
   TimetableConfig,
@@ -132,59 +133,55 @@ export function TimetableGrid({
 
   return (
     <div className={clsx(styles.container, className)} aria-label={ariaLabel}>
-      {/* Mobile day selector */}
-      <div className={styles.daySelector} role="tablist" aria-label="Select day">
-        {sortedWeekdays.map((day) => (
-          <Button
-            key={day.key}
-            variant="ghost"
-            size="sm"
-            aria-pressed={activeDayKey === day.key}
-            className={clsx(
-              styles.dayTab,
-              activeDayKey === day.key && styles.dayTabActive,
-            )}
-            onClick={() => setSelectedDayKey(day.key)}
-          >
-            {day.shortLabel ?? day.label}
-          </Button>
-        ))}
-      </div>
-
-      {/* Stacked day view (mobile) */}
-      <div className={styles.stackedView}>
-        {sortedPeriods.map((period) => {
-          const entry = activeDayKey
-            ? entryMap.get(`${activeDayKey}::${period.key}`)
-            : undefined;
-          return (
-            <div key={period.key} className={styles.stackedRow}>
-              <div className={styles.stackedTime}>
-                <span className={styles.stackedPeriod}>{period.label}</span>
-                {period.startTime && period.endTime && (
-                  <span className={styles.stackedTimeRange}>
-                    {period.startTime}–{period.endTime}
-                  </span>
-                )}
-              </div>
-              <div
-                className={clsx(
-                  styles.stackedCell,
-                  period.isBreak && styles.breakCell,
-                )}
-              >
-                {period.isBreak ? (
-                  <span className={styles.breakLabel}>{period.label}</span>
-                ) : entry ? (
-                  renderEntry(entry)
-                ) : (
-                  renderFreeCell()
-                )}
-              </div>
+      {/* Mobile day tabs + stacked view */}
+      <Tabs
+        className={styles.mobileTabs}
+        ariaLabel="Select day"
+        selectedIndex={Math.max(
+          0,
+          sortedWeekdays.findIndex((d) => d.key === activeDayKey),
+        )}
+        onSelect={(index) =>
+          setSelectedDayKey(sortedWeekdays[index]?.key ?? null)
+        }
+        items={sortedWeekdays.map((day) => ({
+          id: day.key,
+          label: day.shortLabel ?? day.label,
+          content: (
+            <div className={styles.stackedView}>
+              {sortedPeriods.map((period) => {
+                const entry = entryMap.get(`${day.key}::${period.key}`);
+                return (
+                  <div key={period.key} className={styles.stackedRow}>
+                    <div className={styles.stackedTime}>
+                      <span className={styles.stackedPeriod}>{period.label}</span>
+                      {period.startTime && period.endTime && (
+                        <span className={styles.stackedTimeRange}>
+                          {period.startTime}–{period.endTime}
+                        </span>
+                      )}
+                    </div>
+                    <div
+                      className={clsx(
+                        styles.stackedCell,
+                        period.isBreak && styles.breakCell,
+                      )}
+                    >
+                      {period.isBreak ? (
+                        <span className={styles.breakLabel}>{period.label}</span>
+                      ) : entry ? (
+                        renderEntry(entry)
+                      ) : (
+                        renderFreeCell()
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          ),
+        }))}
+      />
 
       {/* Grid view (desktop) */}
       <div

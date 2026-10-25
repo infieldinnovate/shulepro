@@ -18,7 +18,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { Button } from "@/components/ui/Button";
+import { Tabs } from "@/components/ui/Tabs";
 import type { EvidenceItem } from "@/components/features/assessment/types";
 import styles from "./PortfolioGallery.module.scss";
 
@@ -135,112 +135,110 @@ export function PortfolioGallery({
     );
   }
 
-  const groups = grouped.filter(([key]) =>
-    activeGroup === null ? true : key === activeGroup,
+  const renderGroupSection = (groupKey: string, items: EvidenceItem[]) => (
+    <div key={groupKey} className={styles.groupSection}>
+      {groupBy !== "none" && <h4 className={styles.groupTitle}>{groupKey}</h4>}
+      <div
+        className={styles.grid}
+        style={{
+          "--cols-base": columns.base,
+          "--cols-sm": columns.sm ?? columns.base,
+          "--cols-md": columns.md ?? columns.sm ?? columns.base,
+          "--cols-lg": columns.lg ?? columns.md ?? columns.sm ?? columns.base,
+        } as React.CSSProperties}
+      >
+        {items.map((item) => {
+          const interactive = Boolean(onSelectEvidence);
+          return (
+            <Card
+              key={item.id}
+              padded
+              className={clsx(
+                styles.card,
+                interactive && styles.interactive,
+              )}
+              role={interactive ? "button" : undefined}
+              tabIndex={interactive ? 0 : undefined}
+              onClick={interactive ? () => onSelectEvidence?.(item) : undefined}
+              onKeyDown={
+                interactive
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onSelectEvidence?.(item);
+                      }
+                    }
+                  : undefined
+              }
+              aria-label={interactive ? `View evidence: ${item.name}` : undefined}
+            >
+              <div className={styles.cardIcon}>
+                {iconForType(item.type)}
+              </div>
+              <div className={styles.cardBody}>
+                <span className={styles.cardName}>{item.name}</span>
+                {item.caption && (
+                  <span className={styles.cardCaption}>{item.caption}</span>
+                )}
+                <div className={styles.cardMeta}>
+                  {item.type && (
+                    <Badge variant="neutral" size="sm">
+                      {item.type}
+                    </Badge>
+                  )}
+                  {item.uploadedAt && (
+                    <span className={styles.cardDate}>
+                      {formatDate(item.uploadedAt)}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
   );
 
   return (
     <div className={clsx(styles.container, className)}>
       {title && <h3 className={styles.title}>{title}</h3>}
 
-      {groupBy !== "none" && grouped.length > 1 && (
-        <div className={styles.groupTabs}>
-          <Button
-            variant="ghost"
-            size="sm"
-            className={clsx(
-              styles.groupTab,
-              activeGroup === null && styles.groupTabActive,
-            )}
-            onClick={() => setActiveGroup(null)}
-            aria-pressed={activeGroup === null}
-          >
-            All ({evidenceItems.length})
-          </Button>
-          {grouped.map(([key, items]) => (
-            <Button
-              key={key}
-              variant="ghost"
-              size="sm"
-              className={clsx(
-                styles.groupTab,
-                activeGroup === key && styles.groupTabActive,
-              )}
-              onClick={() => setActiveGroup(key)}
-              aria-pressed={activeGroup === key}
-            >
-              {key} ({items.length})
-            </Button>
-          ))}
-        </div>
+      {groupBy !== "none" && grouped.length > 1 ? (
+        <Tabs
+          ariaLabel="Filter by group"
+          selectedIndex={
+            activeGroup === null
+              ? 0
+              : Math.max(
+                  0,
+                  grouped.findIndex(([key]) => key === activeGroup) + 1,
+                )
+          }
+          onSelect={(index) => {
+            if (index === 0) {
+              setActiveGroup(null);
+            } else {
+              setActiveGroup(grouped[index - 1]?.[0] ?? null);
+            }
+          }}
+          items={[
+            {
+              label: `All (${evidenceItems.length})`,
+              content: grouped.map(([key, items]) =>
+                renderGroupSection(key, items),
+              ),
+            },
+            ...grouped.map(([key, items]) => ({
+              id: key,
+              label: `${key} (${items.length})`,
+              content: renderGroupSection(key, items),
+            })),
+          ]}
+        />
+      ) : (
+        grouped.map(([groupKey, items]) => renderGroupSection(groupKey, items))
       )}
-
-      {groups.map(([groupKey, items]) => (
-        <div key={groupKey} className={styles.groupSection}>
-          {groupBy !== "none" && (
-            <h4 className={styles.groupTitle}>{groupKey}</h4>
-          )}
-          <div
-            className={styles.grid}
-            style={{
-              "--cols-base": columns.base,
-              "--cols-sm": columns.sm ?? columns.base,
-              "--cols-md": columns.md ?? columns.sm ?? columns.base,
-              "--cols-lg": columns.lg ?? columns.md ?? columns.sm ?? columns.base,
-            } as React.CSSProperties}
-          >
-            {items.map((item) => {
-              const interactive = Boolean(onSelectEvidence);
-              return (
-                <Card
-                  key={item.id}
-                  padded
-                  className={clsx(
-                    styles.card,
-                    interactive && styles.interactive,
-                  )}
-                  role={interactive ? "button" : undefined}
-                  tabIndex={interactive ? 0 : undefined}
-                  onClick={interactive ? () => onSelectEvidence?.(item) : undefined}
-                  onKeyDown={
-                    interactive
-                      ? (e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            onSelectEvidence?.(item);
-                          }
-                        }
-                      : undefined
-                  }
-                  aria-label={interactive ? `View evidence: ${item.name}` : undefined}
-                >
-                  <div className={styles.cardIcon}>
-                    {iconForType(item.type)}
-                  </div>
-                  <div className={styles.cardBody}>
-                    <span className={styles.cardName}>{item.name}</span>
-                    {item.caption && (
-                      <span className={styles.cardCaption}>{item.caption}</span>
-                    )}
-                    <div className={styles.cardMeta}>
-                      {item.type && (
-                        <Badge variant="neutral" size="sm">
-                          {item.type}
-                        </Badge>
-                      )}
-                      {item.uploadedAt && (
-                        <span className={styles.cardDate}>
-                          {formatDate(item.uploadedAt)}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      ))}
     </div>
   );
 }
