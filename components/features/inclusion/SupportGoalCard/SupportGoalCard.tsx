@@ -1,7 +1,7 @@
 "use client";
 
 import type { KeyboardEvent, ReactNode } from "react";
-import { format, isPast, isToday } from "date-fns";
+import { isPast, isToday } from "date-fns";
 import { CalendarClock, Pencil } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -12,6 +12,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 import type { SupportGoal } from "@/components/features/inclusion/types";
+import { formatTodayOrDate } from "@/lib/formatTime";
 import styles from "./SupportGoalCard.module.scss";
 
 export interface SupportGoalCardProps {
@@ -27,12 +28,6 @@ export interface SupportGoalCardProps {
   empty?: boolean;
   disabled?: boolean;
   className?: string;
-}
-
-function formatReviewDate(date: Date | string): string {
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (isToday(d)) return "Today";
-  return format(d, "EEE, MMM d, yyyy");
 }
 
 function isReviewOverdue(goal: SupportGoal): boolean {
@@ -168,7 +163,7 @@ export function SupportGoalCard({
             )}
           >
             <CalendarClock aria-hidden="true" className={styles.reviewIcon} />
-            <span>Review: {formatReviewDate(goal.reviewDate)}</span>
+            <span>Review: {formatTodayOrDate(goal.reviewDate)}</span>
           </div>
         )}
 

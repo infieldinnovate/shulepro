@@ -113,6 +113,25 @@ export function formatDateShort(timestamp: DateInput): string {
   });
 }
 
+/**
+ * Format a date as "Today" when it falls on the current calendar day,
+ * otherwise as a short weekday + month string (see formatDateShort).
+ * Useful for review-date labels that collapse to "Today" when due.
+ */
+export function formatTodayOrDate(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  const now = new Date();
+  if (
+    date.getFullYear() === now.getFullYear() &&
+    date.getMonth() === now.getMonth() &&
+    date.getDate() === now.getDate()
+  ) {
+    return "Today";
+  }
+  return formatDateShort(timestamp);
+}
+
 function toDate(value: DateInput): Date | null {
   if (value === undefined || value === null) return null;
   const date = value instanceof Date ? value : new Date(value);

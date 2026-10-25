@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { CareerGoal, CareerGoalStatus } from "@/components/features/careers/types";
-import { formatDateShort } from "@/lib/formatTime";
+import { formatTodayOrDate } from "@/lib/formatTime";
 import styles from "./CareerGoalCard.module.scss";
 
 export type CareerGoalStatusBadgeMap = StatusBadgeMap<CareerGoalStatus>;
@@ -41,12 +41,6 @@ export interface CareerGoalCardProps {
   className?: string;
   /** Optional content rendered in the footer (e.g. actions). */
   footer?: ReactNode;
-}
-
-function formatDate(d: Date | string): string {
-  const date = typeof d === "string" ? new Date(d) : d;
-  if (isToday(date)) return "Today";
-  return formatDateShort(d);
 }
 
 function isReviewOverdue(goal: CareerGoal): boolean {
@@ -160,7 +154,7 @@ export function CareerGoalCard({
           <div className={styles.metaRow}>
             <span className={styles.metaLabel}>Target date</span>
             <span className={styles.metaValue}>
-              {formatDate(goal.targetDate)}
+              {formatTodayOrDate(goal.targetDate)}
             </span>
           </div>
         )}
@@ -175,7 +169,7 @@ export function CareerGoalCard({
             <CalendarClock aria-hidden="true" className={styles.metaIcon} />
             <span className={styles.metaLabel}>Review</span>
             <span className={styles.metaValue}>
-              {formatDate(goal.reviewDate)}
+              {formatTodayOrDate(goal.reviewDate)}
               {overdue && <span className={styles.overdueTag}>Overdue</span>}
             </span>
           </div>

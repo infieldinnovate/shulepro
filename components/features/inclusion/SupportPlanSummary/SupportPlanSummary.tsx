@@ -7,7 +7,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { SupportPlan } from "@/components/features/inclusion/types";
-import { formatDateMedium, formatDateShort } from "@/lib/formatTime";
+import { formatDateMedium, formatTodayOrDate } from "@/lib/formatTime";
 import styles from "./SupportPlanSummary.module.scss";
 
 export interface SupportPlanSummaryProps {
@@ -26,12 +26,6 @@ export interface SupportPlanSummaryProps {
   error?: string;
   empty?: boolean;
   className?: string;
-}
-
-function formatReviewDate(date: Date | string): string {
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (isToday(d)) return "Today";
-  return formatDateShort(date);
 }
 
 function isReviewOverdue(plan: SupportPlan): boolean {
@@ -143,7 +137,7 @@ export function SupportPlanSummary({
                 )}
               >
                 <CalendarClock aria-hidden="true" className={styles.metaIcon} />
-                {formatReviewDate(plan.reviewDate)}
+                {formatTodayOrDate(plan.reviewDate)}
               </dd>
             </div>
           )}

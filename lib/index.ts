@@ -9,6 +9,7 @@ export {
   formatDateMedium,
   formatDateTime,
   formatDateShort,
+  formatTodayOrDate,
 } from "./formatTime";
 
 export {
