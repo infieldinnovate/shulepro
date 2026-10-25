@@ -18,6 +18,7 @@ import {
   type ChartColorToken,
 } from "@/lib/chartColors";
 import type { ChartSegment, ChartDrillDownPayload } from "@/lib/chartTypes";
+import { formatChartValue } from "@/lib/chartTypes";
 import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./DonutChart.module.scss";
 
@@ -42,19 +43,6 @@ export interface DonutChartProps {
   onDrillDown?: (payload: ChartDrillDownPayload) => void;
   className?: string;
   children?: ReactNode;
-}
-
-function formatValue(
-  value: number | string | null | undefined,
-  unit?: string,
-): string {
-  if (value == null || (typeof value === "number" && Number.isNaN(value))) {
-    return "No data";
-  }
-  const n = typeof value === "number" ? value : Number(value);
-  if (Number.isNaN(n)) return "No data";
-  const u = unit ? ` ${unit}` : "";
-  return Number.isInteger(n) ? `${n}${u}` : `${n.toFixed(1)}${u}`;
 }
 
 export function DonutChart({
@@ -96,7 +84,7 @@ export function DonutChart({
     key: s.key,
     name: s.name,
     color: (s.color ?? chartPalette[i % chartPalette.length]) as ChartColorToken,
-    value: showLegendValues ? formatValue(s.value, unit) : undefined,
+    value: showLegendValues ? formatChartValue(s.value, unit) : undefined,
   }));
 
   return (
@@ -155,7 +143,7 @@ export function DonutChart({
             }}
             labelStyle={{ color: "var(--color-fg)", fontWeight: 600 }}
             formatter={(val) => [
-              formatValue(Array.isArray(val) ? val[0] : val, unit),
+              formatChartValue(Array.isArray(val) ? val[0] : val, unit),
               "",
             ]}
           />

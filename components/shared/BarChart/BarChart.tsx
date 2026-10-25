@@ -24,7 +24,7 @@ import type {
   ChartAxisConfig,
   ChartDrillDownPayload,
 } from "@/lib/chartTypes";
-import { extractSeriesValue } from "@/lib/chartTypes";
+import { buildChartData, extractSeriesValue, formatChartValue } from "@/lib/chartTypes";
 import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./BarChart.module.scss";
 
@@ -51,40 +51,7 @@ export interface BarChartProps {
   children?: ReactNode;
 }
 
-interface ChartDatum {
-  xLabel: string;
-  [seriesKey: string]: number | string | null;
-}
 
-function buildChartData(series: ChartSeries[]): ChartDatum[] {
-  const xLabels: string[] = [];
-  for (const s of series) {
-    for (const pt of s.data) {
-      if (!xLabels.includes(pt.label)) xLabels.push(pt.label);
-    }
-  }
-  return xLabels.map((label) => {
-    const datum: ChartDatum = { xLabel: label };
-    for (const s of series) {
-      const pt = s.data.find((p) => p.label === label);
-      datum[s.key] = pt ? pt.value ?? null : null;
-    }
-    return datum;
-  });
-}
-
-function formatValue(
-  value: number | string | null | undefined,
-  unit?: string,
-): string {
-  if (value == null || (typeof value === "number" && Number.isNaN(value))) {
-    return "No data";
-  }
-  const n = typeof value === "number" ? value : Number(value);
-  if (Number.isNaN(n)) return "No data";
-  const u = unit ? ` ${unit}` : "";
-  return Number.isInteger(n) ? `${n}${u}` : `${n.toFixed(1)}${u}`;
-}
 
 export function BarChart({
   title,
@@ -121,7 +88,7 @@ export function BarChart({
     if (points.length === 0) return `${title}: no data available.`;
     const max = points.reduce((m, p) => Math.max(m, p.value ?? -Infinity), -Infinity);
     const min = points.reduce((m, p) => Math.min(m, p.value ?? Infinity), Infinity);
-    return `${title}: ${primary.name} ranging from ${formatValue(min, yAxis?.unit)} to ${formatValue(max, yAxis?.unit)} across ${points.length} categories.`;
+    return `${title}: ${primary.name} ranging from ${formatChartValue(min, yAxis?.unit)} to ${formatChartValue(max, yAxis?.unit)} across ${points.length} categories.`;
   })();
 
   const legendItems = series.map((s, i) => ({
@@ -261,7 +228,7 @@ export function BarChart({
             }}
             labelStyle={{ color: "var(--color-fg)", fontWeight: 600 }}
             formatter={(val) => [
-              formatValue(Array.isArray(val) ? val[0] : val, yAxis?.unit),
+              formatChartValue(Array.isArray(val) ? val[0] : val, yAxis?.unit),
               "",
             ]}
           />

@@ -28,6 +28,20 @@ export {
   resolveChartColor,
 } from "./chartColors";
 export type { ChartColorToken } from "./chartColors";
+export {
+  buildChartData,
+  formatChartValue,
+  extractSeriesValue,
+} from "./chartTypes";
+export type {
+  ChartDataPoint,
+  ChartSeries,
+  ChartSegment,
+  ChartDatum,
+  HeatmapCell,
+  ChartAxisConfig,
+  ChartDrillDownPayload,
+} from "./chartTypes";
 
 export { useReducedMotion } from "./useReducedMotion";
 

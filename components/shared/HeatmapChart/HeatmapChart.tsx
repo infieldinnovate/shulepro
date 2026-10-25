@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { ChartPanel } from "@/components/shared/ChartPanel";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import type { ChartDrillDownPayload } from "@/lib/chartTypes";
+import { formatChartValue } from "@/lib/chartTypes";
 import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./HeatmapChart.module.scss";
 
@@ -37,14 +38,7 @@ export interface HeatmapChartProps {
   children?: ReactNode;
 }
 
-function formatValue(
-  value: number | null | undefined,
-  unit?: string,
-): string {
-  if (value == null || Number.isNaN(value)) return "—";
-  const u = unit ? ` ${unit}` : "";
-  return Number.isInteger(value) ? `${value}${u}` : `${value.toFixed(1)}${u}`;
-}
+
 
 const emptyColor = "var(--color-surface-muted)";
 
@@ -92,7 +86,7 @@ export function HeatmapChart({
   const accessibleSummary = (() => {
     if (summary) return summary;
     if (!hasData) return `${title}: no data available.`;
-    return `${title}: ${rowLabels.length} rows by ${columnLabels.length} columns, values from ${formatValue(min, unit)} to ${formatValue(max, unit)}.`;
+    return `${title}: ${rowLabels.length} rows by ${columnLabels.length} columns, values from ${formatChartValue(min, unit, "—")} to ${formatChartValue(max, unit, "—")}.`;
   })();
 
   function cellColor(value: number | null | undefined): string {
@@ -135,7 +129,7 @@ export function HeatmapChart({
             columnLabels={columnLabels}
             cellMap={cellMap}
             cellColor={cellColor}
-            formatValue={(v) => formatValue(v, unit)}
+            formatValue={(v) => formatChartValue(v, unit, "—")}
             showValues={showValues}
             reduced={reduced}
             onDrillDown={onDrillDown}

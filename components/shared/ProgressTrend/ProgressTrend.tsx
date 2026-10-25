@@ -16,6 +16,7 @@ import {
 import clsx from "clsx";
 import { ChartPanel } from "@/components/shared/ChartPanel";
 import { computeTrend } from "@/lib/analytics";
+import { buildChartData, formatChartValue } from "@/lib/chartTypes";
 import styles from "./ProgressTrend.module.scss";
 
 export interface TrendDataPoint {
@@ -48,44 +49,7 @@ export interface ProgressTrendProps {
   children?: ReactNode;
 }
 
-interface ChartDatum {
-  xLabel: string;
-  [seriesKey: string]: number | string | null;
-}
 
-function buildChartData(series: TrendSeries[]): {
-  data: ChartDatum[];
-  xLabels: string[];
-} {
-  const xLabels: string[] = [];
-  for (const s of series) {
-    for (const pt of s.data) {
-      if (!xLabels.includes(pt.label)) xLabels.push(pt.label);
-    }
-  }
-  const data: ChartDatum[] = xLabels.map((label) => {
-    const datum: ChartDatum = { xLabel: label };
-    for (const s of series) {
-      const pt = s.data.find((p) => p.label === label);
-      datum[s.key] = pt ? pt.value ?? null : null;
-    }
-    return datum;
-  });
-  return { data, xLabels };
-}
-
-function formatTooltipValue(
-  value: number | string | null | undefined,
-  unit?: string,
-): string {
-  if (value == null || (typeof value === "number" && Number.isNaN(value))) {
-    return "No data";
-  }
-  const n = typeof value === "number" ? value : Number(value);
-  if (Number.isNaN(n)) return "No data";
-  const u = unit ? ` ${unit}` : "";
-  return Number.isInteger(n) ? `${n}${u}` : `${n.toFixed(1)}${u}`;
-}
 
 export function ProgressTrend({
   title,
@@ -106,7 +70,7 @@ export function ProgressTrend({
     series.length > 0 && series.some((s) => s.data.length > 0);
   const showEmpty = empty || (!hasData && !loading && !error);
 
-  const { data } = buildChartData(series);
+  const data = buildChartData(series);
 
   const accessibleSummary = (() => {
     if (summary) return summary;
@@ -118,7 +82,7 @@ export function ProgressTrend({
     if (!last) return title;
     const trend = computeTrend(last.value, prev?.value);
     const lastVal =
-      last.value != null ? formatTooltipValue(last.value, unit) : "no data";
+      last.value != null ? formatChartValue(last.value, unit) : "no data";
     if (trend.direction == null) {
       return `${title}: ${primary.name} latest value ${lastVal}. No comparable reference.`;
     }
@@ -191,7 +155,7 @@ export function ProgressTrend({
             }}
             labelStyle={{ color: "var(--color-fg)", fontWeight: 600 }}
             formatter={(val) => [
-              formatTooltipValue(
+              formatChartValue(
                 Array.isArray(val) ? val[0] : val,
                 unit,
               ),

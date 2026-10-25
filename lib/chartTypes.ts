@@ -60,6 +60,56 @@ export function extractSeriesValue(
   return typeof v === "number" && !Number.isNaN(v) ? v : null;
 }
 
+/** Pivoted row format consumed by Recharts cartesian charts. */
+export interface ChartDatum {
+  xLabel: string;
+  [seriesKey: string]: number | string | null;
+}
+
+/**
+ * Pivot an array of series (each with labelled data points) into the
+ * row-oriented `ChartDatum[]` format that Recharts expects.
+ */
+export function buildChartData<
+  T extends {
+    key: string;
+    data: ReadonlyArray<{ label: string; value?: number | null }>;
+  },
+>(series: T[]): ChartDatum[] {
+  const xLabels: string[] = [];
+  for (const s of series) {
+    for (const pt of s.data) {
+      if (!xLabels.includes(pt.label)) xLabels.push(pt.label);
+    }
+  }
+  return xLabels.map((label) => {
+    const datum: ChartDatum = { xLabel: label };
+    for (const s of series) {
+      const pt = s.data.find((p) => p.label === label);
+      datum[s.key] = pt ? pt.value ?? null : null;
+    }
+    return datum;
+  });
+}
+
+/**
+ * Format a numeric chart value with an optional unit suffix.
+ * Returns `missingLabel` (default "No data") for null/NaN values.
+ */
+export function formatChartValue(
+  value: number | string | null | undefined,
+  unit?: string,
+  missingLabel = "No data",
+): string {
+  if (value == null || (typeof value === "number" && Number.isNaN(value))) {
+    return missingLabel;
+  }
+  const n = typeof value === "number" ? value : Number(value);
+  if (Number.isNaN(n)) return missingLabel;
+  const u = unit ? ` ${unit}` : "";
+  return Number.isInteger(n) ? `${n}${u}` : `${n.toFixed(1)}${u}`;
+}
+
 /** Payload passed to onDrillDown callbacks. */
 export interface ChartDrillDownPayload {
   /** Chart type that emitted the event. */
