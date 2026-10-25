@@ -1,3 +1,3 @@
 export { UserMenu } from "./UserMenu";
 export type { UserMenuProps } from "./UserMenu";
-export type { UserDisplayModel } from "../headerTypes";
+export type { UserDisplayModel } from "@/components/layout/headerTypes";

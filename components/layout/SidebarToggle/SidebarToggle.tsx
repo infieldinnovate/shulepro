@@ -3,7 +3,7 @@
 import { forwardRef } from "react";
 import type { ButtonHTMLAttributes } from "react";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
-import { IconButton } from "../../ui/Button";
+import { IconButton } from "@/components/ui/Button";
 import styles from "./SidebarToggle.module.scss";
 
 export type SidebarToggleVariant = "header" | "mobile";

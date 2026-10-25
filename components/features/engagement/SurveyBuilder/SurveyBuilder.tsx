@@ -3,16 +3,16 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { Input } from "../../../ui/Input";
-import { Label } from "../../../ui/Label";
-import { Textarea } from "../../../ui/Textarea";
-import { FormField } from "../../../ui/FormField";
-import { Select } from "../../../ui/Select";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/Label";
+import { Textarea } from "@/components/ui/Textarea";
+import { FormField } from "@/components/ui/FormField";
+import { Select } from "@/components/ui/Select";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
 import {
   ClipboardList,
   Plus,
@@ -29,7 +29,7 @@ import type {
   SurveyQuestionOption,
   SurveyValidation,
   DisabledState,
-} from "../models";
+} from "@/components/features/engagement/models";
 import styles from "./SurveyBuilder.module.scss";
 
 export interface SurveyBuilderProps {

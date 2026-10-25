@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import { UserX, Mail, Phone, MapPin } from "lucide-react";
-import type { PersonProfile, DisabledState } from "../models";
+import type { PersonProfile, DisabledState } from "@/components/features/engagement/models";
 import styles from "./PersonProfileHeader.module.scss";
 
 export interface PersonProfileHeaderProps {

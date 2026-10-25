@@ -4,17 +4,17 @@ import { useMemo } from "react";
 import { format } from "date-fns";
 import { Bus, CheckCircle2, CircleSlash, XCircle } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Avatar } from "../../../ui/Avatar";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Avatar } from "@/components/ui/Avatar";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import type {
   TransportRoute,
   TransportPassenger,
   TransportAttendanceEntry,
   TransportAttendanceMark,
-} from "../types";
+} from "@/components/features/transport/types";
 import styles from "./TransportAttendanceRegister.module.scss";
 
 export interface TransportAttendanceRegisterProps {

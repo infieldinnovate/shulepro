@@ -12,10 +12,10 @@ import {
   Paperclip,
 } from "lucide-react";
 import clsx from "clsx";
-import { EmptyState } from "../../ui/EmptyState";
-import { IconButton } from "../../ui/Button/IconButton";
-import { formatAbsolute } from "../../../lib/formatTime";
-import { formatBytes } from "../FileUploader";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { IconButton } from "@/components/ui/Button/IconButton";
+import { formatAbsolute } from "@/lib/formatTime";
+import { formatBytes } from "@/components/shared/FileUploader";
 import styles from "./AttachmentList.module.scss";
 
 export interface Attachment {

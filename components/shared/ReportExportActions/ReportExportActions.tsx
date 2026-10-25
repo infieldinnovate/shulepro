@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { ExportMenu } from "../ExportMenu";
-import type { ExportFormat } from "../ExportMenu";
+import { ExportMenu } from "@/components/shared/ExportMenu";
+import type { ExportFormat } from "@/components/shared/ExportMenu";
 import styles from "./ReportExportActions.module.scss";
 
 export interface ReportExportActionsProps {

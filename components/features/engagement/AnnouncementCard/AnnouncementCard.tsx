@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { Megaphone, Users, Clock, X } from "lucide-react";
-import type { Announcement, DisabledState } from "../models";
+import type { Announcement, DisabledState } from "@/components/features/engagement/models";
 import styles from "./AnnouncementCard.module.scss";
 
 export interface AnnouncementCardProps {

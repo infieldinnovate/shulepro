@@ -1,17 +1,17 @@
 import type { ReactNode } from "react";
 import { Heart } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   CareerInterestDimension,
   CareerInterestResponse,
   CareerInterestScaleOption,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./CareerInterestProfile.module.scss";
 
 export interface CareerInterestProfileProps {

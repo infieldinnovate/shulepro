@@ -7,26 +7,26 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Megaphone } from "lucide-react";
 import clsx from "clsx";
-import { Input } from "../../../ui/Input";
-import { Textarea } from "../../../ui/Textarea";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { Checkbox } from "../../../ui/Checkbox";
-import { FormField } from "../../../ui/FormField";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { FormField } from "@/components/ui/FormField";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import type {
   ProgrammeObjective,
   ProgrammeAudience,
   CampaignActivity,
   CampaignFormValues,
-} from "../types";
+} from "@/components/features/activities/types";
 import styles from "./CampaignForm.module.scss";
 
 export interface CampaignFormProps {

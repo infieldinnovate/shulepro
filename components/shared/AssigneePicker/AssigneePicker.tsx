@@ -4,10 +4,10 @@ import { useCallback, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { Search, X } from "lucide-react";
 import clsx from "clsx";
-import { Combobox } from "../../ui/Combobox";
-import { Checkbox } from "../../ui/Checkbox";
-import { Avatar, AvatarGroup } from "../../ui/Avatar";
-import { IconButton } from "../../ui/Button";
+import { Combobox } from "@/components/ui/Combobox";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Avatar, AvatarGroup } from "@/components/ui/Avatar";
+import { IconButton } from "@/components/ui/Button";
 import styles from "./AssigneePicker.module.scss";
 
 export interface AssigneeOption {

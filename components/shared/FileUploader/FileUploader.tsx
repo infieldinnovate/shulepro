@@ -11,8 +11,8 @@ import {
 } from "react";
 import { UploadCloud, X, FileWarning } from "lucide-react";
 import clsx from "clsx";
-import { IconButton } from "../../ui/Button/IconButton";
-import { Alert } from "../../ui/Alert";
+import { IconButton } from "@/components/ui/Button/IconButton";
+import { Alert } from "@/components/ui/Alert";
 import styles from "./FileUploader.module.scss";
 
 export interface FileValidationIssue {

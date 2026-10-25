@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardStatus, KpiCardTrend } from "../../../shared/KpiCard";
-import type { AttainmentLevel, EvidenceStatus } from "../types";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardStatus, KpiCardTrend } from "@/components/shared/KpiCard";
+import type { AttainmentLevel, EvidenceStatus } from "@/components/features/assessment/types";
 import type { TrendDirection } from "@/lib/analytics";
 
 /** Status that can drive the card's visual tone. */

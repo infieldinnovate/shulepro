@@ -1,16 +1,16 @@
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { ActivityTimeline } from "../../../shared/ActivityTimeline";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { ActivityTimeline } from "@/components/shared/ActivityTimeline";
 import type {
   ActivityTimelineEvent,
   ActivityTimelineVariant,
-} from "../../../shared/ActivityTimeline";
-import type { WorkflowTimelineVariant } from "../../../shared/WorkflowTimeline";
-import type { SupportPlanTimelineEvent as InclusionTimelineEvent } from "../types";
+} from "@/components/shared/ActivityTimeline";
+import type { WorkflowTimelineVariant } from "@/components/shared/WorkflowTimeline";
+import type { SupportPlanTimelineEvent as InclusionTimelineEvent } from "@/components/features/inclusion/types";
 import styles from "./SupportPlanTimeline.module.scss";
 
 export type SupportPlanTimelineVariantMap = Record<

@@ -3,17 +3,17 @@
 import { useMemo } from "react";
 import { Users } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { Avatar } from "../../../ui/Avatar";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { Avatar } from "@/components/ui/Avatar";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import type {
   TransportRoute,
   TransportPassenger,
   TransportAllocation,
-} from "../types";
+} from "@/components/features/transport/types";
 import styles from "./TransportAllocationPanel.module.scss";
 
 export interface TransportAllocationPanelProps {

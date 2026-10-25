@@ -26,12 +26,12 @@ import type {
   OnChangeFn,
 } from "@tanstack/react-table";
 import clsx from "clsx";
-import { Table } from "../../ui/Table";
-import { Checkbox } from "../../ui/Checkbox";
-import { Skeleton } from "../../ui/Skeleton";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
-import { DataTableColumnHeader } from "../DataTableColumnHeader";
+import { Table } from "@/components/ui/Table";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Skeleton } from "@/components/ui/Skeleton";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { DataTableColumnHeader } from "@/components/shared/DataTableColumnHeader";
 import styles from "./DataTable.module.scss";
 
 export type DataTableSortDir = "asc" | "desc";

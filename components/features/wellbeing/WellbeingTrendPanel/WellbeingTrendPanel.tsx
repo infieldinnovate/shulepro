@@ -3,15 +3,15 @@
 import type { ReactNode } from "react";
 import { Info } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { ProgressTrend } from "../../../shared/ProgressTrend";
-import type { TrendSeries } from "../../../shared/ProgressTrend";
-import { TrendIndicator } from "../../../shared/TrendIndicator";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { ProgressTrend } from "@/components/shared/ProgressTrend";
+import type { TrendSeries } from "@/components/shared/ProgressTrend";
+import { TrendIndicator } from "@/components/shared/TrendIndicator";
 import type { TrendDirection } from "@/lib/analytics";
-import type { WellbeingTrendSeries } from "../types";
+import type { WellbeingTrendSeries } from "@/components/features/wellbeing/types";
 import styles from "./WellbeingTrendPanel.module.scss";
 
 export interface WellbeingTrendPanelProps {

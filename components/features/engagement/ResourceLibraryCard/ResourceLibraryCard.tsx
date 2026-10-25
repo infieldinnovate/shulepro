@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
 import {
   Library,
   ExternalLink,
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 /* eslint-disable @next/next/no-img-element */
-import type { ResourceLibraryResource, DisabledState } from "../models";
+import type { ResourceLibraryResource, DisabledState } from "@/components/features/engagement/models";
 import styles from "./ResourceLibraryCard.module.scss";
 
 export interface ResourceLibraryCardProps {

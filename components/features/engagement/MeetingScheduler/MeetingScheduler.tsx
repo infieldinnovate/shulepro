@@ -3,15 +3,15 @@
 import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Calendar } from "../../../ui/Calendar";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Calendar } from "@/components/ui/Calendar";
 import { CalendarDays, Clock, User, CalendarPlus } from "lucide-react";
-import type { MeetingSlot, DisabledState } from "../models";
+import type { MeetingSlot, DisabledState } from "@/components/features/engagement/models";
 import styles from "./MeetingScheduler.module.scss";
 
 export interface MeetingSchedulerProps {

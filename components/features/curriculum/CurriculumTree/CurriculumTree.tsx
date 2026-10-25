@@ -4,10 +4,10 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
 import { ChevronRight, Search, FileText, FolderOpen, Folder } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { CurriculumNode, CurriculumNodeType } from "../types";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { CurriculumNode, CurriculumNodeType } from "@/components/features/curriculum/types";
 import styles from "./CurriculumTree.module.scss";
 
 export interface CurriculumTreeProps {

@@ -4,27 +4,27 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { Plus, Trash2, ChevronUp, ChevronDown } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { IconButton } from "../../../ui/Button";
-import { Input } from "../../../ui/Input";
-import { Textarea } from "../../../ui/Textarea";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { FormField } from "../../../ui/FormField";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
-import { ConfirmActionDialog } from "../../../shared/ConfirmActionDialog";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { IconButton } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { FormField } from "@/components/ui/FormField";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
+import { ConfirmActionDialog } from "@/components/shared/ConfirmActionDialog";
 import type {
   AttainmentLevel,
   Rubric,
   RubricCriterion,
-} from "../types";
+} from "@/components/features/assessment/types";
 import styles from "./RubricBuilder.module.scss";
 
 // ============================================================

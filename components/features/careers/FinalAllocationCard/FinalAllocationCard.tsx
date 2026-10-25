@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { ClipboardCheck, AlertCircle } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Avatar } from "../../../ui/Avatar";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { PathwayAllocation } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { PathwayAllocation } from "@/components/features/careers/types";
 import styles from "./FinalAllocationCard.module.scss";
 
 export interface FinalAllocationCardProps {

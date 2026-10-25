@@ -3,14 +3,14 @@
 import { useCallback, useMemo, useState } from "react";
 import { CalendarDays, MapPin, User } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { resolveChartColor } from "@/lib/chartColors";
 import type {
   TimetableConfig,
   TimetableEntry,
-} from "../types";
+} from "@/components/features/curriculum/types";
 import styles from "./TimetableGrid.module.scss";
 
 export interface TimetableGridProps {

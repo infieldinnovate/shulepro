@@ -3,10 +3,10 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { IconButton } from "../../../ui/Button/IconButton";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { IconButton } from "@/components/ui/Button/IconButton";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
 import {
   Bell,
   CheckCircle2,
@@ -15,7 +15,7 @@ import {
   AlertTriangle,
   AlertCircle,
 } from "lucide-react";
-import type { NotificationItem as NotificationItemModel, DisabledState } from "../models";
+import type { NotificationItem as NotificationItemModel, DisabledState } from "@/components/features/engagement/models";
 import styles from "./NotificationItem.module.scss";
 
 export type NotificationSeverity = "info" | "success" | "warning" | "error";

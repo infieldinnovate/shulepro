@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { Info, ChevronRight, Clock, ArrowRight } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Badge } from "../../ui/Badge";
-import { Avatar } from "../../ui/Avatar";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
-import { formatRelativeTime, formatAbsolute } from "../../../lib/formatTime";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { formatRelativeTime, formatAbsolute } from "@/lib/formatTime";
 import styles from "./OverdueItemsList.module.scss";
 
 export interface OverdueOwner {

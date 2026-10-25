@@ -7,24 +7,24 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
-import { Textarea } from "../../../ui/Textarea";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { RadioGroup } from "../../../ui/RadioGroup";
-import type { RadioOption } from "../../../ui/RadioGroup";
-import { FormField } from "../../../ui/FormField";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
+import { Textarea } from "@/components/ui/Textarea";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { RadioGroup } from "@/components/ui/RadioGroup";
+import type { RadioOption } from "@/components/ui/RadioGroup";
+import { FormField } from "@/components/ui/FormField";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import type {
   CareerAssessmentPrompt,
   CareerAssessmentFormValues,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./CareerAssessmentForm.module.scss";
 
 export interface CareerAssessmentFormProps {

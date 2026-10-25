@@ -1,15 +1,15 @@
 "use client";
 
 import clsx from "clsx";
-import { ImportWizard } from "../../../shared/ImportWizard";
+import { ImportWizard } from "@/components/shared/ImportWizard";
 import type {
   ImportWizardProps,
   ImportTargetField,
   ImportMapping,
-} from "../../../shared/ImportWizard";
+} from "@/components/shared/ImportWizard";
 import type {
   ImportValidationResultEntry,
-} from "../../../shared/ImportValidationResults";
+} from "@/components/shared/ImportValidationResults";
 import styles from "./DataImportWizard.module.scss";
 
 const DEFAULT_FILE_ACCEPT = [".csv", ".xlsx", ".xls"];

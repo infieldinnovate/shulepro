@@ -3,9 +3,9 @@
 import { useId, useRef, useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
 import { Search } from "lucide-react";
-import { Input } from "../../ui/Input";
+import { Input } from "@/components/ui/Input";
 import clsx from "clsx";
-import type { SearchSuggestion } from "../headerTypes";
+import type { SearchSuggestion } from "@/components/layout/headerTypes";
 import styles from "./GlobalSearch.module.scss";
 
 export interface GlobalSearchProps {
@@ -202,7 +202,7 @@ export function GlobalSearch({
   );
 }
 
-export type { SearchSuggestion } from "../headerTypes";
+export type { SearchSuggestion } from "@/components/layout/headerTypes";
 
 export type GlobalSearchComponentProps = GlobalSearchProps & {
   children?: ReactNode;

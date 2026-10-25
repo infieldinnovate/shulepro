@@ -3,13 +3,13 @@
 import { useId } from "react";
 import type { ReactNode } from "react";
 import { FormProvider, useFormContext, type UseFormReturn } from "react-hook-form";
-import { Dialog } from "../../ui/Dialog";
-import type { DialogSize } from "../../ui/Dialog";
-import { Button } from "../../ui/Button";
-import { Alert } from "../../ui/Alert";
-import { FormActions } from "../FormActions";
-import { FormErrorSummary } from "../FormErrorSummary";
-import type { FormErrorEntry } from "../FormErrorSummary";
+import { Dialog } from "@/components/ui/Dialog";
+import type { DialogSize } from "@/components/ui/Dialog";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import styles from "./FormDialog.module.scss";
 
 export interface FormDialogProps<T extends Record<string, unknown>> {

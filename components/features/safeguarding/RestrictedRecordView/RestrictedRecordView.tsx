@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { Lock } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { EmptyState } from "@/components/ui/EmptyState";
 import styles from "./RestrictedRecordView.module.scss";
 
 export interface RestrictedRecordViewProps {

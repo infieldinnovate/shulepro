@@ -6,21 +6,21 @@ import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Textarea } from "../../../ui/Textarea";
-import { FormField } from "../../../ui/FormField";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Textarea } from "@/components/ui/Textarea";
+import { FormField } from "@/components/ui/FormField";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import type {
   LearningAreaChoiceOption,
   LearningAreaChoiceRules,
   LearningAreaChoiceFormValues,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./LearningAreaChoiceForm.module.scss";
 
 export interface LearningAreaChoiceFormProps {

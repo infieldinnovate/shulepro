@@ -2,10 +2,10 @@
 
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { ChartPanel } from "../ChartPanel";
+import { ChartPanel } from "@/components/shared/ChartPanel";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import type { ChartDrillDownPayload } from "@/lib/chartTypes";
-import shared from "../charts.shared.module.scss";
+import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./HeatmapChart.module.scss";
 
 /**

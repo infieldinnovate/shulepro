@@ -1,23 +1,23 @@
 import type { ReactNode } from "react";
 import { FileText } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { ReportHeader } from "../../../shared/ReportHeader";
-import { ReportMetadata } from "../../../shared/ReportMetadata";
-import { KpiGrid } from "../../../shared/KpiGrid";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardStatus } from "../../../shared/KpiCard";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { ReportHeader } from "@/components/shared/ReportHeader";
+import { ReportMetadata } from "@/components/shared/ReportMetadata";
+import { KpiGrid } from "@/components/shared/KpiGrid";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardStatus } from "@/components/shared/KpiCard";
 import { formatAbsolute } from "@/lib/formatTime";
 import type {
   ProgressReport,
   CompetencyResult,
   AttainmentLevel,
   EvidenceStatus,
-} from "../types";
+} from "@/components/features/assessment/types";
 
 function toTimestamp(value: Date | string | number): string | number {
   return value instanceof Date ? value.getTime() : value;

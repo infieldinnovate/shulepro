@@ -4,10 +4,10 @@ import { useCallback, useState } from "react";
 import type { ReactNode } from "react";
 import { Download, Loader as Loader2, TriangleAlert as AlertTriangle } from "lucide-react";
 import clsx from "clsx";
-import { Dialog } from "../../../ui/Dialog";
-import { Button } from "../../../ui/Button";
-import { Alert } from "../../../ui/Alert";
-import type { ExportFormatOption } from "../types";
+import { Dialog } from "@/components/ui/Dialog";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
+import type { ExportFormatOption } from "@/components/features/operations/types";
 import styles from "./DataExportDialog.module.scss";
 
 export interface DataExportDialogProps {

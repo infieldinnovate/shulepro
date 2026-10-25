@@ -4,9 +4,9 @@ import { useId, useState } from "react";
 import type { ReactNode } from "react";
 import { Send } from "lucide-react";
 import clsx from "clsx";
-import { Textarea } from "../../ui/Textarea";
-import { Button } from "../../ui/Button";
-import { FormActions } from "../FormActions";
+import { Textarea } from "@/components/ui/Textarea";
+import { Button } from "@/components/ui/Button";
+import { FormActions } from "@/components/shared/FormActions";
 import styles from "./CommentBox.module.scss";
 
 export interface CommentBoxProps {

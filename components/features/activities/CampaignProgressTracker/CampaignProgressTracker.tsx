@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { TrendingUp } from "lucide-react";
 import clsx from "clsx";
-import { TargetProgressCard } from "../../../shared/TargetProgressCard";
-import { KpiCard } from "../../../shared/KpiCard";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { TargetProgressCard } from "@/components/shared/TargetProgressCard";
+import { KpiCard } from "@/components/shared/KpiCard";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { computeTargetProgress } from "@/lib/analytics";
-import type { CampaignTarget, CampaignParticipantSummary } from "../types";
+import type { CampaignTarget, CampaignParticipantSummary } from "@/components/features/activities/types";
 import styles from "./CampaignProgressTracker.module.scss";
 
 export interface CampaignProgressTrackerProps {

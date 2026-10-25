@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { format } from "date-fns";
 import { ShieldCheck } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type {
   SafeguardingCase,
   SafeguardingCaseStatus,
   RiskLevel,
-} from "../types";
+} from "@/components/features/safeguarding/types";
 import styles from "./SafeguardingCaseHeader.module.scss";
 
 export type CaseStatusBadgeMap = StatusBadgeMap<SafeguardingCaseStatus>;

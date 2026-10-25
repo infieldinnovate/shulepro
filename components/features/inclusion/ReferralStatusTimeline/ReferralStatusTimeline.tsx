@@ -1,18 +1,18 @@
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import { ActivityTimeline } from "../../../shared/ActivityTimeline";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import { ActivityTimeline } from "@/components/shared/ActivityTimeline";
 import type {
   ActivityTimelineEvent,
   ActivityTimelineVariant,
-} from "../../../shared/ActivityTimeline";
-import type { WorkflowTimelineVariant } from "../../../shared/WorkflowTimeline";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import type { ReferralStatusEvent, ReferralStatus } from "../types";
+} from "@/components/shared/ActivityTimeline";
+import type { WorkflowTimelineVariant } from "@/components/shared/WorkflowTimeline";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import type { ReferralStatusEvent, ReferralStatus } from "@/components/features/inclusion/types";
 import styles from "./ReferralStatusTimeline.module.scss";
 
 export type ReferralStatusBadgeMap = StatusBadgeMap<ReferralStatus>;

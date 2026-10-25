@@ -3,14 +3,14 @@
 import { format, isValid } from "date-fns";
 import { BookUp, BookDown } from "lucide-react";
 import clsx from "clsx";
-import { FormSection } from "../../../shared/FormSection";
-import { Button } from "../../../ui/Button";
-import { Alert } from "../../../ui/Alert";
+import { FormSection } from "@/components/shared/FormSection";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
 import type {
   LibraryItem,
   LibraryBorrower,
   LibraryIssueRecord,
-} from "../types";
+} from "@/components/features/operations/types";
 import styles from "./IssueReturnPanel.module.scss";
 
 export interface IssueReturnPanelProps {

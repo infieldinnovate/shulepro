@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
 import { CalendarDays, Target, FileText } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { MentorshipSession, ProgrammeStatus } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { MentorshipSession, ProgrammeStatus } from "@/components/features/activities/types";
 import styles from "./MentorshipSessionCard.module.scss";
 
 export interface MentorshipSessionCardProps {

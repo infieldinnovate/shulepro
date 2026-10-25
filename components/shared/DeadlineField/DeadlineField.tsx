@@ -4,10 +4,10 @@ import { useId } from "react";
 import type { ReactNode } from "react";
 import { Clock, TriangleAlert as AlertTriangle, CircleCheck as CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
-import { DatePicker } from "../../ui/DatePicker";
-import { DateRangePicker } from "../../ui/DateRangePicker";
-import { Badge } from "../../ui/Badge";
-import type { CalendarDateRange } from "../../ui/Calendar";
+import { DatePicker } from "@/components/ui/DatePicker";
+import { DateRangePicker } from "@/components/ui/DateRangePicker";
+import { Badge } from "@/components/ui/Badge";
+import type { CalendarDateRange } from "@/components/ui/Calendar";
 import styles from "./DeadlineField.module.scss";
 
 export type DeadlineValue = Date | null;

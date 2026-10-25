@@ -4,9 +4,9 @@ import { useCallback, useId, useState } from "react";
 import type { ReactNode } from "react";
 import { X } from "lucide-react";
 import clsx from "clsx";
-import { Button } from "../../ui/Button";
-import { IconButton } from "../../ui/Button/IconButton";
-import { AlertDialog } from "../../ui/AlertDialog";
+import { Button } from "@/components/ui/Button";
+import { IconButton } from "@/components/ui/Button/IconButton";
+import { AlertDialog } from "@/components/ui/AlertDialog";
 import styles from "./BulkActionBar.module.scss";
 
 export interface BulkActionConfirm {

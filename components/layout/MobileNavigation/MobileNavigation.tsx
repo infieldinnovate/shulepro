@@ -2,10 +2,10 @@
 
 import type { ReactNode } from "react";
 import { Menu } from "lucide-react";
-import { Sheet } from "../../ui/Sheet";
-import { IconButton } from "../../ui/Button";
-import { AppSidebar } from "../AppSidebar";
-import type { SidebarNavSection } from "../types";
+import { Sheet } from "@/components/ui/Sheet";
+import { IconButton } from "@/components/ui/Button";
+import { AppSidebar } from "@/components/layout/AppSidebar";
+import type { SidebarNavSection } from "@/components/layout/types";
 import styles from "./MobileNavigation.module.scss";
 
 export interface MobileNavigationProps {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination } from "../../ui/Pagination";
+import { Pagination } from "@/components/ui/Pagination";
 import styles from "./DataTablePagination.module.scss";
 
 export interface DataTablePaginationProps {

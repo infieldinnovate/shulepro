@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { Separator } from "../../ui/Separator";
-import { SidebarNavGroup } from "../SidebarNavGroup";
-import { SidebarNavItem } from "../SidebarNavItem";
-import type { SidebarNavSection } from "../types";
+import { Separator } from "@/components/ui/Separator";
+import { SidebarNavGroup } from "@/components/layout/SidebarNavGroup";
+import { SidebarNavItem } from "@/components/layout/SidebarNavItem";
+import type { SidebarNavSection } from "@/components/layout/types";
 import clsx from "clsx";
 import styles from "./AppSidebar.module.scss";
 

@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { KpiGrid } from "../../../shared/KpiGrid";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardStatus } from "../../../shared/KpiCard";
-import { Card } from "../../../ui/Card";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
-import { Spinner } from "../../../ui/Spinner";
+import { KpiGrid } from "@/components/shared/KpiGrid";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardStatus } from "@/components/shared/KpiCard";
+import { Card } from "@/components/ui/Card";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { Spinner } from "@/components/ui/Spinner";
 import { Info } from "lucide-react";
-import type { LearnerQuickStat } from "../types";
+import type { LearnerQuickStat } from "@/components/features/learners/types";
 import styles from "./LearnerQuickView.module.scss";
 
 export interface LearnerQuickViewProps {

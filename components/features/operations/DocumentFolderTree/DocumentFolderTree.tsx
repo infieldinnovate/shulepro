@@ -4,9 +4,9 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { Folder, FolderOpen, ChevronRight } from "lucide-react";
 import clsx from "clsx";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Spinner } from "../../../ui/Spinner";
-import type { DocumentFolderNode } from "../types";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Spinner } from "@/components/ui/Spinner";
+import type { DocumentFolderNode } from "@/components/features/operations/types";
 import styles from "./DocumentFolderTree.module.scss";
 
 export interface DocumentFolderTreeProps {

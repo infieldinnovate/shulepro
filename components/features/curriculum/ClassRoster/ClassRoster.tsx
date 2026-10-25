@@ -17,15 +17,15 @@ import {
   columnFilteringFeature,
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
-import { Table } from "../../../ui/Table";
-import { Avatar } from "../../../ui/Avatar";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { SearchInput } from "../../../shared/SearchInput";
-import { DataTablePagination } from "../../../shared/DataTablePagination";
-import type { ClassRosterEntry } from "../types";
+import { Table } from "@/components/ui/Table";
+import { Avatar } from "@/components/ui/Avatar";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { SearchInput } from "@/components/shared/SearchInput";
+import { DataTablePagination } from "@/components/shared/DataTablePagination";
+import type { ClassRosterEntry } from "@/components/features/curriculum/types";
 import styles from "./ClassRoster.module.scss";
 
 export interface ClassRosterColumn {

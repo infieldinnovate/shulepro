@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import { LearningGapList as SharedLearningGapList } from "../../../shared/LearningGapList";
+import { LearningGapList as SharedLearningGapList } from "@/components/shared/LearningGapList";
 import type {
   LearningGap,
   LearningGapSeverity,
   LearningGapScope,
   LearningGapListProps,
-} from "../../../shared/LearningGapList";
+} from "@/components/shared/LearningGapList";
 
 export type {
   LearningGap,

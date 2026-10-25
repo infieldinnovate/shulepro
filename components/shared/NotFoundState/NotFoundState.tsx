@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { SearchX } from "lucide-react";
 import clsx from "clsx";
-import { Button } from "../../ui/Button";
+import { Button } from "@/components/ui/Button";
 import styles from "./NotFoundState.module.scss";
 
 export interface NotFoundStateProps {

@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import { CheckCircle2, Circle, CircleAlert, CircleSlash, CircleDashed } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import type { BadgeVariant } from "../../../ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import type { BadgeVariant } from "@/components/ui/Badge";
 import { formatAbsolute } from "@/lib/formatTime";
-import type { AttainmentLevel, EvidenceStatus } from "../types";
+import type { AttainmentLevel, EvidenceStatus } from "@/components/features/assessment/types";
 import styles from "./LearningOutcomeStatus.module.scss";
 
 export interface LearningOutcomeStatusProps {

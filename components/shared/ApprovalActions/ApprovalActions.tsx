@@ -4,7 +4,7 @@ import { useCallback, useId, useState } from "react";
 import type { ReactNode } from "react";
 import { Loader as Loader2 } from "lucide-react";
 import clsx from "clsx";
-import { AlertDialog } from "../../ui/AlertDialog";
+import { AlertDialog } from "@/components/ui/AlertDialog";
 import styles from "./ApprovalActions.module.scss";
 
 export type ApprovalActionVariant =

@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 import { BookOpen, CalendarClock, Target } from "lucide-react";
 import { format, isPast, isToday } from "date-fns";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { AssessmentStatusBadge } from "../AssessmentStatusBadge";
-import type { AssessmentActivity } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { AssessmentStatusBadge } from "@/components/features/assessment/AssessmentStatusBadge";
+import type { AssessmentActivity } from "@/components/features/assessment/types";
 import styles from "./AssessmentActivityCard.module.scss";
 
 export interface AssessmentActivityCardProps {

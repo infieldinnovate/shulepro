@@ -1,19 +1,19 @@
 import type { ReactNode } from "react";
 import { User } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { KpiGrid } from "../../../shared/KpiGrid";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardStatus } from "../../../shared/KpiCard";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { KpiGrid } from "@/components/shared/KpiGrid";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardStatus } from "@/components/shared/KpiCard";
 import type {
   CompetencyResult,
   AttainmentLevel,
   EvidenceStatus,
-} from "../types";
+} from "@/components/features/assessment/types";
 import styles from "./ParentProgressSummary.module.scss";
 
 export interface ParentProgressSummaryProps {

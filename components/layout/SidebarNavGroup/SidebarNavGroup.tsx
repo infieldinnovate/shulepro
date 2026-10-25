@@ -4,8 +4,8 @@ import { useId, useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import clsx from "clsx";
-import { SidebarNavItem } from "../SidebarNavItem";
-import type { SidebarNavItemData } from "../types";
+import { SidebarNavItem } from "@/components/layout/SidebarNavItem";
+import type { SidebarNavItemData } from "@/components/layout/types";
 import styles from "./SidebarNavGroup.module.scss";
 
 export interface SidebarNavGroupProps {

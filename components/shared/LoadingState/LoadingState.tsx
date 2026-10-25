@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Spinner } from "../../ui/Spinner";
-import { Skeleton } from "../../ui/Skeleton";
+import { Spinner } from "@/components/ui/Spinner";
+import { Skeleton } from "@/components/ui/Skeleton";
 import styles from "./LoadingState.module.scss";
 
 export type LoadingStateVariant = "spinner" | "skeleton";

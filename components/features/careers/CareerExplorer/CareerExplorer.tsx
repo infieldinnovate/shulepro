@@ -4,18 +4,18 @@ import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { Compass } from "lucide-react";
 import clsx from "clsx";
-import { SearchInput } from "../../../shared/SearchInput";
-import { FilterBar } from "../../../shared/FilterBar";
-import { Select } from "../../../ui/Select";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { CareerClusterCard } from "../CareerClusterCard";
+import { SearchInput } from "@/components/shared/SearchInput";
+import { FilterBar } from "@/components/shared/FilterBar";
+import { Select } from "@/components/ui/Select";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { CareerClusterCard } from "@/components/features/careers/CareerClusterCard";
 import type {
   CareerCluster,
   CareerExplorerFacet,
   CareerExplorerFilters,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./CareerExplorer.module.scss";
 
 export interface CareerExplorerProps {

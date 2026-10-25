@@ -1,19 +1,19 @@
 import type { ReactNode } from "react";
 import { Users, AlertCircle } from "lucide-react";
 import clsx from "clsx";
-import { BreakdownTable } from "../../../shared/BreakdownTable";
-import type { BreakdownRow } from "../../../shared/BreakdownTable";
-import { DataAvailabilityNotice } from "../../../shared/DataAvailabilityNotice";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Card } from "../../../ui/Card";
+import { BreakdownTable } from "@/components/shared/BreakdownTable";
+import type { BreakdownRow } from "@/components/shared/BreakdownTable";
+import { DataAvailabilityNotice } from "@/components/shared/DataAvailabilityNotice";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Card } from "@/components/ui/Card";
 import type {
   ParticipationDimension,
   ParticipationGroupEntry,
   ParticipationDataStatus,
-} from "../types";
+} from "@/components/features/equity/types";
 import styles from "./ParticipationBreakdown.module.scss";
 
 export interface ParticipationBreakdownProps {

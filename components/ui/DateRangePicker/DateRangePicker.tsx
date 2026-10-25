@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 import { format, isValid } from "date-fns";
 import { Calendar as CalendarIcon, X } from "lucide-react";
 import clsx from "clsx";
-import { Popover } from "../Popover";
-import { Calendar } from "../Calendar";
-import type { CalendarDateRange } from "../Calendar";
+import { Popover } from "@/components/ui/Popover";
+import { Calendar } from "@/components/ui/Calendar";
+import type { CalendarDateRange } from "@/components/ui/Calendar";
 import styles from "./DateRangePicker.module.scss";
 
 export interface DateRangePickerProps {

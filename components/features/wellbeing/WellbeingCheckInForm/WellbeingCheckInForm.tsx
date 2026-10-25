@@ -6,25 +6,25 @@ import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
-import { Input } from "../../../ui/Input";
-import { Textarea } from "../../../ui/Textarea";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { RadioGroup } from "../../../ui/RadioGroup";
-import type { RadioOption } from "../../../ui/RadioGroup";
-import { DatePicker } from "../../../ui/DatePicker";
-import { FormField } from "../../../ui/FormField";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { RadioGroup } from "@/components/ui/RadioGroup";
+import type { RadioOption } from "@/components/ui/RadioGroup";
+import { DatePicker } from "@/components/ui/DatePicker";
+import { FormField } from "@/components/ui/FormField";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import type {
   WellbeingPrompt,
   WellbeingCheckInFormValues,
-} from "../types";
+} from "@/components/features/wellbeing/types";
 import styles from "./WellbeingCheckInForm.module.scss";
 
 export interface WellbeingCheckInFormProps {

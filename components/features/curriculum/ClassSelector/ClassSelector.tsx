@@ -2,12 +2,12 @@
 
 import { useMemo } from "react";
 import clsx from "clsx";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { Combobox } from "../../../ui/Combobox";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { Class } from "../types";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { Combobox } from "@/components/ui/Combobox";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { Class } from "@/components/features/curriculum/types";
 import styles from "./ClassSelector.module.scss";
 
 export interface ClassSelectorProps {

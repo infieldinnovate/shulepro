@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { CalendarClock, BookOpen, User } from "lucide-react";
 import { format, isPast, isToday } from "date-fns";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import { AttachmentList } from "../../../shared/AttachmentList";
-import type { Attachment } from "../../../shared/AttachmentList";
+import { Card } from "@/components/ui/Card";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import { AttachmentList } from "@/components/shared/AttachmentList";
+import type { Attachment } from "@/components/shared/AttachmentList";
 import type {
   Assignment,
   AssignmentStatus,
-} from "../types";
+} from "@/components/features/curriculum/types";
 import styles from "./AssignmentCard.module.scss";
 
 export interface AssignmentCardProps {

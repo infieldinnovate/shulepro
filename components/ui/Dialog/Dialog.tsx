@@ -11,7 +11,7 @@ import {
   usePortalTarget,
   useRestoreFocus,
   useScrollLock,
-} from "../overlays/useOverlay";
+} from "@/components/ui/overlays/useOverlay";
 import styles from "./Dialog.module.scss";
 
 export type DialogSize = "sm" | "md" | "lg" | "fullscreen";

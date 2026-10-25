@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { CalendarClock, GitCompare } from "lucide-react";
 import clsx from "clsx";
-import { Breadcrumbs } from "../../layout/Breadcrumbs";
-import type { BreadcrumbItem } from "../../ui/Breadcrumb";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import type { BreadcrumbItem } from "@/components/ui/Breadcrumb";
 import styles from "./ReportHeader.module.scss";
 
 export interface ReportHeaderProps {

@@ -11,9 +11,9 @@ import {
   Info,
 } from "lucide-react";
 import clsx from "clsx";
-import { Badge } from "../../ui/Badge";
-import { Alert } from "../../ui/Alert";
-import { Spinner } from "../../ui/Spinner";
+import { Badge } from "@/components/ui/Badge";
+import { Alert } from "@/components/ui/Alert";
+import { Spinner } from "@/components/ui/Spinner";
 import styles from "./AlertSummary.module.scss";
 
 export type AlertSeverity = "critical" | "warning" | "info" | "resolved";

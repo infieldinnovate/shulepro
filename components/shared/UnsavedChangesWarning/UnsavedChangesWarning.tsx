@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { AlertTriangle } from "lucide-react";
 import clsx from "clsx";
-import { Button } from "../../ui/Button";
+import { Button } from "@/components/ui/Button";
 import styles from "./UnsavedChangesWarning.module.scss";
 
 export interface UnsavedChangesWarningProps {

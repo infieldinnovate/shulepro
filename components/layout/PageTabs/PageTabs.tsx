@@ -1,8 +1,8 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { Tabs } from "../../ui/Tabs";
-import type { TabItem, TabsOrientation } from "../../ui/Tabs";
+import { Tabs } from "@/components/ui/Tabs";
+import type { TabItem, TabsOrientation } from "@/components/ui/Tabs";
 
 export interface PageTabsProps extends Omit<ComponentProps<typeof Tabs>, "items"> {
   items: TabItem[];

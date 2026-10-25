@@ -7,20 +7,20 @@ import {
   Info,
 } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Badge } from "../../ui/Badge";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
-import { StatusBadge } from "../StatusBadge";
-import type { StatusBadgeMap } from "../StatusBadge";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import {
   classifyDataPoint,
   computeTrend,
   formatDelta,
   formatPercentChange,
   type DataPresence,
-} from "../../../lib/analytics";
+} from "@/lib/analytics";
 import styles from "./InterventionOutcomeCard.module.scss";
 
 export type InterventionStatus =

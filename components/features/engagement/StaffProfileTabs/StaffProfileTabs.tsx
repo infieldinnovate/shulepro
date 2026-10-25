@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Tabs } from "../../../ui/Tabs";
-import type { TabItem } from "../../../ui/Tabs";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Tabs } from "@/components/ui/Tabs";
+import type { TabItem } from "@/components/ui/Tabs";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { LayoutPanelTop } from "lucide-react";
-import type { ProfileTab } from "../models";
+import type { ProfileTab } from "@/components/features/engagement/models";
 import styles from "./StaffProfileTabs.module.scss";
 
 export interface StaffProfileTabsProps {

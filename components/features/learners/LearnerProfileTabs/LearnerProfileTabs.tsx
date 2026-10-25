@@ -1,10 +1,10 @@
 import { LayoutPanelTop } from "lucide-react";
 import clsx from "clsx";
-import { Tabs } from "../../../ui/Tabs";
-import type { TabItem } from "../../../ui/Tabs";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Tabs } from "@/components/ui/Tabs";
+import type { TabItem } from "@/components/ui/Tabs";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import styles from "./LearnerProfileTabs.module.scss";
 
 export interface LearnerProfileTabsProps {

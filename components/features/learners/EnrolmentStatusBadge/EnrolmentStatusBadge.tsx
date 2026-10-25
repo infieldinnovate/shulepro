@@ -1,8 +1,8 @@
 import { GraduationCap, ArrowLeftRight, CircleCheck as CheckCircle2, LogOut, Ban } from "lucide-react";
 import clsx from "clsx";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import type { EnrolmentStatus } from "../types";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import type { EnrolmentStatus } from "@/components/features/learners/types";
 import styles from "./EnrolmentStatusBadge.module.scss";
 
 export type EnrolmentStatusBadgeMap = StatusBadgeMap<EnrolmentStatus>;

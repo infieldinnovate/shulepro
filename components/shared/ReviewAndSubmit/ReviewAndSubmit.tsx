@@ -3,8 +3,8 @@
 import type { ReactNode } from "react";
 import { Pencil } from "lucide-react";
 import clsx from "clsx";
-import { FormActions } from "../FormActions";
-import { Button } from "../../ui/Button";
+import { FormActions } from "@/components/shared/FormActions";
+import { Button } from "@/components/ui/Button";
 import styles from "./ReviewAndSubmit.module.scss";
 
 export interface ReviewSummaryField {

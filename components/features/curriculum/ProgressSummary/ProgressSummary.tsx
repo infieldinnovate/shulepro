@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
 import { TrendingUp } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { KpiCard } from "../../../shared/KpiCard";
-import { KpiGrid } from "../../../shared/KpiGrid";
-import { TargetProgressCard } from "../../../shared/TargetProgressCard";
-import type { KpiCardStatus } from "../../../shared/KpiCard";
-import type { ProgressMeasure, ProgressMeasureStatus } from "../types";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { KpiCard } from "@/components/shared/KpiCard";
+import { KpiGrid } from "@/components/shared/KpiGrid";
+import { TargetProgressCard } from "@/components/shared/TargetProgressCard";
+import type { KpiCardStatus } from "@/components/shared/KpiCard";
+import type { ProgressMeasure, ProgressMeasureStatus } from "@/components/features/curriculum/types";
 import type { TargetStatus } from "@/lib/analytics";
 import styles from "./ProgressSummary.module.scss";
 

@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Button } from "../../../ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { Clock, FileText, ChevronLeft, ChevronRight, CheckCircle } from "lucide-react";
-import type { LearningModule, DisabledState } from "../models";
+import type { LearningModule, DisabledState } from "@/components/features/engagement/models";
 import styles from "./LearningModuleViewer.module.scss";
 
 export interface LearningModuleViewerProps {

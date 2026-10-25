@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { MessageSquare, CalendarDays } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { StudentReflection } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { StudentReflection } from "@/components/features/activities/types";
 import styles from "./StudentReflectionCard.module.scss";
 
 export interface StudentReflectionCardProps {

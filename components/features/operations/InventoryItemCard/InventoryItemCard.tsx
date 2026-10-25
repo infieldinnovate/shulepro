@@ -2,18 +2,18 @@ import type { ReactNode } from "react";
 import { format } from "date-fns";
 import { Package } from "lucide-react";
 import clsx from "clsx";
-import { RecordSummaryCard } from "../../../shared/RecordSummaryCard";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
-import { Card } from "../../../ui/Card";
+import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { Card } from "@/components/ui/Card";
 import type {
   InventoryItem,
   InventoryItemCondition,
   InventoryItemStatus,
-} from "../types";
+} from "@/components/features/operations/types";
 import styles from "./InventoryItemCard.module.scss";
 
 export type ConditionBadgeMap = StatusBadgeMap<InventoryItemCondition>;

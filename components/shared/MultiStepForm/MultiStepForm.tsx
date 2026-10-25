@@ -11,15 +11,15 @@ import {
 } from "react-hook-form";
 import type { ZodType, ZodIssue } from "zod";
 import clsx from "clsx";
-import { Button } from "../../ui/Button";
-import { Alert } from "../../ui/Alert";
-import { FormActions } from "../FormActions";
-import { FormErrorSummary } from "../FormErrorSummary";
-import type { FormErrorEntry } from "../FormErrorSummary";
-import { StepIndicator } from "../StepIndicator";
-import type { StepStatus } from "../StepIndicator";
-import { ReviewAndSubmit } from "../ReviewAndSubmit";
-import type { ReviewSummarySection } from "../ReviewAndSubmit";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
+import { StepIndicator } from "@/components/shared/StepIndicator";
+import type { StepStatus } from "@/components/shared/StepIndicator";
+import { ReviewAndSubmit } from "@/components/shared/ReviewAndSubmit";
+import type { ReviewSummarySection } from "@/components/shared/ReviewAndSubmit";
 import styles from "./MultiStepForm.module.scss";
 
 export type StepDirection = "next" | "back" | "jump";

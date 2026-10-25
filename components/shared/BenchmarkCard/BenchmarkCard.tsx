@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import { ArrowUp, ArrowDown, Minus, ArrowRight, Info } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import type { BenchmarkResult, TrendDirection } from "@/lib/analytics";
 import styles from "./BenchmarkCard.module.scss";
 

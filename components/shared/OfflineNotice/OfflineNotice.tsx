@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { WifiOff } from "lucide-react";
 import clsx from "clsx";
-import { Button } from "../../ui/Button";
+import { Button } from "@/components/ui/Button";
 import styles from "./OfflineNotice.module.scss";
 
 export interface OfflineNoticeProps {

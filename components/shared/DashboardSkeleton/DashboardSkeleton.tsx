@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Skeleton } from "../../ui/Skeleton";
+import { Card } from "@/components/ui/Card";
+import { Skeleton } from "@/components/ui/Skeleton";
 import styles from "./DashboardSkeleton.module.scss";
 
 export interface DashboardSkeletonProps {

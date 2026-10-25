@@ -4,12 +4,12 @@ import { useId, useState } from "react";
 import type { ReactNode } from "react";
 import { Info } from "lucide-react";
 import clsx from "clsx";
-import { Input } from "../../ui/Input";
-import { Checkbox } from "../../ui/Checkbox";
-import { Label } from "../../ui/Label";
-import { Alert } from "../../ui/Alert";
-import { Button } from "../../ui/Button";
-import { FormActions } from "../FormActions";
+import { Input } from "@/components/ui/Input";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Label } from "@/components/ui/Label";
+import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
+import { FormActions } from "@/components/shared/FormActions";
 import styles from "./SignatureOrAcknowledgement.module.scss";
 
 export interface SignatureOrAcknowledgementProps {

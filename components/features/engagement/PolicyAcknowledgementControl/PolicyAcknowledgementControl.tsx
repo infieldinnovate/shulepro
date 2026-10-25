@@ -3,18 +3,18 @@
 import { useState } from "react";
 import type { ChangeEvent, ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { Input } from "../../../ui/Input";
-import { Label } from "../../../ui/Label";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/Label";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
 import { ShieldCheck, FileSignature, CheckCircle2 } from "lucide-react";
 import type {
   PolicyAcknowledgementType,
   DisabledState,
-} from "../models";
+} from "@/components/features/engagement/models";
 import styles from "./PolicyAcknowledgementControl.module.scss";
 
 export type AcknowledgementStatus =

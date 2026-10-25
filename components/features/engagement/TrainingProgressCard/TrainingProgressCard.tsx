@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { CheckCircle2, Circle, AlertCircle } from "lucide-react";
-import type { LearningModule, CompletionRecord, DisabledState } from "../models";
+import type { LearningModule, CompletionRecord, DisabledState } from "@/components/features/engagement/models";
 import styles from "./TrainingProgressCard.module.scss";
 
 /**

@@ -1,18 +1,18 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { BarChart3 } from "lucide-react";
 import type {
   Survey,
   SurveyResponse,
   SurveyResults,
   DisabledState,
-} from "../models";
+} from "@/components/features/engagement/models";
 import styles from "./SurveyResultsPanel.module.scss";
 
 export interface SurveyResultsPanelProps {

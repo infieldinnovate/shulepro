@@ -9,17 +9,17 @@ import {
   CircleDot,
 } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { BadgeVariant } from "../../../ui/Badge";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { BadgeVariant } from "@/components/ui/Badge";
 import type {
   Campaign,
   ProgrammeStatus,
   CampaignActivity,
-} from "../types";
+} from "@/components/features/activities/types";
 import styles from "./CampaignCard.module.scss";
 
 export interface CampaignCardProps {

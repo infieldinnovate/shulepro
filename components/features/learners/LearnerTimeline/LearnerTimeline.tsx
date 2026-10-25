@@ -1,13 +1,13 @@
 import { Factory as History } from "lucide-react";
 import clsx from "clsx";
-import { ActivityTimeline } from "../../../shared/ActivityTimeline";
+import { ActivityTimeline } from "@/components/shared/ActivityTimeline";
 import type {
   ActivityTimelineEvent,
   ActivityTimelineVariant,
-} from "../../../shared/ActivityTimeline";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+} from "@/components/shared/ActivityTimeline";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import styles from "./LearnerTimeline.module.scss";
 
 export type LearnerTimelineEventType =

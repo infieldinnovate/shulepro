@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Skeleton } from "../../ui/Skeleton";
+import { Skeleton } from "@/components/ui/Skeleton";
 import styles from "./TableSkeleton.module.scss";
 
 export interface TableSkeletonProps {

@@ -2,8 +2,8 @@
 
 import { useCallback, useId, useMemo } from "react";
 import { Check, Save, Trash as Trash2, Star } from "lucide-react";
-import type { DropdownMenuItem } from "../../ui/DropdownMenu";
-import { DropdownMenu } from "../../ui/DropdownMenu";
+import type { DropdownMenuItem } from "@/components/ui/DropdownMenu";
+import { DropdownMenu } from "@/components/ui/DropdownMenu";
 
 export interface SavedView {
   id: string;

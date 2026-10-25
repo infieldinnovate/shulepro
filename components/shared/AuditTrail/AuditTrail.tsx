@@ -4,9 +4,9 @@ import type { ReactNode } from "react";
 import { History as HistoryIcon, ChevronDown } from "lucide-react";
 import { useId, useState } from "react";
 import clsx from "clsx";
-import { Avatar } from "../../ui/Avatar";
-import { EmptyState } from "../../ui/EmptyState";
-import { formatAbsolute, formatRelativeTime } from "../../../lib/formatTime";
+import { Avatar } from "@/components/ui/Avatar";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { formatAbsolute, formatRelativeTime } from "@/lib/formatTime";
 import styles from "./AuditTrail.module.scss";
 
 export interface AuditTrailEvent {

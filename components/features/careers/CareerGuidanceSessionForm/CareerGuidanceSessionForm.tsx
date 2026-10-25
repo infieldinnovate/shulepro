@@ -7,28 +7,28 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, Trash2, CalendarDays } from "lucide-react";
 import clsx from "clsx";
-import { Input } from "../../../ui/Input";
-import { Textarea } from "../../../ui/Textarea";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Switch } from "../../../ui/Switch";
-import { FormField } from "../../../ui/FormField";
-import { Button } from "../../../ui/Button";
-import { IconButton } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
-import { FormErrorSummary } from "../../../shared/FormErrorSummary";
-import type { FormErrorEntry } from "../../../shared/FormErrorSummary";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Switch } from "@/components/ui/Switch";
+import { FormField } from "@/components/ui/FormField";
+import { Button } from "@/components/ui/Button";
+import { IconButton } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
+import { FormErrorSummary } from "@/components/shared/FormErrorSummary";
+import type { FormErrorEntry } from "@/components/shared/FormErrorSummary";
 import type {
   GuidanceSessionTypeOption,
   GuidanceDiscussionPromptOption,
   GuidanceSessionOutcomeOption,
   CareerGuidanceSessionFormValues,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./CareerGuidanceSessionForm.module.scss";
 
 export interface CareerGuidanceSessionFormProps {

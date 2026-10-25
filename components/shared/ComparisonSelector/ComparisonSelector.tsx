@@ -4,10 +4,10 @@ import { useCallback, useId } from "react";
 import type { ReactNode } from "react";
 import { GitCompare } from "lucide-react";
 import clsx from "clsx";
-import { Combobox } from "../../ui/Combobox";
-import type { ComboboxOption } from "../../ui/Combobox";
-import { Select } from "../../ui/Select";
-import type { SelectOption } from "../../ui/Select";
+import { Combobox } from "@/components/ui/Combobox";
+import type { ComboboxOption } from "@/components/ui/Combobox";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
 import styles from "./ComparisonSelector.module.scss";
 
 /**

@@ -16,11 +16,11 @@ import {
 } from "date-fns";
 import { ChevronLeft, ChevronRight, CalendarDays, MapPin } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { resolveChartColor } from "@/lib/chartColors";
-import type { AcademicCalendarEvent, AcademicCalendarEventType } from "../types";
+import type { AcademicCalendarEvent, AcademicCalendarEventType } from "@/components/features/curriculum/types";
 import styles from "./AcademicCalendar.module.scss";
 
 export interface AcademicCalendarProps {

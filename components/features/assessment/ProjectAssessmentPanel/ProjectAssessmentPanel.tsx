@@ -1,18 +1,18 @@
 import type { ReactNode } from "react";
 import { FolderOpen } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Badge } from "../../../ui/Badge";
-import { WorkflowStepper } from "../../../shared/WorkflowStepper";
-import type { WorkflowStep, WorkflowStepStatus } from "../../../shared/WorkflowStepper";
-import { AttachmentList } from "../../../shared/AttachmentList";
-import type { Attachment } from "../../../shared/AttachmentList";
-import { AssessmentStatusBadge } from "../AssessmentStatusBadge";
-import type { AssessmentActivity, EvidenceItem, ProjectPhase } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Badge } from "@/components/ui/Badge";
+import { WorkflowStepper } from "@/components/shared/WorkflowStepper";
+import type { WorkflowStep, WorkflowStepStatus } from "@/components/shared/WorkflowStepper";
+import { AttachmentList } from "@/components/shared/AttachmentList";
+import type { Attachment } from "@/components/shared/AttachmentList";
+import { AssessmentStatusBadge } from "@/components/features/assessment/AssessmentStatusBadge";
+import type { AssessmentActivity, EvidenceItem, ProjectPhase } from "@/components/features/assessment/types";
 import styles from "./ProjectAssessmentPanel.module.scss";
 
 export interface ProjectAssessmentPanelProps {

@@ -10,8 +10,8 @@ import {
   useRestoreFocus,
   useScrollLock,
   useEscapeToClose,
-} from "../overlays/useOverlay";
-import dialogStyles from "../Dialog/Dialog.module.scss";
+} from "@/components/ui/overlays/useOverlay";
+import dialogStyles from "@/components/ui/Dialog/Dialog.module.scss";
 import styles from "./AlertDialog.module.scss";
 
 export type AlertDialogSize = "sm" | "md";

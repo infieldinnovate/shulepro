@@ -1,8 +1,8 @@
 import { CircleCheck as CheckCircle2, Circle as XCircle, Wrench } from "lucide-react";
 import clsx from "clsx";
-import { Table } from "../../ui/Table";
-import { Badge } from "../../ui/Badge";
-import { Button } from "../../ui/Button";
+import { Table } from "@/components/ui/Table";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import styles from "./ImportValidationResults.module.scss";
 
 export type ImportValidationRowStatus = "valid" | "invalid";

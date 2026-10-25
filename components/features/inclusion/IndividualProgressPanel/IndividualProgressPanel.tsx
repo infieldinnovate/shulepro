@@ -1,14 +1,14 @@
 import { Info } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardTrend } from "../../../shared/KpiCard";
-import { TargetProgressCard } from "../../../shared/TargetProgressCard";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardTrend } from "@/components/shared/KpiCard";
+import { TargetProgressCard } from "@/components/shared/TargetProgressCard";
 import type { TargetStatus } from "@/lib/analytics";
-import type { IndividualProgressMeasure } from "../types";
+import type { IndividualProgressMeasure } from "@/components/features/inclusion/types";
 import styles from "./IndividualProgressPanel.module.scss";
 
 export interface IndividualProgressPanelProps {

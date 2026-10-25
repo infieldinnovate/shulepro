@@ -4,13 +4,13 @@ import { useCallback, useId, useState } from "react";
 import type { ReactNode } from "react";
 import { Download, TriangleAlert as AlertTriangle, Loader as Loader2 } from "lucide-react";
 import clsx from "clsx";
-import { DropdownMenu } from "../../ui/DropdownMenu";
+import { DropdownMenu } from "@/components/ui/DropdownMenu";
 import type {
   DropdownMenuActionItem,
   DropdownMenuItem,
-} from "../../ui/DropdownMenu";
-import { Button } from "../../ui/Button";
-import { Alert } from "../../ui/Alert";
+} from "@/components/ui/DropdownMenu";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
 import styles from "./ExportMenu.module.scss";
 
 export interface ExportFormat {

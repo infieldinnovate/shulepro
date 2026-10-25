@@ -2,9 +2,9 @@
 
 import type { ReactNode } from "react";
 import { CalendarRange } from "lucide-react";
-import { Select } from "../../ui/Select";
+import { Select } from "@/components/ui/Select";
 import clsx from "clsx";
-import type { AcademicPeriodOption } from "../headerTypes";
+import type { AcademicPeriodOption } from "@/components/layout/headerTypes";
 import styles from "./AcademicPeriodSelector.module.scss";
  
 export interface AcademicPeriodSelectorProps {
@@ -87,7 +87,7 @@ export function AcademicPeriodSelector({
   );
 }
 
-export type { AcademicPeriodOption } from "../headerTypes";
+export type { AcademicPeriodOption } from "@/components/layout/headerTypes";
 
 export type AcademicPeriodSelectorComponentProps = AcademicPeriodSelectorProps & {
   children?: ReactNode;

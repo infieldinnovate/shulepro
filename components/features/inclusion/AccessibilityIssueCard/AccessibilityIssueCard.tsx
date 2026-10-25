@@ -1,16 +1,16 @@
 import { format } from "date-fns";
 import { ShieldAlert, CalendarClock, Pencil, CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   AccessibilityIssue,
   AccessibilitySeverity,
   AccessibilityIssueStatus,
-} from "../types";
+} from "@/components/features/inclusion/types";
 import styles from "./AccessibilityIssueCard.module.scss";
 
 export type AccessibilitySeverityBadgeMap = Record<

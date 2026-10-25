@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import { Info, ChevronRight, TriangleAlert as AlertTriangle, OctagonAlert as AlertOctagon, CircleAlert as AlertCircle } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Badge } from "../../ui/Badge";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import styles from "./LearningGapList.module.scss";
 
 export type LearningGapSeverity = "critical" | "major" | "minor";

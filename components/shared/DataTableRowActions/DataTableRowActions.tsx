@@ -3,9 +3,9 @@
 import type { ReactNode } from "react";
 import { MoveHorizontal as MoreHorizontal, Trash as Trash2 } from "lucide-react";
 import clsx from "clsx";
-import { DropdownMenu } from "../../ui/DropdownMenu";
-import type { DropdownMenuItem } from "../../ui/DropdownMenu";
-import { IconButton } from "../../ui/Button";
+import { DropdownMenu } from "@/components/ui/DropdownMenu";
+import type { DropdownMenuItem } from "@/components/ui/DropdownMenu";
+import { IconButton } from "@/components/ui/Button";
 import styles from "./DataTableRowActions.module.scss";
 
 export interface DataTableRowActionItem {

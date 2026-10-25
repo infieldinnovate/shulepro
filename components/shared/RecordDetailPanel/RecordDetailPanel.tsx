@@ -2,9 +2,9 @@
 
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Sheet } from "../../ui/Sheet";
-import type { SheetSize } from "../../ui/Sheet";
-import { Separator } from "../../ui/Separator";
+import { Sheet } from "@/components/ui/Sheet";
+import type { SheetSize } from "@/components/ui/Sheet";
+import { Separator } from "@/components/ui/Separator";
 import styles from "./RecordDetailPanel.module.scss";
 
 export interface RecordDetailField {

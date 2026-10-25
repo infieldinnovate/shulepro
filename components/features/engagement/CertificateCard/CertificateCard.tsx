@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
 import { Award, Calendar, FileText, Hash, User } from "lucide-react";
-import type { Certificate, DisabledState } from "../models";
-import { EmptyState } from "../../../ui/EmptyState";
+import type { Certificate, DisabledState } from "@/components/features/engagement/models";
+import { EmptyState } from "@/components/ui/EmptyState";
 import styles from "./CertificateCard.module.scss";
 
 export interface CertificateCardProps {

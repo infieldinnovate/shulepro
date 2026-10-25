@@ -9,8 +9,8 @@ import {
   Tooltip,
 } from "recharts";
 import clsx from "clsx";
-import { ChartPanel } from "../ChartPanel";
-import { ChartLegend } from "../ChartLegend";
+import { ChartPanel } from "@/components/shared/ChartPanel";
+import { ChartLegend } from "@/components/shared/ChartLegend";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import {
   chartPalette,
@@ -18,7 +18,7 @@ import {
   type ChartColorToken,
 } from "@/lib/chartColors";
 import type { ChartSegment, ChartDrillDownPayload } from "@/lib/chartTypes";
-import shared from "../charts.shared.module.scss";
+import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./DonutChart.module.scss";
 
 export interface DonutChartProps {

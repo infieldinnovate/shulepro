@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Check, Lock, RotateCcw, Minus } from "lucide-react";
 import clsx from "clsx";
-import { Avatar } from "../../ui/Avatar";
-import { Badge } from "../../ui/Badge";
-import type { BadgeVariant } from "../../ui/Badge";
+import { Avatar } from "@/components/ui/Avatar";
+import { Badge } from "@/components/ui/Badge";
+import type { BadgeVariant } from "@/components/ui/Badge";
 import styles from "./WorkflowStepper.module.scss";
 
 export type WorkflowStepStatus =

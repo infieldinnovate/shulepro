@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { Badge } from "../../ui/Badge";
-import type { BadgeVariant, BadgeSize } from "../../ui/Badge";
+import { Badge } from "@/components/ui/Badge";
+import type { BadgeVariant, BadgeSize } from "@/components/ui/Badge";
 
 export interface StatusBadgeMapping {
   variant: BadgeVariant;

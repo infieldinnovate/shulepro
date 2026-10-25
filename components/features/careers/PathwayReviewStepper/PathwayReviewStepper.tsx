@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
 import { ListChecks } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { WorkflowStepper } from "../../../shared/WorkflowStepper";
-import type { WorkflowStep } from "../../../shared/WorkflowStepper";
-import { StepIndicator } from "../../../shared/StepIndicator";
-import type { StepIndicatorStep } from "../../../shared/StepIndicator";
-import type { PathwayReviewStage } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { WorkflowStepper } from "@/components/shared/WorkflowStepper";
+import type { WorkflowStep } from "@/components/shared/WorkflowStepper";
+import { StepIndicator } from "@/components/shared/StepIndicator";
+import type { StepIndicatorStep } from "@/components/shared/StepIndicator";
+import type { PathwayReviewStage } from "@/components/features/careers/types";
 import styles from "./PathwayReviewStepper.module.scss";
 
 export interface PathwayReviewStepperProps {

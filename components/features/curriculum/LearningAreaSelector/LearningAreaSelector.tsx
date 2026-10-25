@@ -4,12 +4,12 @@ import { useCallback, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { Search, X } from "lucide-react";
 import clsx from "clsx";
-import { Combobox } from "../../../ui/Combobox";
-import { Checkbox } from "../../../ui/Checkbox";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import { IconButton } from "../../../ui/Button";
-import type { LearningArea } from "../types";
+import { Combobox } from "@/components/ui/Combobox";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { IconButton } from "@/components/ui/Button";
+import type { LearningArea } from "@/components/features/curriculum/types";
 import styles from "./LearningAreaSelector.module.scss";
 
 export interface LearningAreaSelectorProps {

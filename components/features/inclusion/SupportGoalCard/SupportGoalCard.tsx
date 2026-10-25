@@ -4,13 +4,13 @@ import type { KeyboardEvent, ReactNode } from "react";
 import { format, isPast, isToday } from "date-fns";
 import { CalendarClock, Pencil } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import { Progress } from "../../../ui/Progress";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { SupportGoal } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import { Progress } from "@/components/ui/Progress";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { SupportGoal } from "@/components/features/inclusion/types";
 import styles from "./SupportGoalCard.module.scss";
 
 export interface SupportGoalCardProps {

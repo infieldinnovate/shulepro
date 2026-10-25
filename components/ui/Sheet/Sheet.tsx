@@ -11,7 +11,7 @@ import {
   usePortalTarget,
   useRestoreFocus,
   useScrollLock,
-} from "../overlays/useOverlay";
+} from "@/components/ui/overlays/useOverlay";
 import styles from "./Sheet.module.scss";
 
 export type SheetSide = "left" | "right" | "top" | "bottom";

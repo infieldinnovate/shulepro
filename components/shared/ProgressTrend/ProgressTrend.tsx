@@ -14,7 +14,7 @@ import {
   Legend,
 } from "recharts";
 import clsx from "clsx";
-import { ChartPanel } from "../ChartPanel";
+import { ChartPanel } from "@/components/shared/ChartPanel";
 import { computeTrend } from "@/lib/analytics";
 import styles from "./ProgressTrend.module.scss";
 

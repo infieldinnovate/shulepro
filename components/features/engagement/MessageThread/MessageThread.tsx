@@ -3,15 +3,15 @@
 import { useState } from "react";
 import type { ChangeEvent, KeyboardEvent, ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { Textarea } from "../../../ui/Textarea";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Avatar } from "../../../ui/Avatar";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Textarea } from "@/components/ui/Textarea";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Avatar } from "@/components/ui/Avatar";
 import { Lock, AlertTriangle, Send, MessageCircle } from "lucide-react";
-import type { MessageThread as MessageThreadModel, DisabledState } from "../models";
+import type { MessageThread as MessageThreadModel, DisabledState } from "@/components/features/engagement/models";
 import styles from "./MessageThread.module.scss";
 
 export interface MessageThreadProps {

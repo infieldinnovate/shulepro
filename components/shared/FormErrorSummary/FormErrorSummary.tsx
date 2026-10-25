@@ -3,7 +3,7 @@
 import { useId } from "react";
 import type { KeyboardEvent, MouseEvent } from "react";
 import { CircleAlert as AlertCircle } from "lucide-react";
-import { Alert } from "../../ui/Alert";
+import { Alert } from "@/components/ui/Alert";
 import styles from "./FormErrorSummary.module.scss";
 
 export interface FormErrorEntry {

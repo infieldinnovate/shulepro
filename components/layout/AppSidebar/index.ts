@@ -5,4 +5,4 @@ export type {
   SidebarNavGroupData,
   SidebarNavItemData,
   NavBadge,
-} from "../types";
+} from "@/components/layout/types";

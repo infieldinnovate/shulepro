@@ -4,9 +4,9 @@ import { useCallback } from "react";
 import type { ReactNode } from "react";
 import { Check, Minus, Shield } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   RoleDefinition,
   ResourceDefinition,
@@ -14,7 +14,7 @@ import type {
   PermissionCell,
   PermissionValue,
   PermissionChange,
-} from "../types";
+} from "@/components/features/admin/types";
 import styles from "./RolePermissionMatrix.module.scss";
 
 export interface RolePermissionMatrixProps {

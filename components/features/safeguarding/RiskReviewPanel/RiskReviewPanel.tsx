@@ -1,15 +1,15 @@
 import { format } from "date-fns";
 import { ClipboardCheck, Plus, CalendarClock } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import type { RiskReview, RiskLevel } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import type { RiskReview, RiskLevel } from "@/components/features/safeguarding/types";
 import styles from "./RiskReviewPanel.module.scss";
 
 export type RiskLevelBadgeMap = StatusBadgeMap<RiskLevel>;

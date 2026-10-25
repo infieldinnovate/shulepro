@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import { Phone, Mail, Users, Star, UserPlus } from "lucide-react";
 import clsx from "clsx";
-import { Avatar } from "../../../ui/Avatar";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { Guardian } from "../types";
+import { Avatar } from "@/components/ui/Avatar";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { Guardian } from "@/components/features/learners/types";
 import styles from "./GuardianList.module.scss";
 
 export interface GuardianListProps {

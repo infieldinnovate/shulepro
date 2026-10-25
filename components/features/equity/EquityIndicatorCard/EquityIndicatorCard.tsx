@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { Scale } from "lucide-react";
 import clsx from "clsx";
-import { KpiCard } from "../../../shared/KpiCard";
-import type { KpiCardStatus } from "../../../shared/KpiCard";
-import { BenchmarkCard } from "../../../shared/BenchmarkCard";
-import { DataAvailabilityNotice } from "../../../shared/DataAvailabilityNotice";
-import type { DataAvailabilityStatus } from "../../../shared/DataAvailabilityNotice";
+import { KpiCard } from "@/components/shared/KpiCard";
+import type { KpiCardStatus } from "@/components/shared/KpiCard";
+import { BenchmarkCard } from "@/components/shared/BenchmarkCard";
+import { DataAvailabilityNotice } from "@/components/shared/DataAvailabilityNotice";
+import type { DataAvailabilityStatus } from "@/components/shared/DataAvailabilityNotice";
 import { computeBenchmarkDelta } from "@/lib/analytics";
-import type { EquityIndicator } from "../types";
+import type { EquityIndicator } from "@/components/features/equity/types";
 import styles from "./EquityIndicatorCard.module.scss";
 
 export interface EquityIndicatorCardProps {

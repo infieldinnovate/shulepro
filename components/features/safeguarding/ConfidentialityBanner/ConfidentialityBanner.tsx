@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Lock, X } from "lucide-react";
 import clsx from "clsx";
-import { Alert } from "../../../ui/Alert";
+import { Alert } from "@/components/ui/Alert";
 import styles from "./ConfidentialityBanner.module.scss";
 
 export interface ConfidentialityBannerProps {

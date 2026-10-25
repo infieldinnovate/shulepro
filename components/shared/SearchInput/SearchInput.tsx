@@ -3,7 +3,7 @@
 import { useCallback, useId } from "react";
 import type { KeyboardEvent } from "react";
 import { Search, X } from "lucide-react";
-import { Input } from "../../ui/Input";
+import { Input } from "@/components/ui/Input";
 import clsx from "clsx";
 import styles from "./SearchInput.module.scss";
 

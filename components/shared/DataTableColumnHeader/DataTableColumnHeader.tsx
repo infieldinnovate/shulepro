@@ -3,7 +3,7 @@
 import type { KeyboardEvent, ReactNode } from "react";
 import { ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
 import clsx from "clsx";
-import { Table } from "../../ui/Table";
+import { Table } from "@/components/ui/Table";
 import styles from "./DataTableColumnHeader.module.scss";
 
 export interface DataTableColumnHeaderProps {

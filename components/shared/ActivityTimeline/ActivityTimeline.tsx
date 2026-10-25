@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
-import { WorkflowTimeline } from "../WorkflowTimeline";
+import { WorkflowTimeline } from "@/components/shared/WorkflowTimeline";
 import type {
   WorkflowTimelineEvent,
   WorkflowTimelineVariant,
   WorkflowTimelineActor,
-} from "../WorkflowTimeline";
+} from "@/components/shared/WorkflowTimeline";
 
 export type ActivityTimelineVariant = WorkflowTimelineVariant;
 export type ActivityTimelineActor = WorkflowTimelineActor;

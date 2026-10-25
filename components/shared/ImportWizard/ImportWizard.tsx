@@ -3,19 +3,19 @@
 import { useCallback, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, CircleCheck as CheckCircle2, TriangleAlert as AlertTriangle, Loader as Loader2, FileUp } from "lucide-react";
 import clsx from "clsx";
-import { StepIndicator } from "../StepIndicator";
-import type { StepStatus } from "../StepIndicator";
-import { FormActions } from "../FormActions";
-import { FileUploader, formatBytes } from "../FileUploader";
-import { Combobox } from "../../ui/Combobox";
-import { Button } from "../../ui/Button";
-import { Alert } from "../../ui/Alert";
-import { ConfirmActionDialog } from "../ConfirmActionDialog";
-import { ImportValidationResults } from "../ImportValidationResults";
+import { StepIndicator } from "@/components/shared/StepIndicator";
+import type { StepStatus } from "@/components/shared/StepIndicator";
+import { FormActions } from "@/components/shared/FormActions";
+import { FileUploader, formatBytes } from "@/components/shared/FileUploader";
+import { Combobox } from "@/components/ui/Combobox";
+import { Button } from "@/components/ui/Button";
+import { Alert } from "@/components/ui/Alert";
+import { ConfirmActionDialog } from "@/components/shared/ConfirmActionDialog";
+import { ImportValidationResults } from "@/components/shared/ImportValidationResults";
 import type {
   ImportValidationResultEntry,
   ImportValidationSummary,
-} from "../ImportValidationResults";
+} from "@/components/shared/ImportValidationResults";
 import styles from "./ImportWizard.module.scss";
 
 export interface ImportTargetField {

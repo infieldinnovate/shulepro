@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { Award, Link2 } from "lucide-react";
 import clsx from "clsx";
-import { RecordSummaryCard } from "../../../shared/RecordSummaryCard";
-import { Avatar } from "../../../ui/Avatar";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { ChampionProfile } from "../types";
+import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
+import { Avatar } from "@/components/ui/Avatar";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { ChampionProfile } from "@/components/features/activities/types";
 import styles from "./ChampionProfileCard.module.scss";
 
 export interface ChampionProfileCardProps {

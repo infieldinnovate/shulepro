@@ -2,14 +2,14 @@
 
 import type { ReactNode } from "react";
 import { ChevronDown, LogOut, Settings, User as UserIcon } from "lucide-react";
-import { DropdownMenu } from "../../ui/DropdownMenu";
-import { Avatar } from "../../ui/Avatar";
+import { DropdownMenu } from "@/components/ui/DropdownMenu";
+import { Avatar } from "@/components/ui/Avatar";
 import clsx from "clsx";
 import type {
   DropdownMenuActionItem,
   DropdownMenuItem,
-} from "../../ui/DropdownMenu";
-import type { UserDisplayModel } from "../headerTypes";
+} from "@/components/ui/DropdownMenu";
+import type { UserDisplayModel } from "@/components/layout/headerTypes";
 import styles from "./UserMenu.module.scss";
 
 export interface UserMenuProps {
@@ -135,7 +135,7 @@ export function UserMenu({
   );
 }
 
-export type { UserDisplayModel } from "../headerTypes";
+export type { UserDisplayModel } from "@/components/layout/headerTypes";
 
 export type UserMenuComponentProps = UserMenuProps & {
   children?: ReactNode;

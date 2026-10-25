@@ -1,20 +1,20 @@
 import type { ReactNode } from "react";
 import { AlertCircle, ClipboardCheck } from "lucide-react";
 import clsx from "clsx";
-import { BreakdownTable } from "../../../shared/BreakdownTable";
-import type { BreakdownRow } from "../../../shared/BreakdownTable";
-import { ComparisonPanel } from "../../../shared/ComparisonPanel";
-import type { ComparisonMetric } from "../../../shared/ComparisonPanel";
-import { DataAvailabilityNotice } from "../../../shared/DataAvailabilityNotice";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
+import { BreakdownTable } from "@/components/shared/BreakdownTable";
+import type { BreakdownRow } from "@/components/shared/BreakdownTable";
+import { ComparisonPanel } from "@/components/shared/ComparisonPanel";
+import type { ComparisonMetric } from "@/components/shared/ComparisonPanel";
+import { DataAvailabilityNotice } from "@/components/shared/DataAvailabilityNotice";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import type {
   CampaignOutcome,
   ProgrammeObjective,
-} from "../types";
+} from "@/components/features/activities/types";
 import styles from "./CampaignOutcomePanel.module.scss";
 
 export interface CampaignOutcomePanelProps {

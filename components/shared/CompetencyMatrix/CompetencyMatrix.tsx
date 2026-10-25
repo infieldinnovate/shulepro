@@ -1,9 +1,9 @@
 import type { ReactNode, CSSProperties } from "react";
 import { Info } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import { classifyDataPoint, type DataPresence } from "@/lib/analytics";
 import styles from "./CompetencyMatrix.module.scss";
 

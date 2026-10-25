@@ -4,16 +4,16 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { MessageSquarePlus, Pencil, Trash2 } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import type { BadgeVariant } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { IconButton } from "../../../ui/Button";
-import { CommentBox } from "../../../shared/CommentBox";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import type { BadgeVariant } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { IconButton } from "@/components/ui/Button";
+import { CommentBox } from "@/components/shared/CommentBox";
 import { formatAbsolute } from "@/lib/formatTime";
-import type { AssessmentFeedback } from "../types";
+import type { AssessmentFeedback } from "@/components/features/assessment/types";
 
 function toTimestamp(value: Date | string | number): string | number {
   return value instanceof Date ? value.getTime() : value;

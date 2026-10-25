@@ -2,13 +2,13 @@
 
 import type { ReactNode } from "react";
 import { Bell, Check, X } from "lucide-react";
-import { IconButton } from "../../ui/Button";
-import { Popover } from "../../ui/Popover";
-import { Badge } from "../../ui/Badge";
-import { Separator } from "../../ui/Separator";
+import { IconButton } from "@/components/ui/Button";
+import { Popover } from "@/components/ui/Popover";
+import { Badge } from "@/components/ui/Badge";
+import { Separator } from "@/components/ui/Separator";
 import clsx from "clsx";
-import type { NotificationItem } from "../headerTypes";
-import { formatAbsolute, formatRelativeTime } from "../../../lib/formatTime";
+import type { NotificationItem } from "@/components/layout/headerTypes";
+import { formatAbsolute, formatRelativeTime } from "@/lib/formatTime";
 import styles from "./NotificationCenter.module.scss";
 
 export interface NotificationCenterProps {
@@ -168,4 +168,4 @@ export function NotificationCenter({
   );
 }
 
-export type { NotificationItem } from "../headerTypes";
+export type { NotificationItem } from "@/components/layout/headerTypes";

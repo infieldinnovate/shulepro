@@ -1,9 +1,9 @@
 import { format, isValid } from "date-fns";
 import { HeartPulse } from "lucide-react";
 import clsx from "clsx";
-import { RestrictedRecordView } from "../../safeguarding/RestrictedRecordView";
-import { RecordDetailPanel } from "../../../shared/RecordDetailPanel";
-import type { HealthRecord } from "../types";
+import { RestrictedRecordView } from "@/components/features/safeguarding/RestrictedRecordView";
+import { RecordDetailPanel } from "@/components/shared/RecordDetailPanel";
+import type { HealthRecord } from "@/components/features/operations/types";
 import styles from "./HealthRecordPanel.module.scss";
 
 export interface HealthRecordPanelProps {

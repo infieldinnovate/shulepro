@@ -14,7 +14,7 @@ import {
   useFocusTrap,
   usePortalTarget,
   useRestoreFocus,
-} from "../overlays/useOverlay";
+} from "@/components/ui/overlays/useOverlay";
 import styles from "./Popover.module.scss";
 
 export interface PopoverProps {

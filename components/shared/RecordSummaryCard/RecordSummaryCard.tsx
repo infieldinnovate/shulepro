@@ -2,8 +2,8 @@
 
 import type { KeyboardEvent, ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Avatar } from "../../ui/Avatar";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
 import styles from "./RecordSummaryCard.module.scss";
 
 export interface RecordSummaryCardProps {

@@ -1,8 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AlertDialog } from "../../ui/AlertDialog";
-import type { AlertDialogSize } from "../../ui/AlertDialog";
+import { AlertDialog } from "@/components/ui/AlertDialog";
+import type { AlertDialogSize } from "@/components/ui/AlertDialog";
 import styles from "./ConfirmActionDialog.module.scss";
 
 export interface ConfirmActionDialogProps {

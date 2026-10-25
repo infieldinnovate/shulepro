@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react";
 import type { UseFormReturn } from "react-hook-form";
-import { FormDialog } from "../FormDialog";
-import type { DialogSize } from "../../ui/Dialog";
+import { FormDialog } from "@/components/shared/FormDialog";
+import type { DialogSize } from "@/components/ui/Dialog";
 import styles from "./RecordFormDialog.module.scss";
 
 export interface RecordFormDialogProps<T extends Record<string, unknown>> {

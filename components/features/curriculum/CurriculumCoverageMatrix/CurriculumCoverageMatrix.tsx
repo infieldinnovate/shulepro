@@ -1,9 +1,9 @@
 import type { CSSProperties } from "react";
 import { Grid3x3, Info } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import { classifyDataPoint, type DataPresence } from "@/lib/analytics";
 import type {
   CurriculumCoverageCell,
@@ -11,7 +11,7 @@ import type {
   CurriculumCoverageRow,
   CurriculumCoverageState,
   CurriculumCoverageLegendEntry,
-} from "../types";
+} from "@/components/features/curriculum/types";
 import styles from "./CurriculumCoverageMatrix.module.scss";
 
 export type CurriculumCoverageColorScale = (

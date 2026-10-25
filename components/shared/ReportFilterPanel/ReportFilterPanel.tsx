@@ -3,8 +3,8 @@
 import type { ReactNode } from "react";
 import { RotateCcw, ListFilter as FilterIcon } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Button } from "../../ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import styles from "./ReportFilterPanel.module.scss";
 
 export interface ReportFilterPanelProps {

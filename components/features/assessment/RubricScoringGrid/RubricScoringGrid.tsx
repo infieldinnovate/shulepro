@@ -4,16 +4,16 @@ import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { Check, AlertCircle, Target } from "lucide-react";
 import clsx from "clsx";
-import { Table } from "../../../ui/Table";
-import { Badge } from "../../../ui/Badge";
-import { Button } from "../../../ui/Button";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Table } from "@/components/ui/Table";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   Rubric,
   RubricCriterion,
-} from "../types";
+} from "@/components/features/assessment/types";
 import styles from "./RubricScoringGrid.module.scss";
 
 // ============================================================

@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
 import { Bus, Clock, MapPin, User } from "lucide-react";
 import clsx from "clsx";
-import { RecordSummaryCard } from "../../../shared/RecordSummaryCard";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Alert } from "../../../ui/Alert";
-import { Card } from "../../../ui/Card";
-import type { TransportRoute, TransportRouteStatus } from "../types";
+import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { Card } from "@/components/ui/Card";
+import type { TransportRoute, TransportRouteStatus } from "@/components/features/transport/types";
 import styles from "./TransportRouteCard.module.scss";
 
 export type RouteStatusBadgeMap = StatusBadgeMap<TransportRouteStatus>;

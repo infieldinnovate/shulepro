@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 import { format, isSameDay } from "date-fns";
 import { CalendarRange } from "lucide-react";
 import clsx from "clsx";
-import { DateRangePicker } from "../../ui/DateRangePicker";
-import type { CalendarDateRange } from "../../ui/Calendar";
+import { DateRangePicker } from "@/components/ui/DateRangePicker";
+import type { CalendarDateRange } from "@/components/ui/Calendar";
 import styles from "./ChartDateRangeFilter.module.scss";
 
 /**

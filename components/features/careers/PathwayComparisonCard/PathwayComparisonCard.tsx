@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
 import { GitCompare } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   PathwayComparisonCriterion,
   PathwayComparisonEntry,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./PathwayComparisonCard.module.scss";
 
 export interface PathwayComparisonCardProps {

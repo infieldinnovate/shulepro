@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Badge } from "../../ui/Badge";
+import { Badge } from "@/components/ui/Badge";
 import clsx from "clsx";
 import styles from "./SidebarNavItem.module.scss";
 

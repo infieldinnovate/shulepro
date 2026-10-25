@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { CheckCircle2, AlertCircle, Save } from "lucide-react";
-import { Spinner } from "../../ui/Spinner";
+import { Spinner } from "@/components/ui/Spinner";
 import clsx from "clsx";
 import styles from "./FormSaveIndicator.module.scss";
 

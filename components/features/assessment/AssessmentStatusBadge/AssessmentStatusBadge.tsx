@@ -1,7 +1,7 @@
 import { CircleSlash, Clock, Send, SquareCheck as CheckSquare, Globe, File as FileEdit } from "lucide-react";
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import type { AssessmentStatus } from "../types";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import type { AssessmentStatus } from "@/components/features/assessment/types";
 import styles from "./AssessmentStatusBadge.module.scss";
 
 export type AssessmentStatusBadgeMap = StatusBadgeMap<AssessmentStatus>;

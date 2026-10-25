@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 import { Info, ChevronRight } from "lucide-react";
 import clsx from "clsx";
-import { Table } from "../../ui/Table";
-import { Badge } from "../../ui/Badge";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
+import { Table } from "@/components/ui/Table";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
 import {
   computeTrend,
   classifyDataPoint,

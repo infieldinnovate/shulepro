@@ -4,11 +4,11 @@ import type { KeyboardEvent, ReactNode } from "react";
 import { format } from "date-fns";
 import { ChevronRight, ListChecks } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { Accommodation } from "../types";
+import { Card } from "@/components/ui/Card";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { Accommodation } from "@/components/features/inclusion/types";
 import styles from "./AccommodationList.module.scss";
 
 export interface AccommodationListProps {

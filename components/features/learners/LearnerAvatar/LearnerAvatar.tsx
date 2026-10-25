@@ -1,7 +1,7 @@
-import { Avatar } from "../../../ui/Avatar";
-import type { AvatarSize } from "../../../ui/Avatar";
+import { Avatar } from "@/components/ui/Avatar";
+import type { AvatarSize } from "@/components/ui/Avatar";
 import clsx from "clsx";
-import type { Learner, EnrolmentStatus } from "../types";
+import type { Learner, EnrolmentStatus } from "@/components/features/learners/types";
 import styles from "./LearnerAvatar.module.scss";
 
 export type LearnerAvatarStatus = "active" | "inactive" | "transferred" | "graduated";

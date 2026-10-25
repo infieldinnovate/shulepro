@@ -3,14 +3,14 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Button } from "../../../ui/Button";
-import { Input } from "../../../ui/Input";
-import { Label } from "../../../ui/Label";
-import { Textarea } from "../../../ui/Textarea";
-import { FormField } from "../../../ui/FormField";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/Label";
+import { Textarea } from "@/components/ui/Textarea";
+import { FormField } from "@/components/ui/FormField";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
 import {
   ClipboardList,
   Plus,
@@ -19,7 +19,7 @@ import {
   CalendarClock,
   Save,
 } from "lucide-react";
-import type { MeetingSummary, DisabledState } from "../models";
+import type { MeetingSummary, DisabledState } from "@/components/features/engagement/models";
 import styles from "./MeetingSummaryForm.module.scss";
 
 export interface MeetingSummaryFormProps {

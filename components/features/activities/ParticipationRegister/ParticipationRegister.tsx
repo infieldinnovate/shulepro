@@ -5,32 +5,32 @@ import type { ReactNode } from "react";
 import type { ColumnDef, RowData } from "@tanstack/react-table";
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Select } from "../../../ui/Select";
-import type { SelectOption } from "../../../ui/Select";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { DataTable } from "../../../shared/DataTable";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Select } from "@/components/ui/Select";
+import type { SelectOption } from "@/components/ui/Select";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { DataTable } from "@/components/shared/DataTable";
 import type {
   DataTableState,
   DataTableSortState,
   DataTablePaginationState,
   DataTableRowSelectionState,
   DataTableFeatures,
-} from "../../../shared/DataTable";
-import type { ColumnMeta } from "../../../shared/DataTable/DataTable";
-import { DataTableToolbar } from "../../../shared/DataTableToolbar";
-import { DataTablePagination } from "../../../shared/DataTablePagination";
-import { BulkActionBar } from "../../../shared/BulkActionBar";
-import type { BulkAction } from "../../../shared/BulkActionBar";
-import { SearchInput } from "../../../shared/SearchInput";
+} from "@/components/shared/DataTable";
+import type { ColumnMeta } from "@/components/shared/DataTable/DataTable";
+import { DataTableToolbar } from "@/components/shared/DataTableToolbar";
+import { DataTablePagination } from "@/components/shared/DataTablePagination";
+import { BulkActionBar } from "@/components/shared/BulkActionBar";
+import type { BulkAction } from "@/components/shared/BulkActionBar";
+import { SearchInput } from "@/components/shared/SearchInput";
 import type {
   ParticipationRecord,
   ParticipationStatusOption,
   ParticipationColumn,
-} from "../types";
+} from "@/components/features/activities/types";
 import styles from "./ParticipationRegister.module.scss";
 
 export interface ParticipationRegisterProps {

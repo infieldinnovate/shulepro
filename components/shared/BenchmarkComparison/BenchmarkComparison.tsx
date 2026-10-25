@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import { Info } from "lucide-react";
 import clsx from "clsx";
-import { Spinner } from "../../ui/Spinner";
-import { EmptyState } from "../../ui/EmptyState";
-import { Alert } from "../../ui/Alert";
-import { BenchmarkCard } from "../BenchmarkCard";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Alert } from "@/components/ui/Alert";
+import { BenchmarkCard } from "@/components/shared/BenchmarkCard";
 import { computeBenchmarkDelta } from "@/lib/analytics";
 import styles from "./BenchmarkComparison.module.scss";
 

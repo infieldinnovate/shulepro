@@ -3,8 +3,8 @@
 import type { ReactNode } from "react";
 import { FileText, ExternalLink, Download, AlertTriangle } from "lucide-react";
 import clsx from "clsx";
-import { Alert } from "../../ui/Alert";
-import { Button } from "../../ui/Button";
+import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
 import styles from "./DocumentViewer.module.scss";
 
 export interface DocumentViewerDocument {

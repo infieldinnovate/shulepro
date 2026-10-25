@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react";
 import { School as SchoolIcon } from "lucide-react";
-import { Combobox } from "../../ui/Combobox";
-import type { SchoolOption } from "../headerTypes";
+import { Combobox } from "@/components/ui/Combobox";
+import type { SchoolOption } from "@/components/layout/headerTypes";
 import styles from "./SchoolSwitcher.module.scss";
 
 export interface SchoolSwitcherProps {
@@ -53,7 +53,7 @@ export function SchoolSwitcher({
   );
 }
 
-export type { SchoolOption } from "../headerTypes";
+export type { SchoolOption } from "@/components/layout/headerTypes";
 
 export type SchoolSwitcherComponentProps = SchoolSwitcherProps & {
   children?: ReactNode;

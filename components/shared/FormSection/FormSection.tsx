@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { Card } from "../../ui/Card";
-import { Separator } from "../../ui/Separator";
+import { Card } from "@/components/ui/Card";
+import { Separator } from "@/components/ui/Separator";
 import styles from "./FormSection.module.scss";
 
 export type FormSectionVariant = "card" | "plain";

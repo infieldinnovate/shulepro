@@ -1,7 +1,7 @@
-import { StatusBadge } from "../../../shared/StatusBadge";
-import type { StatusBadgeMap } from "../../../shared/StatusBadge";
-import type { BadgeSize } from "../../../ui/Badge";
-import type { VehicleStatus } from "../types";
+import { StatusBadge } from "@/components/shared/StatusBadge";
+import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
+import type { BadgeSize } from "@/components/ui/Badge";
+import type { VehicleStatus } from "@/components/features/transport/types";
 
 export type VehicleStatusBadgeMap = StatusBadgeMap<VehicleStatus>;
 

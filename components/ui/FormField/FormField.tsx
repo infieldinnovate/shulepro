@@ -1,7 +1,7 @@
 import { cloneElement, isValidElement, useId } from "react";
 import type { ReactElement, ReactNode } from "react";
 import clsx from "clsx";
-import { Label } from "../Label";
+import { Label } from "@/components/ui/Label";
 import styles from "./FormField.module.scss";
 
 export interface FormFieldProps {

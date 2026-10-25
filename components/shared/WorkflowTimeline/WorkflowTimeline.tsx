@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
-import { Avatar } from "../../ui/Avatar";
-import { EmptyState } from "../../ui/EmptyState";
-import { formatAbsolute, formatRelativeTime } from "../../../lib/formatTime";
+import { Avatar } from "@/components/ui/Avatar";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { formatAbsolute, formatRelativeTime } from "@/lib/formatTime";
 import styles from "./WorkflowTimeline.module.scss";
 
 export type WorkflowTimelineVariant =

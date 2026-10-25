@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
-import { Breadcrumb } from "../../ui/Breadcrumb";
-import type { BreadcrumbItem } from "../../ui/Breadcrumb";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import type { BreadcrumbItem } from "@/components/ui/Breadcrumb";
 
 export interface BreadcrumbsProps
   extends Omit<ComponentProps<typeof Breadcrumb>, "items"> {

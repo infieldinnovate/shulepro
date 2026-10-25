@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 import { School } from "lucide-react";
 import clsx from "clsx";
-import { RecordSummaryCard } from "../../../shared/RecordSummaryCard";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { Card } from "../../../ui/Card";
-import { Avatar } from "../../../ui/Avatar";
-import type { Class, ClassSummaryStat, Grade } from "../types";
+import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { Card } from "@/components/ui/Card";
+import { Avatar } from "@/components/ui/Avatar";
+import type { Class, ClassSummaryStat, Grade } from "@/components/features/curriculum/types";
 import styles from "./ClassSummaryCard.module.scss";
 
 export interface ClassSummaryCardProps {

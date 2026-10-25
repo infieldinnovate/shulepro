@@ -2,10 +2,10 @@
  
 import { useCallback, useState } from "react";
 import type { ReactNode } from "react";
-import { AppSidebar } from "../AppSidebar";
-import { MobileNavigation } from "../MobileNavigation";
-import { SidebarToggle } from "../SidebarToggle";
-import type { SidebarNavSection } from "../types";
+import { AppSidebar } from "@/components/layout/AppSidebar";
+import { MobileNavigation } from "@/components/layout/MobileNavigation";
+import { SidebarToggle } from "@/components/layout/SidebarToggle";
+import type { SidebarNavSection } from "@/components/layout/types";
 import clsx from "clsx";
 import styles from "./AppShell.module.scss";
 

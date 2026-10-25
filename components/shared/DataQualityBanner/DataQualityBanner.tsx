@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { Alert } from "../../ui/Alert";
-import { Badge } from "../../ui/Badge";
+import { Alert } from "@/components/ui/Alert";
+import { Badge } from "@/components/ui/Badge";
 import styles from "./DataQualityBanner.module.scss";
 
 export type DataQualitySeverity = "error" | "warning" | "info";

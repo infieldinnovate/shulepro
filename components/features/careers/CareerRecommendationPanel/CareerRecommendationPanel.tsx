@@ -1,17 +1,17 @@
 import type { ReactNode } from "react";
 import { Lightbulb, TriangleAlert, Info } from "lucide-react";
 import clsx from "clsx";
-import { Card } from "../../../ui/Card";
-import { Badge } from "../../../ui/Badge";
-import { Spinner } from "../../../ui/Spinner";
-import { Alert } from "../../../ui/Alert";
-import { EmptyState } from "../../../ui/EmptyState";
-import { DrillDownLink } from "../../../shared/DrillDownLink";
-import type { DrillDownContext } from "../../../shared/DrillDownLink";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Spinner } from "@/components/ui/Spinner";
+import { Alert } from "@/components/ui/Alert";
+import { EmptyState } from "@/components/ui/EmptyState";
+import { DrillDownLink } from "@/components/shared/DrillDownLink";
+import type { DrillDownContext } from "@/components/shared/DrillDownLink";
 import type {
   CareerRecommendation,
   CareerRecommendationInputGap,
-} from "../types";
+} from "@/components/features/careers/types";
 import styles from "./CareerRecommendationPanel.module.scss";
 
 export interface CareerRecommendationPanelProps {

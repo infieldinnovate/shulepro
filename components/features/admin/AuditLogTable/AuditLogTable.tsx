@@ -6,22 +6,22 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { format, isValid, parseISO } from "date-fns";
 import { ScrollText } from "lucide-react";
 import clsx from "clsx";
-import { DataTable } from "../../../shared/DataTable";
+import { DataTable } from "@/components/shared/DataTable";
 import type {
   DataTableState,
   DataTableSortState,
   DataTablePaginationState,
   DataTableColumnVisibilityState,
   DataTableFeatures,
-} from "../../../shared/DataTable";
-import { DataTablePagination } from "../../../shared/DataTablePagination";
-import { Badge } from "../../../ui/Badge";
-import type { BadgeVariant } from "../../../ui/Badge";
-import { EmptyState } from "../../../ui/EmptyState";
+} from "@/components/shared/DataTable";
+import { DataTablePagination } from "@/components/shared/DataTablePagination";
+import { Badge } from "@/components/ui/Badge";
+import type { BadgeVariant } from "@/components/ui/Badge";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type {
   AuditLogEvent,
   AuditLogSeverity,
-} from "../types";
+} from "@/components/features/admin/types";
 import styles from "./AuditLogTable.module.scss";
 
 export interface AuditLogTableProps {

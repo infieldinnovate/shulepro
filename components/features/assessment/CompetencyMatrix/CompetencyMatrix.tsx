@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { CompetencyMatrix as SharedCompetencyMatrix } from "../../../shared/CompetencyMatrix";
+import { CompetencyMatrix as SharedCompetencyMatrix } from "@/components/shared/CompetencyMatrix";
 import type {
   CompetencyLearner,
   CompetencyColumn,
@@ -7,8 +7,8 @@ import type {
   CompetencyMatrixDrillDown,
   PerformanceScaleLevel,
   PerformanceScaleMap,
-} from "../../../shared/CompetencyMatrix";
-import type { AttainmentLevel } from "../types";
+} from "@/components/shared/CompetencyMatrix";
+import type { AttainmentLevel } from "@/components/features/assessment/types";
 
 export interface AssessmentCompetencyMatrixProps {
   title: string;

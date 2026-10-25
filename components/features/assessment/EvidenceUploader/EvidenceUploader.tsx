@@ -2,13 +2,13 @@
 
 import type { ReactNode } from "react";
 import clsx from "clsx";
-import { FileUploader } from "../../../shared/FileUploader";
-import { AttachmentList } from "../../../shared/AttachmentList";
-import type { Attachment } from "../../../shared/AttachmentList";
-import { Alert } from "../../../ui/Alert";
-import { Spinner } from "../../../ui/Spinner";
-import { EmptyState } from "../../../ui/EmptyState";
-import type { EvidenceItem } from "../types";
+import { FileUploader } from "@/components/shared/FileUploader";
+import { AttachmentList } from "@/components/shared/AttachmentList";
+import type { Attachment } from "@/components/shared/AttachmentList";
+import { Alert } from "@/components/ui/Alert";
+import { Spinner } from "@/components/ui/Spinner";
+import { EmptyState } from "@/components/ui/EmptyState";
+import type { EvidenceItem } from "@/components/features/assessment/types";
 import styles from "./EvidenceUploader.module.scss";
 
 export interface EvidenceUploaderProps {

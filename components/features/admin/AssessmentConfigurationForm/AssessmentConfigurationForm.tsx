@@ -3,16 +3,16 @@
 import { useCallback, useState } from "react";
 import { Plus, Trash2, Save, GripVertical } from "lucide-react";
 import clsx from "clsx";
-import { Input } from "../../../ui/Input";
-import { Button } from "../../../ui/Button";
-import { FormSection } from "../../../shared/FormSection";
-import { FormActions } from "../../../shared/FormActions";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { FormSection } from "@/components/shared/FormSection";
+import { FormActions } from "@/components/shared/FormActions";
 import type {
   AssessmentTypeEntry,
   DescriptorEntry,
   ScaleLevelEntry,
   AssessmentConfigurationFormData,
-} from "../types";
+} from "@/components/features/admin/types";
 import styles from "./AssessmentConfigurationForm.module.scss";
 
 export interface AssessmentConfigurationFormProps {
