@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/Label";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { FormActions } from "@/components/shared/FormActions";
+import { resolveChartColor } from "@/lib/chartColors";
 import styles from "./SignatureOrAcknowledgement.module.scss";
 
 export interface SignatureOrAcknowledgementProps {
@@ -121,7 +122,7 @@ export function SignatureOrAcknowledgement({
                 role="alert"
                 style={{
                   fontSize: "var(--font-size-sm)",
-                  color: "var(--color-error-700)",
+                  color: resolveChartColor("error700"),
                   fontWeight: "var(--font-weight-medium)",
                 }}
               >

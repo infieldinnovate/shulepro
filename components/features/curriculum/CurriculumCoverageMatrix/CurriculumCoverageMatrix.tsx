@@ -6,6 +6,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { classifyDataPoint, type DataPresence } from "@/lib/analytics";
+import { resolveChartColor } from "@/lib/chartColors";
 import type {
   CurriculumCoverageCell,
   CurriculumCoverageColumn,
@@ -60,14 +61,26 @@ const DEFAULT_STATE_COLORS: Record<
   CurriculumCoverageState,
   { background: string; color: string }
 > = {
-  planned: { background: "var(--color-info-50)", color: "var(--color-info-700)" },
-  taught: { background: "var(--color-primary-50)", color: "var(--color-primary-700)" },
-  assessed: { background: "var(--color-success-50)", color: "var(--color-success-700)" },
-  "insufficient-evidence": {
-    background: "var(--color-warning-50)",
-    color: "var(--color-warning-700)",
+  planned: {
+    background: resolveChartColor("info50"),
+    color: resolveChartColor("info700"),
   },
-  "not-started": { background: "var(--color-surface-muted)", color: "var(--color-fg-muted)" },
+  taught: {
+    background: resolveChartColor("primary50"),
+    color: resolveChartColor("primary700"),
+  },
+  assessed: {
+    background: resolveChartColor("success50"),
+    color: resolveChartColor("success700"),
+  },
+  "insufficient-evidence": {
+    background: resolveChartColor("warning50"),
+    color: resolveChartColor("warning700"),
+  },
+  "not-started": {
+    background: "var(--color-surface-muted)",
+    color: "var(--color-fg-muted)",
+  },
 };
 
 const STATE_LABELS: Record<CurriculumCoverageState, string> = {

@@ -10,6 +10,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { ProgressTrend } from "@/components/shared/ProgressTrend";
 import type { TrendSeries } from "@/components/shared/ProgressTrend";
 import { TrendIndicator } from "@/components/shared/TrendIndicator";
+import { resolveChartColor } from "@/lib/chartColors";
 import type { TrendDirection } from "@/lib/analytics";
 import type { WellbeingTrendSeries } from "@/components/features/wellbeing/types";
 import styles from "./WellbeingTrendPanel.module.scss";
@@ -43,7 +44,7 @@ function toProgressTrendSeries(
       label: pt.label,
       value: pt.value,
     })),
-    color: s.color ?? "var(--color-primary-500)",
+    color: s.color ?? resolveChartColor("primary"),
     area: s.area,
     reference: s.reference,
   }));

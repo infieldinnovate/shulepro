@@ -68,7 +68,7 @@ export function TimetableGrid({
   const renderEntry = (entry: TimetableEntry) => {
     const color = entry.colorToken
       ? resolveChartColor(entry.colorToken)
-      : "var(--color-primary-100)";
+      : resolveChartColor("primary100");
     const interactive = Boolean(onCellClick || onCellDrillDown);
     return (
       <Button

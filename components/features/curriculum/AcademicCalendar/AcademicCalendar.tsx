@@ -232,7 +232,7 @@ export function AcademicCalendar({
                       {dayEvents.slice(0, 4).map((event) => {
                         const color = event.colorToken
                           ? resolveChartColor(event.colorToken)
-                          : "var(--color-primary-500)";
+                          : resolveChartColor("primary");
                         return (
                           <span
                             key={event.id}
@@ -267,7 +267,7 @@ export function AcademicCalendar({
               {monthAgenda.map((event) => {
                 const color = event.colorToken
                   ? resolveChartColor(event.colorToken)
-                  : "var(--color-primary-500)";
+                  : resolveChartColor("primary");
                 const isSelected = selectedEventId === event.id;
                 const dateLabel = event.endDate
                   ? `${format(event.date, "MMM d")} – ${format(event.endDate, "MMM d")}`
