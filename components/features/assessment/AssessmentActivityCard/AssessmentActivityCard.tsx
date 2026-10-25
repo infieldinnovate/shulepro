@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { BookOpen, CalendarClock, Target } from "lucide-react";
-import { format, isPast, isToday } from "date-fns";
+import { isPast, isToday } from "date-fns";
+import { format } from "date-fns";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -10,6 +11,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 import { AssessmentStatusBadge } from "@/components/features/assessment/AssessmentStatusBadge";
+import { formatDateShort } from "@/lib/formatTime";
 import type { AssessmentActivity } from "@/components/features/assessment/types";
 import styles from "./AssessmentActivityCard.module.scss";
 
@@ -34,7 +36,7 @@ export interface AssessmentActivityCardProps {
 function formatDueDate(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
   if (isToday(d)) return `Today, ${format(d, "h:mm a")}`;
-  return format(d, "EEE, MMM d, yyyy");
+  return formatDateShort(date);
 }
 
 function isOverdue(activity: AssessmentActivity): boolean {

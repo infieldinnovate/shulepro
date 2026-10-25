@@ -7,6 +7,8 @@ export {
   formatDate,
   formatDateLong,
   formatDateMedium,
+  formatDateTime,
+  formatDateShort,
 } from "./formatTime";
 
 export {

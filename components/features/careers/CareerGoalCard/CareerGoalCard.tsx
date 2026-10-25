@@ -1,5 +1,5 @@
 import type { KeyboardEvent, ReactNode } from "react";
-import { format, isPast, isToday } from "date-fns";
+import { isPast, isToday } from "date-fns";
 import { CalendarClock, Target, Pencil } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { CareerGoal, CareerGoalStatus } from "@/components/features/careers/types";
+import { formatDateShort } from "@/lib/formatTime";
 import styles from "./CareerGoalCard.module.scss";
 
 export type CareerGoalStatusBadgeMap = StatusBadgeMap<CareerGoalStatus>;
@@ -49,7 +50,7 @@ function toDate(d: Date | string): Date {
 function formatDate(d: Date | string): string {
   const date = toDate(d);
   if (isToday(date)) return "Today";
-  return format(date, "EEE, MMM d, yyyy");
+  return formatDateShort(d);
 }
 
 function isReviewOverdue(goal: CareerGoal): boolean {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo } from "react";
-import { format } from "date-fns";
 import { Bus, CheckCircle2, CircleSlash, XCircle } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -10,6 +9,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Table } from "@/components/ui/Table";
 import { Alert } from "@/components/ui/Alert";
+import { formatDateShort } from "@/lib/formatTime";
 import type {
   TransportRoute,
   TransportPassenger,
@@ -56,10 +56,10 @@ export function TransportAttendanceRegister({
   error,
   className,
 }: TransportAttendanceRegisterProps) {
-  const dateStr = useMemo(() => {
-    const d = typeof date === "string" ? new Date(date) : date;
-    return format(d, "EEE, MMM d, yyyy");
-  }, [date]);
+  const dateStr = useMemo(
+    () => formatDateShort(date),
+    [date],
+  );
 
   if (loading) {
     return (

@@ -1,9 +1,9 @@
-import { format, isValid } from "date-fns";
 import { HeartPulse } from "lucide-react";
 import clsx from "clsx";
 import { RestrictedRecordView } from "@/components/features/safeguarding/RestrictedRecordView";
 import { RecordDetailPanel } from "@/components/shared/RecordDetailPanel";
 import type { HealthRecord } from "@/components/features/operations/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./HealthRecordPanel.module.scss";
 
 export interface HealthRecordPanelProps {
@@ -15,9 +15,8 @@ export interface HealthRecordPanelProps {
 }
 
 function formatDate(d: Date | string | undefined): string {
-  if (!d) return "—";
-  const date = typeof d === "string" ? new Date(d) : d;
-  return isValid(date) ? format(date, "MMM d, yyyy") : "—";
+  const formatted = formatDateMedium(d);
+  return formatted || "—";
 }
 
 export function HealthRecordPanel({

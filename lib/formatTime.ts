@@ -83,6 +83,36 @@ export function formatDateLong(timestamp: DateInput): string {
   });
 }
 
+/**
+ * Format a date with a short month and time, e.g. "Mar 5, 2026 14:30".
+ */
+export function formatDateTime(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  return date.toLocaleString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+}
+
+/**
+ * Format a date with a short weekday and month, e.g. "Mon, Mar 5, 2026".
+ */
+export function formatDateShort(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  return date.toLocaleDateString(undefined, {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
 function toDate(value: DateInput): Date | null {
   if (value === undefined || value === null) return null;
   const date = value instanceof Date ? value : new Date(value);

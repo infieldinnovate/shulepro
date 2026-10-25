@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { format, isPast, isToday } from "date-fns";
+import { isPast, isToday } from "date-fns";
 import { CalendarClock, FileText, Target } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -7,6 +7,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { SupportPlan } from "@/components/features/inclusion/types";
+import { formatDateMedium, formatDateShort } from "@/lib/formatTime";
 import styles from "./SupportPlanSummary.module.scss";
 
 export interface SupportPlanSummaryProps {
@@ -30,7 +31,7 @@ export interface SupportPlanSummaryProps {
 function formatReviewDate(date: Date | string): string {
   const d = typeof date === "string" ? new Date(date) : date;
   if (isToday(d)) return "Today";
-  return format(d, "EEE, MMM d, yyyy");
+  return formatDateShort(date);
 }
 
 function isReviewOverdue(plan: SupportPlan): boolean {
@@ -160,12 +161,7 @@ export function SupportPlanSummary({
               <dt className={styles.metaLabel}>Start date</dt>
               <dd className={styles.metaValue}>
                 <FileText aria-hidden="true" className={styles.metaIcon} />
-                {format(
-                  typeof plan.startDate === "string"
-                    ? new Date(plan.startDate)
-                    : plan.startDate,
-                  "MMM d, yyyy",
-                )}
+                {formatDateMedium(plan.startDate)}
               </dd>
             </div>
           )}

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { CalendarClock, BookOpen, User } from "lucide-react";
-import { format, isPast, isToday } from "date-fns";
+import { isPast, isToday } from "date-fns";
+import { format } from "date-fns";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Progress } from "@/components/ui/Progress";
@@ -15,6 +16,7 @@ import type {
   Assignment,
   AssignmentStatus,
 } from "@/components/features/curriculum/types";
+import { formatDateShort } from "@/lib/formatTime";
 import styles from "./AssignmentCard.module.scss";
 
 export interface AssignmentCardProps {
@@ -40,7 +42,7 @@ const STATUS_MAP = {
 
 function formatDueDate(date: Date): string {
   if (isToday(date)) return `Today, ${format(date, "h:mm a")}`;
-  return format(date, "EEE, MMM d, yyyy");
+  return formatDateShort(date);
 }
 
 function isOverdue(assignment: Assignment): boolean {

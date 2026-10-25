@@ -3,7 +3,6 @@
 import { useCallback, useMemo } from "react";
 import type { ReactNode } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
-import { format, isValid, parseISO } from "date-fns";
 import { ScrollText } from "lucide-react";
 import clsx from "clsx";
 import { DataTable } from "@/components/shared/DataTable";
@@ -22,6 +21,7 @@ import type {
   AuditLogEvent,
   AuditLogSeverity,
 } from "@/components/features/admin/types";
+import { formatDateTime } from "@/lib/formatTime";
 import styles from "./AuditLogTable.module.scss";
 
 export interface AuditLogTableProps {
@@ -72,9 +72,8 @@ export const DEFAULT_COLUMN_VISIBILITY: DataTableColumnVisibilityState = {
 };
 
 function formatTimestamp(value: string): string {
-  if (!value) return "—";
-  const date = parseISO(value);
-  return isValid(date) ? format(date, "MMM d, yyyy HH:mm") : "—";
+  const formatted = formatDateTime(value);
+  return formatted || "—";
 }
 
 function severityVariant(severity: AuditLogSeverity | undefined): BadgeVariant | null {

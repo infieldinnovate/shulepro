@@ -11,7 +11,6 @@ import {
   FileVideo,
   FileAudio,
 } from "lucide-react";
-import { format, parseISO, isValid } from "date-fns";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -20,6 +19,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Tabs } from "@/components/ui/Tabs";
 import type { EvidenceItem } from "@/components/features/assessment/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./PortfolioGallery.module.scss";
 
 export type PortfolioGroupBy = "learning-area" | "type" | "date" | "activity" | "none";
@@ -52,13 +52,6 @@ function iconForType(type?: string): ReactNode {
   return <FileIcon aria-hidden="true" />;
 }
 
-function formatDate(date: Date | string | undefined): string {
-  if (!date) return "";
-  const d = typeof date === "string" ? parseISO(date) : date;
-  if (!isValid(d)) return "";
-  return format(d, "MMM d, yyyy");
-}
-
 function getGroupKey(
   item: EvidenceItem,
   groupBy: PortfolioGroupBy,
@@ -69,7 +62,7 @@ function getGroupKey(
     case "type":
       return item.type ?? "Other";
     case "date":
-      return formatDate(item.uploadedAt);
+      return formatDateMedium(item.uploadedAt);
     case "activity":
       return item.learningAreaRef ?? "Uncategorized";
     case "none":
@@ -188,7 +181,7 @@ export function PortfolioGallery({
                   )}
                   {item.uploadedAt && (
                     <span className={styles.cardDate}>
-                      {formatDate(item.uploadedAt)}
+                      {formatDateMedium(item.uploadedAt)}
                     </span>
                   )}
                 </div>

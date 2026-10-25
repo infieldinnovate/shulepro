@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { format } from "date-fns";
 import { UtensilsCrossed } from "lucide-react";
 import clsx from "clsx";
 import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
@@ -10,6 +9,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
 import { Card } from "@/components/ui/Card";
 import type { MealProgramme, MealProgrammeStatus } from "@/components/features/operations/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./MealProgrammeCard.module.scss";
 
 export type MealProgrammeStatusBadgeMap = StatusBadgeMap<MealProgrammeStatus>;
@@ -24,10 +24,6 @@ export interface MealProgrammeCardProps {
   error?: string;
   empty?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function MealProgrammeCard({
@@ -77,7 +73,7 @@ export function MealProgrammeCard({
     <span key="date" className={styles.metaEntry}>
       <span className={styles.metaLabel}>Date</span>
       <span className={styles.metaValue}>
-        {format(toDate(programme.date), "MMM d, yyyy")}
+        {formatDateMedium(programme.date)}
       </span>
     </span>,
     <span key="served" className={styles.metaEntry}>

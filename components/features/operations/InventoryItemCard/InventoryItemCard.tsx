@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { format } from "date-fns";
 import { Package } from "lucide-react";
 import clsx from "clsx";
 import { RecordSummaryCard } from "@/components/shared/RecordSummaryCard";
@@ -14,6 +13,7 @@ import type {
   InventoryItemCondition,
   InventoryItemStatus,
 } from "@/components/features/operations/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./InventoryItemCard.module.scss";
 
 export type ConditionBadgeMap = StatusBadgeMap<InventoryItemCondition>;
@@ -32,10 +32,6 @@ export interface InventoryItemCardProps {
   error?: string;
   empty?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function InventoryItemCard({
@@ -113,7 +109,7 @@ export function InventoryItemCard({
       <span key="lastUpdated" className={styles.metaEntry}>
         <span className={styles.metaLabel}>Last updated</span>
         <span className={styles.metaValue}>
-          {format(toDate(item.lastUpdated), "MMM d, yyyy")}
+          {formatDateMedium(item.lastUpdated)}
         </span>
       </span>,
     );

@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { ShieldAlert, CalendarClock, Pencil, CheckCircle2 } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -12,6 +11,7 @@ import type {
   AccessibilitySeverity,
   AccessibilityIssueStatus,
 } from "@/components/features/inclusion/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./AccessibilityIssueCard.module.scss";
 
 export type AccessibilitySeverityBadgeMap = Record<
@@ -52,10 +52,6 @@ export interface AccessibilityIssueCardProps {
   empty?: boolean;
   disabled?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function AccessibilityIssueCard({
@@ -169,7 +165,7 @@ export function AccessibilityIssueCard({
               <dt className={styles.metaLabel}>Identified</dt>
               <dd className={styles.metaValue}>
                 <CalendarClock aria-hidden="true" className={styles.metaIcon} />
-                {format(toDate(issue.identifiedDate), "MMM d, yyyy")}
+                {formatDateMedium(issue.identifiedDate)}
               </dd>
             </div>
           )}
@@ -178,7 +174,7 @@ export function AccessibilityIssueCard({
               <dt className={styles.metaLabel}>Resolved</dt>
               <dd className={styles.metaValue}>
                 <CheckCircle2 aria-hidden="true" className={styles.metaIcon} />
-                {format(toDate(issue.resolvedDate), "MMM d, yyyy")}
+                {formatDateMedium(issue.resolvedDate)}
               </dd>
             </div>
           )}

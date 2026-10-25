@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { format, isValid } from "date-fns";
 import { Plus, Pencil, Trash2, Calendar } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -20,6 +19,7 @@ import { Table } from "@/components/ui/Table";
 import { FormField } from "@/components/ui/FormField";
 import { FormActions } from "@/components/shared/FormActions";
 import type { AcademicPeriod, AcademicPeriodFormData } from "@/components/features/admin/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./AcademicYearSettings.module.scss";
 
 export interface AcademicYearSettingsOptions {
@@ -48,9 +48,8 @@ const periodSchema = z.object({
 });
 
 function formatDate(d: string | undefined): string {
-  if (!d) return "—";
-  const date = new Date(d);
-  return isValid(date) ? format(date, "MMM d, yyyy") : "—";
+  const formatted = formatDateMedium(d);
+  return formatted || "—";
 }
 
 function statusVariant(status: string): "success" | "neutral" | "warning" {

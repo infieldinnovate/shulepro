@@ -1,6 +1,5 @@
 "use client";
 
-import { format, isValid } from "date-fns";
 import { BookUp, BookDown } from "lucide-react";
 import clsx from "clsx";
 import { FormSection } from "@/components/shared/FormSection";
@@ -11,6 +10,7 @@ import type {
   LibraryBorrower,
   LibraryIssueRecord,
 } from "@/components/features/operations/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./IssueReturnPanel.module.scss";
 
 export interface IssueReturnPanelProps {
@@ -25,9 +25,8 @@ export interface IssueReturnPanelProps {
 }
 
 function formatDate(d: Date | string | undefined): string {
-  if (!d) return "—";
-  const date = typeof d === "string" ? new Date(d) : d;
-  return isValid(date) ? format(date, "MMM d, yyyy") : "—";
+  const formatted = formatDateMedium(d);
+  return formatted || "—";
 }
 
 export function IssueReturnPanel({
