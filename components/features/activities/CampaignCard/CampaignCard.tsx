@@ -1,13 +1,5 @@
 import type { ReactNode } from "react";
-import {
-  CalendarDays,
-  Users,
-  Target,
-  ListChecks,
-  CheckCircle2,
-  Circle,
-  CircleDot,
-} from "lucide-react";
+import { CalendarDays, Users, Target, ListChecks, CircleCheck as CheckCircle2, Circle, CircleDot } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -20,6 +12,7 @@ import type {
   ProgrammeStatus,
   CampaignActivity,
 } from "@/components/features/activities/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./CampaignCard.module.scss";
 
 export interface CampaignCardProps {
@@ -47,17 +40,6 @@ const STATUS_LABEL: Record<ProgrammeStatus, string> = {
   completed: "Completed",
   cancelled: "Cancelled",
 };
-
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 function ActivityIcon({ status }: { status?: ProgrammeStatus }) {
   switch (status) {
@@ -135,8 +117,8 @@ export function CampaignCard({
     );
   }
 
-  const start = formatDate(campaign.startDate);
-  const end = formatDate(campaign.endDate);
+  const start = formatDateMedium(campaign.startDate);
+  const end = formatDateMedium(campaign.endDate);
   const hasParticipants = Boolean(campaign.participants);
 
   return (
@@ -260,7 +242,7 @@ export function CampaignCard({
                     )}
                     {activity.date && (
                       <span className={styles.activityDate}>
-                        {formatDate(activity.date)}
+                        {formatDateMedium(activity.date)}
                       </span>
                     )}
                   </div>

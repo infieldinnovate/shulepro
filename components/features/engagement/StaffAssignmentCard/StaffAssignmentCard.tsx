@@ -7,6 +7,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Briefcase, CalendarClock, UserX } from "lucide-react";
 import type { StaffAssignment, DisabledState } from "@/components/features/engagement/models";
+import { formatDate } from "@/lib/formatTime";
 import styles from "./StaffAssignmentCard.module.scss";
 
 export interface StaffAssignmentCardProps {
@@ -25,16 +26,6 @@ export interface StaffAssignmentCardProps {
   /** Disabled state — dims the card and shows a reason. */
   disabled?: DisabledState;
   className?: string;
-}
-
-function formatDateLabel(value?: Date | string): string | null {
-  if (!value) return null;
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleDateString();
-  }
-  if (typeof value === "string") return value;
-  return null;
 }
 
 export function StaffAssignmentCard({
@@ -77,11 +68,11 @@ export function StaffAssignmentCard({
 
   const isDisabled = Boolean(disabled?.disabled);
 
-  const startLabel = formatDateLabel(assignment.startDate);
-  const endLabel = formatDateLabel(assignment.endDate);
+  const startLabel = formatDate(assignment.startDate);
+  const endLabel = formatDate(assignment.endDate);
   const scheduleLabel =
     startLabel || endLabel
-      ? [startLabel ?? "?", endLabel ?? "Present"].join(" — ")
+      ? [startLabel || "?", endLabel || "Present"].join(" — ")
       : null;
 
   return (

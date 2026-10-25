@@ -8,6 +8,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { BadgeVariant } from "@/components/ui/Badge";
 import type { Programme, ProgrammeStatus } from "@/components/features/activities/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./ProgrammeCard.module.scss";
 
 export interface ProgrammeCardProps {
@@ -35,17 +36,6 @@ const STATUS_LABEL: Record<ProgrammeStatus, string> = {
   completed: "Completed",
   cancelled: "Cancelled",
 };
-
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 export function ProgrammeCard({
   programme,
@@ -88,8 +78,8 @@ export function ProgrammeCard({
     );
   }
 
-  const start = formatDate(programme.startDate);
-  const end = formatDate(programme.endDate);
+  const start = formatDateMedium(programme.startDate);
+  const end = formatDateMedium(programme.endDate);
 
   return (
     <Card className={clsx(styles.card, className)} padded>

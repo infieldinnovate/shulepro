@@ -1,5 +1,7 @@
-// Relative-time formatting helpers. Locale-aware via Intl; no
+// Relative-time and date formatting helpers. Locale-aware via Intl; no
 // external date library required for these presentational labels.
+
+type DateInput = Date | string | number | undefined | null;
 
 const RELATIVE_FORMATTER = new Intl.RelativeTimeFormat(undefined, {
   numeric: "auto",
@@ -20,10 +22,9 @@ const DIVISIONS: Array<{ amount: number; unit: Intl.RelativeTimeFormatUnit }> = 
  * e.g. "3 minutes ago", "in 2 days". Returns an empty string for
  * invalid input.
  */
-export function formatRelativeTime(timestamp: number | string): string {
-  const date =
-    typeof timestamp === "string" ? new Date(timestamp) : new Date(timestamp);
-  if (Number.isNaN(date.getTime())) return "";
+export function formatRelativeTime(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
 
   let duration = (date.getTime() - Date.now()) / 1000;
   for (const division of DIVISIONS) {
@@ -39,9 +40,51 @@ export function formatRelativeTime(timestamp: number | string): string {
  * Format a timestamp as an absolute date-time string suitable for
  * a `title`/`datetime` attribute on a <time> element.
  */
-export function formatAbsolute(timestamp: number | string): string {
-  const date =
-    typeof timestamp === "string" ? new Date(timestamp) : new Date(timestamp);
-  if (Number.isNaN(date.getTime())) return "";
+export function formatAbsolute(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
   return date.toLocaleString();
+}
+
+/**
+ * Format a date as a calendar-style string using the default locale
+ * date format (no time component). Returns an empty string for
+ * invalid input.
+ */
+export function formatDate(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  return date.toLocaleDateString();
+}
+
+/**
+ * Format a date with a medium-length month, e.g. "5 Mar 2026".
+ */
+export function formatDateMedium(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  return date.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+/**
+ * Format a date with a long month name, e.g. "5 March 2026".
+ */
+export function formatDateLong(timestamp: DateInput): string {
+  const date = toDate(timestamp);
+  if (!date) return "";
+  return date.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+function toDate(value: DateInput): Date | null {
+  if (value === undefined || value === null) return null;
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
 }

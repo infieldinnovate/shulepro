@@ -7,6 +7,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { Achievement } from "@/components/features/activities/types";
+import { formatDateLong } from "@/lib/formatTime";
 import styles from "./AchievementCard.module.scss";
  
 export interface AchievementCardProps {
@@ -19,17 +20,6 @@ export interface AchievementCardProps {
   className?: string;
 }
  
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export function AchievementCard({
   achievement,
   loading = false,
@@ -71,7 +61,7 @@ export function AchievementCard({
     );
   }
 
-  const dateStr = formatDate(achievement.date);
+  const dateStr = formatDateLong(achievement.date);
 
   return (
     <Card className={clsx(styles.card, className)} padded>

@@ -13,6 +13,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { formatDate } from "@/lib/formatTime";
 import styles from "./ActionRequiredList.module.scss";
 
 export type ActionSeverity = "critical" | "high" | "medium" | "low";
@@ -90,12 +91,6 @@ const DEADLINE_CONFIG: Record<
   none: { variant: "neutral", label: "No deadline" },
 };
 
-function formatDueDate(ts: number | string): string {
-  const date = new Date(ts);
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toLocaleDateString();
-}
-
 export function ActionRequiredList({
   title,
   items,
@@ -144,7 +139,7 @@ export function ActionRequiredList({
           const dl = DEADLINE_CONFIG[item.deadlineStatus];
           const interactive = Boolean(item.onSelect ?? item.onDrillDown);
           const handler = item.onSelect ?? item.onDrillDown;
-          const dueLabel = item.dueDate ? formatDueDate(item.dueDate) : null;
+          const dueLabel = item.dueDate ? formatDate(item.dueDate) : null;
           const assignee = item.assignee;
 
           return (

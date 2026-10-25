@@ -1,7 +1,13 @@
 // Reusable pure utilities, formatting helpers, validation helpers,
 // and analytical calculations. No side effects, no I/O.
 
-export { formatRelativeTime, formatAbsolute } from "./formatTime";
+export {
+  formatRelativeTime,
+  formatAbsolute,
+  formatDate,
+  formatDateLong,
+  formatDateMedium,
+} from "./formatTime";
 
 export {
   computeTrend,

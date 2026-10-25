@@ -8,6 +8,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { BadgeVariant } from "@/components/ui/Badge";
 import type { ActivityEvent, ProgrammeStatus } from "@/components/features/activities/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./ActivityEventCard.module.scss";
 
 export interface ActivityEventCardProps {
@@ -37,17 +38,6 @@ const STATUS_LABEL: Record<ProgrammeStatus, string> = {
   completed: "Completed",
   cancelled: "Cancelled",
 };
-
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 export function ActivityEventCard({
   event,
@@ -88,7 +78,7 @@ export function ActivityEventCard({
   }
 
   const interactive = Boolean(onSelect);
-  const dateStr = formatDate(event.date);
+  const dateStr = formatDateMedium(event.date);
 
   return (
     <Card

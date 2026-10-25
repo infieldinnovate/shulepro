@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Award, Calendar, FileText, Hash, User } from "lucide-react";
 import type { Certificate, DisabledState } from "@/components/features/engagement/models";
+import { formatDate } from "@/lib/formatTime";
 import { EmptyState } from "@/components/ui/EmptyState";
 import styles from "./CertificateCard.module.scss";
 
@@ -20,16 +21,6 @@ export interface CertificateCardProps {
   /** Optional action slot (e.g. download button). */
   actions?: ReactNode;
   className?: string;
-}
-
-function formatDateLabel(value?: Date | string): string | null {
-  if (!value) return null;
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleDateString();
-  }
-  if (typeof value === "string") return value;
-  return null;
 }
 
 export function CertificateCard({
@@ -61,8 +52,8 @@ export function CertificateCard({
   }
 
   const isDisabled = Boolean(disabled?.disabled);
-  const issuedLabel = formatDateLabel(certificate.validity.issuedAt);
-  const expiresLabel = formatDateLabel(certificate.validity.expiresAt);
+  const issuedLabel = formatDate(certificate.validity.issuedAt);
+  const expiresLabel = formatDate(certificate.validity.expiresAt);
   const validityStatus = certificate.validity.currentlyValid;
   const issuerLabel = issuer ?? certificate.courseLabel;
 

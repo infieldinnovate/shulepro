@@ -9,6 +9,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { MentorshipSession, ProgrammeStatus } from "@/components/features/activities/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./MentorshipSessionCard.module.scss";
 
 export interface MentorshipSessionCardProps {
@@ -30,17 +31,6 @@ const DEFAULT_STATUS_MAP: StatusBadgeMap<ProgrammeStatus> = {
   completed: { variant: "neutral", label: "Completed", dot: true },
   cancelled: { variant: "error", label: "Cancelled", dot: true },
 };
-
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 export function MentorshipSessionCard({
   session,
@@ -84,7 +74,7 @@ export function MentorshipSessionCard({
     );
   }
 
-  const dateStr = formatDate(session.date);
+  const dateStr = formatDateMedium(session.date);
 
   return (
     <Card className={clsx(styles.card, className)} padded>

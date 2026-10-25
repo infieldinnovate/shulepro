@@ -6,6 +6,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Megaphone, Users, Clock, X } from "lucide-react";
 import type { Announcement, DisabledState } from "@/components/features/engagement/models";
+import { formatDate } from "@/lib/formatTime";
 import styles from "./AnnouncementCard.module.scss";
 
 export interface AnnouncementCardProps {
@@ -22,16 +23,6 @@ export interface AnnouncementCardProps {
   /** Disabled state. */
   disabled?: DisabledState;
   className?: string;
-}
-
-function formatDateLabel(value?: Date | string): string | null {
-  if (!value) return null;
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleDateString();
-  }
-  if (typeof value === "string") return value;
-  return null;
 }
 
 export function AnnouncementCard({
@@ -64,10 +55,10 @@ export function AnnouncementCard({
   }
 
   const isDisabled = Boolean(disabled?.disabled);
-  const publishedLabel = formatDateLabel(announcement.publishedAt);
-  const expiryLabel = formatDateLabel(announcement.expiresAt);
+  const publishedLabel = formatDate(announcement.publishedAt);
+  const expiryLabel = formatDate(announcement.expiresAt);
   const isExpired =
-    expiryLabel != null &&
+    Boolean(expiryLabel) &&
     new Date(announcement.expiresAt as string).getTime() < Date.now();
 
   return (

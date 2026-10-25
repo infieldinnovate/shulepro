@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ClipboardCheck, AlertCircle } from "lucide-react";
+import { ClipboardCheck, CircleAlert as AlertCircle } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -8,6 +8,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { PathwayAllocation } from "@/components/features/careers/types";
+import { formatDateLong } from "@/lib/formatTime";
 import styles from "./FinalAllocationCard.module.scss";
 
 export interface FinalAllocationCardProps {
@@ -20,16 +21,6 @@ export interface FinalAllocationCardProps {
   /** Optional content rendered below the allocation details. */
   children?: ReactNode;
   className?: string;
-}
-
-function formatDate(date: Date | string): string {
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return String(date);
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 }
 
 export function FinalAllocationCard({
@@ -128,7 +119,7 @@ export function FinalAllocationCard({
           <div className={styles.approverInfo}>
             <span className={styles.approverName}>{allocation.approverName}</span>
             <span className={styles.approverDate}>
-              Approved on {formatDate(allocation.approvedAt)}
+              Approved on {formatDateLong(allocation.approvedAt)}
             </span>
           </div>
         </div>

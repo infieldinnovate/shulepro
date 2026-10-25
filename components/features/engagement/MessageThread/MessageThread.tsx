@@ -10,8 +10,9 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Avatar } from "@/components/ui/Avatar";
-import { Lock, AlertTriangle, Send, MessageCircle } from "lucide-react";
+import { Lock, TriangleAlert as AlertTriangle, Send, MessageCircle } from "lucide-react";
 import type { MessageThread as MessageThreadModel, DisabledState } from "@/components/features/engagement/models";
+import { formatAbsolute } from "@/lib/formatTime";
 import styles from "./MessageThread.module.scss";
 
 export interface MessageThreadProps {
@@ -32,15 +33,6 @@ export interface MessageThreadProps {
   /** Optional header slot rendered above the messages. */
   header?: ReactNode;
   className?: string;
-}
-
-function formatTimeLabel(value?: Date | string): string {
-  if (!value) return "";
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleString();
-  }
-  return typeof value === "string" ? value : "";
 }
 
 export function MessageThread({
@@ -152,7 +144,7 @@ export function MessageThread({
                   {msg.authorName ?? "Unknown"}
                 </span>
                 <time className={styles.timestamp}>
-                  {formatTimeLabel(msg.sentAt)}
+                  {formatAbsolute(msg.sentAt)}
                 </time>
               </div>
               <p className={styles.content}>{msg.content}</p>
@@ -175,7 +167,7 @@ export function MessageThread({
                     {msg.authorName ?? "Unknown"}
                   </span>
                   <time className={styles.timestamp}>
-                    {formatTimeLabel(msg.sentAt)}
+                    {formatAbsolute(msg.sentAt)}
                   </time>
                 </div>
                 <p className={styles.content}>{msg.content}</p>

@@ -8,6 +8,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { StudentReflection } from "@/components/features/activities/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./StudentReflectionCard.module.scss";
 
 export interface StudentReflectionCardProps {
@@ -18,17 +19,6 @@ export interface StudentReflectionCardProps {
   /** Optional content rendered below the reflection. */
   children?: ReactNode;
   className?: string;
-}
-
-function formatDate(date: string | Date | undefined): string | null {
-  if (!date) return null;
-  const d = typeof date === "string" ? new Date(date) : date;
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
 }
 
 export function StudentReflectionCard({
@@ -72,7 +62,7 @@ export function StudentReflectionCard({
     );
   }
 
-  const dateStr = formatDate(reflection.date);
+  const dateStr = formatDateMedium(reflection.date);
 
   return (
     <Card className={clsx(styles.card, className)} padded>

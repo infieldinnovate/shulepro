@@ -7,15 +7,9 @@ import { Card } from "@/components/ui/Card";
 import { IconButton } from "@/components/ui/Button/IconButton";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
-import {
-  Bell,
-  CheckCircle2,
-  X,
-  Info,
-  AlertTriangle,
-  AlertCircle,
-} from "lucide-react";
+import { Bell, CircleCheck as CheckCircle2, X, Info, TriangleAlert as AlertTriangle, CircleAlert as AlertCircle } from "lucide-react";
 import type { NotificationItem as NotificationItemModel, DisabledState } from "@/components/features/engagement/models";
+import { formatAbsolute } from "@/lib/formatTime";
 import styles from "./NotificationItem.module.scss";
 
 export type NotificationSeverity = "info" | "success" | "warning" | "error";
@@ -44,15 +38,6 @@ const SEVERITY_ICON: Record<NotificationSeverity, ReactNode> = {
   warning: <AlertTriangle aria-hidden="true" />,
   error: <AlertCircle aria-hidden="true" />,
 };
-
-function formatTimeLabel(value?: Date | string): string {
-  if (!value) return "";
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleString();
-  }
-  return typeof value === "string" ? value : "";
-}
 
 export function NotificationItem({
   notification,
@@ -122,7 +107,7 @@ export function NotificationItem({
               <span className={styles.category}>{notification.category}</span>
             )}
             <time className={styles.timestamp}>
-              {formatTimeLabel(notification.createdAt)}
+              {formatAbsolute(notification.createdAt)}
             </time>
           </div>
           {actions && <div className={styles.actions}>{actions}</div>}

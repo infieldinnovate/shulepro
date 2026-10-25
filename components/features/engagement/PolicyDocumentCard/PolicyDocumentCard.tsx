@@ -5,16 +5,9 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
-import {
-  FileText,
-  Download,
-  ExternalLink,
-  Calendar,
-  Building2,
-  Tag,
-  ClipboardList,
-} from "lucide-react";
+import { FileText, Download, ExternalLink, Calendar, Building as Building2, Tag, ClipboardList } from "lucide-react";
 import type { PolicyDocument, DisabledState } from "@/components/features/engagement/models";
+import { formatDate } from "@/lib/formatTime";
 import styles from "./PolicyDocumentCard.module.scss";
 
 export interface PolicyDocumentCardProps {
@@ -40,16 +33,6 @@ const STATUS_VARIANT: Record<string, "success" | "warning" | "neutral"> = {
   draft: "warning",
   archived: "neutral",
 };
-
-function formatDateLabel(value?: Date | string): string | null {
-  if (!value) return null;
-  const date = typeof value === "string" ? new Date(value) : value;
-  if (date instanceof Date && !Number.isNaN(date.getTime())) {
-    return date.toLocaleDateString();
-  }
-  if (typeof value === "string") return value;
-  return null;
-}
 
 export function PolicyDocumentCard({
   policy,
@@ -92,9 +75,9 @@ export function PolicyDocumentCard({
   const isDisabled = Boolean(disabled?.disabled);
   const statusLabel = policy.status ?? "active";
   const statusVariant = STATUS_VARIANT[statusLabel.toLowerCase()] ?? "neutral";
-  const effectiveLabel = formatDateLabel(policy.effectiveDate);
-  const reviewedLabel = formatDateLabel(policy.lastReviewedAt);
-  const reviewDueLabel = formatDateLabel(policy.nextReviewDate);
+  const effectiveLabel = formatDate(policy.effectiveDate);
+  const reviewedLabel = formatDate(policy.lastReviewedAt);
+  const reviewDueLabel = formatDate(policy.nextReviewDate);
   const links = policy.documentLinks ?? [];
 
   return (
