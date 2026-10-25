@@ -10,6 +10,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Input } from "@/components/ui/Input";
 import { IconButton } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 import type { LearningArea } from "@/components/features/curriculum/types";
 import styles from "./LearningAreaSelector.module.scss";
 
@@ -148,7 +149,7 @@ export function LearningAreaSelector({
         <ul className={styles.chipList} aria-label={`Selected ${ariaLabel}`}>
           {selected.map((la) => (
             <li key={la.id} className={styles.chip}>
-              <span className={styles.chipLabel}>{la.label}</span>
+              <Badge variant="neutral" size="sm" className={styles.chipLabel}>{la.label}</Badge>
               {!disabled && (
                 <IconButton
                   variant="ghost"

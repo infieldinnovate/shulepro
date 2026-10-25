@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/Checkbox";
 import { Avatar, AvatarGroup } from "@/components/ui/Avatar";
 import { IconButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Badge } from "@/components/ui/Badge";
 import styles from "./AssigneePicker.module.scss";
 
 export interface AssigneeOption {
@@ -160,7 +161,7 @@ export function AssigneePicker({
                   alt={a.name}
                   size="sm"
                 />
-                <span className={styles.chipName}>{a.name}</span>
+                <Badge variant="neutral" size="sm" className={styles.chipName}>{a.name}</Badge>
                 {!disabled && (
                   <IconButton
                     variant="ghost"

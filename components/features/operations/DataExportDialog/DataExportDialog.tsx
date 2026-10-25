@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Dialog } from "@/components/ui/Dialog";
 import { Button } from "@/components/ui/Button";
 import { Alert } from "@/components/ui/Alert";
+import { RadioGroup } from "@/components/ui/RadioGroup";
 import type { ExportFormatOption } from "@/components/features/operations/types";
 import styles from "./DataExportDialog.module.scss";
 
@@ -100,49 +101,30 @@ export function DataExportDialog({
           />
         )}
 
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Format</legend>
-          <div className={styles.formatList}>
-            {formats.map((format) => {
-              const isSelected = selectedFormat === format.id;
-              const isThisPending = pendingId === format.id;
-              return (
-                <label
-                  key={format.id}
-                  className={clsx(
-                    styles.formatOption,
-                    isSelected && styles.formatSelected,
+        <RadioGroup
+          name="exportFormat"
+          value={selectedFormat}
+          onChange={setSelectedFormat}
+          legend="Format"
+          disabled={isExporting}
+          options={formats.map((format) => {
+            const isThisPending = pendingId === format.id;
+            return {
+              value: format.id,
+              label: (
+                <span className={styles.formatContent}>
+                  {isThisPending ? (
+                    <Loader2 className={styles.formatSpinner} aria-hidden="true" />
+                  ) : (
+                    <Download className={styles.formatIcon} aria-hidden="true" />
                   )}
-                >
-                  <input
-                    type="radio"
-                    name="exportFormat"
-                    value={format.id}
-                    checked={isSelected}
-                    onChange={() => setSelectedFormat(format.id)}
-                    disabled={isExporting}
-                    className={styles.radioInput}
-                  />
-                  <span className={styles.formatContent}>
-                    {isThisPending ? (
-                      <Loader2 className={styles.formatSpinner} aria-hidden="true" />
-                    ) : (
-                      <Download className={styles.formatIcon} aria-hidden="true" />
-                    )}
-                    <span className={styles.formatText}>
-                      <span className={styles.formatLabel}>{format.label}</span>
-                      {format.description && (
-                        <span className={styles.formatDescription}>
-                          {format.description}
-                        </span>
-                      )}
-                    </span>
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        </fieldset>
+                  <span className={styles.formatLabel}>{format.label}</span>
+                </span>
+              ),
+              description: format.description,
+            };
+          })}
+        />
       </div>
     </Dialog>
   );

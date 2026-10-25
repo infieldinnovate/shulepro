@@ -5,6 +5,7 @@ import type { KeyboardEvent } from "react";
 import { X } from "lucide-react";
 import clsx from "clsx";
 import { Button, IconButton } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 import styles from "./FilterChips.module.scss";
 
 export interface FilterChip {
@@ -50,12 +51,12 @@ export function FilterChips({
     >
       {chips.map((chip) => (
         <span key={chip.id} className={styles.chip}>
-          <span className={styles.chipLabel}>
+          <Badge variant="neutral" size="sm" className={styles.chipLabel}>
             {chip.label}
             {chip.value && (
               <span className={styles.chipValue}>: {chip.value}</span>
             )}
-          </span>
+          </Badge>
           <IconButton
             variant="ghost"
             size="sm"

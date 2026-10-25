@@ -12,6 +12,7 @@ import { FormField } from "@/components/ui/FormField";
 import { RadioGroup } from "@/components/ui/RadioGroup";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
+import { Badge } from "@/components/ui/Badge";
 import {
   MessageSquare,
   Plus,
@@ -209,7 +210,7 @@ export function ParentFeedbackForm({
               <div className={styles.tagList}>
                 {tags.map((tag, idx) => (
                   <span key={idx} className={styles.tag}>
-                    {tag}
+                    <Badge variant="neutral" size="sm">{tag}</Badge>
                     <button
                       type="button"
                       className={styles.tagRemove}

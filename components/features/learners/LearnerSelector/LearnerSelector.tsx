@@ -11,6 +11,7 @@ import { IconButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Badge } from "@/components/ui/Badge";
 import type { Learner } from "@/components/features/learners/types";
 import styles from "./LearnerSelector.module.scss";
 
@@ -196,7 +197,7 @@ export function LearnerSelector({
                   alt={l.name}
                   size="sm"
                 />
-                <span className={styles.chipName}>{l.name}</span>
+                <Badge variant="neutral" size="sm" className={styles.chipName}>{l.name}</Badge>
                 {!disabled && (
                   <IconButton
                     variant="ghost"
