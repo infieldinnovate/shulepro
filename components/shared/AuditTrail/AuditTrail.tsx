@@ -1,12 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { History as HistoryIcon, ChevronDown } from "lucide-react";
-import { useId, useState } from "react";
+import { History as HistoryIcon } from "lucide-react";
 import clsx from "clsx";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { Button } from "@/components/ui/Button";
+import { Accordion } from "@/components/ui/Accordion";
 import { formatAbsolute, formatRelativeTime } from "@/lib/formatTime";
 import styles from "./AuditTrail.module.scss";
 
@@ -87,125 +86,77 @@ export function AuditTrail({
     <div
       className={clsx(styles.audit, scrollable && styles.scrollable, className)}
       aria-live={ariaLive === "polite" ? "polite" : undefined}
+      aria-label={ariaLabel}
     >
-      <ol className={styles.list} aria-label={ariaLabel}>
-        {events.map((event, index) => (
-          <AuditRow
-            key={event.id}
-            event={event}
-            isLast={index === events.length - 1}
-          />
-        ))}
-      </ol>
-    </div>
-  );
-}
-
-interface AuditRowProps {
-  event: AuditTrailEvent;
-  isLast: boolean;
-}
-
-function AuditRow({ event, isLast }: AuditRowProps) {
-  const generatedId = useId();
-  const [open, setOpen] = useState(false);
-  const hasDetails = Boolean(event.details || event.ipAddress);
-  const panelId = `${generatedId}-panel`;
-  const triggerId = `${generatedId}-trigger`;
-
-  return (
-    <li className={styles.item}>
-      <span className={styles.rail} aria-hidden="true">
-        <span className={styles.marker} />
-        {!isLast && <span className={styles.line} />}
-      </span>
-      <div className={styles.body}>
-        <div className={styles.head}>
-          <Avatar
-            name={actorToAvatarName(event.actor) ?? actorToString(event.actor)}
-            alt={actorToString(event.actor)}
-            size="sm"
-          />
-          <div className={styles.headText}>
-            <span className={styles.headLine}>
-              <span className={styles.actorInline}>{event.actor}</span>
-              <span className={styles.actionLabel}>{event.action}</span>
-            </span>
-            {event.target && (
-              <span className={styles.targetLine}>
-                <span className={styles.preposition}>on</span>
-                <span className={styles.target}>{event.target}</span>
-              </span>
-            )}
-          </div>
-          <time
-            className={styles.time}
-            dateTime={toDateTime(event.timestamp)}
-            title={formatAbsolute(event.timestamp)}
-          >
-            {formatRelativeTime(event.timestamp)}
-          </time>
-        </div>
-
-        {hasDetails && (
-          <div className={styles.expanderRow}>
-            <Button
-              id={triggerId}
-              variant="ghost"
-              size="sm"
-              className={styles.expanderTrigger}
-              aria-expanded={open}
-              aria-controls={panelId}
-              onClick={() => setOpen((prev) => !prev)}
-            >
-              <span className={styles.expanderLabel}>
-                {open ? "Hide details" : "Show details"}
-              </span>
-              <ChevronDown
-                className={clsx(styles.chevron, open && styles.chevronOpen)}
-                aria-hidden="true"
-              />
-            </Button>
-            {open && (
-              <div
-                id={panelId}
-                role="region"
-                aria-labelledby={triggerId}
-                className={styles.expanderPanel}
-              >
-                <dl className={styles.detailGrid}>
-                  <div className={styles.detailItem}>
-                    <dt className={styles.detailLabel}>Timestamp</dt>
-                    <dd className={styles.detailValue}>
-                      <time
-                        dateTime={toDateTime(event.timestamp)}
-                        title={formatAbsolute(event.timestamp)}
-                      >
-                        {formatAbsolute(event.timestamp)}
-                      </time>
-                      <span className={styles.detailRelative}>
-                        ({formatRelativeTime(event.timestamp)})
-                      </span>
-                    </dd>
-                  </div>
-                  {event.ipAddress && (
-                    <div className={styles.detailItem}>
-                      <dt className={styles.detailLabel}>IP address</dt>
-                      <dd className={styles.detailValue}>{event.ipAddress}</dd>
-                    </div>
+      <Accordion
+        className={styles.accordionInner}
+        multiple
+        items={events.map((event) => {
+          const hasDetails = Boolean(event.details || event.ipAddress);
+          return {
+            id: event.id,
+            header: (
+              <div className={styles.head}>
+                <Avatar
+                  name={actorToAvatarName(event.actor) ?? actorToString(event.actor)}
+                  alt={actorToString(event.actor)}
+                  size="sm"
+                />
+                <div className={styles.headText}>
+                  <span className={styles.headLine}>
+                    <span className={styles.actorInline}>{event.actor}</span>
+                    <span className={styles.actionLabel}>{event.action}</span>
+                  </span>
+                  {event.target && (
+                    <span className={styles.targetLine}>
+                      <span className={styles.preposition}>on</span>
+                      <span className={styles.target}>{event.target}</span>
+                    </span>
                   )}
-                  {event.details && (
-                    <div className={styles.detailItem}>
-                      <dt className={styles.detailLabel}>Details</dt>
-                      <dd className={styles.detailValue}>{event.details}</dd>
-                    </div>
-                  )}
-                </dl>
+                </div>
+                <time
+                  className={styles.time}
+                  dateTime={toDateTime(event.timestamp)}
+                  title={formatAbsolute(event.timestamp)}
+                >
+                  {formatRelativeTime(event.timestamp)}
+                </time>
               </div>
-            )}
-          </div>
-        )}
-      </div>
-    </li>
+            ),
+            panel: (
+              <dl className={styles.detailGrid}>
+                <div className={styles.detailItem}>
+                  <dt className={styles.detailLabel}>Timestamp</dt>
+                  <dd className={styles.detailValue}>
+                    <time
+                      dateTime={toDateTime(event.timestamp)}
+                      title={formatAbsolute(event.timestamp)}
+                    >
+                      {formatAbsolute(event.timestamp)}
+                    </time>
+                    <span className={styles.detailRelative}>
+                      ({formatRelativeTime(event.timestamp)})
+                    </span>
+                  </dd>
+                </div>
+                {event.ipAddress && (
+                  <div className={styles.detailItem}>
+                    <dt className={styles.detailLabel}>IP address</dt>
+                    <dd className={styles.detailValue}>{event.ipAddress}</dd>
+                  </div>
+                )}
+                {event.details && (
+                  <div className={styles.detailItem}>
+                    <dt className={styles.detailLabel}>Details</dt>
+                    <dd className={styles.detailValue}>{event.details}</dd>
+                  </div>
+                )}
+              </dl>
+            ),
+            disabled: !hasDetails,
+          };
+        })}
+      />
+    </div>
   );
 }

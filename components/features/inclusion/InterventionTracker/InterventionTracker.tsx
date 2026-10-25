@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import type { KeyboardEvent } from "react";
 import { format } from "date-fns";
-import { ClipboardList, ChevronDown } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Accordion } from "@/components/ui/Accordion";
 import type { InterventionTrackerEntry } from "@/components/features/inclusion/types";
 import styles from "./InterventionTracker.module.scss";
 
@@ -33,6 +33,7 @@ export function InterventionTracker({
   className,
 }: InterventionTrackerProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const openIndex = entries.findIndex((e) => e.id === expandedId);
 
   if (loading) {
     return (
@@ -70,82 +71,45 @@ export function InterventionTracker({
     );
   }
 
-  const toggle = (id: string) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, id: string) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      toggle(id);
-    }
-  };
-
   return (
     <Card className={clsx(styles.card, className)} padded={false}>
-      <ol className={styles.list} aria-label="Intervention tracker entries">
-        {entries.map((entry, index) => {
-          const isExpanded = expandedId === entry.id;
-          const isLast = index === entries.length - 1;
-          const hasNotes = Boolean(entry.notes);
-
-          return (
-            <li
-              key={entry.id}
-              className={clsx(styles.entry, !isLast && styles.entryBordered)}
-            >
-              <div className={styles.rail} aria-hidden="true">
-                <span className={styles.marker} />
-                {!isLast && <span className={styles.line} />}
-              </div>
-
-              <div className={styles.entryBody}>
-                <button
-                  type="button"
-                  className={styles.entryHeader}
-                  aria-expanded={isExpanded}
-                  aria-controls={`${entry.id}-content`}
-                  onClick={() => hasNotes && toggle(entry.id)}
-                  onKeyDown={(e) => hasNotes && handleKeyDown(e, entry.id)}
-                  disabled={!hasNotes}
-                >
-                  <span className={styles.entryDate}>
-                    {format(toDate(entry.recordedAt), "EEE, MMM d, yyyy")}
-                  </span>
-                  {entry.outcomeLabel && (
-                    <Badge variant="neutral" size="sm">
-                      {entry.outcomeLabel}
-                    </Badge>
-                  )}
-                  {entry.recordedByName && (
-                    <span className={styles.entryActor}>
-                      {entry.recordedByName}
-                    </span>
-                  )}
-                  {hasNotes && (
-                    <ChevronDown
-                      aria-hidden="true"
-                      className={clsx(
-                        styles.chevron,
-                        isExpanded && styles.chevronOpen,
-                      )}
-                    />
-                  )}
-                </button>
-
-                {isExpanded && hasNotes && (
-                  <div
-                    id={`${entry.id}-content`}
-                    className={styles.entryNotes}
-                  >
-                    <p className={styles.notesText}>{entry.notes}</p>
-                  </div>
+      <div aria-label="Intervention tracker entries">
+        <Accordion
+          className={styles.list}
+          openIndices={openIndex >= 0 ? [openIndex] : []}
+          onChange={(indices) => {
+            setExpandedId(
+              indices.length > 0 ? entries[indices[0]]?.id ?? null : null,
+            );
+          }}
+          items={entries.map((entry) => ({
+            id: entry.id,
+            header: (
+              <>
+                <span className={styles.entryDate}>
+                  {format(toDate(entry.recordedAt), "EEE, MMM d, yyyy")}
+                </span>
+                {entry.outcomeLabel && (
+                  <Badge variant="neutral" size="sm">
+                    {entry.outcomeLabel}
+                  </Badge>
                 )}
+                {entry.recordedByName && (
+                  <span className={styles.entryActor}>
+                    {entry.recordedByName}
+                  </span>
+                )}
+              </>
+            ),
+            panel: (
+              <div className={styles.entryNotes}>
+                <p className={styles.notesText}>{entry.notes}</p>
               </div>
-            </li>
-          );
-        })}
-      </ol>
+            ),
+            disabled: !Boolean(entry.notes),
+          }))}
+        />
+      </div>
     </Card>
   );
 }

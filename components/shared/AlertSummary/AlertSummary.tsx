@@ -3,8 +3,6 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import {
-  ChevronDown,
-  ChevronUp,
   OctagonAlert as AlertOctagon,
   TriangleAlert as AlertTriangle,
   CircleAlert as AlertCircle,
@@ -14,7 +12,7 @@ import clsx from "clsx";
 import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { Spinner } from "@/components/ui/Spinner";
-import { Button } from "@/components/ui/Button";
+import { Accordion } from "@/components/ui/Accordion";
 import styles from "./AlertSummary.module.scss";
 
 export type AlertSeverity = "critical" | "warning" | "info" | "resolved";
@@ -89,8 +87,6 @@ export function AlertSummary({
     return null;
   }
 
-  const toggle = () => setExpanded((v) => !v);
-
   return (
     <div
       className={clsx(styles.container, className)}
@@ -118,44 +114,40 @@ export function AlertSummary({
                 </span>
               );
             })}
-            {hasDetails && (
-              <Button
-                variant="ghost"
-                size="sm"
-                className={styles.toggleButton}
-                onClick={toggle}
-                aria-expanded={expanded}
-                aria-controls="alert-summary-details"
-              >
-                {expanded ? (
-                  <ChevronUp aria-hidden="true" size={16} />
-                ) : (
-                  <ChevronDown aria-hidden="true" size={16} />
-                )}
-                <span>{expanded ? "Hide details" : "Show details"}</span>
-              </Button>
-            )}
+
           </div>
           {children}
-          {hasDetails && expanded && (
-            <ul className={styles.detailList} id="alert-summary-details">
-              {details!.map((d) => {
-                const cfg = SEVERITY_CONFIG[d.severity];
-                return (
-                  <li key={d.id} className={styles.detailItem}>
-                    <Badge variant={cfg.variant} size="sm" icon={cfg.icon}>
-                      {cfg.defaultLabel}
-                    </Badge>
-                    <div className={styles.detailContent}>
-                      <span className={styles.detailTitle}>{d.title}</span>
-                      {d.description && (
-                        <span className={styles.detailDescription}>{d.description}</span>
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+          {hasDetails && (
+            <Accordion
+              className={styles.detailsAccordion}
+              openIndices={expanded ? [0] : []}
+              onChange={(indices) => setExpanded(indices.length > 0)}
+              items={[
+                {
+                  header: expanded ? "Hide details" : "Show details",
+                  panel: (
+                    <ul className={styles.detailList}>
+                      {details!.map((d) => {
+                        const cfg = SEVERITY_CONFIG[d.severity];
+                        return (
+                          <li key={d.id} className={styles.detailItem}>
+                            <Badge variant={cfg.variant} size="sm" icon={cfg.icon}>
+                              {cfg.defaultLabel}
+                            </Badge>
+                            <div className={styles.detailContent}>
+                              <span className={styles.detailTitle}>{d.title}</span>
+                              {d.description && (
+                                <span className={styles.detailDescription}>{d.description}</span>
+                              )}
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ),
+                },
+              ]}
+            />
           )}
         </>
       )}
