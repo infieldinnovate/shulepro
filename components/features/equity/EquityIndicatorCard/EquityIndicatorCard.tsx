@@ -6,7 +6,7 @@ import type { KpiCardStatus } from "@/components/shared/KpiCard";
 import { BenchmarkCard } from "@/components/shared/BenchmarkCard";
 import { DataAvailabilityNotice } from "@/components/shared/DataAvailabilityNotice";
 import type { DataAvailabilityStatus } from "@/components/shared/DataAvailabilityNotice";
-import { computeBenchmarkDelta } from "@/lib/analytics";
+import { computeBenchmarkDelta, formatPercent } from "@/lib/analytics";
 import type { EquityIndicator } from "@/components/features/equity/types";
 import styles from "./EquityIndicatorCard.module.scss";
 
@@ -48,10 +48,6 @@ function computeRatio(numerator: number | null, denominator: number | null): num
     return null;
   }
   return numerator / denominator;
-}
-
-function formatPercent(n: number): string {
-  return `${(n * 100).toFixed(1)}%`;
 }
 
 function dataStatus(

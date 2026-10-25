@@ -56,6 +56,18 @@ export function computeTrend(
 }
 
 /**
+ * Format a 0–1 ratio as a percentage string (e.g. 0.875 -> "87.5%").
+ * Unlike `formatPercentChange`, this takes a raw ratio (not a delta) and
+ * is unsigned.
+ */
+export function formatPercent(
+  ratio: number,
+  fractionDigits = 1,
+): string {
+  return `${(ratio * 100).toFixed(fractionDigits)}%`;
+}
+
+/**
  * Format a signed numeric delta as a compact string (e.g. "+12.5", "-3").
  * Returns an empty string when the delta is `null`.
  */

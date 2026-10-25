@@ -15,6 +15,7 @@ export {
 export {
   computeTrend,
   formatDelta,
+  formatPercent,
   formatPercentChange,
   computeTargetProgress,
   classifyDataPoint,
