@@ -3,20 +3,27 @@
 import type { ReactNode } from "react";
 import {
   ResponsiveContainer,
-  LineChart,
+  LineChart as ReLineChart,
   Line,
-  AreaChart,
+  AreaChart as ReAreaChart,
   Area,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 import clsx from "clsx";
 import { ChartPanel } from "@/components/shared/ChartPanel";
+import { ChartLegend } from "@/components/shared/ChartLegend";
+import { useReducedMotion } from "@/lib/useReducedMotion";
+import {
+  chartPalette,
+  resolveChartColor,
+  type ChartColorToken,
+} from "@/lib/chartColors";
 import { computeTrend } from "@/lib/analytics";
 import { buildChartData, formatChartValue } from "@/lib/chartTypes";
+import shared from "@/components/shared/charts.shared.module.scss";
 import styles from "./ProgressTrend.module.scss";
 
 export interface TrendDataPoint {
@@ -28,7 +35,7 @@ export interface TrendSeries {
   key: string;
   name: string;
   data: TrendDataPoint[];
-  color: string;
+  color?: ChartColorToken | string;
   area?: boolean;
   reference?: boolean;
 }
@@ -49,8 +56,6 @@ export interface ProgressTrendProps {
   children?: ReactNode;
 }
 
-
-
 export function ProgressTrend({
   title,
   series,
@@ -66,6 +71,7 @@ export function ProgressTrend({
   className,
   children,
 }: ProgressTrendProps) {
+  const reduced = useReducedMotion();
   const hasData =
     series.length > 0 && series.some((s) => s.data.length > 0);
   const showEmpty = empty || (!hasData && !loading && !error);
@@ -96,8 +102,14 @@ export function ProgressTrend({
     return `${title}: ${primary.name} latest value ${lastVal}, trend ${dirWord} compared to ${refName}.`;
   })();
 
+  const legendItems = series.map((s, i) => ({
+    key: s.key,
+    name: s.name,
+    color: (s.color ?? chartPalette[i % chartPalette.length]) as ChartColorToken,
+  }));
+
   const hasArea = series.some((s) => s.area);
-  const ChartComponent = hasArea ? AreaChart : LineChart;
+  const ChartComponent = hasArea ? ReAreaChart : ReLineChart;
 
   return (
     <ChartPanel
@@ -109,8 +121,13 @@ export function ProgressTrend({
       empty={showEmpty}
       definition={definition}
       height={height}
-      className={clsx(styles.progressTrend, className)}
+      className={clsx(shared.chart, styles.progressTrend, className)}
     >
+      {series.length > 1 && (
+        <div className={shared.legendSlot}>
+          <ChartLegend items={legendItems} />
+        </div>
+      )}
       <ResponsiveContainer width="100%" height="100%">
         <ChartComponent
           data={data}
@@ -162,28 +179,25 @@ export function ProgressTrend({
               "",
             ]}
           />
-          {series.length > 1 && (
-            <Legend
-              wrapperStyle={{ fontSize: 12, color: "var(--color-fg-muted)" }}
-              iconType="line"
-            />
-          )}
-          {series.map((s) =>
-            s.area ? (
+          {series.map((s, i) => {
+            const colorToken = (s.color ??
+              chartPalette[i % chartPalette.length]) as ChartColorToken;
+            const color = resolveChartColor(colorToken);
+            return s.area ? (
               <Area
                 key={s.key}
                 type="monotone"
                 dataKey={s.key}
                 name={s.name}
-                stroke={s.color}
-                fill={s.color}
+                stroke={color}
+                fill={color}
                 fillOpacity={0.15}
                 strokeWidth={s.reference ? 1.5 : 2}
                 strokeDasharray={s.reference ? "5 4" : undefined}
                 connectNulls={false}
-                dot={{ r: 3, fill: s.color, strokeWidth: 0 }}
+                dot={{ r: 3, fill: color, strokeWidth: 0 }}
                 activeDot={{ r: 5 }}
-                isAnimationActive={true}
+                isAnimationActive={!reduced}
               />
             ) : (
               <Line
@@ -191,16 +205,16 @@ export function ProgressTrend({
                 type="monotone"
                 dataKey={s.key}
                 name={s.name}
-                stroke={s.color}
+                stroke={color}
                 strokeWidth={s.reference ? 1.5 : 2}
                 strokeDasharray={s.reference ? "5 4" : undefined}
                 connectNulls={false}
-                dot={{ r: 3, fill: s.color, strokeWidth: 0 }}
+                dot={{ r: 3, fill: color, strokeWidth: 0 }}
                 activeDot={{ r: 5 }}
-                isAnimationActive={true}
+                isAnimationActive={!reduced}
               />
-            ),
-          )}
+            );
+          })}
         </ChartComponent>
       </ResponsiveContainer>
       {children}
