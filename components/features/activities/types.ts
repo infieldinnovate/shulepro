@@ -1,3 +1,6 @@
+import type { PersonRef } from "@/types";
+export type { PersonRef };
+
 // ============================================================
 // Programmes & campaigns domain types
 // All programme types, campaign objectives, audiences,
@@ -300,8 +303,8 @@ export interface Achievement {
 // hardcoded official frameworks or fabricated person data.
 // ============================================================
 
-/** A person reference (mentor, mentee, champion, etc.). */
-export interface PersonRef {
+/** A person summary (mentor, mentee, champion, etc.) with display info. */
+export interface PersonSummary {
   /** Stable identifier. */
   id: string;
   /** Display name. */
@@ -318,10 +321,10 @@ export interface PersonRef {
 export interface MentorshipSession {
   /** Stable identifier. */
   id: string;
-  /** Mentor person reference. */
-  mentor: PersonRef;
-  /** Mentee person reference. */
-  mentee: PersonRef;
+  /** Mentor person summary. */
+  mentor: PersonSummary;
+  /** Mentee person summary. */
+  mentee: PersonSummary;
   /** Session date (ISO string or Date). */
   date?: string | Date;
   /** Optional focus/topic of the session. */

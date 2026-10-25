@@ -28,11 +28,8 @@ export interface DisabledState {
 // People references
 // ------------------------------------------------------------
 
-/** A reference to a person by id — never embeds PII. */
-export type PersonRef = string;
-
-/** A reference to a learner by id. */
-export type LearnerRef = string;
+import type { PersonRef, LearnerRef } from "@/types";
+export type { PersonRef, LearnerRef };
 
 /** A reference to a staff member by id. */
 export type StaffRef = string;
@@ -390,8 +387,8 @@ export interface Conversation {
   sensitive?: boolean;
 }
 
-/** A notification item in the notification center. */
-export interface NotificationItem {
+/** A notification record in the notification center. */
+export interface NotificationRecord {
   id: string;
   /** Human-readable title. */
   title: string;

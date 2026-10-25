@@ -6,11 +6,8 @@
 // non-stigmatizing, and respectful throughout.
 // ============================================================
 
-/** A reference to a learner by id. */
-export type LearnerRef = string;
-
-/** A reference to a person by id. */
-export type PersonRef = string;
+import type { LearnerRef, PersonRef } from "@/types";
+export type { LearnerRef, PersonRef };
 
 /** Configurable concern status (caller-defined union). */
 export type SafeguardingConcernStatus = string;

@@ -9,11 +9,8 @@
 /** Type of response a wellbeing prompt expects. */
 export type WellbeingPromptType = "rating" | "text" | "choice";
 
-/** A reference to a learner by id. */
-export type LearnerRef = string;
-
-/** A reference to a person by id. */
-export type PersonRef = string;
+import type { LearnerRef, PersonRef } from "@/types";
+export type { LearnerRef, PersonRef };
 
 /** A configurable choice option for "choice" prompts. */
 export interface WellbeingChoiceOption {

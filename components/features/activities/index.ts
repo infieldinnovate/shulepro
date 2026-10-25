@@ -58,6 +58,7 @@ export type { AchievementCardProps } from "./AchievementCard";
 
 export type {
   PersonRef,
+  PersonSummary,
   MentorshipSession,
   ChampionProfile,
   StudentReflection,

@@ -90,11 +90,8 @@ export type SupportPlanTimelineEventType =
   | "referral-made"
   | "note-added";
 
-/** A reference to a person by id — never embeds PII. */
-export type PersonRef = string;
-
-/** A reference to a learner by id. */
-export type LearnerRef = string;
+import type { PersonRef, LearnerRef } from "@/types";
+export type { PersonRef, LearnerRef };
 
 /** A configurable support plan for a learner. */
 export interface SupportPlan {

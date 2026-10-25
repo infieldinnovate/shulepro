@@ -8,7 +8,7 @@ import { IconButton } from "@/components/ui/Button/IconButton";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Bell, CircleCheck as CheckCircle2, X, Info, TriangleAlert as AlertTriangle, CircleAlert as AlertCircle } from "lucide-react";
-import type { NotificationItem as NotificationItemModel, DisabledState } from "@/components/features/engagement/models";
+import type { NotificationRecord as NotificationItemModel, DisabledState } from "@/components/features/engagement/models";
 import { formatAbsolute } from "@/lib/formatTime";
 import styles from "./NotificationItem.module.scss";
 

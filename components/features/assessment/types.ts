@@ -43,8 +43,8 @@ export type EvidenceStatus =
   | "partially-demonstrated"
   | "demonstrated";
 
-/** A reference to a learning area (id or key). */
-export type LearningAreaRef = string;
+import type { LearningAreaRef } from "@/types";
+export type { LearningAreaRef };
 
 /** A CBC assessment activity. Configurable — no hardcoded scales. */
 export interface AssessmentActivity {

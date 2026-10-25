@@ -6,11 +6,8 @@
 // grading bands are hardcoded here.
 // ============================================================
 
-/** A reference to a learner by id. */
-export type LearnerRef = string;
-
-/** A reference to a person by id. */
-export type PersonRef = string;
+import type { LearnerRef, PersonRef, LearningAreaRef } from "@/types";
+export type { LearnerRef, PersonRef, LearningAreaRef };
 
 /**
  * A configurable interest dimension for a career interest profile.
@@ -190,9 +187,6 @@ export interface CareerAssessmentFormValues {
 // official CBC eligibility rules or pathway requirements
 // are hardcoded here.
 // ============================================================
-
-/** A reference to a learning area (id or key). */
-export type LearningAreaRef = string;
 
 /** A reference to an interest dimension (matches CareerInterestDimension.key). */
 export type InterestDimensionRef = string;
