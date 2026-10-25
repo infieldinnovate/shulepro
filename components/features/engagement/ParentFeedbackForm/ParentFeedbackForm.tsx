@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Textarea } from "@/components/ui/Textarea";
@@ -211,15 +211,14 @@ export function ParentFeedbackForm({
                 {tags.map((tag, idx) => (
                   <span key={idx} className={styles.tag}>
                     <Badge variant="neutral" size="sm">{tag}</Badge>
-                    <button
-                      type="button"
-                      className={styles.tagRemove}
+                    <IconButton
+                      label={`Remove tag ${tag}`}
+                      size="sm"
                       onClick={() => removeTag(idx)}
                       disabled={blockInteraction}
-                      aria-label={`Remove tag ${tag}`}
                     >
                       <X aria-hidden="true" />
-                    </button>
+                    </IconButton>
                   </span>
                 ))}
               </div>

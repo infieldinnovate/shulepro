@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Textarea } from "@/components/ui/Textarea";
@@ -195,15 +195,14 @@ export function MeetingSummaryForm({
               {actionItems.map((item, idx) => (
                 <div key={idx} className={styles.item}>
                   <span className={styles.itemText}>{item}</span>
-                  <button
-                    type="button"
-                    className={styles.removeBtn}
+                  <IconButton
+                    label="Remove action item"
+                    size="sm"
                     onClick={() => removeAction(idx)}
                     disabled={blockInteraction}
-                    aria-label="Remove action item"
                   >
                     <X aria-hidden="true" />
-                  </button>
+                  </IconButton>
                 </div>
               ))}
             </div>
@@ -244,15 +243,14 @@ export function MeetingSummaryForm({
               {attendees.map((item, idx) => (
                 <div key={idx} className={styles.item}>
                   <span className={styles.itemText}>{item}</span>
-                  <button
-                    type="button"
-                    className={styles.removeBtn}
+                  <IconButton
+                    label="Remove attendee"
+                    size="sm"
                     onClick={() => removeAttendee(idx)}
                     disabled={blockInteraction}
-                    aria-label="Remove attendee"
                   >
                     <X aria-hidden="true" />
-                  </button>
+                  </IconButton>
                 </div>
               ))}
             </div>

@@ -127,34 +127,7 @@
   gap: var(--space-1);
 }
 
-.iconButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 28px;
-  block-size: 28px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: var(--color-fg-subtle);
-  border-radius: var(--radius-sm);
-  padding: 0;
-  transition: background-color $transition-fast, color $transition-fast;
 
-  &:hover {
-    background-color: var(--color-surface-muted);
-    color: var(--color-fg);
-  }
-
-  &:focus-visible {
-    @include focus-visible-ring;
-    outline-offset: -1px;
-  }
-
-  @include reduced-motion {
-    transition: none;
-  }
-}
 
 .dialogBody {
   display: flex;

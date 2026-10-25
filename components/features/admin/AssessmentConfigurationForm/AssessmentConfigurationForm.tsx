@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import { Plus, Trash2, Save, GripVertical } from "lucide-react";
 import clsx from "clsx";
 import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { FormSection } from "@/components/shared/FormSection";
 import { FormActions } from "@/components/shared/FormActions";
 import type {
@@ -153,14 +153,13 @@ export function AssessmentConfigurationForm({
                 aria-label="Assessment weight"
                 className={styles.weightInput}
               />
-              <button
-                type="button"
-                className={styles.removeButton}
+              <IconButton
+                label="Remove assessment type"
+                size="sm"
                 onClick={() => removeAssessmentType(entry.id)}
-                aria-label="Remove assessment type"
               >
                 <Trash2 size={16} aria-hidden="true" />
-              </button>
+              </IconButton>
             </div>
           ))}
         </div>
@@ -191,14 +190,13 @@ export function AssessmentConfigurationForm({
                 onChange={(e) => updateDescriptor(entry.id, e.target.value)}
                 aria-label="Descriptor label"
               />
-              <button
-                type="button"
-                className={styles.removeButton}
+              <IconButton
+                label="Remove descriptor"
+                size="sm"
                 onClick={() => removeDescriptor(entry.id)}
-                aria-label="Remove descriptor"
               >
                 <Trash2 size={16} aria-hidden="true" />
-              </button>
+              </IconButton>
             </div>
           ))}
         </div>
@@ -246,14 +244,13 @@ export function AssessmentConfigurationForm({
                 aria-label="Scale level numeric value"
                 className={styles.weightInput}
               />
-              <button
-                type="button"
-                className={styles.removeButton}
+              <IconButton
+                label="Remove scale level"
+                size="sm"
                 onClick={() => removeScaleLevel(entry.id)}
-                aria-label="Remove scale level"
               >
                 <Trash2 size={16} aria-hidden="true" />
-              </button>
+              </IconButton>
             </div>
           ))}
         </div>

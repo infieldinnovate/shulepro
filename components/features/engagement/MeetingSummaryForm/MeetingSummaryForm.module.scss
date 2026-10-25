@@ -92,33 +92,6 @@
   color: var(--color-fg);
 }
 
-.removeBtn {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  inline-size: 1.5rem;
-  block-size: 1.5rem;
-  border: none;
-  border-radius: var(--radius-sm);
-  background-color: transparent;
-  color: var(--color-fg-muted);
-  cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
-
-  &:hover:not(:disabled) {
-    background-color: var(--color-error-50);
-    color: var(--color-error-600);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  @include focus-visible-ring;
-}
-
 .addRow {
   display: flex;
   gap: var(--space-2);

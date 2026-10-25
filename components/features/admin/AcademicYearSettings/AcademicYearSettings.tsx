@@ -8,7 +8,7 @@ import { format, isValid } from "date-fns";
 import { Plus, Pencil, Trash2, Calendar } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import type { SelectOption } from "@/components/ui/Select";
@@ -249,22 +249,20 @@ export function AcademicYearSettings({
                   </Table.Cell>
                   <Table.Cell>
                     <div className={styles.rowActions}>
-                      <button
-                        type="button"
-                        className={styles.iconButton}
+                      <IconButton
+                        label={`Edit ${period.name}`}
+                        size="sm"
                         onClick={() => openEditDialog(period)}
-                        aria-label={`Edit ${period.name}`}
                       >
                         <Pencil size={14} aria-hidden="true" />
-                      </button>
-                      <button
-                        type="button"
-                        className={styles.iconButton}
+                      </IconButton>
+                      <IconButton
+                        label={`Remove ${period.name}`}
+                        size="sm"
                         onClick={() => handleRemove(period)}
-                        aria-label={`Remove ${period.name}`}
                       >
                         <Trash2 size={14} aria-hidden="true" />
-                      </button>
+                      </IconButton>
                     </div>
                   </Table.Cell>
                 </Table.Row>

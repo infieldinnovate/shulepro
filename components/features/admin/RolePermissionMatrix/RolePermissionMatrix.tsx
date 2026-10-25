@@ -6,6 +6,7 @@ import { Check, Minus, Shield } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { IconButton } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Table } from "@/components/ui/Table";
 import type {
@@ -178,8 +179,8 @@ export function RolePermissionMatrix({
                   const cellKey = `${role.id}-${resource.id}-${permission.id}`;
                   return (
                     <Table.Cell key={cellKey} className={styles.valueCell}>
-                      <button
-                        type="button"
+                      <IconButton
+                        label={`${visual.label}: ${role.label} — ${resource.label} — ${permission.label}`}
                         className={styles.cellButton}
                         disabled={!editable}
                         onClick={() =>
@@ -189,7 +190,6 @@ export function RolePermissionMatrix({
                             permission.id,
                           )
                         }
-                        aria-label={`${visual.label}: ${role.label} — ${resource.label} — ${permission.label}`}
                         tabIndex={editable ? 0 : -1}
                       >
                         <span
@@ -200,7 +200,7 @@ export function RolePermissionMatrix({
                         >
                           {visual.icon}
                         </span>
-                      </button>
+                      </IconButton>
                     </Table.Cell>
                   );
                 })}
