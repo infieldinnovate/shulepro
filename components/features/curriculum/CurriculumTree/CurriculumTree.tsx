@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Input } from "@/components/ui/Input";
 import type { CurriculumNode, CurriculumNodeType } from "@/components/features/curriculum/types";
 import styles from "./CurriculumTree.module.scss";
 
@@ -264,18 +265,16 @@ export function CurriculumTree({
   return (
     <div className={clsx(styles.container, className)}>
       {searchable && (
-        <div className={styles.search}>
-          <Search className={styles.searchIcon} aria-hidden="true" />
-          <input
-            type="search"
-            value={query}
-            placeholder="Search curriculum\u2026"
-            disabled={disabled}
-            aria-label="Search curriculum"
-            className={styles.searchInput}
-            onChange={(e) => handleSearch(e.target.value)}
-          />
-        </div>
+        <Input
+          type="search"
+          value={query}
+          placeholder="Search curriculum\u2026"
+          disabled={disabled}
+          aria-label="Search curriculum"
+          leadingIcon={<Search aria-hidden="true" />}
+          className={styles.searchInput}
+          onChange={(e) => handleSearch(e.target.value)}
+        />
       )}
 
       {flatNodes.length === 0 && query ? (

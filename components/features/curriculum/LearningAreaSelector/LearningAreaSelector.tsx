@@ -8,6 +8,7 @@ import { Combobox } from "@/components/ui/Combobox";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Input } from "@/components/ui/Input";
 import { IconButton } from "@/components/ui/Button";
 import type { LearningArea } from "@/components/features/curriculum/types";
 import styles from "./LearningAreaSelector.module.scss";
@@ -165,18 +166,16 @@ export function LearningAreaSelector({
       )}
 
       {searchable && (
-        <div className={styles.search}>
-          <Search className={styles.searchIcon} aria-hidden="true" />
-          <input
-            type="search"
-            value={query}
-            placeholder={searchPlaceholder}
-            disabled={disabled}
-            aria-label={ariaLabel}
-            className={styles.searchInput}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        </div>
+        <Input
+          type="search"
+          value={query}
+          placeholder={searchPlaceholder}
+          disabled={disabled}
+          aria-label={ariaLabel}
+          leadingIcon={<Search aria-hidden="true" />}
+          className={styles.searchInput}
+          onChange={(e) => setQuery(e.target.value)}
+        />
       )}
 
       <ul className={styles.list} role="group" aria-label={ariaLabel}>
