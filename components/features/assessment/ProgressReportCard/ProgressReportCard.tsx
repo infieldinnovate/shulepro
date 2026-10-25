@@ -18,10 +18,6 @@ import type {
   AttainmentLevel,
   EvidenceStatus,
 } from "@/components/features/assessment/types";
-
-function toTimestamp(value: Date | string | number): string | number {
-  return value instanceof Date ? value.getTime() : value;
-}
 import styles from "./ProgressReportCard.module.scss";
 
 export interface ProgressReportCardProps {
@@ -132,7 +128,7 @@ export function ProgressReportCard({
       />
 
       <ReportMetadata
-        generatedOn={formatAbsolute(toTimestamp(report.generatedAt))}
+        generatedOn={formatAbsolute(report.generatedAt)}
         items={
           report.approvedBy
             ? [

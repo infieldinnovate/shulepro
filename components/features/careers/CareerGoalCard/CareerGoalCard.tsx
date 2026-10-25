@@ -43,12 +43,8 @@ export interface CareerGoalCardProps {
   footer?: ReactNode;
 }
 
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
-}
-
 function formatDate(d: Date | string): string {
-  const date = toDate(d);
+  const date = typeof d === "string" ? new Date(d) : d;
   if (isToday(date)) return "Today";
   return formatDateShort(d);
 }
@@ -56,7 +52,7 @@ function formatDate(d: Date | string): string {
 function isReviewOverdue(goal: CareerGoal): boolean {
   if (!goal.reviewDate) return false;
   if (goal.status === "achieved" || goal.status === "discontinued") return false;
-  const d = toDate(goal.reviewDate);
+  const d = typeof goal.reviewDate === "string" ? new Date(goal.reviewDate) : goal.reviewDate;
   return isPast(d) && !isToday(d);
 }
 

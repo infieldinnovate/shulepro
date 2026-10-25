@@ -14,10 +14,6 @@ import { Button, IconButton } from "@/components/ui/Button";
 import { CommentBox } from "@/components/shared/CommentBox";
 import { formatAbsolute } from "@/lib/formatTime";
 import type { AssessmentFeedback } from "@/components/features/assessment/types";
-
-function toTimestamp(value: Date | string | number): string | number {
-  return value instanceof Date ? value.getTime() : value;
-}
 import styles from "./AssessmentFeedbackPanel.module.scss";
 
 export type FeedbackType = NonNullable<AssessmentFeedback["type"]>;
@@ -164,7 +160,7 @@ export function AssessmentFeedbackPanel({
                     )}
                     {item.createdAt && (
                       <span className={styles.date}>
-                        {formatAbsolute(toTimestamp(item.createdAt))}
+                        {formatAbsolute(item.createdAt)}
                       </span>
                     )}
                   </div>

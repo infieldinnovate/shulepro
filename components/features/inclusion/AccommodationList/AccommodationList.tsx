@@ -1,7 +1,6 @@
 "use client";
 
 import type { KeyboardEvent, ReactNode } from "react";
-import { format } from "date-fns";
 import { ChevronRight, ListChecks } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -9,6 +8,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { Accommodation } from "@/components/features/inclusion/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./AccommodationList.module.scss";
 
 export interface AccommodationListProps {
@@ -22,10 +22,6 @@ export interface AccommodationListProps {
   empty?: boolean;
   disabled?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function AccommodationList({
@@ -117,12 +113,12 @@ export function AccommodationList({
                   )}
                   {item.startDate && (
                     <span className={styles.metaItem}>
-                      From {format(toDate(item.startDate), "MMM d, yyyy")}
+                      From {formatDateMedium(item.startDate)}
                     </span>
                   )}
                   {item.endDate && (
                     <span className={styles.metaItem}>
-                      Until {format(toDate(item.endDate), "MMM d, yyyy")}
+                      Until {formatDateMedium(item.endDate)}
                     </span>
                   )}
                 </div>

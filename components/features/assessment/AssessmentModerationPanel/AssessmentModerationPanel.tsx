@@ -17,10 +17,6 @@ import { ApprovalActions } from "@/components/shared/ApprovalActions";
 import type { ApprovalAction } from "@/components/shared/ApprovalActions";
 import { formatAbsolute } from "@/lib/formatTime";
 import type { ModerationFinding } from "@/components/features/assessment/types";
-
-function toTimestamp(value: Date | string | number): string | number {
-  return value instanceof Date ? value.getTime() : value;
-}
 import styles from "./AssessmentModerationPanel.module.scss";
 
 export type CorrectionStatus = ModerationFinding["correctionStatus"];
@@ -162,7 +158,10 @@ export function AssessmentModerationPanel({
     const config = STATUS_CONFIG[f.correctionStatus];
     return {
       id: f.id,
-      timestamp: toTimestamp(f.createdAt ?? new Date().toISOString()),
+      timestamp:
+        f.createdAt instanceof Date
+          ? f.createdAt.toISOString()
+          : (f.createdAt ?? new Date().toISOString()),
       title: config.label,
       description: f.finding,
       actor: f.reviewer ? { name: f.reviewer } : undefined,
@@ -208,14 +207,14 @@ export function AssessmentModerationPanel({
                 )}
                 {finding.createdAt && (
                   <span className={styles.date}>
-                    {formatAbsolute(toTimestamp(finding.createdAt))}
+                    {formatAbsolute(finding.createdAt)}
                   </span>
                 )}
               </div>
               <p className={styles.findingText}>{finding.finding}</p>
               {finding.resolvedAt && (
                 <p className={styles.resolvedAt}>
-                  Resolved: {formatAbsolute(toTimestamp(finding.resolvedAt))}
+                  Resolved: {formatAbsolute(finding.resolvedAt)}
                 </p>
               )}
               {actions.length > 0 && (

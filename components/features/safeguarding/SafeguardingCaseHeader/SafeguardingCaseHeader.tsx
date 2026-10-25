@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { format } from "date-fns";
 import { ShieldCheck } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -14,6 +13,7 @@ import type {
   SafeguardingCaseStatus,
   RiskLevel,
 } from "@/components/features/safeguarding/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./SafeguardingCaseHeader.module.scss";
 
 export type CaseStatusBadgeMap = StatusBadgeMap<SafeguardingCaseStatus>;
@@ -33,10 +33,6 @@ export interface SafeguardingCaseHeaderProps {
   /** Optional action buttons rendered in the header. */
   actions?: ReactNode;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function SafeguardingCaseHeader({
@@ -131,7 +127,7 @@ export function SafeguardingCaseHeader({
         <div className={styles.metaItem}>
           <dt className={styles.metaLabel}>Opened</dt>
           <dd className={styles.metaValue}>
-            {format(toDate(caseRecord.openedAt), "MMM d, yyyy")}
+            {formatDateMedium(caseRecord.openedAt)}
           </dd>
         </div>
       </dl>

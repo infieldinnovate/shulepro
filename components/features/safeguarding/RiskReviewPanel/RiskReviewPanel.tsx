@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { ClipboardCheck, Plus, CalendarClock } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -10,6 +9,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { RiskReview, RiskLevel } from "@/components/features/safeguarding/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./RiskReviewPanel.module.scss";
 
 export type RiskLevelBadgeMap = StatusBadgeMap<RiskLevel>;
@@ -22,10 +22,6 @@ export interface RiskReviewPanelProps {
   error?: string;
   empty?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function RiskReviewPanel({
@@ -101,7 +97,7 @@ export function RiskReviewPanel({
                     size="sm"
                   />
                   <span className={styles.reviewDate}>
-                    {format(toDate(review.reviewDate), "MMM d, yyyy")}
+                    {formatDateMedium(review.reviewDate)}
                   </span>
                 </div>
                 {review.reviewerName && (
@@ -128,7 +124,7 @@ export function RiskReviewPanel({
                       className={styles.nextReviewIcon}
                     />
                     Next review:{" "}
-                    {format(toDate(review.nextReviewDate), "MMM d, yyyy")}
+                    {formatDateMedium(review.nextReviewDate)}
                   </p>
                 )}
               </li>

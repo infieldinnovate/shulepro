@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { format } from "date-fns";
 import { Accessibility } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -8,6 +7,7 @@ import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { AssistiveDevice } from "@/components/features/inclusion/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./AssistiveDeviceCard.module.scss";
 
 export interface AssistiveDeviceCardProps {
@@ -19,10 +19,6 @@ export interface AssistiveDeviceCardProps {
   empty?: boolean;
   disabled?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function AssistiveDeviceCard({
@@ -100,7 +96,7 @@ export function AssistiveDeviceCard({
             <div className={styles.metaItem}>
               <dt className={styles.metaLabel}>Issued</dt>
               <dd className={styles.metaValue}>
-                {format(toDate(device.issuedDate), "MMM d, yyyy")}
+                {formatDateMedium(device.issuedDate)}
               </dd>
             </div>
           )}

@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { Pencil, CalendarRange, Sparkles } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -11,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { Intervention, InterventionStatus } from "@/components/features/inclusion/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./InterventionCard.module.scss";
 
 export type InterventionStatusBadgeMap = StatusBadgeMap<InterventionStatus>;
@@ -37,15 +37,11 @@ export interface InterventionCardProps {
   className?: string;
 }
 
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
-}
-
 function dateRange(start?: Date | string, end?: Date | string): string | null {
   if (!start && !end) return null;
   const parts: string[] = [];
-  if (start) parts.push(format(toDate(start), "MMM d, yyyy"));
-  if (end) parts.push(format(toDate(end), "MMM d, yyyy"));
+  if (start) parts.push(formatDateMedium(start));
+  if (end) parts.push(formatDateMedium(end));
   return parts.join(" \u2013 ");
 }
 

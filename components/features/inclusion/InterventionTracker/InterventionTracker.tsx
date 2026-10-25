@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { format } from "date-fns";
 import { ClipboardList } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -11,6 +10,7 @@ import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Accordion } from "@/components/ui/Accordion";
 import type { InterventionTrackerEntry } from "@/components/features/inclusion/types";
+import { formatDateShort } from "@/lib/formatTime";
 import styles from "./InterventionTracker.module.scss";
 
 export interface InterventionTrackerProps {
@@ -19,10 +19,6 @@ export interface InterventionTrackerProps {
   error?: string;
   empty?: boolean;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 export function InterventionTracker({
@@ -87,7 +83,7 @@ export function InterventionTracker({
             header: (
               <>
                 <span className={styles.entryDate}>
-                  {format(toDate(entry.recordedAt), "EEE, MMM d, yyyy")}
+                  {formatDateShort(entry.recordedAt)}
                 </span>
                 {entry.outcomeLabel && (
                   <Badge variant="neutral" size="sm">

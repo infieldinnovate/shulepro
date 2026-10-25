@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { format } from "date-fns";
 import { Sparkles } from "lucide-react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
@@ -11,6 +10,7 @@ import type {
   StrengthCategory,
   StrengthEntry,
 } from "@/components/features/careers/types";
+import { formatDateMedium } from "@/lib/formatTime";
 import styles from "./StrengthsProfile.module.scss";
 
 export interface StrengthsProfileProps {
@@ -31,10 +31,6 @@ export interface StrengthsProfileProps {
   /** Optional content rendered below the profile (e.g. notes). */
   children?: ReactNode;
   className?: string;
-}
-
-function toDate(d: Date | string): Date {
-  return typeof d === "string" ? new Date(d) : d;
 }
 
 function categoryLabel(
@@ -146,7 +142,7 @@ export function StrengthsProfile({
                           )}
                           {entry.recordedAt && (
                             <span className={styles.entryDate}>
-                              {format(toDate(entry.recordedAt), "MMM d, yyyy")}
+                              {formatDateMedium(entry.recordedAt)}
                             </span>
                           )}
                         </div>
@@ -183,7 +179,7 @@ export function StrengthsProfile({
                     </span>
                     {entry.recordedAt && (
                       <span className={styles.entryDate}>
-                        {format(toDate(entry.recordedAt), "MMM d, yyyy")}
+                        {formatDateMedium(entry.recordedAt)}
                       </span>
                     )}
                   </div>
