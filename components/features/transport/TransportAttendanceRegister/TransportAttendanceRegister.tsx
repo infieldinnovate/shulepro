@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Table } from "@/components/ui/Table";
 import { Alert } from "@/components/ui/Alert";
 import type {
   TransportRoute,
@@ -105,87 +106,85 @@ export function TransportAttendanceRegister({
         <span className={styles.dateBadge}>{dateStr}</span>
       </div>
 
-      <div className={styles.scrollWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th scope="col" className={styles.th}>Passenger</th>
-              <th scope="col" className={styles.statusTh}>Status</th>
-              <th scope="col" className={styles.th}>Present</th>
-              <th scope="col" className={styles.th}>Absent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {passengers.map((p) => {
-              const entry = marks[p.id];
-              const status = toPresentStatus(entry?.mark);
-              return (
-                <tr key={p.id} className={styles.tr}>
-                  <td className={styles.td}>
-                    <div className={styles.passengerCell}>
-                      <Avatar
-                        name={p.name}
-                        src={p.avatarSrc}
-                        alt=""
-                        size="sm"
-                      />
-                      <div className={styles.passengerInfo}>
-                        <span className={styles.passengerName}>{p.name}</span>
-                        {p.gradeOrRole && (
-                          <span className={styles.passengerMeta}>{p.gradeOrRole}</span>
-                        )}
-                      </div>
+      <Table className={styles.scrollWrap}>
+        <Table.Header>
+          <Table.Row>
+            <Table.Head className={styles.th}>Passenger</Table.Head>
+            <Table.Head className={styles.statusTh}>Status</Table.Head>
+            <Table.Head className={styles.th}>Present</Table.Head>
+            <Table.Head className={styles.th}>Absent</Table.Head>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {passengers.map((p) => {
+            const entry = marks[p.id];
+            const status = toPresentStatus(entry?.mark);
+            return (
+              <Table.Row key={p.id} className={styles.tr}>
+                <Table.Cell className={styles.td}>
+                  <div className={styles.passengerCell}>
+                    <Avatar
+                      name={p.name}
+                      src={p.avatarSrc}
+                      alt=""
+                      size="sm"
+                    />
+                    <div className={styles.passengerInfo}>
+                      <span className={styles.passengerName}>{p.name}</span>
+                      {p.gradeOrRole && (
+                        <span className={styles.passengerMeta}>{p.gradeOrRole}</span>
+                      )}
                     </div>
-                  </td>
-                  <td className={styles.td}>
-                    <span
-                      className={clsx(
-                        styles.statusBadge,
-                        status === "present" && styles.statusPresent,
-                        status === "absent" && styles.statusAbsent,
-                        status === "unmarked" && styles.statusUnmarked,
-                      )}
-                    >
-                      {status === "present" && (
-                        <CheckCircle2 className={styles.statusIcon} aria-hidden="true" />
-                      )}
-                      {status === "absent" && (
-                        <XCircle className={styles.statusIcon} aria-hidden="true" />
-                      )}
-                      {status === "unmarked" && (
-                        <CircleSlash className={styles.statusIcon} aria-hidden="true" />
-                      )}
-                      {status === "present" ? "Present" : status === "absent" ? "Absent" : "—"}
-                    </span>
-                  </td>
-                  <td className={styles.td}>
-                    <Checkbox
-                      aria-label={`Mark ${p.name} present`}
-                      checked={status === "present"}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          onMark({ passengerId: p.id, mark: "present" });
-                        }
-                      }}
-                    />
-                  </td>
-                  <td className={styles.td}>
-                    <Checkbox
-                      aria-label={`Mark ${p.name} absent`}
-                      checked={status === "absent"}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          onMark({ passengerId: p.id, mark: "absent" });
-                        }
-                      }}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                  </div>
+                </Table.Cell>
+                <Table.Cell className={styles.td}>
+                  <span
+                    className={clsx(
+                      styles.statusBadge,
+                      status === "present" && styles.statusPresent,
+                      status === "absent" && styles.statusAbsent,
+                      status === "unmarked" && styles.statusUnmarked,
+                    )}
+                  >
+                    {status === "present" && (
+                      <CheckCircle2 className={styles.statusIcon} aria-hidden="true" />
+                    )}
+                    {status === "absent" && (
+                      <XCircle className={styles.statusIcon} aria-hidden="true" />
+                    )}
+                    {status === "unmarked" && (
+                      <CircleSlash className={styles.statusIcon} aria-hidden="true" />
+                    )}
+                    {status === "present" ? "Present" : status === "absent" ? "Absent" : "—"}
+                  </span>
+                </Table.Cell>
+                <Table.Cell className={styles.td}>
+                  <Checkbox
+                    aria-label={`Mark ${p.name} present`}
+                    checked={status === "present"}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        onMark({ passengerId: p.id, mark: "present" });
+                      }
+                    }}
+                  />
+                </Table.Cell>
+                <Table.Cell className={styles.td}>
+                  <Checkbox
+                    aria-label={`Mark ${p.name} absent`}
+                    checked={status === "absent"}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        onMark({ passengerId: p.id, mark: "absent" });
+                      }
+                    }}
+                  />
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table.Body>
+      </Table>
     </Card>
   );
 }

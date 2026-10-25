@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Table } from "@/components/ui/Table";
 import type {
   RoleDefinition,
   ResourceDefinition,
@@ -123,89 +124,91 @@ export function RolePermissionMatrix({
       padded={false}
       className={clsx(styles.container, className)}
     >
-      <div className={styles.scrollWrapper} role="region" aria-label="Permission matrix" tabIndex={0}>
-        <table className={styles.matrix}>
-          <thead>
-            <tr>
-              <th scope="col" className={styles.resourceHeader}>
-                Resource
-              </th>
-              <th scope="col" className={styles.roleHeader}>
-                Permission
-              </th>
-              {roles.map((role) => (
-                <th
-                  key={role.id}
-                  scope="col"
-                  className={styles.roleHeader}
-                >
-                  {role.label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {resources.map((resource) =>
-              permissions.map((permission, permIdx) => (
-                <tr
-                  key={`${resource.id}-${permission.id}`}
-                  className={styles.row}
-                >
-                  {permIdx === 0 && (
-                    <th
-                      scope="row"
-                      rowSpan={permissions.length}
-                      className={styles.resourceCell}
-                    >
-                      {resource.label}
-                    </th>
-                  )}
-                  <td className={styles.permissionCell}>
-                    {permission.label}
-                  </td>
-                  {roles.map((role) => {
-                    const value = cellValue(
-                      cells,
-                      role.id,
-                      resource.id,
-                      permission.id,
-                    );
-                    const visual = valueToVisual(value);
-                    const cellKey = `${role.id}-${resource.id}-${permission.id}`;
-                    return (
-                      <td key={cellKey} className={styles.valueCell}>
-                        <button
-                          type="button"
-                          className={styles.cellButton}
-                          disabled={!editable}
-                          onClick={() =>
-                            handleCellClick(
-                              role.id,
-                              resource.id,
-                              permission.id,
-                            )
-                          }
-                          aria-label={`${visual.label}: ${role.label} — ${resource.label} — ${permission.label}`}
-                          tabIndex={editable ? 0 : -1}
+      <Table
+        className={styles.scrollWrapper}
+        role="region"
+        aria-label="Permission matrix"
+        tabIndex={0}
+      >
+        <Table.Header>
+          <Table.Row>
+            <Table.Head className={styles.resourceHeader}>
+              Resource
+            </Table.Head>
+            <Table.Head className={styles.roleHeader}>
+              Permission
+            </Table.Head>
+            {roles.map((role) => (
+              <Table.Head
+                key={role.id}
+                className={styles.roleHeader}
+              >
+                {role.label}
+              </Table.Head>
+            ))}
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {resources.map((resource) =>
+            permissions.map((permission, permIdx) => (
+              <Table.Row
+                key={`${resource.id}-${permission.id}`}
+                className={styles.row}
+              >
+                {permIdx === 0 && (
+                  <Table.Head
+                    scope="row"
+                    rowSpan={permissions.length}
+                    className={styles.resourceCell}
+                  >
+                    {resource.label}
+                  </Table.Head>
+                )}
+                <Table.Cell className={styles.permissionCell}>
+                  {permission.label}
+                </Table.Cell>
+                {roles.map((role) => {
+                  const value = cellValue(
+                    cells,
+                    role.id,
+                    resource.id,
+                    permission.id,
+                  );
+                  const visual = valueToVisual(value);
+                  const cellKey = `${role.id}-${resource.id}-${permission.id}`;
+                  return (
+                    <Table.Cell key={cellKey} className={styles.valueCell}>
+                      <button
+                        type="button"
+                        className={styles.cellButton}
+                        disabled={!editable}
+                        onClick={() =>
+                          handleCellClick(
+                            role.id,
+                            resource.id,
+                            permission.id,
+                          )
+                        }
+                        aria-label={`${visual.label}: ${role.label} — ${resource.label} — ${permission.label}`}
+                        tabIndex={editable ? 0 : -1}
+                      >
+                        <span
+                          className={clsx(
+                            styles.cellIcon,
+                            styles[visual.variant],
+                          )}
                         >
-                          <span
-                            className={clsx(
-                              styles.cellIcon,
-                              styles[visual.variant],
-                            )}
-                          >
-                            {visual.icon}
-                          </span>
-                        </button>
-                      </td>
-                    );
-                  })}
-                </tr>
-              )),
-            )}
-          </tbody>
-        </table>
-      </div>
+                          {visual.icon}
+                        </span>
+                      </button>
+                    </Table.Cell>
+                  );
+                })}
+              </Table.Row>
+            )),
+          )}
+        </Table.Body>
+      </Table>
 
       <div className={styles.legend}>
         <Badge variant="success" size="sm">

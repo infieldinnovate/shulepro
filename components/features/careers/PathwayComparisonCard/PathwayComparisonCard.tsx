@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Table } from "@/components/ui/Table";
 import type {
   PathwayComparisonCriterion,
   PathwayComparisonEntry,
@@ -93,55 +94,58 @@ export function PathwayComparisonCard({
       </Card.Header>
 
       <Card.Body className={styles.body}>
-        <div className={styles.tableWrap} role="region" aria-label={title} tabIndex={0}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th scope="col" className={styles.criterionCol}>
-                  Criterion
-                </th>
-                {pathways.map((p) => (
-                  <th key={p.pathwayKey} scope="col" className={styles.pathwayCol}>
-                    <span className={styles.pathwayTitle}>{p.label}</span>
-                    {p.description && (
-                      <span className={styles.pathwayDescription}>
-                        {p.description}
-                      </span>
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {criteria.map((criterion) => (
-                <tr key={criterion.key} className={styles.row}>
-                  <th scope="row" className={styles.criterionCol}>
-                    <span className={styles.criterionLabel}>{criterion.label}</span>
-                    {criterion.description && (
-                      <span className={styles.criterionDescription}>
-                        {criterion.description}
-                      </span>
-                    )}
-                  </th>
-                  {pathways.map((pathway) => {
-                    const value = findValue(pathway, criterion.key);
-                    return (
-                      <td key={pathway.pathwayKey} className={styles.pathwayCol}>
-                        {value ? (
-                          <span className={styles.cellValue}>{value}</span>
-                        ) : (
-                          <Badge variant="neutral" size="sm">
-                            Not provided
-                          </Badge>
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
+        <Table
+          className={styles.tableWrap}
+          role="region"
+          aria-label={title}
+          tabIndex={0}
+        >
+          <Table.Header>
+            <Table.Row>
+              <Table.Head className={styles.criterionCol}>
+                Criterion
+              </Table.Head>
+              {pathways.map((p) => (
+                <Table.Head key={p.pathwayKey} className={styles.pathwayCol}>
+                  <span className={styles.pathwayTitle}>{p.label}</span>
+                  {p.description && (
+                    <span className={styles.pathwayDescription}>
+                      {p.description}
+                    </span>
+                  )}
+                </Table.Head>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {criteria.map((criterion) => (
+              <Table.Row key={criterion.key} className={styles.row}>
+                <Table.Head scope="row" className={styles.criterionCol}>
+                  <span className={styles.criterionLabel}>{criterion.label}</span>
+                  {criterion.description && (
+                    <span className={styles.criterionDescription}>
+                      {criterion.description}
+                    </span>
+                  )}
+                </Table.Head>
+                {pathways.map((pathway) => {
+                  const value = findValue(pathway, criterion.key);
+                  return (
+                    <Table.Cell key={pathway.pathwayKey} className={styles.pathwayCol}>
+                      {value ? (
+                        <span className={styles.cellValue}>{value}</span>
+                      ) : (
+                        <Badge variant="neutral" size="sm">
+                          Not provided
+                        </Badge>
+                      )}
+                    </Table.Cell>
+                  );
+                })}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
 
         {children}
       </Card.Body>

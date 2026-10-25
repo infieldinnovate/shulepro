@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Table } from "@/components/ui/Table";
 import { Alert } from "@/components/ui/Alert";
 import { Badge } from "@/components/ui/Badge";
 import { TrendIndicator } from "@/components/shared/TrendIndicator";
@@ -98,106 +99,104 @@ export function ComparisonPanel({
       );
     }
     return (
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <caption className={styles.caption}>
-            {summary ?? `Comparing ${currentLabel} against ${referenceLabel}`}
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col" className={styles.metricCol}>
-                Metric
-              </th>
-              <th scope="col" className={styles.valueCol}>
-                {currentLabel}
-              </th>
-              <th scope="col" className={styles.valueCol}>
-                {referenceLabel}
-              </th>
-              <th scope="col" className={styles.deltaCol}>
-                Change
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.map((m) => {
-              const fmt = m.formatValue ?? defaultFormat;
-              const trend = computeTrend(m.current, m.reference);
-              const curPresence = classifyDataPoint(m.current);
-              const refPresence = classifyDataPoint(m.reference);
-              const hasReference = trend.direction != null;
-              const unit = m.unit ?? "";
-              const percentLabel = formatPercentChange(trend.percentChange);
-              const deltaLabel = formatDelta(trend.delta);
-              const curDisplay =
-                curPresence === "present"
-                  ? `${fmt(m.current!)}${unit ? ` ${unit}` : ""}`
-                  : null;
-              const refDisplay =
-                refPresence === "present"
-                  ? `${fmt(m.reference!)}${unit ? ` ${unit}` : ""}`
-                  : null;
-              const curPresenceLabel = presenceLabel(curPresence, m.unit);
-              const refPresenceLabel = presenceLabel(refPresence, m.unit);
+      <Table
+        className={styles.tableWrap}
+        caption={summary ?? `Comparing ${currentLabel} against ${referenceLabel}`}
+      >
+        <Table.Header>
+          <Table.Row>
+            <Table.Head className={styles.metricCol}>
+              Metric
+            </Table.Head>
+            <Table.Head className={styles.valueCol}>
+              {currentLabel}
+            </Table.Head>
+            <Table.Head className={styles.valueCol}>
+              {referenceLabel}
+            </Table.Head>
+            <Table.Head className={styles.deltaCol}>
+              Change
+            </Table.Head>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {metrics.map((m) => {
+            const fmt = m.formatValue ?? defaultFormat;
+            const trend = computeTrend(m.current, m.reference);
+            const curPresence = classifyDataPoint(m.current);
+            const refPresence = classifyDataPoint(m.reference);
+            const hasReference = trend.direction != null;
+            const unit = m.unit ?? "";
+            const percentLabel = formatPercentChange(trend.percentChange);
+            const deltaLabel = formatDelta(trend.delta);
+            const curDisplay =
+              curPresence === "present"
+                ? `${fmt(m.current!)}${unit ? ` ${unit}` : ""}`
+                : null;
+            const refDisplay =
+              refPresence === "present"
+                ? `${fmt(m.reference!)}${unit ? ` ${unit}` : ""}`
+                : null;
+            const curPresenceLabel = presenceLabel(curPresence, m.unit);
+            const refPresenceLabel = presenceLabel(refPresence, m.unit);
 
-              return (
-                <tr key={m.key} className={styles.row}>
-                  <th scope="row" className={styles.metricCol} title={m.description}>
-                    <span className={styles.metricLabel}>{m.label}</span>
-                    {m.description && (
-                      <span className={styles.metricDesc}>{m.description}</span>
-                    )}
-                  </th>
-                  <td className={styles.valueCol}>
-                    {curDisplay != null ? (
-                      <span className={styles.value}>{curDisplay}</span>
-                    ) : (
-                      <span className={styles.missingData}>
-                        <Badge variant={presenceVariant(curPresence)} size="sm">
-                          {curPresenceLabel}
-                        </Badge>
+            return (
+              <Table.Row key={m.key} className={styles.row}>
+                <Table.Head scope="row" className={styles.metricCol} title={m.description}>
+                  <span className={styles.metricLabel}>{m.label}</span>
+                  {m.description && (
+                    <span className={styles.metricDesc}>{m.description}</span>
+                  )}
+                </Table.Head>
+                <Table.Cell className={styles.valueCol}>
+                  {curDisplay != null ? (
+                    <span className={styles.value}>{curDisplay}</span>
+                  ) : (
+                    <span className={styles.missingData}>
+                      <Badge variant={presenceVariant(curPresence)} size="sm">
+                        {curPresenceLabel}
+                      </Badge>
+                    </span>
+                  )}
+                </Table.Cell>
+                <Table.Cell className={styles.valueCol}>
+                  {refDisplay != null ? (
+                    <span className={styles.value}>{refDisplay}</span>
+                  ) : (
+                    <span className={styles.missingData}>
+                      <Badge variant={presenceVariant(refPresence)} size="sm">
+                        {refPresenceLabel}
+                      </Badge>
+                    </span>
+                  )}
+                </Table.Cell>
+                <Table.Cell className={styles.deltaCol}>
+                  {hasReference ? (
+                    <TrendIndicator
+                      direction={trend.direction as TrendDirection}
+                      percentLabel={percentLabel}
+                      deltaLabel={deltaLabel || undefined}
+                      invertPolarity={m.invertPolarity}
+                      comparisonLabel={`${m.label} vs ${referenceLabel}`}
+                    />
+                  ) : (
+                    <span
+                      className={styles.noReference}
+                      role="img"
+                      aria-label={`No comparable reference for ${m.label}`}
+                    >
+                      <ArrowRight aria-hidden="true" size={14} />
+                      <span className={styles.noReferenceText}>
+                        No comparable reference
                       </span>
-                    )}
-                  </td>
-                  <td className={styles.valueCol}>
-                    {refDisplay != null ? (
-                      <span className={styles.value}>{refDisplay}</span>
-                    ) : (
-                      <span className={styles.missingData}>
-                        <Badge variant={presenceVariant(refPresence)} size="sm">
-                          {refPresenceLabel}
-                        </Badge>
-                      </span>
-                    )}
-                  </td>
-                  <td className={styles.deltaCol}>
-                    {hasReference ? (
-                      <TrendIndicator
-                        direction={trend.direction as TrendDirection}
-                        percentLabel={percentLabel}
-                        deltaLabel={deltaLabel || undefined}
-                        invertPolarity={m.invertPolarity}
-                        comparisonLabel={`${m.label} vs ${referenceLabel}`}
-                      />
-                    ) : (
-                      <span
-                        className={styles.noReference}
-                        role="img"
-                        aria-label={`No comparable reference for ${m.label}`}
-                      >
-                        <ArrowRight aria-hidden="true" size={14} />
-                        <span className={styles.noReferenceText}>
-                          No comparable reference
-                        </span>
-                      </span>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                    </span>
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table.Body>
+      </Table>
     );
   })();
 

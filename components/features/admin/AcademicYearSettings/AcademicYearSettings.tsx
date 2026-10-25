@@ -16,6 +16,7 @@ import { DatePicker } from "@/components/ui/DatePicker";
 import { Badge } from "@/components/ui/Badge";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Dialog } from "@/components/ui/Dialog";
+import { Table } from "@/components/ui/Table";
 import { FormField } from "@/components/ui/FormField";
 import { FormActions } from "@/components/shared/FormActions";
 import type { AcademicPeriod, AcademicPeriodFormData } from "@/components/features/admin/types";
@@ -218,55 +219,58 @@ export function AcademicYearSettings({
             ))}
           </div>
 
-          <div className={styles.tableWrapper} role="region" aria-label="Academic periods table" tabIndex={0}>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Type</th>
-                  <th scope="col">Start date</th>
-                  <th scope="col">End date</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {periods.map((period) => (
-                  <tr key={period.id}>
-                    <td className={styles.nameCell}>{period.name}</td>
-                    <td>{period.type}</td>
-                    <td>{formatDate(period.startDate)}</td>
-                    <td>{formatDate(period.endDate)}</td>
-                    <td>
-                      <Badge variant={statusVariant(period.status)} size="sm" dot>
-                        {period.status}
-                      </Badge>
-                    </td>
-                    <td>
-                      <div className={styles.rowActions}>
-                        <button
-                          type="button"
-                          className={styles.iconButton}
-                          onClick={() => openEditDialog(period)}
-                          aria-label={`Edit ${period.name}`}
-                        >
-                          <Pencil size={14} aria-hidden="true" />
-                        </button>
-                        <button
-                          type="button"
-                          className={styles.iconButton}
-                          onClick={() => handleRemove(period)}
-                          aria-label={`Remove ${period.name}`}
-                        >
-                          <Trash2 size={14} aria-hidden="true" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Table
+            className={styles.tableWrapper}
+            role="region"
+            aria-label="Academic periods table"
+            tabIndex={0}
+          >
+            <Table.Header>
+              <Table.Row>
+                <Table.Head>Name</Table.Head>
+                <Table.Head>Type</Table.Head>
+                <Table.Head>Start date</Table.Head>
+                <Table.Head>End date</Table.Head>
+                <Table.Head>Status</Table.Head>
+                <Table.Head>Actions</Table.Head>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {periods.map((period) => (
+                <Table.Row key={period.id}>
+                  <Table.Cell className={styles.nameCell}>{period.name}</Table.Cell>
+                  <Table.Cell>{period.type}</Table.Cell>
+                  <Table.Cell>{formatDate(period.startDate)}</Table.Cell>
+                  <Table.Cell>{formatDate(period.endDate)}</Table.Cell>
+                  <Table.Cell>
+                    <Badge variant={statusVariant(period.status)} size="sm" dot>
+                      {period.status}
+                    </Badge>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <div className={styles.rowActions}>
+                      <button
+                        type="button"
+                        className={styles.iconButton}
+                        onClick={() => openEditDialog(period)}
+                        aria-label={`Edit ${period.name}`}
+                      >
+                        <Pencil size={14} aria-hidden="true" />
+                      </button>
+                      <button
+                        type="button"
+                        className={styles.iconButton}
+                        onClick={() => handleRemove(period)}
+                        aria-label={`Remove ${period.name}`}
+                      >
+                        <Trash2 size={14} aria-hidden="true" />
+                      </button>
+                    </div>
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
         </>
       )}
 

@@ -8,6 +8,7 @@ import { Select } from "@/components/ui/Select";
 import type { SelectOption } from "@/components/ui/Select";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Table } from "@/components/ui/Table";
 import { Alert } from "@/components/ui/Alert";
 import type {
   TransportRoute,
@@ -89,58 +90,56 @@ export function TransportAllocationPanel({
 
   return (
     <Card padded={false} className={clsx(styles.container, className)}>
-      <div className={styles.scrollWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th scope="col" className={styles.th}>Passenger</th>
-              <th scope="col" className={styles.th}>Current route</th>
-              <th scope="col" className={styles.th}>Assign route</th>
-            </tr>
-          </thead>
-          <tbody>
-            {passengers.map((p) => {
-              const currentRouteId = allocationMap.get(p.id) ?? "";
-              const currentRouteLabel = currentRouteId
-                ? routeLabelMap.get(currentRouteId) ?? "Unassigned"
-                : "Unassigned";
-              return (
-                <tr key={p.id} className={styles.tr}>
-                  <td className={styles.td}>
-                    <div className={styles.passengerCell}>
-                      <Avatar
-                        name={p.name}
-                        src={p.avatarSrc}
-                        alt=""
-                        size="sm"
-                      />
-                      <div className={styles.passengerInfo}>
-                        <span className={styles.passengerName}>{p.name}</span>
-                        {p.gradeOrRole && (
-                          <span className={styles.passengerMeta}>{p.gradeOrRole}</span>
-                        )}
-                      </div>
-                    </div>
-                  </td>
-                  <td className={styles.td}>
-                    <span className={styles.currentRoute}>{currentRouteLabel}</span>
-                  </td>
-                  <td className={styles.td}>
-                    <Select
-                      options={routeOptions}
-                      value={currentRouteId}
-                      onChange={(e) => {
-                        onAllocate({ passengerId: p.id, routeId: e.target.value });
-                      }}
-                      aria-label={`Assign route for ${p.name}`}
+      <Table className={styles.scrollWrap}>
+        <Table.Header>
+          <Table.Row>
+            <Table.Head className={styles.th}>Passenger</Table.Head>
+            <Table.Head className={styles.th}>Current route</Table.Head>
+            <Table.Head className={styles.th}>Assign route</Table.Head>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {passengers.map((p) => {
+            const currentRouteId = allocationMap.get(p.id) ?? "";
+            const currentRouteLabel = currentRouteId
+              ? routeLabelMap.get(currentRouteId) ?? "Unassigned"
+              : "Unassigned";
+            return (
+              <Table.Row key={p.id} className={styles.tr}>
+                <Table.Cell className={styles.td}>
+                  <div className={styles.passengerCell}>
+                    <Avatar
+                      name={p.name}
+                      src={p.avatarSrc}
+                      alt=""
+                      size="sm"
                     />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                    <div className={styles.passengerInfo}>
+                      <span className={styles.passengerName}>{p.name}</span>
+                      {p.gradeOrRole && (
+                        <span className={styles.passengerMeta}>{p.gradeOrRole}</span>
+                      )}
+                    </div>
+                  </div>
+                </Table.Cell>
+                <Table.Cell className={styles.td}>
+                  <span className={styles.currentRoute}>{currentRouteLabel}</span>
+                </Table.Cell>
+                <Table.Cell className={styles.td}>
+                  <Select
+                    options={routeOptions}
+                    value={currentRouteId}
+                    onChange={(e) => {
+                      onAllocate({ passengerId: p.id, routeId: e.target.value });
+                    }}
+                    aria-label={`Assign route for ${p.name}`}
+                  />
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table.Body>
+      </Table>
     </Card>
   );
 }
