@@ -73,15 +73,16 @@ export function ReviewAndSubmit({
               <div key={section.stepIndex} className={styles.section}>
                 <div className={styles.sectionHeader}>
                   <h3 className={styles.sectionTitle}>{section.stepTitle}</h3>
-                  <button
-                    type="button"
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className={styles.editButton}
                     onClick={() => onEditStep(section.stepIndex)}
                     aria-label={editLabel}
+                    leftIcon={<Pencil aria-hidden="true" />}
                   >
-                    <Pencil aria-hidden="true" />
                     Edit
-                  </button>
+                  </Button>
                 </div>
                 <ul className={styles.fieldList}>
                   {section.fields.map((field, idx) => {

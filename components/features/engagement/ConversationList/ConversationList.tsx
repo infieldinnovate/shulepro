@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -81,8 +82,9 @@ export function ConversationList({
 
           return (
             <li key={conv.id} className={styles.itemWrapper}>
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={clsx(
                   styles.item,
                   isSelected && styles.selected,
@@ -126,7 +128,7 @@ export function ConversationList({
                     )}
                   </div>
                 </div>
-              </button>
+              </Button>
             </li>
           );
         })}

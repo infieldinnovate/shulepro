@@ -4,6 +4,7 @@ import type { KeyboardEvent, ReactNode } from "react";
 import { ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
 import clsx from "clsx";
 import { Table } from "@/components/ui/Table";
+import { Button } from "@/components/ui/Button";
 import styles from "./DataTableColumnHeader.module.scss";
 
 export interface DataTableColumnHeaderProps {
@@ -66,8 +67,9 @@ export function DataTableColumnHeader({
       }
       className={clsx(styles.sortable, className)}
     >
-      <button
-        type="button"
+      <Button
+        variant="ghost"
+        size="sm"
         className={styles.sortButton}
         onClick={onSort as (e: unknown) => void}
         onKeyDown={handleKeyDown}
@@ -78,7 +80,7 @@ export function DataTableColumnHeader({
           className={clsx(styles.sortIcon, sortDir && styles.active)}
           aria-hidden="true"
         />
-      </button>
+      </Button>
     </Table.Head>
   );
 }

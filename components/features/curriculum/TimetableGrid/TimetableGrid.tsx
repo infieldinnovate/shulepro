@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { resolveChartColor } from "@/lib/chartColors";
 import type {
   TimetableConfig,
@@ -69,8 +70,9 @@ export function TimetableGrid({
       : "var(--color-primary-100)";
     const interactive = Boolean(onCellClick || onCellDrillDown);
     return (
-      <button
-        type="button"
+      <Button
+        variant="ghost"
+        size="sm"
         className={clsx(styles.cellBtn, interactive && styles.cellInteractive)}
         style={{ "--entry-color": color } as React.CSSProperties}
         aria-label={`${entry.learningArea}${entry.teacher ? `, ${entry.teacher}` : ""}${entry.location ? `, ${entry.location}` : ""}`}
@@ -90,7 +92,7 @@ export function TimetableGrid({
             {entry.location}
           </span>
         )}
-      </button>
+      </Button>
     );
   };
 
@@ -133,11 +135,11 @@ export function TimetableGrid({
       {/* Mobile day selector */}
       <div className={styles.daySelector} role="tablist" aria-label="Select day">
         {sortedWeekdays.map((day) => (
-          <button
+          <Button
             key={day.key}
-            type="button"
-            role="tab"
-            aria-selected={activeDayKey === day.key}
+            variant="ghost"
+            size="sm"
+            aria-pressed={activeDayKey === day.key}
             className={clsx(
               styles.dayTab,
               activeDayKey === day.key && styles.dayTabActive,
@@ -145,7 +147,7 @@ export function TimetableGrid({
             onClick={() => setSelectedDayKey(day.key)}
           >
             {day.shortLabel ?? day.label}
-          </button>
+          </Button>
         ))}
       </div>
 

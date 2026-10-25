@@ -19,6 +19,7 @@ import clsx from "clsx";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { IconButton, Button } from "@/components/ui/Button";
 import { resolveChartColor } from "@/lib/chartColors";
 import type { AcademicCalendarEvent, AcademicCalendarEventType } from "@/components/features/curriculum/types";
 import styles from "./AcademicCalendar.module.scss";
@@ -171,27 +172,29 @@ export function AcademicCalendar({
         {/* Calendar grid */}
         <div className={styles.calendarSection}>
           <div className={styles.header}>
-            <button
-              type="button"
+            <IconButton
+              variant="ghost"
+              size="sm"
               className={styles.navButton}
-              aria-label="Previous month"
+              label="Previous month"
               onClick={handlePrevMonth}
               disabled={isDateDisabled(subMonths(viewMonth, 1))}
             >
               <ChevronLeft aria-hidden="true" />
-            </button>
+            </IconButton>
             <span className={styles.monthLabel} aria-live="polite">
               {format(viewMonth, "MMMM yyyy")}
             </span>
-            <button
-              type="button"
+            <IconButton
+              variant="ghost"
+              size="sm"
               className={styles.navButton}
-              aria-label="Next month"
+              label="Next month"
               onClick={handleNextMonth}
               disabled={isDateDisabled(addMonths(viewMonth, 1))}
             >
               <ChevronRight aria-hidden="true" />
-            </button>
+            </IconButton>
           </div>
 
           <div className={styles.weekdays}>
@@ -271,8 +274,9 @@ export function AcademicCalendar({
                   : format(event.date, "EEE, MMM d");
                 return (
                   <li key={event.id}>
-                    <button
-                      type="button"
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       className={clsx(
                         styles.agendaItem,
                         isSelected && styles.agendaItemSelected,
@@ -305,7 +309,7 @@ export function AcademicCalendar({
                           </span>
                         )}
                       </span>
-                    </button>
+                    </Button>
                   </li>
                 );
               })}

@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import type { KeyboardEvent } from "react";
 import { X } from "lucide-react";
 import clsx from "clsx";
+import { Button, IconButton } from "@/components/ui/Button";
 import styles from "./FilterChips.module.scss";
 
 export interface FilterChip {
@@ -55,27 +56,29 @@ export function FilterChips({
               <span className={styles.chipValue}>: {chip.value}</span>
             )}
           </span>
-          <button
-            type="button"
+          <IconButton
+            variant="ghost"
+            size="sm"
             onClick={chip.onRemove}
             onKeyDown={(e) => handleRemoveKeyDown(e, chip.onRemove)}
-            aria-label={`Remove filter: ${chip.label}${
+            label={`Remove filter: ${chip.label}${
               chip.value ? ` ${chip.value}` : ""
             }`}
             className={styles.removeButton}
           >
             <X size={14} aria-hidden="true" />
-          </button>
+          </IconButton>
         </span>
       ))}
       {onClearAll && hasChips && (
-        <button
-          type="button"
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onClearAll}
           className={styles.clearAllButton}
         >
           {clearAllLabel}
-        </button>
+        </Button>
       )}
     </div>
   );

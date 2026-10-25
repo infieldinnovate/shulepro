@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
 import { classifyDataPoint, type DataPresence } from "@/lib/analytics";
 import styles from "./CompetencyMatrix.module.scss";
 
@@ -196,8 +197,9 @@ export function CompetencyMatrix({
                       }
                     >
                       {interactive ? (
-                        <button
-                          type="button"
+                        <Button
+                          variant="ghost"
+                          size="sm"
                           className={styles.cellBtn}
                           aria-label={`${learner.name}, ${comp.label}: ${label}`}
                           onClick={() =>
@@ -210,7 +212,7 @@ export function CompetencyMatrix({
                           }
                         >
                           <span className={styles.cellText}>{label}</span>
-                        </button>
+                        </Button>
                       ) : (
                         <span
                           className={styles.cellText}

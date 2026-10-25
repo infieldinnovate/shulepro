@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import type {
   AccessibilityIssue,
   AccessibilitySeverity,
@@ -189,32 +190,34 @@ export function AccessibilityIssueCard({
       {(onEdit || onResolve) && (
         <Card.Footer className={styles.footer}>
           {onResolve && issue.status !== "resolved" && (
-            <button
-              type="button"
+            <Button
+              variant="primary"
+              size="sm"
               className={clsx(styles.actionBtn, styles.resolveBtn)}
               disabled={disabled}
               onClick={(e) => {
                 e.stopPropagation();
                 onResolve(issue);
               }}
+              leftIcon={<CheckCircle2 aria-hidden="true" className={styles.actionIcon} />}
             >
-              <CheckCircle2 aria-hidden="true" className={styles.actionIcon} />
               Mark resolved
-            </button>
+            </Button>
           )}
           {onEdit && (
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               className={styles.actionBtn}
               disabled={disabled}
               onClick={(e) => {
                 e.stopPropagation();
                 onEdit(issue);
               }}
+              leftIcon={<Pencil aria-hidden="true" className={styles.actionIcon} />}
             >
-              <Pencil aria-hidden="true" className={styles.actionIcon} />
               Edit
-            </button>
+            </Button>
           )}
         </Card.Footer>
       )}

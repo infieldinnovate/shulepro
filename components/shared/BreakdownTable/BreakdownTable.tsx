@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { IconButton } from "@/components/ui/Button";
 import {
   computeTrend,
   classifyDataPoint,
@@ -215,14 +216,15 @@ export function BreakdownTable({
                 {hasAnyDrillDown && (
                   <Table.Cell align="end">
                     {interactive ? (
-                      <button
-                        type="button"
+                      <IconButton
+                        variant="ghost"
+                        size="sm"
                         className={styles.drillDownBtn}
-                        aria-label={`View details for ${row.category}`}
+                        label={`View details for ${row.category}`}
                         onClick={row.onDrillDown}
                       >
                         <ChevronRight aria-hidden="true" size={16} />
-                      </button>
+                      </IconButton>
                     ) : (
                       <span
                         className={styles.drillDownPlaceholder}

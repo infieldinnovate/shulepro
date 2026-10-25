@@ -7,6 +7,7 @@ import { CalendarRange } from "lucide-react";
 import clsx from "clsx";
 import { DateRangePicker } from "@/components/ui/DateRangePicker";
 import type { CalendarDateRange } from "@/components/ui/Calendar";
+import { Button } from "@/components/ui/Button";
 import styles from "./ChartDateRangeFilter.module.scss";
 
 /**
@@ -134,16 +135,17 @@ export function ChartDateRangeFilter({
             {presets.map((preset) => {
               const isActive = activePresetId === preset.id;
               return (
-                <button
+                <Button
                   key={preset.id}
-                  type="button"
+                  variant="ghost"
+                  size="sm"
                   className={clsx(styles.preset, isActive && styles.presetActive)}
                   aria-pressed={isActive}
                   disabled={disabled}
                   onClick={() => handlePreset(preset)}
                 >
                   {preset.label}
-                </button>
+                </Button>
               );
             })}
           </div>

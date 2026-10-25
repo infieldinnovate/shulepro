@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import { Button } from "@/components/ui/Button";
 import styles from "./FilterBar.module.scss";
 
 export interface FilterBarProps {
@@ -48,13 +49,14 @@ export function FilterBar({
             <span className={styles.resultCount}>{resultCount}</span>
           )}
           {onReset && (
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={onReset}
               className={styles.resetButton}
             >
               {resetLabel}
-            </button>
+            </Button>
           )}
         </div>
       )}

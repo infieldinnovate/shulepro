@@ -6,7 +6,7 @@ import { Check, AlertCircle, Target } from "lucide-react";
 import clsx from "clsx";
 import { Table } from "@/components/ui/Table";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -221,15 +221,16 @@ export function RubricScoringGrid({
                         disabled && styles.levelCellDisabled,
                       )}
                     >
-                      <button
-                        type="button"
+                      <IconButton
+                        variant="ghost"
+                        size="sm"
                         className={styles.levelButton}
                         onClick={() =>
                           handleLevelSelect(criterion.id, level.key)
                         }
                         disabled={disabled}
                         aria-pressed={isSelected}
-                        aria-label={`${criterion.label}: ${level.label}${
+                        label={`${criterion.label}: ${level.label}${
                           isSelected ? " (selected)" : ""
                         }`}
                         title={getDescriptor(criterion, level.key)}
@@ -237,7 +238,7 @@ export function RubricScoringGrid({
                         {isSelected && (
                           <Check aria-hidden="true" className={styles.checkIcon} />
                         )}
-                      </button>
+                      </IconButton>
                     </TableCell>
                   );
                 })}
@@ -250,16 +251,17 @@ export function RubricScoringGrid({
                     disabled && styles.evidenceCellDisabled,
                   )}
                 >
-                  <button
-                    type="button"
+                  <IconButton
+                    variant="ghost"
+                    size="sm"
                     className={styles.evidenceButton}
                     onClick={() => handleInsufficientEvidence(criterion.id)}
                     disabled={disabled}
                     aria-pressed={isInsufficient}
-                    aria-label={`${criterion.label}: insufficient evidence`}
+                    label={`${criterion.label}: insufficient evidence`}
                   >
                     <AlertCircle aria-hidden="true" />
-                  </button>
+                  </IconButton>
                 </TableCell>
               </Table.Row>
             );

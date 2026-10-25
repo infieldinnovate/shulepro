@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import type { EvidenceItem } from "@/components/features/assessment/types";
 import styles from "./PortfolioGallery.module.scss";
 
@@ -144,28 +145,32 @@ export function PortfolioGallery({
 
       {groupBy !== "none" && grouped.length > 1 && (
         <div className={styles.groupTabs}>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             className={clsx(
               styles.groupTab,
               activeGroup === null && styles.groupTabActive,
             )}
             onClick={() => setActiveGroup(null)}
+            aria-pressed={activeGroup === null}
           >
             All ({evidenceItems.length})
-          </button>
+          </Button>
           {grouped.map(([key, items]) => (
-            <button
+            <Button
               key={key}
-              type="button"
+              variant="ghost"
+              size="sm"
               className={clsx(
                 styles.groupTab,
                 activeGroup === key && styles.groupTabActive,
               )}
               onClick={() => setActiveGroup(key)}
+              aria-pressed={activeGroup === key}
             >
               {key} ({items.length})
-            </button>
+            </Button>
           ))}
         </div>
       )}

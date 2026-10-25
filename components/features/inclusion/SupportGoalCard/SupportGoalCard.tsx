@@ -10,6 +10,7 @@ import { Progress } from "@/components/ui/Progress";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import type { SupportGoal } from "@/components/features/inclusion/types";
 import styles from "./SupportGoalCard.module.scss";
 
@@ -184,18 +185,19 @@ export function SupportGoalCard({
 
       {onEdit && (
         <Card.Footer className={styles.footer}>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             className={styles.editBtn}
             disabled={disabled}
             onClick={(e) => {
               e.stopPropagation();
               onEdit(goal);
             }}
+            leftIcon={<Pencil aria-hidden="true" className={styles.editIcon} />}
           >
-            <Pencil aria-hidden="true" className={styles.editIcon} />
             Edit
-          </button>
+          </Button>
         </Card.Footer>
       )}
     </Card>

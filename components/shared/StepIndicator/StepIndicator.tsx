@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Check, Lock } from "lucide-react";
 import clsx from "clsx";
+import { Button } from "@/components/ui/Button";
 import styles from "./StepIndicator.module.scss";
 
 export type StepStatus = "completed" | "current" | "pending" | "blocked";
@@ -74,13 +75,14 @@ export function StepIndicator({
             aria-current={step.status === "current" ? "step" : undefined}
           >
             {interactive ? (
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={styles.button}
                 onClick={() => onStepClick?.(index)}
               >
                 {content}
-              </button>
+              </Button>
             ) : (
               content
             )}

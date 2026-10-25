@@ -7,6 +7,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { Intervention, InterventionStatus } from "@/components/features/inclusion/types";
@@ -183,18 +184,19 @@ export function InterventionCard({
 
       {onEdit && (
         <Card.Footer className={styles.footer}>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             className={styles.editBtn}
             disabled={disabled}
             onClick={(e) => {
               e.stopPropagation();
               onEdit(intervention);
             }}
+            leftIcon={<Pencil aria-hidden="true" className={styles.editIcon} />}
           >
-            <Pencil aria-hidden="true" className={styles.editIcon} />
             Edit
-          </button>
+          </Button>
         </Card.Footer>
       )}
     </Card>

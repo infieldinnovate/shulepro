@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { Bell, Check, X } from "lucide-react";
-import { IconButton } from "@/components/ui/Button";
+import { IconButton, Button } from "@/components/ui/Button";
 import { Popover } from "@/components/ui/Popover";
 import { Badge } from "@/components/ui/Badge";
 import { Separator } from "@/components/ui/Separator";
@@ -71,13 +71,14 @@ export function NotificationCenter({
         <header className={styles.header}>
           <h2 className={styles.title}>Notifications</h2>
           {unreadCount > 0 && (
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               className={styles.markAllButton}
               onClick={onMarkAllRead}
             >
               Mark all read
-            </button>
+            </Button>
           )}
         </header>
 
@@ -93,8 +94,9 @@ export function NotificationCenter({
                   !notification.read && styles.unread,
                 )}
               >
-                <button
-                  type="button"
+                <Button
+                  variant="ghost"
+                  size="sm"
                   className={styles.itemMain}
                   onClick={() => {
                     onSelect?.(notification);
@@ -126,7 +128,7 @@ export function NotificationCenter({
                       {formatRelativeTime(notification.timestamp)}
                     </time>
                   </span>
-                </button>
+                </Button>
                 <span className={styles.itemActions}>
                   {!notification.read && (
                     <IconButton

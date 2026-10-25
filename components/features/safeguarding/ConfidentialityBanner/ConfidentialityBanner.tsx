@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Lock, X } from "lucide-react";
 import clsx from "clsx";
 import { Alert } from "@/components/ui/Alert";
+import { IconButton } from "@/components/ui/Button";
 import styles from "./ConfidentialityBanner.module.scss";
 
 export interface ConfidentialityBannerProps {
@@ -31,14 +32,15 @@ export function ConfidentialityBanner({
         description={message}
       />
       {dismissible && (
-        <button
-          type="button"
+        <IconButton
+          variant="ghost"
+          size="sm"
           className={styles.dismissBtn}
-          aria-label="Dismiss confidentiality notice"
+          label="Dismiss confidentiality notice"
           onClick={() => setDismissed(true)}
         >
           <X aria-hidden="true" className={styles.dismissIcon} />
-        </button>
+        </IconButton>
       )}
     </div>
   );

@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import type { KeyboardEvent, ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import clsx from "clsx";
+import { Button } from "@/components/ui/Button";
 import { SidebarNavItem } from "@/components/layout/SidebarNavItem";
 import type { SidebarNavItemData } from "@/components/layout/types";
 import styles from "./SidebarNavGroup.module.scss";
@@ -44,9 +45,10 @@ export function SidebarNavGroup({
 
   return (
     <div className={clsx(styles.group, className)}>
-      <button
+      <Button
         id={buttonId}
-        type="button"
+        variant="ghost"
+        size="sm"
         aria-expanded={open}
         aria-controls={panelId}
         className={clsx(styles.trigger, hasActiveChild && styles.hasActive)}
@@ -58,7 +60,7 @@ export function SidebarNavGroup({
           className={clsx(styles.chevron, open && styles.chevronOpen)}
           aria-hidden="true"
         />
-      </button>
+      </Button>
       <ul
         id={panelId}
         role="group"

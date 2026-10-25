@@ -10,7 +10,7 @@ import type { BadgeVariant } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { IconButton } from "@/components/ui/Button";
+import { Button, IconButton } from "@/components/ui/Button";
 import { CommentBox } from "@/components/shared/CommentBox";
 import { formatAbsolute } from "@/lib/formatTime";
 import type { AssessmentFeedback } from "@/components/features/assessment/types";
@@ -109,9 +109,10 @@ export function AssessmentFeedbackPanel({
               {feedbackTypes.map((type) => {
                 const config = FEEDBACK_TYPE_CONFIG[type];
                 return (
-                  <button
+                  <Button
                     key={type}
-                    type="button"
+                    variant="ghost"
+                    size="sm"
                     className={clsx(
                       styles.typeChip,
                       selectedType === type && styles.typeChipActive,
@@ -122,7 +123,7 @@ export function AssessmentFeedbackPanel({
                     <Badge variant={config.variant} size="sm">
                       {config.label}
                     </Badge>
-                  </button>
+                  </Button>
                 );
               })}
             </div>

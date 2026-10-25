@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
 import { classifyDataPoint, type DataPresence } from "@/lib/analytics";
 import type {
   CurriculumCoverageCell,
@@ -217,8 +218,9 @@ export function CurriculumCoverageMatrix({
                       title={`${row.label} — ${col.label}: ${STATE_LABELS[state]}`}
                     >
                       {interactive ? (
-                        <button
-                          type="button"
+                        <Button
+                          variant="ghost"
+                          size="sm"
                           className={styles.cellBtn}
                           aria-label={`${row.label}, ${col.label}: ${STATE_LABELS[state]}`}
                           onClick={() =>
@@ -231,7 +233,7 @@ export function CurriculumCoverageMatrix({
                           }
                         >
                           <span className={styles.cellText}>{label}</span>
-                        </button>
+                        </Button>
                       ) : (
                         <span
                           className={styles.cellText}

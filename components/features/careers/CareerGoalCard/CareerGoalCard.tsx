@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/Progress";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import type { CareerGoal, CareerGoalStatus } from "@/components/features/careers/types";
@@ -210,18 +211,19 @@ export function CareerGoalCard({
         <Card.Footer className={styles.footer}>
           <div className={styles.footerContent}>{footer}</div>
           {onEdit && (
-            <button
-              type="button"
+            <Button
+              variant="ghost"
+              size="sm"
               className={styles.editBtn}
               disabled={disabled}
               onClick={(e) => {
                 e.stopPropagation();
                 onEdit(goal);
               }}
+              leftIcon={<Pencil aria-hidden="true" className={styles.editIcon} />}
             >
-              <Pencil aria-hidden="true" className={styles.editIcon} />
               Edit
-            </button>
+            </Button>
           )}
         </Card.Footer>
       )}

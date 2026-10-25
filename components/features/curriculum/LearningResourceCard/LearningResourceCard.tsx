@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import type { LearningResource, ResourceType } from "@/components/features/curriculum/types";
 import styles from "./LearningResourceCard.module.scss";
 
@@ -194,21 +195,23 @@ export function LearningResourceCard({
           <div className={styles.footer}>
             {actions}
             {onOpen && (
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={styles.actionBtn}
                 onClick={(e) => {
                   e.stopPropagation();
                   onOpen(resource);
                 }}
+                leftIcon={<ExternalLink aria-hidden="true" className={styles.actionIcon} />}
               >
-                <ExternalLink aria-hidden="true" className={styles.actionIcon} />
                 Open
-              </button>
+              </Button>
             )}
             {hasDownload && (
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={styles.actionBtn}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -218,10 +221,10 @@ export function LearningResourceCard({
                     window.open(resource.url, "_blank", "noopener,noreferrer");
                   }
                 }}
+                leftIcon={<Download aria-hidden="true" className={styles.actionIcon} />}
               >
-                <Download aria-hidden="true" className={styles.actionIcon} />
                 Download
-              </button>
+              </Button>
             )}
           </div>
         )}

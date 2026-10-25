@@ -5,6 +5,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import type { Guardian } from "@/components/features/learners/types";
 import styles from "./GuardianList.module.scss";
 
@@ -118,14 +119,15 @@ export function GuardianList({
         if (interactive) {
           return (
             <li key={guardian.id} className={styles.itemInteractive}>
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={styles.rowButton}
                 onClick={() => onSelectGuardian?.(guardian)}
                 aria-label={`View ${guardian.name}`}
               >
                 {row}
-              </button>
+              </Button>
             </li>
           );
         }

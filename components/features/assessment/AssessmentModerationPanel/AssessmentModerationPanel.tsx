@@ -10,6 +10,7 @@ import type { BadgeVariant } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { ActivityTimeline } from "@/components/shared/ActivityTimeline";
 import type { ActivityTimelineEvent } from "@/components/shared/ActivityTimeline";
 import { ApprovalActions } from "@/components/shared/ApprovalActions";
@@ -230,14 +231,14 @@ export function AssessmentModerationPanel({
       </div>
 
       {onAddFinding && (
-        <button
-          type="button"
+        <Button
+          variant="outline"
           className={styles.addFindingBtn}
           onClick={onAddFinding}
+          leftIcon={<ShieldCheck aria-hidden="true" size={16} />}
         >
-          <ShieldCheck aria-hidden="true" size={16} />
           Add finding
-        </button>
+        </Button>
       )}
     </div>
   );

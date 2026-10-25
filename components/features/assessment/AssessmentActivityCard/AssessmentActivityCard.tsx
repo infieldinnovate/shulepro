@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/Progress";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { AssessmentStatusBadge } from "@/components/features/assessment/AssessmentStatusBadge";
 import type { AssessmentActivity } from "@/components/features/assessment/types";
 import styles from "./AssessmentActivityCard.module.scss";
@@ -197,16 +198,16 @@ export function AssessmentActivityCard({
         <Card.Footer className={styles.footer}>
           {actions}
           {onEdit && (
-            <button
-              type="button"
-              className={styles.editBtn}
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={(e) => {
                 e.stopPropagation();
                 onEdit(activity);
               }}
             >
               Edit
-            </button>
+            </Button>
           )}
         </Card.Footer>
       )}

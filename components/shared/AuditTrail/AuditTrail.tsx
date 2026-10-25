@@ -6,6 +6,7 @@ import { useId, useState } from "react";
 import clsx from "clsx";
 import { Avatar } from "@/components/ui/Avatar";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { formatAbsolute, formatRelativeTime } from "@/lib/formatTime";
 import styles from "./AuditTrail.module.scss";
 
@@ -148,9 +149,10 @@ function AuditRow({ event, isLast }: AuditRowProps) {
 
         {hasDetails && (
           <div className={styles.expanderRow}>
-            <button
+            <Button
               id={triggerId}
-              type="button"
+              variant="ghost"
+              size="sm"
               className={styles.expanderTrigger}
               aria-expanded={open}
               aria-controls={panelId}
@@ -163,7 +165,7 @@ function AuditRow({ event, isLast }: AuditRowProps) {
                 className={clsx(styles.chevron, open && styles.chevronOpen)}
                 aria-hidden="true"
               />
-            </button>
+            </Button>
             {open && (
               <div
                 id={panelId}

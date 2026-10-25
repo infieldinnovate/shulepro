@@ -190,9 +190,10 @@ export function MeetingScheduler({
               {selectedDaySlots.map((slot) => {
                 const isSelected = slot.id === selectedSlotId;
                 return (
-                  <button
+                  <Button
                     key={slot.id}
-                    type="button"
+                    variant="ghost"
+                    size="sm"
                     className={clsx(
                       styles.slot,
                       isSelected && styles.slotSelected,
@@ -220,7 +221,7 @@ export function MeetingScheduler({
                     ) : (
                       <Badge variant="neutral" size="sm">Booked</Badge>
                     )}
-                  </button>
+                  </Button>
                 );
               })}
             </div>

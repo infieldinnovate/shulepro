@@ -5,6 +5,7 @@ import type { KeyboardEvent } from "react";
 import { Folder, FolderOpen, ChevronRight } from "lucide-react";
 import clsx from "clsx";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { IconButton } from "@/components/ui/Button";
 import { Spinner } from "@/components/ui/Spinner";
 import type { DocumentFolderNode } from "@/components/features/operations/types";
 import styles from "./DocumentFolderTree.module.scss";
@@ -211,15 +212,16 @@ export function DocumentFolderTree({
             >
               <span className={styles.itemContent}>
                 {hasChildren ? (
-                  <button
-                    type="button"
+                  <IconButton
+                    variant="ghost"
+                    size="sm"
                     className={styles.expandButton}
                     onClick={(e) => {
                       e.stopPropagation();
                       toggleExpand(node.id);
                     }}
                     tabIndex={-1}
-                    aria-label={expanded ? "Collapse folder" : "Expand folder"}
+                    label={expanded ? "Collapse folder" : "Expand folder"}
                   >
                     <ChevronRight
                       className={clsx(
@@ -228,7 +230,7 @@ export function DocumentFolderTree({
                       )}
                       aria-hidden="true"
                     />
-                  </button>
+                  </IconButton>
                 ) : (
                   <span className={styles.expandPlaceholder} aria-hidden="true" />
                 )}

@@ -1,6 +1,7 @@
 import type { ReactNode, MouseEvent } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import clsx from "clsx";
+import { Button } from "@/components/ui/Button";
 import styles from "./DrillDownLink.module.scss";
 
 /**
@@ -94,13 +95,14 @@ export function DrillDownLink({
   }
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="ghost"
+      size="sm"
       className={sharedClass}
       disabled={disabled}
       onClick={handleActivate}
     >
       {content}
-    </button>
+    </Button>
   );
 }

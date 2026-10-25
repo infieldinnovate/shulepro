@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { StatusBadgeMap } from "@/components/shared/StatusBadge";
 import {
@@ -287,13 +288,14 @@ export function InterventionOutcomeCard({
       </Card.Body>
       {drillable && (
         <Card.Footer className={styles.footer}>
-          <button
-            type="button"
+          <Button
+            variant="ghost"
+            size="sm"
             className={styles.drillDownButton}
             onClick={onDrillDown}
           >
             View intervention details
-          </button>
+          </Button>
         </Card.Footer>
       )}
     </Card>

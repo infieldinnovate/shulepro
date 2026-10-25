@@ -12,6 +12,7 @@ import type { WorkflowStep, WorkflowStepStatus } from "@/components/shared/Workf
 import { AttachmentList } from "@/components/shared/AttachmentList";
 import type { Attachment } from "@/components/shared/AttachmentList";
 import { AssessmentStatusBadge } from "@/components/features/assessment/AssessmentStatusBadge";
+import { Button } from "@/components/ui/Button";
 import type { AssessmentActivity, EvidenceItem, ProjectPhase } from "@/components/features/assessment/types";
 import styles from "./ProjectAssessmentPanel.module.scss";
 
@@ -196,31 +197,34 @@ export function ProjectAssessmentPanel({
 
                   <div className={styles.phaseActions}>
                     {onSelectPhase && (
-                      <button
-                        type="button"
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         className={styles.phaseActionBtn}
                         onClick={() => onSelectPhase(phase)}
                       >
                         View
-                      </button>
+                      </Button>
                     )}
                     {onAddEvidence && (
-                      <button
-                        type="button"
+                      <Button
+                        variant="outline"
+                        size="sm"
                         className={styles.phaseActionBtn}
                         onClick={() => onAddEvidence(phase)}
                       >
                         Add evidence
-                      </button>
+                      </Button>
                     )}
                     {onReviewPhase && (
-                      <button
-                        type="button"
+                      <Button
+                        variant="primary"
+                        size="sm"
                         className={styles.phaseActionBtn}
                         onClick={() => onReviewPhase(phase)}
                       >
                         Review
-                      </button>
+                      </Button>
                     )}
                   </div>
                 </Card>

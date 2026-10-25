@@ -4,6 +4,7 @@ import { useCallback, useId } from "react";
 import type { KeyboardEvent } from "react";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/Input";
+import { IconButton } from "@/components/ui/Button";
 import clsx from "clsx";
 import styles from "./SearchInput.module.scss";
 
@@ -47,14 +48,15 @@ export function SearchInput({
   };
 
   const clearButton = showClear ? (
-    <button
-      type="button"
+    <IconButton
+      variant="ghost"
+      size="sm"
       className={styles.clearButton}
-      aria-label="Clear search"
+      label="Clear search"
       onClick={handleClear}
     >
       <X aria-hidden="true" />
-    </button>
+    </IconButton>
   ) : null;
 
   return (

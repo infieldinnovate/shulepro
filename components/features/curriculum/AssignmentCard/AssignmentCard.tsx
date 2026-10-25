@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/Progress";
 import { Spinner } from "@/components/ui/Spinner";
 import { Alert } from "@/components/ui/Alert";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { AttachmentList } from "@/components/shared/AttachmentList";
 import type { Attachment } from "@/components/shared/AttachmentList";
@@ -189,8 +190,9 @@ export function AssignmentCard({
         <Card.Footer className={styles.footer}>
           {actions}
           {onSubmit && (
-            <button
-              type="button"
+            <Button
+              variant="primary"
+              size="sm"
               className={styles.submitBtn}
               onClick={(e) => {
                 e.stopPropagation();
@@ -198,7 +200,7 @@ export function AssignmentCard({
               }}
             >
               Submit
-            </button>
+            </Button>
           )}
         </Card.Footer>
       )}

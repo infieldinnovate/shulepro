@@ -14,6 +14,7 @@ import clsx from "clsx";
 import { Badge } from "@/components/ui/Badge";
 import { Alert } from "@/components/ui/Alert";
 import { Spinner } from "@/components/ui/Spinner";
+import { Button } from "@/components/ui/Button";
 import styles from "./AlertSummary.module.scss";
 
 export type AlertSeverity = "critical" | "warning" | "info" | "resolved";
@@ -118,8 +119,9 @@ export function AlertSummary({
               );
             })}
             {hasDetails && (
-              <button
-                type="button"
+              <Button
+                variant="ghost"
+                size="sm"
                 className={styles.toggleButton}
                 onClick={toggle}
                 aria-expanded={expanded}
@@ -131,7 +133,7 @@ export function AlertSummary({
                   <ChevronDown aria-hidden="true" size={16} />
                 )}
                 <span>{expanded ? "Hide details" : "Show details"}</span>
-              </button>
+              </Button>
             )}
           </div>
           {children}

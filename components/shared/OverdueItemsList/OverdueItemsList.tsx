@@ -7,6 +7,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Spinner } from "@/components/ui/Spinner";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Alert } from "@/components/ui/Alert";
+import { Button } from "@/components/ui/Button";
 import { formatRelativeTime, formatAbsolute } from "@/lib/formatTime";
 import styles from "./OverdueItemsList.module.scss";
 
@@ -129,14 +130,15 @@ export function OverdueItemsList({
                   )}
                 </div>
                 {actionable && (
-                  <button
-                    type="button"
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     className={styles.actionButton}
                     onClick={item.onAction}
+                    rightIcon={<ArrowRight aria-hidden="true" size={14} />}
                   >
                     <span>{item.actionLabel ?? "Take action"}</span>
-                    <ArrowRight aria-hidden="true" size={14} />
-                  </button>
+                  </Button>
                 )}
                 {drillable && !actionable && (
                   <span className={styles.drillIcon}>

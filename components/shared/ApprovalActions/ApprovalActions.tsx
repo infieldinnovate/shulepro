@@ -2,9 +2,9 @@
 
 import { useCallback, useId, useState } from "react";
 import type { ReactNode } from "react";
-import { Loader as Loader2 } from "lucide-react";
 import clsx from "clsx";
 import { AlertDialog } from "@/components/ui/AlertDialog";
+import { Button } from "@/components/ui/Button";
 import styles from "./ApprovalActions.module.scss";
 
 export type ApprovalActionVariant =
@@ -74,16 +74,13 @@ export function ApprovalActions({
         const isDisabled = disabled || action.disabled || isProcessing;
 
         return (
-          <button
+          <Button
             key={action.id}
-            type="button"
+            variant={variant}
+            loading={isProcessing}
             disabled={isDisabled}
             aria-busy={isProcessing || undefined}
-            className={clsx(
-              styles.button,
-              styles[variant],
-              isProcessing && styles.loading,
-            )}
+            className={styles.button}
             onClick={() => {
               if (action.confirm) {
                 setPendingAction(action);
@@ -96,21 +93,10 @@ export function ApprovalActions({
                 ? `${generatedId}-dialog`
                 : undefined
             }
+            leftIcon={action.icon}
           >
-            {isProcessing ? (
-              <Loader2
-                className={clsx(styles.iconSlot, styles.spinner)}
-                aria-hidden="true"
-              />
-            ) : (
-              action.icon && (
-                <span className={styles.iconSlot}>{action.icon}</span>
-              )
-            )}
-            {action.label != null && (
-              <span className={styles.label}>{action.label}</span>
-            )}
-          </button>
+            {action.label}
+          </Button>
         );
       })}
 
